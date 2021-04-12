@@ -1,0 +1,16 @@
+10 ------------------------------
+11 REM | GRAVITY WARS 0.1       |
+12 ------------------------------
+13 EXEC SPLASH_SCREEN
+999 END 
+1000 ------------------------------
+1001 PROC SPLASH_SCREEN
+1002   GRAPHICS 1
+1003   PRINT #6;"  GRAVITY WARS 0.1"
+1004   PRINT #6;""
+1005   PRINT #6;"     by tisnik"
+1010   REM ADD MENU
+1020   REM CHANGE DISPLAY LIST
+1030   REM SPRITE FOR MENU ITEMS
+1080   IF STRIG(0)=1 THEN GOTO 1080
+1100 ENDPROC 
