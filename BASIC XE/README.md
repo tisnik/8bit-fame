@@ -1,3 +1,23 @@
 # BASIC XE
 
 Examples based on BASIC XE programming language
+1. [Bubble sort in BASIC XE](bubble_sort.bas)
+1. [Factorial computation in BASIC XE](factorial.bas)
+1. [Pi computation in BASIC XE](PI.bas)
+1. [Function plot in GR.8](function1.bas)
+1. [Function plot in GR.8](function2.bas)
+1. [Strings handling](strings.bas)
+1. [1D array handling](1d_array.bas)
+1. [2D array handling](2d_array.bas)
+1. [Simple game on two lines of code](game.bas)
+1. [GCD computation in BASIC XE](GCD.bas)
+1. [Finding FP limits](harmonic.bas)
+1. [Moire pattern in BASIC XE (4 colors)](moire1.bas)
+1. [Moire pattern in BASIC XE (16 grayscales)](moire2.bas)
+1. [Moire pattern in BASIC XE (16 colors)](moire3.bas)
+1. [Slides presentation tool in BASIC XE](slides.bas)
+1. [Simulating snowcrash](snowcrash.bas)
+1. [Player-missile graphics, 1st example](PMG1.bas)
+1. [Player-missile graphics, 2nd example](PMG2.bas)
+1. [Basic tokenization-related problems](printed1.bas)
+1. [Basic tokenization-related problems as seen by interpreter](printed2.bas)
