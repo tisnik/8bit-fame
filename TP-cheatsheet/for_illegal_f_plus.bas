@@ -1,0 +1,4 @@
+10 *F +
+20 FOR I=10 TO 0
+30   PRINT I
+40 NEXT I
