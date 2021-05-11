@@ -2,7 +2,71 @@
 
 changequote(`{{', `}}')
 
+## Turbo-BASIC XL keywords
+
+```
++---------+--------+-------------------------+
++ Keyword |  Type  | Description             |
++---------+--------+-------------------------+
++         |        |                         |
++---------+--------+-------------------------+
+```
+
 ## Functions
+
+### List of Turbo-BASIC XL functions
+
+```
++----------+---------------------------------+
++ Function |        Description              |
++----------+---------------------------------+
++          |                                 |
++          |                                 |
++----------+---------------------------------+
+```
+
+### `ASC`
+
+```basic
+include({{function_asc_1.bas}})
+```
+
+```basic
+include({{function_asc_2.bas}})
+```
+
+```basic
+include({{function_asc_3.bas}})
+```
+
+### `CHR$`
+
+```basic
+include({{function_chr$_1.bas}})
+```
+
+```basic
+include({{function_chr$_2.bas}})
+```
+
+```basic
+include({{function_chr$_3.bas}})
+```
+
+### `FRE`
+
+
+```basic
+include({{function_fre_1.bas}})
+```
+
+```basic
+include({{function_fre_2.bas}})
+```
+
+```basic
+include({{function_fre_3.bas}})
+```
 
 ## Loops
 
