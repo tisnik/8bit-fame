@@ -20,7 +20,13 @@ changequote(`{{', `}}')
 +----------+------------+---+---------------------------------+
 + Operator | Type       |new| Description                     |
 +----------+------------+---+---------------------------------+
-+          |            |   |                                 |
+| AND      | logical    |no | logical conjunction             |
+| OR       | logical    |no | logical disjunction             |
+| NOT      | logical    |no | logical negation                |
+|          |            |   |                                 |
+|          |            |   |                                 |
+|          |            |   |                                 |
+|          |            |   |                                 |
 +----------+------------+---+---------------------------------+
 ```
 
@@ -29,18 +35,29 @@ changequote(`{{', `}}')
 ### List of Turbo-BASIC XL functions
 
 ```
-+----------+------------+---+---------------------------------+
-+ Function | Type       |new| Description                     |
-+----------+------------+---+---------------------------------+
-+ ABS      | arithmetic |no | absolute value of a number      |
-+ ADR      | address    |no | address in memory of a varialbe |
-+          |            |no |                                 |
-+          |            |   |                                 |
-+          |            |   |                                 |
-+          |            |   |                                 |
-+          |            |   |                                 |
-+          |            |   |                                 |
-+----------+------------+---+---------------------------------+
++----------+-------------+---+------------------------------------+
++ Function | Type        |new| Description                        |
++----------+-------------+---+------------------------------------+
+| ABS      | arithmetic  |no | absolute value of a number         |
+| ADR      | system      |no | address in memory of a string      |
+| ASC      | conversion  |no | ATASCII value of character         |
+| ATN      | goniometric |no | arctangent of a number             |
+| CLOG     | logarithmic |no | common logarithm of a number       |
+| COS      | goniometric |no | cosine of a number                 |
+| EXP      | logarithmic |no | exponential function               |
+| FRE      | system      |no | amount of free memory in bytes     |
+| INT      | arithmetic  |no | computes floor of a number         |
+| LEN      | string      |no | returns the length of a string     |
+| LOG      | logarithmic |no | natural logarithm of a number      |
+|          |             |   |                                    |
+|          |             |   |                                    |
+|          |             |   |                                    |
+|          |             |   |                                    |
+|          |             |   |                                    |
+|          |             |   |                                    |
+|          |             |   |                                    |
+|          |             |   |                                    |
++----------+-------------+---+------------------------------------+
 ```
 
 ### `ASC`
