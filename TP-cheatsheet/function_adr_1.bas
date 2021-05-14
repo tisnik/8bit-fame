@@ -1,0 +1,3 @@
+10 DIM A$(10)
+20 A$="FOO"
+30 PRINT ADR(A$)
