@@ -12,6 +12,24 @@
 +---------+--------+-------------------------+
 ```
 
+## Operators
+
+### List of Turbo-BASIC XL operators
+
+```
++----------+------------+---+---------------------------------+
++ Operator | Type       |new| Description                     |
++----------+------------+---+---------------------------------+
+| AND      | logical    |no | logical conjunction             |
+| OR       | logical    |no | logical disjunction             |
+| NOT      | logical    |no | logical negation                |
+|          |            |   |                                 |
+|          |            |   |                                 |
+|          |            |   |                                 |
+|          |            |   |                                 |
++----------+------------+---+---------------------------------+
+```
+
 ## Functions
 
 ### List of Turbo-BASIC XL functions
