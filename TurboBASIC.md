@@ -35,12 +35,17 @@
 ### List of Turbo-BASIC XL functions
 
 ```
-+----------+---------------------------------+
-+ Function |        Description              |
-+----------+---------------------------------+
-+          |                                 |
-+          |                                 |
-+----------+---------------------------------+
++----------+--------------+---+----------------------------------------------------------+
++ Function | Type         |new| Description                                              |
++----------+--------------+---+----------------------------------------------------------+
+| ABS      | arithmetic   |no | absolute value of a number                               |
+| ADR      | system       |no | address in memory of a string                            |
+| ASC      | conversion   |no | ATASCII value of character                               |
+| ATN      | goniometric  |no | arctangent of a number                                   |
+| CLOG     | logarithmic  |no | common logarithm of a number                             |
+| COS      | goniometric  |no | cosine of a number                                       |
+| EXP      | logarithmic  |no | exponential function                                     |
++----------+--------------+---+----------------------------------------------------------+
 ```
 
 ### `ASC`
