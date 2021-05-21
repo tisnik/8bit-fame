@@ -1,0 +1,5 @@
+10 I=0
+20 WHILE I<=10
+30   PRINT I
+40   I=I+1
+50 WEND 
