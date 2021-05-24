@@ -64,6 +64,42 @@ changequote(`{{', `}}')
 +----------+--------------+---+----------------------------------------------------------+
 ```
 
+### `ABS`
+
+Function `ABS` computes absolute value of a number. Both integers and floating point numbers are supported.
+
+```basic
+include({{function_abs_1.bas}})
+```
+
+```basic
+include({{function_abs_2.bas}})
+```
+
+```basic
+include({{function_abs_3.bas}})
+```
+
+```basic
+include({{function_abs_4.bas}})
+```
+
+
+### `ADR`
+
+```basic
+include({{function_adr_1.bas}})
+```
+
+```basic
+include({{function_adr_2.bas}})
+```
+
+```basic
+include({{function_adr_3.bas}})
+```
+
+
 ### `ASC`
 
 ```basic
@@ -76,6 +112,20 @@ include({{function_asc_2.bas}})
 
 ```basic
 include({{function_asc_3.bas}})
+```
+
+### `ATN`
+
+```basic
+include({{function_atn_1.bas}})
+```
+
+```basic
+include({{function_atn_2.bas}})
+```
+
+```basic
+include({{function_atn_3.bas}})
 ```
 
 ### `CHR$`
@@ -92,6 +142,21 @@ include({{function_chr$_2.bas}})
 include({{function_chr$_3.bas}})
 ```
 
+### `COS`
+
+
+```basic
+include({{function_cos_1.bas}})
+```
+
+```basic
+include({{function_cos_2.bas}})
+```
+
+```basic
+include({{function_cos_3.bas}})
+```
+
 ### `FRE`
 
 
@@ -105,6 +170,25 @@ include({{function_fre_2.bas}})
 
 ```basic
 include({{function_fre_3.bas}})
+```
+
+### `SIN`
+
+
+```basic
+include({{function_sin_1.bas}})
+```
+
+```basic
+include({{function_sin_2.bas}})
+```
+
+```basic
+include({{function_sin_3.bas}})
+```
+
+```basic
+include({{function_sin_cos.bas}})
 ```
 
 ## Loops
