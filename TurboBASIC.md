@@ -64,6 +64,39 @@
 +----------+--------------+---+----------------------------------------------------------+
 ```
 
+### `ABS`
+
+Function `ABS` computes absolute value of a number. Both integers and floating point numbers are supported.
+
+```basic
+10 PRINT ABS(-10)
+
+```
+
+```basic
+10 PRINT ABS(10)
+
+```
+
+```basic
+10 PRINT ABS(-3.14)
+
+```
+
+```basic
+10 PRINT ABS(3.14)
+
+```
+
+
+### `ADR`
+
+```basic
+10 DIM A$(10)
+20 A$="FOO"
+30 PRINT ADR(A$)
+
+```
 ### `ASC`
 
 ```basic
