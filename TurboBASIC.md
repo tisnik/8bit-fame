@@ -97,6 +97,23 @@ Function `ABS` computes absolute value of a number. Both integers and floating p
 30 PRINT ADR(A$)
 
 ```
+
+```basic
+10 DIM A$(10),B$(10),C$(10)
+20 PRINT ADR(A$)
+30 PRINT ADR(B$)
+40 PRINT ADR(C$)
+
+```
+
+```basic
+10 PRINT ADR("FOO")
+20 PRINT ADR("BAR")
+30 PRINT ADR("BAZ")
+
+```
+
+
 ### `ASC`
 
 ```basic
@@ -114,6 +131,47 @@ Function `ABS` computes absolute value of a number. Both integers and floating p
 
 ```
 
+### `ATN`
+
+```basic
+10 DEG 
+20 RESTORE 100
+30 FOR I=1 TO 7
+40   READ X
+50   PRINT X,ATN(X)
+60 NEXT I
+100 DATA -1E20, -1, -0.5
+110 DATA 0
+120 DATA 0.5, 1, 1E20
+
+```
+
+```basic
+10 RAD 
+20 RESTORE 100
+30 FOR I=1 TO 7
+40   READ X
+50   PRINT X,ATN(X)
+60 NEXT I
+100 DATA -1E20, -1, -0.5
+110 DATA 0
+120 DATA 0.5, 1, 1E20
+
+```
+
+```basic
+10 DEG 
+20 GRAPHICS 8
+30 COLOR 1
+40 PLOT 160,0:DRAWTO 160,159
+50 PLOT 0,80:DRAWTO 319,80
+60 FOR X=0 TO 319
+70   Y=79-0.8*ATN((X-160)/2)
+80   PLOT X,Y
+90 NEXT X
+
+```
+
 ### `CHR$`
 
 ```basic
@@ -128,6 +186,42 @@ Function `ABS` computes absolute value of a number. Both integers and floating p
 
 ```basic
 10 PRINT CHR$(42.3)
+
+```
+
+### `COS`
+
+
+```basic
+10 DEG 
+20 PRINT COS(0)
+30 PRINT COS(30)
+40 PRINT COS(45)
+50 PRINT COS(60)
+60 PRINT COS(90)
+
+```
+
+```basic
+10 RAD 
+20 PRINT COS(0)
+30 PRINT COS(30)
+40 PRINT COS(45)
+50 PRINT COS(60)
+60 PRINT COS(90)
+
+```
+
+```basic
+10 DEG 
+20 GRAPHICS 8
+30 COLOR 1
+40 PLOT 0,0:DRAWTO 0,159
+50 PLOT 0,80:DRAWTO 319,80
+60 FOR X=0 TO 319
+70   Y=79-60*COS(X*360/320)
+80   PLOT X,Y
+90 NEXT X
 
 ```
 
