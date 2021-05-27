@@ -9,6 +9,11 @@ changequote(`{{', `}}')
 + Keyword |  Type  | Description             |
 +---------+--------+-------------------------+
 +         |        |                         |
++         |        |                         |
++         |        |                         |
++         |        |                         |
++         |        |                         |
++         |        |                         |
 +---------+--------+-------------------------+
 ```
 
@@ -66,15 +71,23 @@ changequote(`{{', `}}')
 
 ### `ABS`
 
-Function `ABS` computes absolute value of a number. Both integers and floating point numbers are supported.
+Function `ABS` computes absolute value of a number. Both integers and floating
+point numbers are supported by this function.
+
+For negative numbers it returns the number distance from zero:
 
 ```basic
 include({{function_abs_1.bas}})
 ```
 
+For positive numbers, the original value is returned:
+
 ```basic
 include({{function_abs_2.bas}})
 ```
+
+As mentioned above, it is possible to call this function with floating point
+number:
 
 ```basic
 include({{function_abs_3.bas}})
@@ -87,13 +100,25 @@ include({{function_abs_4.bas}})
 
 ### `ADR`
 
+Function `ADR` returns address of a string stored in memory. Can be used to
+store subroutines written in machine code and encoded into string.
+
+In the following example, the memory is allocated for a string, string is
+initialized and then its address is printed:
+
 ```basic
 include({{function_adr_1.bas}})
 ```
 
+Strings allocated in sequence are usually stored in consecutive memory blocks
+as can be tested by this example:
+
 ```basic
 include({{function_adr_2.bas}})
 ```
+
+It is possible to get an address for in-place string literal (which make sense
+for storing machine code, for example):
 
 ```basic
 include({{function_adr_3.bas}})
