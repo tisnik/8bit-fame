@@ -1,3 +1,7 @@
+1 ------------------------------
+2 REM ABS function plot (graph)
+3 REM in graphics mode 8
+4 ------------------------------
 10 EXEC SET_GRAPHICS
 20 EXEC DRAW_AXIS
 40 REM PLOT FUNCTION
