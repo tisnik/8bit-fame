@@ -1,3 +1,7 @@
+1 ------------------------------
+2 REM ATN function plot
+4 REM in DEG mode
+5 ------------------------------
 10 DEG 
 20 GRAPHICS 8
 30 COLOR 1
@@ -7,3 +11,4 @@
 70   Y=79-0.8*ATN((X-160)/2)
 80   PLOT X,Y
 90 NEXT X
+999 STOP 
