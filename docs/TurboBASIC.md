@@ -51,9 +51,17 @@
 | LOG      | logarithmic  |no | natural logarithm of a number                            |
 | PADDLE   | input device |no | position of a paddle controller                          |
 | PEEK     | system       |no | the value at an address in memory                        |
-+          |                                 |
-+          |                                 |
-+----------+---------------------------------+
+| PTRIG    | input device |no | indicates whether a paddle trigger is pressed or not     |
+| RND      | system       |no | a pseudorandom number                                    |
+| SGN      | arithmetic   |no | signum of a number                                       |
+| SIN      | goniometric  |no | sine of a number                                         |
+| SQR      | arithmetic   |no | square root of a number                                  |
+| STICK    | input device |no | a joystick position                                      |
+| STRIG    | input device |no | indicates whether a joystick trigger is pressed or not   |
+| STR$     | string       |no | converts a number to string form                         |
+| USR      | system       |no | calls a machine code routine, optionally with parameters |
+| VAL      | string       |no | returns the numeric value of a string                    |
++----------+--------------+---+----------------------------------------------------------+
 ```
 
 ### `ASC`
