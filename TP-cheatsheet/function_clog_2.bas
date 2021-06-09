@@ -1,5 +1,5 @@
 1 ------------------------------
-2 REM CHR$ function computation
+2 REM CLOG function computation
 3 REM for selected integer
 4 REM input values
 5 ------------------------------
