@@ -14,6 +14,7 @@
 +         |        |                         |
 +         |        |                         |
 +         |        |                         |
++         |        |                         |
 +---------+--------+-------------------------+
 ```
 
@@ -166,25 +167,52 @@ graphics mode 8:
 
 ### `ADR`
 
+Function `ADR` returns address of a string stored in memory. Can be used to
+store subroutines written in machine code and encoded into string.
+
+In the following example, the memory is allocated for a string, string is
+initialized and then its address is printed:
+
 ```basic
+1 ------------------------------
+2 REM ADR function computation
+3 REM for pre-allocated string
+4 ------------------------------
 10 DIM A$(10)
 20 A$="FOO"
 30 PRINT ADR(A$)
+999 STOP 
 
 ```
 
+Strings allocated in sequence are usually stored in consecutive memory blocks
+as can be tested by this example:
+
 ```basic
+1 ------------------------------
+2 REM ADR function computation
+3 REM for pre-allocated strings
+4 ------------------------------
 10 DIM A$(10),B$(10),C$(10)
 20 PRINT ADR(A$)
 30 PRINT ADR(B$)
 40 PRINT ADR(C$)
+999 STOP 
 
 ```
 
+It is possible to get an address for in-place string literal (which make sense
+for storing machine code, for example):
+
 ```basic
+1 ------------------------------
+2 REM ADR function computation
+3 REM for string literals
+4 ------------------------------
 10 PRINT ADR("FOO")
 20 PRINT ADR("BAR")
 30 PRINT ADR("BAZ")
+999 STOP 
 
 ```
 
