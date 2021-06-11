@@ -1,3 +1,8 @@
+1 ------------------------------
+2 REM Greatest common divisor
+3 REM (GCD) computation based on
+3 REM WHILE loop.
+4 ------------------------------
 10 PRINT "X=";
 20 INPUT X
 30 PRINT "Y=";
@@ -12,4 +17,3 @@
 80 WEND 
 90 PRINT "GCD: ";X
 91 END 
-
