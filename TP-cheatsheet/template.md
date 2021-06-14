@@ -5,16 +5,22 @@ changequote(`{{', `}}')
 ## Turbo-BASIC XL keywords
 
 ```
-+---------+--------+-------------------------+
-+ Keyword |  Type  | Description             |
-+---------+--------+-------------------------+
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+---------+--------+-------------------------+
++---------+----------+--------------------------------------------------------+
++ Keyword |  Type    | Description                                            |
++---------+----------+--------------------------------------------------------+
++ BYE     | control  | switch to built-in Self Test program                   |
++ CLOAD   | I/O      | loads tokenized program from cassette tape             |
++ CLOSE   | I/O      | closes a given I/O channel with flush                  |
++ CLR     | memory   | clears variables from memory and stack as well         |
++ COLOR   | graphics | select/chooses logical color value for drawing         |
++ CONT    | control  | continues program execution after STOP statement       |
++ CSAVE   | I/O      | saves tokenized program into cassette tape             |
++ DATA    | memory   | used to store data as list of values (numeric, string) |
++ DEG     | control  | switches internal state to enable degrees for trig.func|
++ DIM     | memory   | defines and allocates an array or matrix               |
++ DOS     | control  | switch to DOS (Disk Operating System) if available     |
++         |          |                                                        |
++---------+----------+--------------------------------------------------------+
 ```
 
 ## Operators
@@ -93,8 +99,17 @@ number:
 include({{function_abs_3.bas}})
 ```
 
+For positive floating point numbers, the original value is returned:
+
 ```basic
 include({{function_abs_4.bas}})
+```
+
+Plot of `ABS` function can be displayed by the following example that uses
+graphics mode 8:
+
+```basic
+include({{function_abs_plot.bas}})
 ```
 
 
