@@ -1,3 +1,7 @@
+1 ------------------------------
+2 REM SIN function plot for DEG
+3 REM mode (positive X values)
+4 ------------------------------
 10 DEG 
 20 GRAPHICS 8
 30 COLOR 1
@@ -7,3 +11,4 @@
 70   Y=79-60*SIN(X*360/320)
 80   PLOT X,Y
 90 NEXT X
+999 STOP 
