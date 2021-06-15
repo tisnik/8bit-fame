@@ -220,23 +220,45 @@ for storing machine code, for example):
 ### `ASC`
 
 ```basic
+1 ------------------------------
+2 REM ASC function computation
+3 REM for string literal with
+4 REM one character
+5 ------------------------------
 10 PRINT ASC("A")
+999 STOP 
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM ASC function computation
+3 REM for string literal with
+4 REM multiple characters
+5 ------------------------------
 10 PRINT ASC("ABC")
+999 STOP 
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM ASC function computation
+3 REM for emptry string literal
+4 ------------------------------
 10 PRINT ASC("")
+999 STOP 
 
 ```
 
 ### `ATN`
 
 ```basic
+1 ------------------------------
+2 REM ATN function computation
+3 REM for selected input values
+4 REM in DEG mode
+5 ------------------------------
 10 DEG 
 20 RESTORE 100
 30 FOR I=1 TO 7
@@ -246,10 +268,16 @@ for storing machine code, for example):
 100 DATA -1E20, -1, -0.5
 110 DATA 0
 120 DATA 0.5, 1, 1E20
+999 STOP 
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM ATN function computation
+3 REM for selected input values
+4 REM in RAD mode
+5 ------------------------------
 10 RAD 
 20 RESTORE 100
 30 FOR I=1 TO 7
@@ -259,10 +287,15 @@ for storing machine code, for example):
 100 DATA -1E20, -1, -0.5
 110 DATA 0
 120 DATA 0.5, 1, 1E20
+999 STOP 
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM ATN function plot
+4 REM in DEG mode
+5 ------------------------------
 10 DEG 
 20 GRAPHICS 8
 30 COLOR 1
@@ -272,13 +305,20 @@ for storing machine code, for example):
 70   Y=79-0.8*ATN((X-160)/2)
 80   PLOT X,Y
 90 NEXT X
+999 STOP 
 
 ```
 
 ### `CHR$`
 
 ```basic
+1 ------------------------------
+2 REM CHR$ function computation
+3 REM for selected integer input
+4 REM value
+5 ------------------------------
 10 PRINT CHR$(42)
+999 STOP
 
 ```
 
