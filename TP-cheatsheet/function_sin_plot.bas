@@ -1,3 +1,7 @@
+1 ------------------------------
+2 REM SIN function plot
+4 REM in DEG mode
+5 ------------------------------
 10 DEG 
 20 EXEC SET_GRAPHICS
 30 EXEC DRAW_AXIS
