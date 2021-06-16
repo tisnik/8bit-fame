@@ -9,6 +9,12 @@
 + Keyword |  Type  | Description             |
 +---------+--------+-------------------------+
 +         |        |                         |
++         |        |                         |
++         |        |                         |
++         |        |                         |
++         |        |                         |
++         |        |                         |
++         |        |                         |
 +---------+--------+-------------------------+
 ```
 
@@ -62,6 +68,48 @@
 | USR      | system       |no | calls a machine code routine, optionally with parameters |
 | VAL      | string       |no | returns the numeric value of a string                    |
 +----------+--------------+---+----------------------------------------------------------+
+```
+
+### `ABS`
+
+Function `ABS` computes absolute value of a number. Both integers and floating
+point numbers are supported by this function.
+
+For negative numbers it returns the number distance from zero:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for negative integer value
+4 ------------------------------
+10 PRINT ABS(-10)
+999 STOP 
+
+```
+
+For positive numbers, the original value is returned:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for positive integer value
+4 ------------------------------
+10 PRINT ABS(10)
+999 STOP 
+
+```
+
+As mentioned above, it is possible to call this function with floating point
+number:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for negative float value
+4 ------------------------------
+10 PRINT ABS(-3.14)
+999 STOP 
+
 ```
 
 ### `ASC`
