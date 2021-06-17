@@ -323,12 +323,25 @@ for storing machine code, for example):
 ```
 
 ```basic
+1 ------------------------------
+2 REM CHR$ function computation
+3 REM for selected integer input
+4 REM value which is larger than
+5 REM 255
+6 ------------------------------
 10 PRINT CHR$(1234)
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM CHR$ function computation
+3 REM for selected floating
+4 REM input value
+5 ------------------------------
 10 PRINT CHR$(42.3)
+999 STOP
 
 ```
 
@@ -383,6 +396,57 @@ for storing machine code, for example):
 
 ```basic
 10 PRINT FRE(3.1415)
+
+```
+
+### `SIN`
+
+
+```basic
+10 DEG 
+20 PRINT SIN(0)
+30 PRINT SIN(30)
+40 PRINT SIN(45)
+50 PRINT SIN(60)
+60 PRINT SIN(90)
+
+```
+
+```basic
+10 RAD 
+20 PRINT SIN(0)
+30 PRINT SIN(30)
+40 PRINT SIN(45)
+50 PRINT SIN(60)
+60 PRINT SIN(90)
+
+```
+
+```basic
+10 DEG 
+20 GRAPHICS 8
+30 COLOR 1
+40 PLOT 0,0:DRAWTO 0,159
+50 PLOT 0,80:DRAWTO 319,80
+60 FOR X=0 TO 319
+70   Y=79-60*SIN(X*360/320)
+80   PLOT X,Y
+90 NEXT X
+
+```
+
+```basic
+10 DEG 
+20 GRAPHICS 8
+30 COLOR 1
+40 PLOT 0,0:DRAWTO 0,159
+50 PLOT 0,80:DRAWTO 319,80
+60 FOR X=0 TO 319
+70   Y=79-60*SIN(X*360/320)
+75   PLOT X,Y
+80   Y=79-60*COS(X*360/320)
+85   PLOT X,Y
+90 NEXT X
 
 ```
 
