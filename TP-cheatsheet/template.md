@@ -5,22 +5,32 @@ changequote(`{{', `}}')
 ## Turbo-BASIC XL keywords
 
 ```
-+---------+----------+--------------------------------------------------------+
-+ Keyword |  Type    | Description                                            |
-+---------+----------+--------------------------------------------------------+
-+ BYE     | control  | switch to built-in Self Test program                   |
-+ CLOAD   | I/O      | loads tokenized program from cassette tape             |
-+ CLOSE   | I/O      | closes a given I/O channel with flush                  |
-+ CLR     | memory   | clears variables from memory and stack as well         |
-+ COLOR   | graphics | select/chooses logical color value for drawing         |
-+ CONT    | control  | continues program execution after STOP statement       |
-+ CSAVE   | I/O      | saves tokenized program into cassette tape             |
-+ DATA    | memory   | used to store data as list of values (numeric, string) |
-+ DEG     | control  | switches internal state to enable degrees for trig.func|
-+ DIM     | memory   | defines and allocates an array or matrix               |
-+ DOS     | control  | switch to DOS (Disk Operating System) if available     |
-+         |          |                                                        |
-+---------+----------+--------------------------------------------------------+
++---------+----------+---+----------------------------------------------------------------+
++ Keyword |  Type    |new| Description                                                    |
++---------+----------+---+----------------------------------------------------------------+
++ BYE     | control  |no | switch to built-in Self Test program                           |
++ CLOAD   | I/O      |no | loads tokenized program from cassette tape                     |
++ CLOSE   | I/O      |no | closes a given I/O channel with flush                          |
++ CLR     | memory   |no | clears variables from memory and stack as well                 |
++ COLOR   | graphics |no | select/chooses logical color value for drawing                 |
++ CONT    | control  |no | continues program execution after STOP statement               |
++ CSAVE   | I/O      |no | saves tokenized program into cassette tape                     |
++ DATA    | memory   |no | used to store data as list of values (numeric, string)         |
++ DEG     | control  |no | switches internal state to enable degrees for trig.func        |
++ DIM     | memory   |no | defines and allocates an array or matrix                       |
++ DOS     | control  |no | switch to DOS (Disk Operating System) if available             |
++         |          |   |                                                                |
++ BLOAD   | I/O DOS  |yes| loads binary file (with machine instructions)                  |
++ BRUN    | I/O DOS  |yes| loads and run binary file (with machine instructions)          |
++ DELETE  | DOS      |yes| deletes (erases) file from disk                                |
++ DIR     | DOS      |yes| lists files on disk (disk directory)                           |
++ RENAME  | DOS      |yes| renames a file                                                 |
++ LOCK    | DOS      |yes| lock a file so it can not be changed nor erased                |
++ UNLOCK  | DOS      |yes| unlock a file, opposite of LOCK command                        |
++ DPOKE   | memory   |yes| writes two bytes of data into two consecutive memory locations |
++ DPEEK   | memory   |yes| reads two bytes of data from two consecutive memory locations  |
++         |          |   |                                                                |
++---------+----------+---+----------------------------------------------------------------+
 ```
 
 ## Operators
@@ -72,6 +82,7 @@ changequote(`{{', `}}')
 | STR$     | string       |no | converts a number to string form                         |
 | USR      | system       |no | calls a machine code routine, optionally with parameters |
 | VAL      | string       |no | returns the numeric value of a string                    |
+|          |              |   |                                                          |
 +----------+--------------+---+----------------------------------------------------------+
 ```
 
@@ -141,6 +152,13 @@ include({{function_adr_3.bas}})
 
 
 ### `ASC`
+
+Function `ASC` returns ATASCII value of input character. Because Turbo-BASIC XL
+does not distinguish between characters and strings, it is needed to pass
+string parameter to this function. It means it is possible to pass a multi
+character string or an empty string as well into `ASC`. These three
+possibilities are shown in following examples:
+
 
 ```basic
 include({{function_asc_1.bas}})
