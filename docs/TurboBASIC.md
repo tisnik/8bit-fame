@@ -220,19 +220,38 @@ for storing machine code, for example):
 ### `ASC`
 
 ```basic
+1 ------------------------------
+2 REM ASC function computation
+3 REM for string literal with
+4 REM one character
+5 ------------------------------
 10 PRINT ASC("A")
+999 STOP 
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM ASC function computation
+3 REM for string literal with
+4 REM multiple characters
+5 ------------------------------
 10 PRINT ASC("ABC")
+999 STOP 
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM ASC function computation
+3 REM for emptry string literal
+4 ------------------------------
 10 PRINT ASC("")
+999 STOP 
 
 ```
+
+### `ATN`
 
 ### `CHR$`
 
