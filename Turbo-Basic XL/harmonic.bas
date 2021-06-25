@@ -11,4 +11,4 @@
 23   PRINT N;" ";H1;" ";H2
 24   N=N+1
 30 UNTIL H1=H2
-
+999 END
