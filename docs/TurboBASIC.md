@@ -67,6 +67,9 @@
 | STR$     | string       |no | converts a number to string form                         |
 | USR      | system       |no | calls a machine code routine, optionally with parameters |
 | VAL      | string       |no | returns the numeric value of a string                    |
+|          |              |   |                                                          |
+|          |              |   |                                                          |
+|          |              |   |                                                          |
 +----------+--------------+---+----------------------------------------------------------+
 ```
 
@@ -125,7 +128,7 @@ For positive floating point numbers, the original value is returned:
 ```
 
 Plot of `ABS` function can be displayed by the following example that uses
-graphics mode 8:
+standard graphics mode 8:
 
 ```basic
 1 ------------------------------
@@ -335,7 +338,49 @@ for storing machine code, for example):
 ```
 
 ```basic
+1 ------------------------------
+2 REM CHR$ function computation
+3 REM for selected floating
+4 REM input value
+5 ------------------------------
 10 PRINT CHR$(42.3)
+999 STOP
+
+```
+
+### `COS`
+
+
+```basic
+10 DEG 
+20 PRINT COS(0)
+30 PRINT COS(30)
+40 PRINT COS(45)
+50 PRINT COS(60)
+60 PRINT COS(90)
+
+```
+
+```basic
+10 RAD 
+20 PRINT COS(0)
+30 PRINT COS(30)
+40 PRINT COS(45)
+50 PRINT COS(60)
+60 PRINT COS(90)
+
+```
+
+```basic
+10 DEG 
+20 GRAPHICS 8
+30 COLOR 1
+40 PLOT 0,0:DRAWTO 0,159
+50 PLOT 0,80:DRAWTO 319,80
+60 FOR X=0 TO 319
+70   Y=79-60*COS(X*360/320)
+80   PLOT X,Y
+90 NEXT X
 
 ```
 
