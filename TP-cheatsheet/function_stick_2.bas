@@ -1,3 +1,8 @@
+1 ------------------------------
+2 REM Usage of codes of eight
+3 REM directions returned by
+4 REM STICK function
+5 ------------------------------
 10 I=STICK(0)
 20 GOTO I+100
 105 PRINT "DOWN RIGHT":GOTO 10
@@ -9,3 +14,4 @@
 113 PRINT "DOWN":GOTO 10
 114 PRINT "UP":GOTO 10
 115 GOTO 10
+999 STOP
