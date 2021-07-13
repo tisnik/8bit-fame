@@ -16,9 +16,17 @@ changequote(`{{', `}}')
 | CONT    | control  |no | continues program execution after STOP statement               |
 | CSAVE   | I/O      |no | saves tokenized program into cassette tape                     |
 | DATA    | memory   |no | used to store data as list of values (numeric, string)         |
-| DEG     | control  |no | switches internal state to enable degrees for trig.func        |
+| DEG     | control  |no | switches internal state to enable degrees for trig.functions   |
 | DIM     | memory   |no | defines and allocates an array or matrix                       |
 | DOS     | control  |no | switch to DOS (Disk Operating System) if available             |
+| DRAWTO  | graphics |no | draws a line from current position (PLOT) to given coordinates |
+| END     | control  |no | finishes execution of the program and closes open I/O channels |
+| ENTER   | I/O      |no | loads and merges into memory a plain text program (in ATASCII) |
+| FOR     | control  |no | beginning of a for loop (see TO, STEP, and NEXT)               |
+| GET     | I/O      |no | reads one byte from a given I/O channel (see PUT)              |
+| GOSUB   | control  |no | jumps to a subroutine, put current line number onto stack      |
+| GOTO    | control  |no | jumps to given program line (can be stored in variable)        |
+| GO TO   | control  |no | dtto                                                           |
 |         |          |   |                                                                |
 | BLOAD   | I/O DOS  |yes| loads binary file (with machine instructions)                  |
 | BRUN    | I/O DOS  |yes| loads and run binary file (with machine instructions)          |
@@ -63,6 +71,7 @@ changequote(`{{', `}}')
 | ASC      | conversion   |no | ATASCII value of character                                     |
 | ATN      | goniometric  |no | arctangent of a number                                         |
 | CLOG     | logarithmic  |no | common logarithm of a number                                   |
+| CHR$     | string       |no | convert an ATASCII value to corresponding character (see VAL)  |
 | COS      | goniometric  |no | cosine of a number                                             |
 | EXP      | logarithmic  |no | exponential function                                           |
 | FRE      | system       |no | amount of free memory in bytes                                 |
