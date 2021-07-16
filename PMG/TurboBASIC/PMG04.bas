@@ -1,4 +1,4 @@
-10 REM ****************************
+10 ------------------------------
 11 REM * Player-missile graphics  *
 12 REM * example #4               *
 13 REM *                          *
@@ -17,42 +17,54 @@
 26 REM * - changes player 0 width *
 27 REM *   to 1x, 2x, and 4x    . *
 28 REM *   horizontal size        *
-29 REM ****************************
-30 REM
-100 REM *** control registers ***
-101 REM *** mapped into memory ***
-110 REM
-111 REM horizontal position
-112 REM of player 0
-113 HPOSP0=53248
-120 REM
-121 REM color of player 0
-122 REM and missille 0
-123 PCOLR0=704
-130 REM 
-131 REM size of player 0
-132 SIZEP0=53256
-133 REM 
-140 REM graphics shape for player 0
-141 REM (bypass ANTIC)
-142 GRAFP0=53261
-150 REM 
-151 REM turn on/off players
-152 REM and missiles
-153 GRACTL=53277
-200 REM 
-201 REM *** initialize text mode ***
-202 GRAPHICS 0
-300 REM
-301 REM *** setup PMG ***
-302 REM *** and display player 0 ***
-310 POKE HPOSP0,128:REM horizontal position
-320 POKE PCOLR0,88:REM color
-330 POKE SIZEP0,0:REM horizontal size
-340 POKE GRAFP0,255:REM graphics shape
-350 POKE GRACTL,0:REM turn off DMA
-360 P=1^1^1^1:REM pause
-370 POKE SIZEP0,1:REM double size
-380 P=1^1^1^1:REM pause
-390 POKE SIZEP0,3:REM quadruple size
-999 END 
+29 ------------------------------
+30 REM 
+100 EXEC INIT_PMG_REGISTERS
+110 EXEC INIT_TEXT_MODE
+120 EXEC DISPLAY_PMG
+999 STOP 
+1000 ------------------------------
+1001 PROC INIT_PMG_REGISTERS
+1002   REM *** control registers ***
+1003   REM *** mapped into memory ***
+1010   REM 
+1011   REM horizontal position
+1012   REM of player 0
+1013   HPOSP0=53248
+1020   REM 
+1021   REM color of player 0
+1022   REM and missille 0
+1023   PCOLR0=704
+1030   REM 
+1031   REM size of player 0
+1032   SIZEP0=53256
+1033   REM 
+1040   REM graphics shape for player 0
+1041   REM (bypass ANTIC)
+1042   GRAFP0=53261
+1050   REM 
+1051   REM turn on/off players
+1052   REM and missiles
+1053   GRACTL=53277
+1099 ENDPROC 
+2000 ------------------------------
+2001 PROC INIT_TEXT_MODE
+2002   REM *** initialize text mode ***
+2003   REM 
+2010   GRAPHICS 0
+2099 ENDPROC 
+3000 ------------------------------
+3001 PROC DISPLAY_PMG
+3002   REM *** setup PMG ***
+3003   REM *** and display player 0 ***
+3004   REM 
+3010   POKE HPOSP0,128:REM horizontal position
+3020   POKE PCOLR0,88:REM color
+3030   POKE SIZEP0,0:REM horizontal size
+3040   POKE GRAFP0,255:REM graphics shape
+3050   POKE GRACTL,0:REM turn off DMA
+3060   PAUSE 50
+3070   POKE SIZEP0,1:REM double size
+3080   PAUSE 50
+3090   POKE SIZEP0,3:REM quadruple size
+3099 ENDPROC 
