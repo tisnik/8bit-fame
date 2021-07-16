@@ -63,36 +63,36 @@
 ### List of Turbo-BASIC XL functions
 
 ```
-+----------+--------------+---+----------------------------------------------------------+
-+ Function | Type         |new| Description                                              |
-+----------+--------------+---+----------------------------------------------------------+
-| ABS      | arithmetic   |no | absolute value of a number                               |
-| ADR      | system       |no | address in memory of a string                            |
-| ASC      | conversion   |no | ATASCII value of character                               |
-| ATN      | goniometric  |no | arctangent of a number                                   |
-| CLOG     | logarithmic  |no | common logarithm of a number                             |
-| COS      | goniometric  |no | cosine of a number                                       |
-| EXP      | logarithmic  |no | exponential function                                     |
-| FRE      | system       |no | amount of free memory in bytes                           |
-| INT      | arithmetic   |no | computes floor of a number                               |
-| LEN      | string       |no | returns the length of a string                           |
-| LOG      | logarithmic  |no | natural logarithm of a number                            |
-| PADDLE   | input device |no | position of a paddle controller                          |
-| PEEK     | system       |no | the value at an address in memory                        |
-| PTRIG    | input device |no | indicates whether a paddle trigger is pressed or not     |
-| RND      | system       |no | a pseudorandom number                                    |
-| SGN      | arithmetic   |no | signum of a number                                       |
-| SIN      | goniometric  |no | sine of a number                                         |
-| SQR      | arithmetic   |no | square root of a number                                  |
-| STICK    | input device |no | a joystick position                                      |
-| STRIG    | input device |no | indicates whether a joystick trigger is pressed or not   |
-| STR$     | string       |no | converts a number to string form                         |
-| USR      | system       |no | calls a machine code routine, optionally with parameters |
-| VAL      | string       |no | returns the numeric value of a string                    |
-|          |              |   |                                                          |
-|          |              |   |                                                          |
-|          |              |   |                                                          |
-+----------+--------------+---+----------------------------------------------------------+
++----------+--------------+---+----------------------------------------------------------------+
++ Function | Type         |new| Description                                                    |
++----------+--------------+---+----------------------------------------------------------------+
+| ABS      | arithmetic   |no | absolute value of a number                                     |
+| ADR      | system       |no | address in memory of a string                                  |
+| ASC      | conversion   |no | ATASCII value of character                                     |
+| ATN      | goniometric  |no | arctangent of a number                                         |
+| CLOG     | logarithmic  |no | common logarithm of a number                                   |
+| CHR$     | string       |no | convert an ATASCII value to corresponding character (see VAL)  |
+| COS      | goniometric  |no | cosine of a number                                             |
+| EXP      | logarithmic  |no | exponential function                                           |
+| FRE      | system       |no | amount of free memory in bytes                                 |
+| INT      | arithmetic   |no | computes floor of a number                                     |
+| LEN      | string       |no | returns the length of a string                                 |
+| LOG      | logarithmic  |no | natural logarithm of a number                                  |
+| PADDLE   | input device |no | position of a paddle controller                                |
+| PEEK     | system       |no | returns the value at an address in memory (one byte)           |
+| PTRIG    | input device |no | indicates whether a paddle trigger is pressed or not           |
+| RND      | system       |no | a pseudorandom number                                          |
+| SGN      | arithmetic   |no | signum of a number                                             |
+| SIN      | goniometric  |no | sine of a number                                               |
+| SQR      | arithmetic   |no | square root of a number                                        |
+| STICK    | input device |no | a joystick position                                            |
+| STRIG    | input device |no | indicates whether a joystick trigger is pressed or not         |
+| STR$     | string       |no | converts a number to string form                               |
+| USR      | system       |no | calls a machine code routine, optionally with parameters       |
+| VAL      | string       |no | returns the numeric value of a string                          |
+|          |              |   |                                                                |
+| DPEEK    | memory       |yes| reads two bytes of data from two consecutive memory locations  |
++----------+--------------+---+----------------------------------------------------------------+
 ```
 
 ### `ABS`
@@ -380,20 +380,31 @@ for storing machine code, for example):
 40 PRINT COS(45)
 50 PRINT COS(60)
 60 PRINT COS(90)
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM COS function computation
+3 REM for selected input values
+4 REM in RAD mode
+5 ------------------------------
 10 RAD 
 20 PRINT COS(0)
 30 PRINT COS(30)
 40 PRINT COS(45)
 50 PRINT COS(60)
 60 PRINT COS(90)
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM COS function plot for DEG
+3 REM mode (positive X values)
+4 ------------------------------
 10 DEG 
 20 GRAPHICS 8
 30 COLOR 1
@@ -403,6 +414,7 @@ for storing machine code, for example):
 70   Y=79-60*COS(X*360/320)
 80   PLOT X,Y
 90 NEXT X
+999 STOP 
 
 ```
 
@@ -410,7 +422,13 @@ for storing machine code, for example):
 
 
 ```basic
+1 ------------------------------
+2 REM FRE function with formal
+3 REM parameter set to zero
+4 REM value (as usual)
+5 ------------------------------
 10 PRINT FRE(0)
+999 STOP
 
 ```
 
