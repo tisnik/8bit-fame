@@ -1,27 +1,67 @@
-1 REM PLAYER-MISSILE GRAPHICS
-2 REM UPRAVA PRO ATARI BASIC
-3 REM 
-4 PMBASE=54279
-5 RAMTOP=106
-6 SDMCTL=559
-7 GRACTL=53277
-8 HPOSP0=53248
-9 PCOLR0=704
-10 GRAPHICS 0
-20 POKE PCOLR0,88
-30 Y=48
-40 A=PEEK(RAMTOP)-8
-50 POKE PMBASE,A
-60 MYPMBASE=256*A
-70 POKE SDMCTL,46
-80 POKE GRACTL,3
-90 POKE HPOSP0,128
-100 FOR I=MYPMBASE+512 TO MYPMBASE+640
-110 POKE I,0
-120 NEXT I
-130 FOR I=MYPMBASE+512+Y TO MYPMBASE+512+Y+7
-140 READ A
-150 POKE I,A
-160 NEXT I
-170 DATA 24,60,126,219,255,36,90,165
-999 END
+10 REM ****************************
+11 REM * Player-missile graphics  *
+12 REM * example #5               *
+13 REM *                          *
+14 REM * - set player 0 horizontal*
+15 REM *   position               *
+16 REM *                          *
+17 REM * - dtto for player 1      *
+18 REM *                          *
+19 REM * - set player 0 color     *
+20 REM *                          *
+21 REM * - dtto for player 1      *
+22 REM *                          *
+23 REM * - set player 0 shape     *
+24 REM *   across all scanlines   *
+25 REM *                          *
+26 REM * - dtto for player 1      *
+27 REM *                          *
+28 REM * - turn off PMG DMA       *
+29 REM *   for players and also   *
+30 REM *   missiles               *
+31 REM ****************************
+32 REM 
+100 REM *** control registers ***
+101 REM *** mapped into memory ***
+110 REM 
+111 REM horizontal position
+112 REM of player 0
+113 HPOSP0=53248
+114 REM 
+115 REM horizontal position
+116 REM of player 1
+117 HPOSP1=53249
+120 REM 
+121 REM color of player 0
+122 REM and missille 0
+123 PCOLR0=704
+124 REM 
+125 REM color of player 1
+126 REM and missile 1
+127 PCOLR1=705
+130 REM 
+140 REM graphics shape for player 0
+141 REM (bypass ANTIC)
+142 GRAFP0=53261
+144 REM 
+145 REM GRAPHICS SHAPE FOR PLAYER 1
+146 REM (BYPASS ANTIC AGAIN)
+147 GRAFP1=53262
+150 REM 
+151 REM turn on/off players
+152 REM and missiles
+153 GRACTL=53277
+200 REM 
+201 REM *** initialize text mode ***
+202 GRAPHICS 0
+300 REM 
+301 REM *** setup PMG ***
+302 REM *** and display player 0 ***
+310 POKE HPOSP0,128:REM horizontal position
+311 POKE HPOSP1,160:REM horizontal position
+320 POKE PCOLR0,88:REM color
+321 POKE PCOLR1,42:REM color
+340 POKE GRAFP0,255:REM graphics shape
+341 POKE GRAFP1,128+32+8+2:REM graphics shape
+350 POKE GRACTL,0:REM turn off DMA
+999 END 
