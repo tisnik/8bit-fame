@@ -5,39 +5,50 @@
 ## Turbo-BASIC XL keywords
 
 ```
-+---------+----------+---+----------------------------------------------------------------+
-| Keyword |  Type    |new| Description                                                    |
-+---------+----------+---+----------------------------------------------------------------+
-| BYE     | control  |no | switch to built-in Self Test program                           |
-| CLOAD   | I/O      |no | loads tokenized program from cassette tape                     |
-| CLOSE   | I/O      |no | closes a given I/O channel with flush                          |
-| CLR     | memory   |no | clears variables from memory and stack as well                 |
-| COLOR   | graphics |no | select/chooses logical color value for drawing                 |
-| CONT    | control  |no | continues program execution after STOP statement               |
-| CSAVE   | I/O      |no | saves tokenized program into cassette tape                     |
-| DATA    | memory   |no | used to store data as list of values (numeric, string)         |
-| DEG     | control  |no | switches internal state to enable degrees for trig.functions   |
-| DIM     | memory   |no | defines and allocates an array or matrix                       |
-| DOS     | control  |no | switch to DOS (Disk Operating System) if available             |
-| DRAWTO  | graphics |no | draws a line from current position (PLOT) to given coordinates |
-| END     | control  |no | finishes execution of the program and closes open I/O channels |
-| ENTER   | I/O      |no | loads and merges into memory a plain text program (in ATASCII) |
-| FOR     | control  |no | beginning of a for loop (see TO, STEP, and NEXT)               |
-| GET     | I/O      |no | reads one byte from a given I/O channel (see PUT)              |
-| GOSUB   | control  |no | jumps to a subroutine, put current line number onto stack      |
-| GOTO    | control  |no | jumps to given program line (can be stored in variable)        |
-| GO TO   | control  |no | dtto                                                           |
-|         |          |   |                                                                |
-| BLOAD   | I/O DOS  |yes| loads binary file (with machine instructions)                  |
-| BRUN    | I/O DOS  |yes| loads and run binary file (with machine instructions)          |
-| DELETE  | DOS      |yes| deletes (erases) file from disk                                |
-| DIR     | DOS      |yes| lists files on disk (disk directory)                           |
-| RENAME  | DOS      |yes| renames a file                                                 |
-| LOCK    | DOS      |yes| lock a file so it can not be changed nor erased                |
-| UNLOCK  | DOS      |yes| unlock a file, opposite of LOCK command                        |
-| DPOKE   | memory   |yes| writes two bytes of data into two consecutive memory locations |
-|         |          |   |                                                                |
-+---------+----------+---+----------------------------------------------------------------+
++----------+----------+---+----------------------------------------------------------------+
+| Keyword  |  Type    |new| Description                                                    |
++----------+----------+---+----------------------------------------------------------------+
+| BYE      | control  |no | switch to built-in Self Test program                           |
+| CLOAD    | I/O      |no | loads tokenized program from cassette tape (see CSAVE, LOAD)   |
+| CLOSE    | I/O      |no | closes a given I/O channel with flush                          |
+| CLR      | memory   |no | clears variables from memory and stack as well                 |
+| COLOR    | graphics |no | select/chooses logical color value for drawing                 |
+| CONT     | control  |no | continues program execution after STOP statement               |
+| CSAVE    | I/O      |no | saves tokenized program into cassette tape (see CLOAD, SAVE)   |
+| DATA     | memory   |no | used to store data as list of values (numeric, string)         |
+| DEG      | control  |no | switches internal state to enable degrees for trig.functions   |
+| DIM      | memory   |no | defines and allocates an array or matrix                       |
+| DOS      | control  |no | switch to DOS (Disk Operating System) if available             |
+| DRAWTO   | graphics |no | draws a line from current position (PLOT) to given coordinates |
+| END      | control  |no | finishes execution of the program and closes open I/O channels |
+| ENTER    | I/O      |no | loads and merges into memory a plain text program (in ATASCII) |
+| FOR      | control  |no | beginning of a for loop (see TO, STEP, and NEXT)               |
+| GET      | I/O      |no | reads one byte from a given I/O channel (see PUT)              |
+| GOSUB    | control  |no | jumps to a subroutine, put current line number onto stack      |
+| GOTO     | control  |no | jumps to given program line (can be stored in variable)        |
+| GO TO    | control  |no | dtto                                                           |
+| GRAPHICS | graphics |no | sets the specified graphics node, clear screen for modes < 16  |
+| IF       | control  |no | evaluate the condition and executes next commands if true      |
+| INPUT    | I/O      |no | read stream from specified I/O channel, converts to num/string |
+| LET      | control  |no | assigns a value to a named variable. Fully optional on Atari.  |
+| LIST     | I/O      |no | lists the program to screen, printer, or any other device      |
+| LOAD     | I/O      |no | loads a tokenized program from specified device (see SAVE)     |
+| LOCATE   | graphics |no | read color or character code from specified coordinates        |
+| LPRINT   | I/O      |no | prints program source code onto a printer (see PRINT)          |
+| NEW      | control  |no | erase program source code, erase all variables too             |
+| NEXT     | control  |no | next iteration of a for loop for specified variable (see FOR)  |
+|          |          |   |                                                                |
+|          |          |   |                                                                |
+| BLOAD    | I/O DOS  |yes| loads binary file (with machine instructions)                  |
+| BRUN     | I/O DOS  |yes| loads and run binary file (with machine instructions)          |
+| DELETE   | DOS      |yes| deletes (erases) file from disk                                |
+| DIR      | DOS      |yes| lists files on disk (disk directory)                           |
+| RENAME   | DOS      |yes| renames a file                                                 |
+| LOCK     | DOS      |yes| lock a file so it can not be changed nor erased                |
+| UNLOCK   | DOS      |yes| unlock a file, opposite of LOCK command                        |
+| DPOKE    | memory   |yes| writes two bytes of data into two consecutive memory locations |
+|          |          |   |                                                                |
++----------+----------+---+----------------------------------------------------------------+
 ```
 
 ## Operators
