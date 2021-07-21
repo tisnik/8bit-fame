@@ -395,7 +395,13 @@ for storing machine code, for example):
 ```
 
 ```basic
+1 ------------------------------
+2 REM FRE function with formal
+3 REM parameter set to float
+4 REM value (which is legit)
+5 ------------------------------
 10 PRINT FRE(3.1415)
+999 STOP
 
 ```
 
@@ -403,26 +409,42 @@ for storing machine code, for example):
 
 
 ```basic
+1 ------------------------------
+2 REM SIN function computation
+3 REM for selected input values
+4 REM in DEG mode
+5 ------------------------------
 10 DEG 
 20 PRINT SIN(0)
 30 PRINT SIN(30)
 40 PRINT SIN(45)
 50 PRINT SIN(60)
 60 PRINT SIN(90)
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM SIN function computation
+3 REM for selected input values
+4 REM in RAD mode
+5 ------------------------------
 10 RAD 
 20 PRINT SIN(0)
 30 PRINT SIN(30)
 40 PRINT SIN(45)
 50 PRINT SIN(60)
 60 PRINT SIN(90)
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM SIN function plot for DEG
+3 REM mode (positive X values)
+4 ------------------------------
 10 DEG 
 20 GRAPHICS 8
 30 COLOR 1
@@ -432,10 +454,16 @@ for storing machine code, for example):
 70   Y=79-60*SIN(X*360/320)
 80   PLOT X,Y
 90 NEXT X
+999 STOP 
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM SIN and COS functions can
+3 REM be used to plot circle
+4 REM (which is very slow)
+5 ------------------------------
 10 DEG 
 20 GRAPHICS 8
 30 COLOR 1
@@ -447,6 +475,7 @@ for storing machine code, for example):
 80   Y=79-60*COS(X*360/320)
 85   PLOT X,Y
 90 NEXT X
+999 STOP
 
 ```
 
@@ -524,24 +553,41 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 ### `REPEAT-UNTIL`
 
 ```basic
+1 ------------------------------
+2 REM REPEAT-UNTIL loop with
+3 REM one control variable
+4 REM that is increased by one
+5 REM in each iteration
+6 ------------------------------
 10 A=0
 20 REPEAT 
 30   A=A+1
 40   PRINT A
 50 UNTIL A=10
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM REPEAT-UNTIL loop with
+3 REM one control variable
+4 REM which value is doubled
+5 REM in each iteration
+6 ------------------------------
 10 A=1
 20 REPEAT 
 30   PRINT A
 40   A=A*2
 50 UNTIL A>1024
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM Nested REPEAT-UNTIL loops
+3 ------------------------------
 10 A=1
 20 REPEAT 
 30   B=10
@@ -552,10 +598,15 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 80   A=A+1
 90   PRINT 
 95 UNTIL A>6
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM PI computation based on
+3 REM REPEAT-UNTIL loops
+4 ------------------------------
 10 N=1
 20 REPEAT 
 25   EXEC COMPUTE_PI
