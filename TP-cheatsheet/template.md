@@ -10,7 +10,7 @@ changequote(`{{', `}}')
 +----------+----------+---+----------------------------------------------------------------+
 | BYE      | control  |no | switch to built-in Self Test program                           |
 | CLOAD    | I/O      |no | loads tokenized program from cassette tape (see CSAVE, LOAD)   |
-| CLOSE    | I/O      |no | closes a given I/O channel with flush                          |
+| CLOSE    | I/O      |no | closes a given I/O channel with flush (see OPEN, PUT, GET)     |
 | CLR      | memory   |no | clears variables from memory and stack as well                 |
 | COLOR    | graphics |no | select/chooses logical color value for drawing                 |
 | CONT     | control  |no | continues program execution after STOP statement               |
@@ -37,6 +37,16 @@ changequote(`{{', `}}')
 | LPRINT   | I/O      |no | prints program source code onto a printer (see PRINT)          |
 | NEW      | control  |no | erase program source code, erase all variables too             |
 | NEXT     | control  |no | next iteration of a for loop for specified variable (see FOR)  |
+| NOTE     | I/O      |no | returns the current position on a given I/O channel (see POINT)|
+| ON       | control  |no | used together with GOTO statement to perform computed jump     |
+| OPEN     | I/O      |no | initializes and open I/O channel (see CLOSE, PUT, GET)         |
+| PLOT     | graphics |no | draws a point (pixel) at given coordinates (see DRAWTO)        |
+| POINT    | I/O      |no | sets the current position on a given I/O channel (see NOTE)    |
+| POKE     | memory   |no | writes one byte of data into memory location (see DPOKE, PEEK) |
+| POP      | control  |no | removes return address from the stack (see GOSUB, RETURN)      |
+| POSITION | graphics |no | sets the position of the graphics cursor (see PLOT, DRAWTO)    |
+|          |          |   |                                                                |
+|          |          |   |                                                                |
 |          |          |   |                                                                |
 |          |          |   |                                                                |
 | BLOAD    | I/O DOS  |yes| loads binary file (with machine instructions)                  |
