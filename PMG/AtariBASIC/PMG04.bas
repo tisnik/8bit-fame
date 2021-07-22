@@ -21,7 +21,7 @@
 30 REM
 100 REM *** control registers ***
 101 REM *** mapped into memory ***
-110 REM
+110 REM 
 111 REM horizontal position
 112 REM of player 0
 113 HPOSP0=53248
