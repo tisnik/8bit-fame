@@ -44,8 +44,8 @@
 141 REM (bypass ANTIC)
 142 GRAFP0=53261
 144 REM 
-145 REM GRAPHICS SHAPE FOR PLAYER 1
-146 REM (BYPASS ANTIC AGAIN)
+145 REM graphics shape for player 1
+146 REM (bypass ANTIC again)
 147 GRAFP1=53262
 150 REM 
 151 REM turn on/off players
@@ -59,8 +59,8 @@
 302 REM *** and display player 0 ***
 310 POKE HPOSP0,128:REM horizontal position
 311 POKE HPOSP1,160:REM horizontal position
-320 POKE PCOLR0,88:REM color
-321 POKE PCOLR1,42:REM color
+320 POKE PCOLR0,88:REM color for player 0
+321 POKE PCOLR1,42:REM color for player 1
 340 POKE GRAFP0,255:REM graphics shape
 341 POKE GRAFP1,128+32+8+2:REM graphics shape
 350 POKE GRACTL,0:REM turn off DMA
