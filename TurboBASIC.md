@@ -125,7 +125,7 @@ For positive floating point numbers, the original value is returned:
 ```
 
 Plot of `ABS` function can be displayed by the following example that uses
-graphics mode 8:
+standard graphics mode 8:
 
 ```basic
 1 ------------------------------
@@ -219,6 +219,15 @@ for storing machine code, for example):
 
 ### `ASC`
 
+Function `ASC` returns ATASCII value of input character. Because Turbo-BASIC XL
+does not distinguish between characters and strings, it is needed to pass
+string parameter to this function. It means it is possible to pass a multi
+character string or an empty string as well into `ASC`. These three
+possibilities are shown in following examples.
+
+Normal usage of `ASC` function is based on passing a string containing with
+just one character. In this case, ATASCII value of such character is returned:
+
 ```basic
 1 ------------------------------
 2 REM ASC function computation
@@ -229,6 +238,8 @@ for storing machine code, for example):
 999 STOP 
 
 ```
+It is also possible to call this function with longer string. In this case, the
+ATASCII value of the first character from the string is returned:
 
 ```basic
 1 ------------------------------
