@@ -1,6 +1,6 @@
 1 ------------------------------
-2 REM GRAPHICS COMMAND
-3 REM FOR GRAPHICS MODES
+2 REM GRAPHICS command
+3 REM for ANTIC graphics modes
 4 ------------------------------
 10 REM graphics mode #3
 11 REM 40 x 24 pixels
