@@ -5,17 +5,20 @@
 ## Turbo-BASIC XL keywords
 
 ```
-+---------+--------+-------------------------+
-+ Keyword |  Type  | Description             |
-+---------+--------+-------------------------+
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+         |        |                         |
-+---------+--------+-------------------------+
++----------+----------+---+----------------------------------------------------------------+
+| Keyword  |  Type    |new| Description                                                    |
++----------+----------+---+----------------------------------------------------------------+
+| BYE      | control  |no | switch to built-in Self Test program                           |
+| CLOAD    | I/O      |no | loads tokenized program from cassette tape (see CSAVE, LOAD)   |
+| CLOSE    | I/O      |no | closes a given I/O channel with flush (see OPEN, PUT, GET)     |
+| CLR      | memory   |no | clears variables from memory and stack as well                 |
+| COLOR    | graphics |no | select/chooses logical color value for drawing                 |
+| CONT     | control  |no | continues program execution after STOP statement               |
+| CSAVE    | I/O      |no | saves tokenized program into cassette tape (see CLOAD, SAVE)   |
+| DATA     | memory   |no | used to store data as list of values (numeric, string)         |
+| DEG      | control  |no | switches internal state to enable degrees for trig.functions   |
++          |          |   |                                                                |
++----------+----------+---+----------------------------------------------------------------+
 ```
 
 ## Operators
@@ -49,6 +52,7 @@
 | ASC      | conversion   |no | ATASCII value of character                                     |
 | ATN      | goniometric  |no | arctangent of a number                                         |
 | CLOG     | logarithmic  |no | common logarithm of a number                                   |
+| CHR$     | string       |no | convert an ATASCII value to corresponding character (see VAL)  |
 | COS      | goniometric  |no | cosine of a number                                             |
 | EXP      | logarithmic  |no | exponential function                                           |
 | FRE      | system       |no | amount of free memory in bytes                                 |
@@ -56,7 +60,7 @@
 | LEN      | string       |no | returns the length of a string                                 |
 | LOG      | logarithmic  |no | natural logarithm of a number                                  |
 | PADDLE   | input device |no | position of a paddle controller                                |
-| PEEK     | system       |no | the value at an address in memory                              |
+| PEEK     | system       |no | returns the value at an address in memory (one byte)           |
 | PTRIG    | input device |no | indicates whether a paddle trigger is pressed or not           |
 | RND      | system       |no | a pseudorandom number                                          |
 | SGN      | arithmetic   |no | signum of a number                                             |
@@ -67,6 +71,8 @@
 | STR$     | string       |no | converts a number to string form                               |
 | USR      | system       |no | calls a machine code routine, optionally with parameters       |
 | VAL      | string       |no | returns the numeric value of a string                          |
+|          |              |   |                                                                |
+| DPEEK    | memory       |yes| reads two bytes of data from two consecutive memory locations  |
 +----------+--------------+---+----------------------------------------------------------------+
 ```
 
