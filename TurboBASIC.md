@@ -17,6 +17,18 @@
 | CSAVE    | I/O      |no | saves tokenized program into cassette tape (see CLOAD, SAVE)   |
 | DATA     | memory   |no | used to store data as list of values (numeric, string)         |
 | DEG      | control  |no | switches internal state to enable degrees for trig.functions   |
+| DIM      | memory   |no | defines and allocates an array or matrix                       |
+| DOS      | control  |no | switch to DOS (Disk Operating System) if available             |
+| DRAWTO   | graphics |no | draws a line from current position (PLOT) to given coordinates |
+| END      | control  |no | finishes execution of the program and closes open I/O channels |
+| ENTER    | I/O      |no | loads and merges into memory a plain text program (in ATASCII) |
+| FOR      | control  |no | beginning of a for loop (see TO, STEP, and NEXT)               |
+| GET      | I/O      |no | reads one byte from a given I/O channel (see PUT)              |
+| GOSUB    | control  |no | jumps to a subroutine, put current line number onto stack      |
+| GOTO     | control  |no | jumps to given program line (can be stored in variable)        |
+| GO TO    | control  |no | dtto                                                           |
+| GRAPHICS | graphics |no | sets the specified graphics node, clear screen for modes < 16  |
+| IF       | control  |no | evaluate the condition and executes next commands if true      |
 +          |          |   |                                                                |
 +----------+----------+---+----------------------------------------------------------------+
 ```
