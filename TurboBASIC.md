@@ -29,6 +29,15 @@
 | GO TO    | control  |no | dtto                                                           |
 | GRAPHICS | graphics |no | sets the specified graphics node, clear screen for modes < 16  |
 | IF       | control  |no | evaluate the condition and executes next commands if true      |
+| INPUT    | I/O      |no | read stream from specified I/O channel, converts to num/string |
+| LET      | control  |no | assigns a value to a named variable. Fully optional on Atari.  |
+| LIST     | I/O      |no | lists the program to screen, printer, or any other device      |
+| LOAD     | I/O      |no | loads a tokenized program from specified device (see SAVE)     |
+| LOCATE   | graphics |no | read color or character code from specified coordinates        |
+| LPRINT   | I/O      |no | prints program source code onto a printer (see PRINT)          |
+| NEW      | control  |no | erase program source code, erase all variables too             |
+| NEXT     | control  |no | next iteration of a for loop for specified variable (see FOR)  |
+| NOTE     | I/O      |no | returns the current position on a given I/O channel (see POINT)|
 +          |          |   |                                                                |
 +----------+----------+---+----------------------------------------------------------------+
 ```
