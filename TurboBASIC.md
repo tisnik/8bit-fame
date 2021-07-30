@@ -38,7 +38,18 @@
 | NEW      | control  |no | erase program source code, erase all variables too             |
 | NEXT     | control  |no | next iteration of a for loop for specified variable (see FOR)  |
 | NOTE     | I/O      |no | returns the current position on a given I/O channel (see POINT)|
-+          |          |   |                                                                |
+| ON       | control  |no | used together with GOTO statement to perform computed jump     |
+| OPEN     | I/O      |no | initializes and open I/O channel (see CLOSE, PUT, GET)         |
+| PLOT     | graphics |no | draws a point (pixel) at given coordinates (see DRAWTO)        |
+| POINT    | I/O      |no | sets the current position on a given I/O channel (see NOTE)    |
+| POKE     | memory   |no | writes one byte of data into memory location (see DPOKE, PEEK) |
+| POP      | control  |no | removes return address from the stack (see GOSUB, RETURN)      |
+| POSITION | graphics |no | sets the position of the graphics cursor (see PLOT, DRAWTO)    |
+|          |          |   |                                                                |
+| BLOAD    | I/O DOS  |yes| loads binary file (with machine instructions)                  |
+| BRUN     | I/O DOS  |yes| loads and run binary file (with machine instructions)          |
+| DELETE   | DOS      |yes| deletes (erases) file from disk                                |
+| DIR      | DOS      |yes| lists files on disk (disk directory)                           |
 +----------+----------+---+----------------------------------------------------------------+
 ```
 
