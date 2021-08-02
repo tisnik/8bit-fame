@@ -45,6 +45,11 @@ changequote(`{{', `}}')
 | POKE     | memory   |no | writes one byte of data into memory location (see DPOKE, PEEK) |
 | POP      | control  |no | removes return address from the stack (see GOSUB, RETURN)      |
 | POSITION | graphics |no | sets the position of the graphics cursor (see PLOT, DRAWTO)    |
+| PRINT    | I/O      |no | writes text to an I/O channel or onto screen if not specified  |
+| PUT      | I/O      |no | writer one byte from a given I/O channel (see GET)             |
+| RAD      | control  |no | switches internal state to enable radians for trig.functions   |
+| READ     | memory   |no | reads data from DATA statement, increment internal DATA ptr.   |
+| REM      | comment  |no | used to create a comment in a program (rest of line is ignored)|
 |          |          |   |                                                                |
 |          |          |   |                                                                |
 |          |          |   |                                                                |
@@ -146,12 +151,44 @@ For positive floating point numbers, the original value is returned:
 include({{function_abs_4.bas}})
 ```
 
+It is forbidden to pass string literal to this function:
+
+```basic
+include({{function_abs_err_1.bas}})
+```
+
+Interpreter will detect this issue and insert `ERROR` flag onto the line:
+
+```basic
+include({{function_abs_err_2.bas}})
+```
+
+It is also forbidden to pass string variable to this function:
+
+```basic
+include({{function_abs_err_3.bas}})
+```
+
+Again interpreter is able to detect such issue and insert `ERROR` flag onto the
+appropriate line:
+
+```basic
+include({{function_abs_err_4.bas}})
+```
+
 Plot of `ABS` function can be displayed by the following example that uses
 standard graphics mode 8:
 
 ```basic
 include({{function_abs_plot.bas}})
 ```
+
+Plot of `ABS` function with storing the image into BMP format:
+
+```basic
+include({{function_abs_plot_bmp.bas}})
+```
+
 
 
 ### `ADR`
