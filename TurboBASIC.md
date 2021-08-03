@@ -45,11 +45,24 @@
 | POKE     | memory   |no | writes one byte of data into memory location (see DPOKE, PEEK) |
 | POP      | control  |no | removes return address from the stack (see GOSUB, RETURN)      |
 | POSITION | graphics |no | sets the position of the graphics cursor (see PLOT, DRAWTO)    |
+| PRINT    | I/O      |no | writes text to an I/O channel or onto screen if not specified  |
+| PUT      | I/O      |no | writer one byte from a given I/O channel (see GET)             |
+| RAD      | control  |no | switches internal state to enable radians for trig.functions   |
+| READ     | memory   |no | reads data from DATA statement, increment internal DATA ptr.   |
+| REM      | comment  |no | used to create a comment in a program (rest of line is ignored)|
+|          |          |   |                                                                |
+|          |          |   |                                                                |
+|          |          |   |                                                                |
 |          |          |   |                                                                |
 | BLOAD    | I/O DOS  |yes| loads binary file (with machine instructions)                  |
 | BRUN     | I/O DOS  |yes| loads and run binary file (with machine instructions)          |
 | DELETE   | DOS      |yes| deletes (erases) file from disk                                |
 | DIR      | DOS      |yes| lists files on disk (disk directory)                           |
+| RENAME   | DOS      |yes| renames a file                                                 |
+| LOCK     | DOS      |yes| lock a file so it can not be changed nor erased                |
+| UNLOCK   | DOS      |yes| unlock a file, opposite of LOCK command                        |
+| DPOKE    | memory   |yes| writes two bytes of data into two consecutive memory locations |
+|          |          |   |                                                                |
 +----------+----------+---+----------------------------------------------------------------+
 ```
 
