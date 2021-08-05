@@ -47,6 +47,11 @@
 | POSITION | graphics |no | sets the position of the graphics cursor (see PLOT, DRAWTO)    |
 | PRINT    | I/O      |no | writes text to an I/O channel or onto screen if not specified  |
 | PUT      | I/O      |no | writer one byte from a given I/O channel (see GET)             |
+| RAD      | control  |no | switches internal state to enable radians for trig.functions   |
+| READ     | memory   |no | reads data from DATA statement, increment internal DATA ptr.   |
+| REM      | comment  |no | used to create a comment in a program (rest of line is ignored)|
+|          |          |   |                                                                |
+|          |          |   |                                                                |
 |          |          |   |                                                                |
 |          |          |   |                                                                |
 | BLOAD    | I/O DOS  |yes| loads binary file (with machine instructions)                  |
@@ -166,6 +171,61 @@ For positive floating point numbers, the original value is returned:
 3 REM for positive float value
 4 ------------------------------
 10 PRINT ABS(3.14)
+999 STOP 
+
+```
+
+It is forbidden to pass string literal to this function:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for string literal.
+4 ------------------------------
+10 PRINT ABS("FOO")
+999 STOP 
+
+```
+
+Interpreter will detect this issue and insert `ERROR` flag onto the line:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for string literal.
+4 REM Interpreter error detection.
+5 ------------------------------
+10 ERROR-   PRINT ABS("FOO"<
+999 STOP 
+
+```
+
+It is also forbidden to pass string variable to this function:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for string variable.
+4 ------------------------------
+10 DIM A$(10)
+11 A$="FOO"
+20 PRINT ABS(A$)
+999 STOP 
+
+```
+
+Again interpreter is able to detect such issue and insert `ERROR` flag onto the
+appropriate line:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for string variable.
+4 REM Interpreter error detection.
+5 ------------------------------
+10 DIM A$(10)
+11 A$="FOO"
+20 ERROR-   PRINT ABS(A$<
 999 STOP 
 
 ```
