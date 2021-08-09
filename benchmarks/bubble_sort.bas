@@ -1,10 +1,10 @@
 1 REM *****************************
-2 REM BUBBLE SORT
-3 REM IMPLEMENTACE PRO ATARI BASIC
-4 REM UPRAVENO DO PODOBY BENCHMARKU
-5 REM *****************************
-6 REM
-7 REM
+2 REM Algorismus bubble sort
+3 REM
+4 REM Implementace pro Atari BASIC
+5 REM
+6 REM Upraveno do podoby benchmarku
+7 REM *****************************
 8 REM
 9 REM
 10 REM VYMAZANI CASOVACE
