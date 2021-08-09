@@ -1,11 +1,11 @@
 1 REM *****************************
-2 REM VYPLNENI OBRAZOVKY NAHODNYM VZOREM
-3 REM IMPLEMENTACE PRO ATARI BASIC
-4 REM UPRAVENO DO PODOBY BENCHMARKU
-5 REM *****************************
+2 REM Vyplneni obrazovky v rezimu
+3 REM 320x192 nahodnym vzorkem.
+4 REM
+5 REM Implementace pro Atari BASIC
 6 REM
-7 REM
-8 REM
+7 REM Upraveno do podoby benchmarku
+8 REM *****************************
 9 REM
 10 REM VYMAZANI CASOVACE
 11 POKE 18,0
