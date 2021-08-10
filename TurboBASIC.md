@@ -175,6 +175,61 @@ For positive floating point numbers, the original value is returned:
 
 ```
 
+It is forbidden to pass string literal to this function:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for string literal.
+4 ------------------------------
+10 PRINT ABS("FOO")
+999 STOP 
+
+```
+
+Interpreter will detect this issue and insert `ERROR` flag onto the line:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for string literal.
+4 REM Interpreter error detection.
+5 ------------------------------
+10 ERROR-   PRINT ABS("FOO"<
+999 STOP 
+
+```
+
+It is also forbidden to pass string variable to this function:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for string variable.
+4 ------------------------------
+10 DIM A$(10)
+11 A$="FOO"
+20 PRINT ABS(A$)
+999 STOP 
+
+```
+
+Again interpreter is able to detect such issue and insert `ERROR` flag onto the
+appropriate line:
+
+```basic
+1 ------------------------------
+2 REM ABS function computation
+3 REM for string variable.
+4 REM Interpreter error detection.
+5 ------------------------------
+10 DIM A$(10)
+11 A$="FOO"
+20 ERROR-   PRINT ABS(A$<
+999 STOP 
+
+```
+
 Plot of `ABS` function can be displayed by the following example that uses
 standard graphics mode 8:
 
