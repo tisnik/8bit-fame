@@ -1,6 +1,12 @@
-1 REM VYPOCET FAKTORIALU
-2 REM UPRAVA PRO ATARI BASIC
-3 REM
+1 REM *****************************
+2 REM Vypocet faktorialu
+3 REM 
+4 REM Uprava pro Atari BASIC
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 10 FOR N=0 TO 20
 11 GOSUB 100
 12 PRINT N,FACT
