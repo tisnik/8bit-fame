@@ -1,6 +1,12 @@
-1 REM VYKRESLENI PRUBEHU FUNKCE
-2 REM UPRAVA PRO ATARI BASIC
+1 REM *****************************
+2 REM Vykresleni prubehu funkce
 3 REM 
+4 REM Uprava pro Atari BASIC
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 10 GRAPHICS 8+16
 11 COLOR 1
 12 PLOT 0,0:DRAWTO 0,191
