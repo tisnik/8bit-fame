@@ -1,5 +1,12 @@
-1 REM BUBBLE SORT
-2 REM IMPLEMENTACE PRO ATARI BASIC
+1 REM *****************************
+2 REM Bubble sort
+3 REM 
+4 REM Uprava pro Atari BASIC
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 10 DIM A(20)
 11 FOR I=0 TO 20
 12 A(I)=INT(100*RND(0))
