@@ -1,6 +1,12 @@
-1 REM CIRCLE MOIRE
-2 REM UPRAVA PRO ATARI BASIC
-3 REM 
+1 REM *****************************
+2 REM Circle moire
+3 REM v grafickem rezimu 7
+4 REM 
+5 REM Uprava pro Atari BASIC
+6 REM
+7 REM *****************************
+8 REM
+9 REM
 10 GRAPHICS 7
 20 FOR Y=0 TO 79
 30 FOR X=0 TO 159
