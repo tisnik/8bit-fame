@@ -377,6 +377,10 @@ When empty string is passed, value 44 is returned (ATASCII value for comma):
 
 ```
 
+TODO: check why this happens.
+
+
+
 ### `ATN`
 
 ```basic
@@ -475,6 +479,11 @@ When empty string is passed, value 44 is returned (ATASCII value for comma):
 
 
 ```basic
+1 ------------------------------
+2 REM COS function computation
+3 REM for selected input values
+4 REM in DEG mode
+5 ------------------------------
 10 DEG 
 20 PRINT COS(0)
 30 PRINT COS(30)
@@ -534,11 +543,22 @@ When empty string is passed, value 44 is returned (ATASCII value for comma):
 ```
 
 ```basic
+1 ------------------------------
+2 REM FRE function with formal
+3 REM parameter set to non zero
+4 REM value (which is legit)
+5 ------------------------------
 10 PRINT FRE(42)
+999 STOP
 
 ```
 
 ```basic
+1 ------------------------------
+2 REM FRE function with formal
+3 REM parameter set to float
+4 REM value (which is legit)
+5 ------------------------------
 10 PRINT FRE(3.1415)
 
 ```
