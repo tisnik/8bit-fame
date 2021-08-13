@@ -1,6 +1,12 @@
-1 REM PRACE S RETEZCI
-2 REM UPRAVA PRO ATARI BASIC
-3 REM
+1 REM *****************************
+2 REM Prace s retezci, manipulace
+3 REM s obsahem retezcu.
+4 REM 
+5 REM Uprava pro Atari BASIC
+6 REM
+7 REM *****************************
+8 REM
+9 REM
 10 DIM S$(15),T$(15),Q$(15)
 20 S$="ATASIC":PRINT S$
 30 Q$=S$(3,5):PRINT Q$
