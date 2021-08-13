@@ -50,10 +50,20 @@ changequote(`{{', `}}')
 | RAD      | control  |no | switches internal state to enable radians for trig.functions   |
 | READ     | memory   |no | reads data from DATA statement, increment internal DATA ptr.   |
 | REM      | comment  |no | used to create a comment in a program (rest of line is ignored)|
-|          |          |   |                                                                |
-|          |          |   |                                                                |
-|          |          |   |                                                                |
-|          |          |   |                                                                |
+| RESTORE  | memory   |no | sets the position where to read data from a DATA statement     |
+| RETURN   | control  |no | ends a subroutine, return to statement following GOSUB         |
+| RUN      | control  |no | starts execution of a program; can be started from device too  |
+| SAVE     | I/O      |no | writes a tokenized program to device (see LOAD)                |
+| SETCOLOR | graphics |no | maps a logical color to physical color: hue + level (see COLOR)|
+| SOUND    | sound    |no | starts or stops playing a tone on a sound channel (see END)    |
+| STATUS   | I/O      |no | returns the status of an I/O channel                           |
+| STEP     | control  |no | increment of control variable in a FOR loop (see FOR, TO, NEXT)|
+| STOP     | control  |no | stops the program, allowing later resumption (see CONT)        |
+| THEN     | control  |no | statement to execute if condition is true in IF (see IF)       |
+| TO       | control  |no | limiting condition in a FOR statement (see FOR, NEXT, STEP)    |
+| TRAP     | control  |no | when error is encountered, jump to given source line (see GOTO)|
+| XIO      | I/O      |no | call the general-purpose I/O routine identified by its number  |
++----------+----------+---+----------------------------------------------------------------+
 | BLOAD    | I/O DOS  |yes| loads binary file (with machine instructions)                  |
 | BRUN     | I/O DOS  |yes| loads and run binary file (with machine instructions)          |
 | DELETE   | DOS      |yes| deletes (erases) file from disk                                |
