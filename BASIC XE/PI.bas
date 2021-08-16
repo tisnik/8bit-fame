@@ -1,6 +1,12 @@
-1 REM VYPOCET KONSTANTY PI
-2 REM UPRAVA PRO BASIC XE
+1 REM *****************************
+2 REM Vypocet konstanty Pi.
 3 REM 
+4 REM Uprava pro BASIC XE
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 10 N=1
 20 FOR I=1 TO 10
 25 GOSUB 1000:REM VYPOCET PI
