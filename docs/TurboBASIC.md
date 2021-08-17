@@ -560,6 +560,81 @@ TODO: check why this happens.
 4 REM value (which is legit)
 5 ------------------------------
 10 PRINT FRE(3.1415)
+999 STOP
+
+```
+
+### `SIN`
+
+
+```basic
+1 ------------------------------
+2 REM SIN function computation
+3 REM for selected input values
+4 REM in DEG mode
+5 ------------------------------
+10 DEG 
+20 PRINT SIN(0)
+30 PRINT SIN(30)
+40 PRINT SIN(45)
+50 PRINT SIN(60)
+60 PRINT SIN(90)
+999 STOP
+
+```
+
+```basic
+1 ------------------------------
+2 REM SIN function computation
+3 REM for selected input values
+4 REM in RAD mode
+5 ------------------------------
+10 RAD 
+20 PRINT SIN(0)
+30 PRINT SIN(30)
+40 PRINT SIN(45)
+50 PRINT SIN(60)
+60 PRINT SIN(90)
+999 STOP
+
+```
+
+```basic
+1 ------------------------------
+2 REM SIN function plot for DEG
+3 REM mode (positive X values)
+4 ------------------------------
+10 DEG 
+20 GRAPHICS 8
+30 COLOR 1
+40 PLOT 0,0:DRAWTO 0,159
+50 PLOT 0,80:DRAWTO 319,80
+60 FOR X=0 TO 319
+70   Y=79-60*SIN(X*360/320)
+80   PLOT X,Y
+90 NEXT X
+999 STOP 
+
+```
+
+```basic
+1 ------------------------------
+2 REM SIN and COS functions can
+3 REM be used to plot circle
+4 REM (which is very slow)
+5 ------------------------------
+10 DEG 
+20 GRAPHICS 8
+30 COLOR 1
+40 PLOT 0,0:DRAWTO 0,159
+50 PLOT 0,80:DRAWTO 319,80
+60 FOR X=0 TO 319
+70   Y=79-60*SIN(X*360/320)
+75   PLOT X,Y
+80   Y=79-60*COS(X*360/320)
+85   PLOT X,Y
+90 NEXT X
+999 STOP
 
 ```
 
