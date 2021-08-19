@@ -1,6 +1,12 @@
-1 REM CIRCLE MOIRE
-2 REM UPRAVA PRO BASIC XE
-3 REM GRAFICKY REZIM 9
+1 REM *****************************
+2 REM Circle moire
+3 REM v grafickem rezimu 9
+4 REM 
+5 REM Uprava pro BASIC XE
+6 REM
+7 REM *****************************
+8 REM
+9 REM
 10 GRAPHICS 9
 20 FOR Y=0 TO 191
 30 FOR X=0 TO 79
