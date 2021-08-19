@@ -657,3 +657,62 @@ Four types of loops are supported by Turbo-BASIC XL:
 * `REPEAT-UNTIL`
 * `WHILE-WEND`
 
+### `FOR-NEXT`
+
+This variant of loop construct was taken from Atari BASIC, including the bug mentioned below. Because Turbo-BASIC XL is designed to be as compatible with Atari BASIC as possible, the buggy behaviour can be switched on or turn off.
+
+* Basic usage of this loop:
+
+```basic
+10 FOR I=0 TO 10
+20   PRINT I
+30 NEXT I
+
+```
+
+* Default step value is set to 1, but it can be specified explicitly if needed:
+
+```basic
+10 FOR I=0 TO 10 STEP 2
+20   PRINT I
+30 NEXT I
+
+```
+
+* Counting downward
+
+```basic
+10 FOR I=10 TO 0 STEP -2
+20   PRINT I
+30 NEXT I
+
+```
+
+* Improper usage (revealing bug in Atari BASIC)
+
+```basic
+10 FOR I=10 TO 0
+20   PRINT I
+30 NEXT I
+
+```
+
+```basic
+10 N=1
+20 FOR I=1 TO 10
+25   EXEC COMPUTE_PI
+30   PRINT I,N,PI
+35   N=N*2
+40 NEXT I
+999 END 
+1000 ------------------------------
+1001 REM SUBRUTINA PRO VYPOCET PI
+1002 PROC COMPUTE_PI
+1010   PI=4
+1020   FOR J=3 TO N+2 STEP 2
+1030     PI=PI*(J-1)/J*(J+1)/J
+1040   NEXT J
+1050 ENDPROC 
+
+
+```
