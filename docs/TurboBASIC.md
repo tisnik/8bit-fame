@@ -716,3 +716,85 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 
 
 ```
+
+### `DO-LOOP`
+
+### `REPEAT-UNTIL`
+
+```basic
+1 ------------------------------
+2 REM REPEAT-UNTIL loop with
+3 REM one control variable
+4 REM that is increased by one
+5 REM in each iteration
+6 ------------------------------
+10 A=0
+20 REPEAT 
+30   A=A+1
+40   PRINT A
+50 UNTIL A=10
+999 STOP
+
+```
+
+```basic
+1 ------------------------------
+2 REM REPEAT-UNTIL loop with
+3 REM one control variable
+4 REM which value is doubled
+5 REM in each iteration
+6 ------------------------------
+10 A=1
+20 REPEAT 
+30   PRINT A
+40   A=A*2
+50 UNTIL A>1024
+999 STOP
+
+```
+
+```basic
+1 ------------------------------
+2 REM Nested REPEAT-UNTIL loops
+3 ------------------------------
+10 A=1
+20 REPEAT 
+30   B=10
+40   REPEAT 
+50     PRINT A*B;" ";
+60     B=B+1
+70   UNTIL B>20
+80   A=A+1
+90   PRINT 
+95 UNTIL A>6
+999 STOP
+
+```
+
+```basic
+1 ------------------------------
+2 REM PI computation based on
+3 REM REPEAT-UNTIL loops
+4 ------------------------------
+10 N=1
+20 REPEAT 
+25   EXEC COMPUTE_PI
+30   PRINT N,PI
+35   N=N*2
+40 UNTIL N>2000
+999 END 
+1000 ------------------------------
+1001 REM SUBRUTINA PRO VYPOCET PI
+1002 PROC COMPUTE_PI
+1010   PI=4
+1015   J=3
+1020   REPEAT 
+1030     PI=PI*(J-1)/J*(J+1)/J
+1040     J=J+2
+1050   UNTIL J>N+2
+1060 ENDPROC 
+
+```
+
+### `WHILE-WEND`
+
