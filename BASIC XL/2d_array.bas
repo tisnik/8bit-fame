@@ -1,6 +1,12 @@
-1 REM PRACE S DVOUROZMERNYMI POLI
-2 REM UPRAVA PRO BASIC XL
+1 REM *****************************
+2 REM Prace s dvourozmernymi poli
 3 REM 
+4 REM Uprava pro BASIC XL
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 10 DIM M(5,5)
 15 FOR I=0 TO 5
 20 FOR J=0 TO 5
