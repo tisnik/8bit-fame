@@ -2,7 +2,7 @@
 2 REM Vyplneni obrazovky nahodnym
 3 REM vzorem v rezimu GRAPHICS 8
 4 REM 
-5 REM Uprava pro Atari BASIC
+5 REM Uprava pro BASIC XE
 6 REM
 7 REM *****************************
 8 REM
