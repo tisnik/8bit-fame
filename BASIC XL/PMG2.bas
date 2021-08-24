@@ -1,6 +1,12 @@
-1 REM PLAYER-MISSILE GRAPHICS
-2 REM UPRAVA PRO BASIC XL
+1 REM *****************************
+2 REM Player-Missile Graphics.
 3 REM 
+4 REM Uprava pro BASIC XL
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 10 PMBASE=54279
 20 RAMTOP=106
 30 SDMCTL=559
