@@ -2,7 +2,7 @@
 2 REM Prace s retezci, manipulace
 3 REM s obsahem retezcu.
 4 REM 
-5 REM Uprava pro Atari BASIC
+5 REM Uprava pro BASIC XE
 6 REM
 7 REM *****************************
 8 REM
