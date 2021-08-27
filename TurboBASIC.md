@@ -280,7 +280,16 @@ standard graphics mode 8:
 
 ```
 
-Plot of `ABS` function with storing the image into BMP format:
+Plot of `ABS` function with storing the image into BMP format.
+
+---
+**NOTE**
+
+Image with the plotted function having resolution 320x192 pixels with 1 bit per
+pixel is stored into the standard BMP format onto the file "H:ABS.BMP" (i.e. is
+is useable in emulators).
+
+---
 
 ```basic
 1 ------------------------------
