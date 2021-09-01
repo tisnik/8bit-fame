@@ -1,5 +1,5 @@
 1 REM *****************************
-2 REM Test prestnosti vypoctu v FP
+2 REM Test presnosti vypoctu v FP
 3 REM 
 4 REM Uprava pro BASIC XL
 5 REM 
