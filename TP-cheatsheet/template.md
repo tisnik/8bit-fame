@@ -195,6 +195,19 @@ include({{function_abs_plot.bas}})
 
 Plot of `ABS` function with storing the image into BMP format:
 
+The generated image converted into PNG:
+
+![images/ABS.png](images/ABS.png)
+
+---
+**NOTE**
+
+Image with the plotted function having resolution 320x192 pixels with 1 bit per
+pixel is stored into the standard BMP format onto the file "H:ABS.BMP" (i.e. is
+is useable in emulators).
+
+---
+
 ```basic
 include({{function_abs_plot_bmp.bas}})
 ```
@@ -261,17 +274,54 @@ TODO: check why this happens.
 
 ### `ATN`
 
+Function `ATN` computes arctangent of a given input number. It is possible to
+select `DEG` mode for getting results in degress, or `RAD` mode for getting
+results in radians.
+
+`ATN` function computation for selected input values in `DEG` mode:
+
 ```basic
 include({{function_atn_1.bas}})
 ```
+
+`ATN` function computation for selected input values in `RAD` mode:
 
 ```basic
 include({{function_atn_2.bas}})
 ```
 
+Display of `ATN` function (simplest variant):
+
 ```basic
 include({{function_atn_3.bas}})
 ```
+
+Plot of `ATN` function can be displayed by the following example that uses
+standard graphics mode 8, display axis etc.:
+
+```basic
+include({{function_atn_plot.bas}})
+```
+
+Plot of `ATN` function with storing the image into BMP format:
+
+The generated image converted into PNG:
+
+![images/ATN.png](images/ATN.png)
+
+---
+**NOTE**
+
+Image with the plotted function having resolution 320x192 pixels with 1 bit per
+pixel is stored into the standard BMP format onto the file "H:ABS.BMP" (i.e. is
+is useable in emulators).
+
+---
+
+```basic
+```
+
+
 
 ### `CHR$`
 
