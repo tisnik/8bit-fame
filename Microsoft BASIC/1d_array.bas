@@ -1,6 +1,12 @@
-1 REM PRACE S JEDNOROZMERNYMI POLI
-2 REM UPRAVA PRO MICROSOFT BASIC
+1 REM *****************************
+2 REM Prace s jednorozmernymi poli
 3 REM 
+4 REM Uprava pro Microsoft BASIC
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 10 DIM A(10)
 20 FOR I=0 TO 10
 30 A(I)=10*I
