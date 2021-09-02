@@ -1,6 +1,12 @@
-1 REM VYPOCET NEJVETSIHO SPOLECNEHO DELITELE
-2 REM REALIZACE V MICROSOFT BASIC
-3 REM
+1 REM *****************************
+2 REM Vypocet nejvetsiho spolecneho
+3 REM delitele.
+4 REM 
+5 REM Uprava pro Microsoft BASIC
+6 REM 
+7 REM *****************************
+8 REM
+9 REM
 10 PRINT "X=";
 20 INPUT X
 30 PRINT "Y=";
