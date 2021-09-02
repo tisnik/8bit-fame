@@ -282,6 +282,19 @@ standard graphics mode 8:
 
 Plot of `ABS` function with storing the image into BMP format:
 
+The generated image converted into PNG:
+
+![images/ABS.png](images/ABS.png)
+
+---
+**NOTE**
+
+Image with the plotted function having resolution 320x192 pixels with 1 bit per
+pixel is stored into the standard BMP format onto the file "H:ABS.BMP" (i.e. is
+is useable in emulators).
+
+---
+
 ```basic
 1 ------------------------------
 2 REM ABS function plot (graph)
@@ -319,6 +332,35 @@ Plot of `ABS` function with storing the image into BMP format:
 2100   TEXT 162,82,"0,0"
 2200 ENDPROC 
 2300 ------------------------------
+10000 ------------------------------
+10010 REM Store video RAM
+10020 REM in graphics mode 8 into
+10030 REM BMP file.
+10035 REM 
+10040 REM Filename is to be provided
+10050 REM via FILENAME$ variable.
+10060 ------------------------------
+10070 PROC WRITE_BMP
+10075   OPEN #1,8,0,FILENAME$
+10079   REM write BMP header (32 bytes)
+10080   RESTORE 10502
+10085   DIM B$(3)
+10090   FOR I=0 TO 31
+10095     READ B$
+10100     B=DEC(B$(2,3))
+10110     PUT #1,B
+10120   NEXT I
+10129   REM write scanlines from last to first
+10130   SCANLINE_START=DPEEK(88)
+10135   SCANLINE_END=SCANLINE_START+40*191
+10140   FOR I=SCANLINE_END TO SCANLINE_START STEP -40
+10145     FOR J=0 TO 39
+10150       PUT #1,PEEK(I+J)
+10155     NEXT J
+10160   NEXT I
+10165   CLOSE #1
+10200 ENDPROC 
+10499 ------------------------------
 
 ```
 
