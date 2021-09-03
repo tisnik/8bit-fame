@@ -1,6 +1,12 @@
-1 REM PLAYER-MISSILE GRAPHICS
-2 REM UPRAVA PRO MICROSOFT BASIC
+1 REM *****************************
+2 REM Player-Missile Graphics.
 3 REM 
+4 REM Uprava pro Microsoft BASIC
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 4 PMBASE=54279
 5 RAMTOP=106
 6 SDMCTL=559
