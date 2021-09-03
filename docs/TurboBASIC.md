@@ -361,6 +361,30 @@ is useable in emulators).
 10165   CLOSE #1
 10200 ENDPROC 
 10499 ------------------------------
+10500 REM BMP file header
+10501 REM magic number "BM"
+10502 DATA $42,$4D
+10503 REM file size=7712 bytes
+10504 DATA $20,$1E,$00,$00
+10505 REM reserved
+10506 DATA $00,$00,$00,$00
+10507 REM pixel array offset=32
+10508 DATA $20,$00,$00,$00
+10509 REM bitmap header size=12 bytes
+10510 DATA $0C,$00,$00,$00
+10511 REM bitmap width in pixels
+10512 DATA $40,$01:REM 320 pixels
+10513 REM bitmap height in pixels
+10514 DATA $C0,$00:REM 192 pixels
+10515 REM number of color planes
+10516 DATA $01,$00:REM 1 clr.plane
+10517 REM bits per pixel
+10518 DATA $01,$00:REM 1 BPP
+10519 REM first color in palette
+10520 DATA $00,$00,$00
+10521 REM second color in palette
+10522 DATA $FF,$FF,$FF
+10523 REM end of bmp header
 
 ```
 
