@@ -495,6 +495,12 @@ TODO: check why this happens.
 
 ### `ATN`
 
+Function `ATN` computes arctangent of a given input number. It is possible to
+select `DEG` mode for getting results in degress, or `RAD` mode for getting
+results in radians.
+
+`ATN` function computation for selected input values in `DEG` mode:
+
 ```basic
 1 ------------------------------
 2 REM ATN function computation
@@ -513,6 +519,8 @@ TODO: check why this happens.
 999 STOP 
 
 ```
+
+`ATN` function computation for selected input values in `RAD` mode:
 
 ```basic
 1 ------------------------------
@@ -533,6 +541,8 @@ TODO: check why this happens.
 
 ```
 
+Display of `ATN` function (simplest variant):
+
 ```basic
 1 ------------------------------
 2 REM ATN function plot
@@ -551,6 +561,46 @@ TODO: check why this happens.
 
 ```
 
+Plot of `ATN` function can be displayed by the following example that uses
+standard graphics mode 8, display axis etc.:
+
+```basic
+1 ------------------------------
+2 REM ATN function plot
+4 REM in DEG mode
+5 ------------------------------
+10 DEG 
+20 EXEC SET_GRAPHICS
+30 EXEC DRAW_AXIS
+40 REM PLOT FUNCTION
+50 FOR X=0 TO 319
+60   Y=79-0.8*ATN((X-160)/2)
+70   IF Y<0 OR Y>159 THEN GOTO 90
+80   PLOT X,Y
+90 NEXT X
+999 STOP 
+1000 ------------------------------
+1010 REM SET GRAPHICS MODE
+1020 ------------------------------
+1030 PROC SET_GRAPHICS
+1040   GRAPHICS 8
+1050   COLOR 1
+1060 ENDPROC 
+2000 ------------------------------
+2010 REM DRAW AXIS
+2020 ------------------------------
+2030 PROC DRAW_AXIS
+2040   PLOT 160,0:DRAWTO 160,159
+2050   PLOT 0,80:DRAWTO 319,80
+2060   TEXT 0,82,"-80"
+2070   TEXT 290,82,"80"
+2080   TEXT 162,5,"90"
+2090   TEXT 162,145,"-90"
+2100   TEXT 162,82,"0,0"
+2200 ENDPROC 
+2300 ------------------------------
+
+```
 ### `CHR$`
 
 ```basic
