@@ -1,6 +1,12 @@
-1 REM TEST PRESNOSTI VYPOCTU FP
-2 REM REALIZACE PRO MICROSOFT BASIC
+1 REM *****************************
+2 REM Test presnosti vypoctu v FP
 3 REM 
+4 REM Uprava pro Microsoft BASIC
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
 10 H1=0
 11 H2=0
 12 N=1
