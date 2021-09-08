@@ -601,6 +601,27 @@ standard graphics mode 8, display axis etc.:
 2300 ------------------------------
 
 ```
+
+Plot of `ATN` function with storing the image into BMP format:
+
+The generated image converted into PNG:
+
+![images/ATN.png](images/ATN.png)
+
+---
+**NOTE**
+
+Image with the plotted function having resolution 320x192 pixels with 1 bit per
+pixel is stored into the standard BMP format onto the file "H:ABS.BMP" (i.e. is
+is useable in emulators).
+
+---
+
+```basic
+```
+
+
+
 ### `CHR$`
 
 ```basic
@@ -865,7 +886,6 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 1030     PI=PI*(J-1)/J*(J+1)/J
 1040   NEXT J
 1050 ENDPROC 
-
 
 ```
 
