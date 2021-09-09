@@ -280,7 +280,11 @@ standard graphics mode 8:
 
 ```
 
-Plot of `ABS` function with storing the image into BMP format.
+Plot of `ABS` function with storing the image into BMP format:
+
+The generated image converted into PNG:
+
+![images/ABS.png](images/ABS.png)
 
 ---
 **NOTE**
@@ -491,6 +495,12 @@ TODO: check why this happens.
 
 ### `ATN`
 
+Function `ATN` computes arctangent of a given input number. It is possible to
+select `DEG` mode for getting results in degress, or `RAD` mode for getting
+results in radians.
+
+`ATN` function computation for selected input values in `DEG` mode:
+
 ```basic
 1 ------------------------------
 2 REM ATN function computation
@@ -509,6 +519,8 @@ TODO: check why this happens.
 999 STOP 
 
 ```
+
+`ATN` function computation for selected input values in `RAD` mode:
 
 ```basic
 1 ------------------------------
@@ -529,6 +541,8 @@ TODO: check why this happens.
 
 ```
 
+Display of `ATN` function (simplest variant):
+
 ```basic
 1 ------------------------------
 2 REM ATN function plot
@@ -546,6 +560,36 @@ TODO: check why this happens.
 999 STOP 
 
 ```
+
+Plot of `ATN` function can be displayed by the following example that uses
+standard graphics mode 8, display axis etc.:
+
+```basic
+1 ------------------------------
+2 REM ATN function plot
+4 REM in DEG mode
+5 ------------------------------
+```
+
+Plot of `ATN` function with storing the image into BMP format:
+
+The generated image converted into PNG:
+
+![images/ATN.png](images/ATN.png)
+
+---
+**NOTE**
+
+Image with the plotted function having resolution 320x192 pixels with 1 bit per
+pixel is stored into the standard BMP format onto the file "H:ABS.BMP" (i.e. is
+is useable in emulators).
+
+---
+
+```basic
+```
+
+
 
 ### `CHR$`
 
