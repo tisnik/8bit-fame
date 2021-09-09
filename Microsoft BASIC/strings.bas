@@ -1,5 +1,12 @@
-10 REM PRACE SE STRINGY
-20 REM UPRAVA PRO MICROSOFT BASIC
+1 REM *****************************
+2 REM Prace s retezci, manipulace
+3 REM s obsahem retezcu.
+4 REM 
+5 REM Uprava pro Microsoft BASIC
+6 REM
+7 REM *****************************
+8 REM
+9 REM
 30 A$="HELLO WORLD!"
 40 PRINT A$
 50 PRINT LEFT$(A$, 5)
