@@ -1,9 +1,9 @@
 1 REM ********************************
-2 REM BUBBLE SORT PRO POLE TYPU SINGLE
-3 REM IMPLEMENTACE PRO MICROSOFT BASIC
-4 REM UPRAVENO DO PODOBY BENCHMARKU
-5 REM ********************************
-6 REM
+2 REM Bubble sort pro pole typu single
+3 REM 
+4 REM Uprava pro Microsoft BASIC
+5 REM
+6 REM ********************************
 7 REM
 8 REM
 9 REM
