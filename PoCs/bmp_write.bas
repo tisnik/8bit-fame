@@ -1,3 +1,12 @@
+1 REM *****************************
+2 REM Procedure to store content of
+3 REM graphics memory in GR.8+16
+4 REM into semi-standard BMP file.
+5 REM *****************************
+6 REM 
+7 REM
+8 REM
+9 REM
 10 DIM FILENAME$(20)
 20 FILENAME$="H:TEST.BMP"
 30 GRAPHICS 8+16
