@@ -837,6 +837,12 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 * Basic usage of this loop:
 
 ```basic
+1 ------------------------------
+2 REM FOR-NEXT statement with
+3 REM legal start and stop
+4 REM values and default STEP
+5 REM parameter.
+6 ------------------------------
 10 FOR I=0 TO 10
 20   PRINT I
 30 NEXT I
@@ -846,6 +852,12 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 * Default step value is set to 1, but it can be specified explicitly if needed:
 
 ```basic
+1 ------------------------------
+2 REM FOR-NEXT statement with
+3 REM legal start and stop
+4 REM values and explicit STEP
+5 REM parameter.
+6 ------------------------------
 10 FOR I=0 TO 10 STEP 2
 20   PRINT I
 30 NEXT I
@@ -855,6 +867,12 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 * Counting downward
 
 ```basic
+1 ------------------------------
+2 REM FOR-NEXT statement with
+3 REM legal start and stop
+4 REM values and negative STEP
+5 REM parameter.
+6 ------------------------------
 10 FOR I=10 TO 0 STEP -2
 20   PRINT I
 30 NEXT I
@@ -864,6 +882,12 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 * Improper usage (revealing bug in Atari BASIC)
 
 ```basic
+1 ------------------------------
+2 REM FOR-NEXT statement with
+3 REM illlegal start and stop
+4 REM values and default STEP
+5 REM parameter.
+6 ------------------------------
 10 FOR I=10 TO 0
 20   PRINT I
 30 NEXT I
