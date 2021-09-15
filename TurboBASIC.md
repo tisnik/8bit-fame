@@ -894,7 +894,45 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 
 ```
 
+* Controlling FOR-NEXT loop behaviour by `*F -` option
+
 ```basic
+1 ------------------------------
+2 REM FOR-NEXT statement with
+3 REM illegal start and stop
+4 REM values.
+5 REM Usage of *F - option
+6 ------------------------------
+10 *F -
+20 FOR I=10 TO 0
+30   PRINT I
+40 NEXT I
+
+```
+
+* Controlling FOR-NEXT loop behaviour by `*F +` option
+
+```basic
+1 ------------------------------
+2 REM FOR-NEXT statement with
+3 REM illegal start and stop
+4 REM values.
+5 REM Usage of *F + option
+6 ------------------------------
+10 *F +
+20 FOR I=10 TO 0
+30   PRINT I
+40 NEXT I
+
+```
+
+* Pi computation based on usage of nested FOR-NEXT loops:
+
+```basic
+1 ------------------------------
+2 REM PI computation based on
+3 REM usage of FOR-NEXT loops
+4 ------------------------------
 10 N=1
 20 FOR I=1 TO 10
 25   EXEC COMPUTE_PI
