@@ -84,15 +84,56 @@ changequote(`{{', `}}')
 +----------+------------+---+---------------------------------+
 + Operator | Type       |new| Description                     |
 +----------+------------+---+---------------------------------+
+| +        | arithmetic |no | addition                        |
+| -        | arithmetic |no | subtraction                     |
+| *        | arithmetic |no | multiplication                  |
+| /        | arithmetic |no | division                        |
+| ^        | arithmetic |no | exponentiation                  |
+|          |            |   |                                 |
 | AND      | logical    |no | logical conjunction             |
 | OR       | logical    |no | logical disjunction             |
 | NOT      | logical    |no | logical negation                |
-|          |            |   |                                 |
-|          |            |   |                                 |
-|          |            |   |                                 |
-|          |            |   |                                 |
 +----------+------------+---+---------------------------------+
 ```
+
+### Operator `+`
+
+```basic
+include({{operator_plus_1.bas}})
+```
+
+```basic
+include({{operator_plus_2.bas}})
+```
+
+```basic
+include({{operator_plus_3.bas}})
+```
+
+```basic
+include({{operator_plus_err_1.bas}})
+```
+
+
+### Operator `-`
+
+```basic
+include({{operator_minus_1.bas}})
+```
+
+```basic
+include({{operator_minus_2.bas}})
+```
+
+```basic
+include({{operator_minus_3.bas}})
+```
+
+```basic
+include({{operator_minus_err_1.bas}})
+```
+
+
 
 ## Functions
 
@@ -422,6 +463,20 @@ include({{for_next_downto.bas}})
 ```basic
 include({{for_next_downward.bas}})
 ```
+
+* Controlling FOR-NEXT loop behaviour by `*F -` option
+
+```basic
+include({{for_illegal_f_minus.bas}})
+```
+
+* Controlling FOR-NEXT loop behaviour by `*F +` option
+
+```basic
+include({{for_illegal_f_plus.bas}})
+```
+
+* Pi computation based on usage of nested FOR-NEXT loops:
 
 ```basic
 include({{for_next_pi.bas}})
