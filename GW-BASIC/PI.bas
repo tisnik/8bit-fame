@@ -1,0 +1,25 @@
+1 REM *****************************
+2 REM Vypocet konstanty Pi.
+3 REM 
+4 REM Uprava pro GW-BASIC
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
+10 N=1
+20 FOR I=1 TO 10
+25 GOSUB 1000:REM VYPOCET PI
+30 PRINT I,N,PI
+35 N=N*2
+40 NEXT I
+999 END 
+1000 REM 
+1001 REM SUBRUTINA PRO VYPOCET PI
+1002 REM 
+1010 PI=4
+1020 FOR J=3 TO N+2 STEP 2
+1030 PI=PI*(J-1)/J*(J+1)/J
+1040 NEXT J
+1050 RETURN 
+
