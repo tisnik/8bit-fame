@@ -1,0 +1,23 @@
+# GW-BASIC for IBM PC
+
+Examples based on GW-BASIC programming language
+1. [Bubble sort in GW-BASIC](bubble_sort.bas)
+1. [Factorial computation in GW-BASIC](factorial.bas)
+1. [Pi computation in GW-BASIC](PI.bas)
+1. [1D array handling](1d_array.bas)
+1. [2D array handling](2d_array.bas)
+1. [GCD computation in GW-BASIC](GCD.bas)
+1. [Finding FP limits](harmonic.bas)
+1. [Moire pattern in GW-BASIC (4 colors)](moire1.bas)
+1. [Moire pattern in GW-BASIC (16 grayscales)](moire2.bas)
+1. [Moire pattern in GW-BASIC (16 colors)](moire3.bas)
+1. [Simulating snowcrash](snowcrash.bas)
+1. [Player-missile graphics, 1st example](PMG1.bas)
+1. [Player-missile graphics, 2nd example](PMG2.bas)
+1. [Basic tokenization-related problems](printed1.bas)
+1. [Basic tokenization-related problems as seen by interpreter](printed2.bas)
+1. [Function definition](def_func.bas)
+1. [Sorting array](sort.bas)
+1. [Sorting array with int type index variables](sort_int.bas)
+1. [Sorting array of integers](sort_int_int.bas)
+1. [String handling using LEFT$, RIGHT$, MID$ functions](strings.bas)
