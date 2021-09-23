@@ -12,4 +12,3 @@
 30 PRINT "HELLO"; "WORLD"; "!"
 40 PRINT 1; 2; 6*7
 999 STOP
-
