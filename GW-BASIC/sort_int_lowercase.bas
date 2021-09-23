@@ -35,4 +35,3 @@
 102 print i%,a(i%)
 103 next i%
 104 return 
-
