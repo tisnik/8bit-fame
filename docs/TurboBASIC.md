@@ -84,15 +84,104 @@
 +----------+------------+---+---------------------------------+
 + Operator | Type       |new| Description                     |
 +----------+------------+---+---------------------------------+
+| +        | arithmetic |no | addition                        |
+| -        | arithmetic |no | subtraction                     |
+| *        | arithmetic |no | multiplication                  |
+| /        | arithmetic |no | division                        |
+| ^        | arithmetic |no | exponentiation                  |
+|          |            |   |                                 |
 | AND      | logical    |no | logical conjunction             |
 | OR       | logical    |no | logical disjunction             |
 | NOT      | logical    |no | logical negation                |
-|          |            |   |                                 |
-|          |            |   |                                 |
-|          |            |   |                                 |
-|          |            |   |                                 |
 +----------+------------+---+---------------------------------+
 ```
+
+### Operator `+`
+
+```basic
+1 ------------------------------
+2 REM Basic usage of + operator
+3 REM to add two numbers
+4 ------------------------------
+10 PRINT 1+2
+
+```
+
+```basic
+1 ------------------------------
+2 REM Basic usage of + operator
+3 REM to add two numbers, one
+4 REM integer, second real
+5 ------------------------------
+10 PRINT 1+0.5
+
+```
+
+```basic
+1 ------------------------------
+2 REM Basic usage of + operator
+3 REM to add two variables
+4 ------------------------------
+10 A=10
+20 B=20
+30 PRINT A+B
+
+```
+
+```basic
+1 ------------------------------
+2 REM Basic usage of + operator
+3 REM to concatenate two strings
+4 REM which is not allowed in TP
+5 ------------------------------
+10 PRINT "FOO" + "BAR"
+
+```
+
+
+### Operator `-`
+
+```basic
+1 ------------------------------
+2 REM Basic usage of - operator
+3 REM to add two numbers
+4 ------------------------------
+10 PRINT 1-2
+
+```
+
+```basic
+1 ------------------------------
+2 REM Basic usage of - operator
+3 REM to add two numbers, one
+4 REM integer, second real
+5 ------------------------------
+10 PRINT 1-0.5
+
+```
+
+```basic
+1 ------------------------------
+2 REM Basic usage of - operator
+3 REM to add two variables
+4 ------------------------------
+10 A=10
+20 B=20
+30 PRINT A-B
+
+```
+
+```basic
+1 ------------------------------
+2 REM Basic usage of - operator
+3 REM to concatenate two strings
+4 REM which is not allowed in TP
+5 ------------------------------
+10 PRINT "FOO" - "BAR"
+
+```
+
+
 
 ## Functions
 
