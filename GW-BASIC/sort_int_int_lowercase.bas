@@ -14,14 +14,14 @@
 21 max%=200
 22 dim a%(max%)
 23 for i%=0 to max%
-24 a%(i%)=int(100*rnd(1))
+24   a%(i%)=int(100*rnd(1))
 25 next i%
 26 gosub 100:rem tisk obsahu pole
 27 for i%=max%-1 to 0 step -1
-28 print ".";
-29 for j%=0 to i%
-30 if a%(j%)<a%(j%+1) then x=a%(j%):a%(j%)=a%(j%+1):a%(j%+1)=x
-31 next j%
+28   print ".";
+29   for j%=0 to i%
+30     if a%(j%)<a%(j%+1) then x=a%(j%):a%(j%)=a%(j%+1):a%(j%+1)=x
+31   next j%
 32 next i%
 33 print ""
 34 print "sorted:"
@@ -32,6 +32,6 @@
 99 end 
 100 rem tisk obsahu pole
 101 for i%=0 to max%
-102 print i%,a%(i%)
+102   print i%,a%(i%)
 103 next i%
 104 return 
