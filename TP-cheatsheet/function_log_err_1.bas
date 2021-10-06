@@ -1,0 +1,6 @@
+1 ------------------------------
+2 REM LOG function computation
+3 REM for string literal.
+4 ------------------------------
+10 PRINT LOG("FOO")
+999 STOP 
