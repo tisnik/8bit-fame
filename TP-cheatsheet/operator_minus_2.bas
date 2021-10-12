@@ -4,3 +4,4 @@
 4 REM integer, second real
 5 ------------------------------
 10 PRINT 1-0.5
+999 STOP
