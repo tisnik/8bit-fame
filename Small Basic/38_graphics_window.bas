@@ -1,0 +1,3 @@
+' Grafický výstup
+
+GraphicsWindow.Show()
