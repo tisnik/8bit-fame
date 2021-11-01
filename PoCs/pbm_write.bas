@@ -1,9 +1,9 @@
 1 REM *****************************
 2 REM Procedure to store content of
-3 REM graphics memory in GR.8+16
-4 REM into standard PBM file.
-5 REM *****************************
-6 REM 
+3 REM graphics memory in graphics
+4 REM mode GR.8+16 (320x192x1bpp)
+5 REM into standard PBM file.
+6 REM *****************************
 7 REM
 8 REM
 9 REM
@@ -20,11 +20,13 @@
 90 EXEC WRITE_PBM
 999 STOP 
 10000 ------------------------------
-10010 REM STORE VIDEO RAM
-10020 REM IN GRAPHICS 8 INTO
-10030 REM PBM (PORTABLE BITMAP) FILE
-10040 REM FILENAME IS TO BE PROVIDED
-10050 REM VIA FILENAME$ VARIABLE
+10010 REM Store video RAM
+10020 REM in graphics mode #8 into
+10030 REM PBM (Portable BitMap) file
+10035 REM
+10040 REM Filename is to be provided
+10050 REM via FILENAME$ variable
+10055 REM (Example: "H:TEST.PBM")
 10060 ------------------------------
 10070 PROC WRITE_PBM
 10075   OPEN #1,8,0,FILENAME$
