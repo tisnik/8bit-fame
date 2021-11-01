@@ -1,9 +1,9 @@
 1 REM *****************************
 2 REM Procedure to store content of
-3 REM graphics memory in GR.8+16
-4 REM into semi-standard BMP file.
-5 REM *****************************
-6 REM 
+3 REM graphics memory in graphics
+4 REM mode GR.8+16 (320x192x1bpp)
+5 REM into semi-standard BMP file.
+6 REM *****************************
 7 REM
 8 REM
 9 REM
@@ -19,15 +19,16 @@
 999 STOP 
 10000 ------------------------------
 10010 REM Store video RAM
-10020 REM in graphics mode 8 into
+10020 REM in graphics mode #8 into
 10030 REM BMP file.
 10035 REM
 10040 REM Filename is to be provided
 10050 REM via FILENAME$ variable.
+10055 REM (Example: "H:TEST.BMP")
 10060 ------------------------------
 10070 PROC WRITE_BMP
 10075   OPEN #1,8,0,FILENAME$
-10079   REM write BMP header (32 bytes)
+10079   REM write BMP header (32 bytes in total)
 10080   RESTORE 10502
 10085   DIM B$(3)
 10090   FOR I=0 TO 31
@@ -69,4 +70,4 @@
 10520 DATA $00,$00,$00
 10521 REM second color in palette
 10522 DATA $FF,$FF,$FF
-10523 REM end of bmp header
+10523 REM end of BMP file header
