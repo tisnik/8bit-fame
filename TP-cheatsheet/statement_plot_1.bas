@@ -1,9 +1,9 @@
 1 ------------------------------
-2 REM BASIC USAGE OF PLOT
-3 REM COMMAND
-4 ------------------------------
+2 REM Basic usage of PLOT
+3 REM command in monochrome
+4 REM graphics mode
+5 ------------------------------
 10 GRAPHICS 8
 11 COLOR 1
-12 PLOT 0,0
-13 DRAWTO 319,159
+12 PLOT 159, 159
 999 STOP 
