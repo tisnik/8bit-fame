@@ -27,4 +27,5 @@
 302 REM *** and display player 0 ***
 310 POKE HPOSP0,128:REM horizontal position
 330 POKE GRAFP0,255:REM graphics shape
-999 END
+998 REM finito
+999 STOP
