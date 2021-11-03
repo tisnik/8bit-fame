@@ -34,4 +34,5 @@
 310 POKE HPOSP0,128:REM horizontal position
 320 POKE PCOLR0,88:REM color
 330 POKE GRAFP0,255:REM graphics shape
-999 END
+998 REM finito
+999 STOP
