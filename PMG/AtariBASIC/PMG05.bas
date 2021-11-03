@@ -64,4 +64,5 @@
 340 POKE GRAFP0,255:REM graphics shape
 341 POKE GRAFP1,128+32+8+2:REM graphics shape
 350 POKE GRACTL,0:REM turn off DMA
-999 END 
+998 REM finito
+999 STOP
