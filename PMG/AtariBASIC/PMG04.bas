@@ -55,4 +55,5 @@
 370 POKE SIZEP0,1:REM double size
 380 P=1^1^1^1:REM pause
 390 POKE SIZEP0,3:REM quadruple size
-999 END 
+998 REM finito
+999 STOP
