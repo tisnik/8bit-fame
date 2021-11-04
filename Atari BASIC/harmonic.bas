@@ -16,3 +16,5 @@
 23 H1=H2
 24 N=N+1
 30 GOTO 20
+998 REM finito
+999 STOP
