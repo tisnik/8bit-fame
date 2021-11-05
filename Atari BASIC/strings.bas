@@ -17,4 +17,5 @@
 80 S$(4)=T$:PRINT S$
 90 Q$=S$(1):PRINT Q$
 100 Q$=S$(1,1):PRINT Q$
-999 END
+998 REM finito
+999 STOP
