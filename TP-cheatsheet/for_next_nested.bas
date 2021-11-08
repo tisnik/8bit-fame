@@ -9,3 +9,5 @@
 60   NEXT J
 70   PRINT 
 80 NEXT I
+998 REM finito
+999 STOP
