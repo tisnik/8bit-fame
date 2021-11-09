@@ -10,3 +10,5 @@
 30   PRINT I,S
 40   S=S+1
 50 NEXT I
+998 REM finito
+999 STOP
