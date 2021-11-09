@@ -9,4 +9,5 @@
 10 FOR I=0.5 TO 5.5
 20   PRINT I
 30 NEXT I
+998 REM finito
 999 STOP
