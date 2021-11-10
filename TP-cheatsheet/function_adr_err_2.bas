@@ -4,4 +4,5 @@
 4 REM Interpreter error detection.
 5 ------------------------------
 10 ERROR-   PRINT ADR(<
+998 REM finito
 999 STOP 
