@@ -6,4 +6,5 @@
 10 DIM A$(10)
 11 A$="FOO"
 20 ERROR-   PRINT ABS(A$<
+998 REM finito
 999 STOP 
