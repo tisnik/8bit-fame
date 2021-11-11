@@ -4,4 +4,5 @@
 4 REM one character
 5 ------------------------------
 10 PRINT ASC("A")
+998 REM finito
 999 STOP 
