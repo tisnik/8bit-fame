@@ -3,4 +3,5 @@
 3 REM for empty string literal
 4 ------------------------------
 10 PRINT ASC("")
+998 REM finito
 999 STOP 
