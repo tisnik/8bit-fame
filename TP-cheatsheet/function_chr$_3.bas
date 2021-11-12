@@ -4,4 +4,5 @@
 4 REM input value
 5 ------------------------------
 10 PRINT CHR$(42.3)
+998 REM finito
 999 STOP
