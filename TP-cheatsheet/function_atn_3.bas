@@ -11,4 +11,5 @@
 70   Y=79-0.8*ATN((X-160)/2)
 80   PLOT X,Y
 90 NEXT X
+998 REM finito
 999 STOP 
