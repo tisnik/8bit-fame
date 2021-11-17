@@ -1,7 +1,8 @@
 1 REM VYPOCET KONSTANTY PI
 2 REM IMPLEMENTACE PRO TURBO-BASIC XL
 3 REM 
-4 ------------------------------
+4 REM ----------------------------
+5 REM 
 10 N=1
 20 FOR I=1 TO 10
 25   EXEC COMPUTE_PI
