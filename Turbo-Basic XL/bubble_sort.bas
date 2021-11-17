@@ -1,7 +1,8 @@
 1 REM BUBBLE SORT
 2 REM IMPLEMENTACE PRO TURBO-BASIC XL
 3 REM 
-4 ------------------------------
+4 REM ----------------------------
+5 REM 
 9 SIZE=20
 10 DIM A(SIZE)
 11 FOR I=0 TO SIZE
