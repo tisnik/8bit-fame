@@ -1,7 +1,8 @@
 1 REM VYPOCET NEJVETSIHO SPOLECNEHO DELITELE
 2 REM IMPLEMENTACE PRO TURBO-BASIC XL
 3 REM 
-4 ------------------------------
+4 REM ----------------------------
+5 REM 
 10 PRINT "X=";
 20 INPUT X
 30 PRINT "Y=";
