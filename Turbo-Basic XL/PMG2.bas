@@ -1,7 +1,8 @@
 1 REM PLAYER-MISSILE GRAPHICS
 2 REM UPRAVA PRO TURBO-BASIC XL
 3 REM 
-4 ------------------------------
+4 REM ----------------------------
+5 REM 
 10 PMBASE=54279
 20 RAMTOP=106
 30 SDMCTL=559
