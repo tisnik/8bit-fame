@@ -1,7 +1,8 @@
 1 REM VYPOCET FAKTORIALU
 2 REM UPRAVA PRO TURBO-BASIC XL
 3 REM POUZITI KONSTANT %0 a %1
-4 ------------------------------
+4 REM ----------------------------
+5 REM 
 10 FOR N=%0 TO 20
 11   EXEC FACTORIAL
 12   PRINT N,FACT
