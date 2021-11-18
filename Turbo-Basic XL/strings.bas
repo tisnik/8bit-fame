@@ -1,6 +1,8 @@
 1 REM PRACE S RETEZCI
 2 REM UPRAVA PRO TURBO BASIC
 3 REM
+4 REM ----------------------------
+5 REM 
 10 DIM S$(15),T$(15),Q$(15)
 20 S$="ATASIC":PRINT S$
 30 Q$=S$(3,5):PRINT Q$
