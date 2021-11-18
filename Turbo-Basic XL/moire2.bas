@@ -1,7 +1,8 @@
 1 REM CIRCLE MOIRE
 2 REM UPRAVA PRO ATARI BASIC
 3 REM GRAFICKY REZIM 9
-4 ------------------------------
+4 REM ----------------------------
+5 REM 
 10 GRAPHICS 9
 20 FOR Y=0 TO 191
 30   FOR X=0 TO 79
