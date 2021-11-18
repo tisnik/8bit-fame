@@ -1,7 +1,8 @@
 1 REM CIRCLE MOIRE
 2 REM UPRAVA PRO TURBO BASIC
 3 REM 
-4 ------------------------------
+4 REM ----------------------------
+5 REM 
 10 GRAPHICS 7
 20 FOR Y=0 TO 79
 30   FOR X=0 TO 159
