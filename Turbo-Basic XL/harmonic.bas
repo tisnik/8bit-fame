@@ -1,7 +1,8 @@
 1 REM TEST PRESNOSTI VYPOCTU FP
 2 REM REALIZACE PRO TURBO-BASIC XL
 3 REM 
-4 ------------------------------
+4 REM ----------------------------
+5 REM 
 10 H1=0
 11 H2=0
 12 N=1
