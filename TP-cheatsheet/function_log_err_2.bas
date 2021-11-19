@@ -4,4 +4,5 @@
 4 REM Interpreter error detection.
 5 ------------------------------
 10 ERROR-   PRINT LOG("FOO"<
+998 REM finito
 999 STOP 
