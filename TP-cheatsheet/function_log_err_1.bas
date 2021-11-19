@@ -3,4 +3,5 @@
 3 REM for string literal.
 4 ------------------------------
 10 PRINT LOG("FOO")
+998 REM finito
 999 STOP 
