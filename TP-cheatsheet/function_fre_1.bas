@@ -4,4 +4,5 @@
 4 REM value (as usual)
 5 ------------------------------
 10 PRINT FRE(0)
+998 REM finito
 999 STOP
