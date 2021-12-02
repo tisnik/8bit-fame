@@ -9,6 +9,7 @@
 70   IF Y<0 OR Y>159 THEN GOTO 90
 80   PLOT X,Y
 90 NEXT X
+998 REM finito
 999 STOP 
 1000 ------------------------------
 1010 REM SET GRAPHICS MODE
