@@ -5,4 +5,5 @@
 5 ------------------------------
 10 PRINT STRIG(0),STRIG(1)
 20 GOTO 10
+998 REM finito
 999 STOP
