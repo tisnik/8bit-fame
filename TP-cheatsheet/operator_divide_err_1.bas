@@ -5,4 +5,5 @@
 5 REM Turbo Basic
 6 ------------------------------
 10 PRINT "FOO" / 10
+998 REM finito
 999 STOP
