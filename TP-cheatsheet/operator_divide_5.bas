@@ -6,4 +6,5 @@
 10 A=0
 20 B=0
 30 PRINT A/B
+998 REM finito
 999 STOP
