@@ -23,6 +23,7 @@
 34 REM 7680 bytes video RAM
 35 MODE=11
 36 EXEC SHOW_MODE
+998 REM finito
 999 STOP 
 1000 ------------------------------
 1001 PROC SHOW_MODE
