@@ -1,0 +1,22 @@
+1 REM *****************************
+2 REM Vypocet faktorialu
+3 REM 
+4 REM Uprava pro BBC BASIC
+5 REM 
+6 REM *****************************
+7 REM
+8 REM
+9 REM
+10 FOR N=0 TO 20
+11   GOSUB 100
+12   PRINT N,FACT
+13 NEXT N
+98 REM finito
+99 END 
+100 REM VYPOCET FAKTORIALU
+101 FACT=1
+102 FOR I=N TO 1 STEP -1
+103   FACT=FACT*I
+104 NEXT I
+105 RETURN 
+
