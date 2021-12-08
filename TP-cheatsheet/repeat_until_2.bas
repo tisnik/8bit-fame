@@ -9,4 +9,5 @@
 30   PRINT A
 40   A=A*2
 50 UNTIL A>1024
+998 REM finito
 999 STOP
