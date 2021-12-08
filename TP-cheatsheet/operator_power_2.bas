@@ -4,4 +4,5 @@
 4 REM number
 5 ------------------------------
 10 PRINT 2^3.5
+998 REM finito
 999 STOP
