@@ -9,4 +9,5 @@
 30   A=A+1
 40   PRINT A
 50 UNTIL A=10
+998 REM finito
 999 STOP
