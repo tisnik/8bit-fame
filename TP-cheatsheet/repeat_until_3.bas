@@ -11,4 +11,5 @@
 80   A=A+1
 90   PRINT 
 95 UNTIL A>6
+998 REM finito
 999 STOP
