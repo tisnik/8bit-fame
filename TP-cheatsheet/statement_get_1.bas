@@ -7,4 +7,5 @@
 12 GET #1,B
 13 PRINT B
 14 CLOSE #1
+998 REM finito
 999 END 
