@@ -8,4 +8,5 @@
 12 INPUT #1;A$
 13 CLOSE #1
 14 PRINT A$
+998 REM finito
 999 END
