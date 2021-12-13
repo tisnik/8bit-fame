@@ -9,7 +9,8 @@
 13 GET #1,B
 14 PRINT B
 15 CLOSE #1
-999 END 
+998 REM finito
+999 STOP
 1000 ------------------------------
 1001 REM I/O error handler
 1002 ------------------------------
