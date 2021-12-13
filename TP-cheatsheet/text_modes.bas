@@ -32,6 +32,7 @@
 53 REM 480 video memory used
 55 MODE=13
 56 EXEC SHOW_MODE
+998 REM finito
 999 STOP 
 1000 ------------------------------
 1010 PROC SHOW_MODE
