@@ -6,4 +6,5 @@
 6 ------------------------------
 10 GRAPHICS 1
 20 PRINT #6;"HELLO WORLD!"
-999 END 
+998 REM finito
+999 STOP
