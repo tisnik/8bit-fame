@@ -5,4 +5,5 @@
 5 REM in standard settings.
 6 ------------------------------
 10 PRINT #0;"HELLO WORLD!"
-999 END 
+998 REM finito
+999 STOP
