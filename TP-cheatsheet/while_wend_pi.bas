@@ -4,6 +4,7 @@
 30   PRINT N,PI
 35   N=N*2
 40 WEND 
+998 REM finito
 999 END 
 1000 ------------------------------
 1001 REM SUBRUTINA PRO VYPOCET PI
