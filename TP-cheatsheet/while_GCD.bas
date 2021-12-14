@@ -16,4 +16,5 @@
 73   ENDIF 
 80 WEND 
 90 PRINT "GCD: ";X
-91 END 
+998 REM finito
+999 STOP
