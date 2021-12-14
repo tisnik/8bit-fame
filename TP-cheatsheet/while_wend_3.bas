@@ -3,3 +3,5 @@
 30   PRINT I
 40   I=I*2
 50 WEND 
+998 REM finito
+999 END 
