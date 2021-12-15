@@ -1,3 +1,7 @@
+1 ------------------------------
+2 REM WHILE-WEND program looping
+3 REM construct
+4 ------------------------------
 10 N=1
 20 WHILE N<=2000
 25   EXEC COMPUTE_PI
@@ -7,7 +11,7 @@
 998 REM finito
 999 END 
 1000 ------------------------------
-1001 REM SUBRUTINA PRO VYPOCET PI
+1001 REM Pi computation subroutine
 1002 PROC COMPUTE_PI
 1010   PI=4
 1015   J=3
