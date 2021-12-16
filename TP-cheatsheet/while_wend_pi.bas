@@ -9,7 +9,7 @@
 35   N=N*2
 40 WEND 
 998 REM finito
-999 END 
+999 STOP
 1000 ------------------------------
 1001 REM Pi computation subroutine
 1002 PROC COMPUTE_PI
