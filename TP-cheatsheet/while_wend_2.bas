@@ -8,4 +8,4 @@
 40   I=I+1
 50 WEND 
 998 REM finito
-999 END 
+999 STOP
