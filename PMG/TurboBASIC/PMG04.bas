@@ -23,7 +23,7 @@
 110 EXEC INIT_TEXT_MODE
 120 EXEC DISPLAY_PMG
 998 REM finito
-999 STOP 
+999 STOP
 1000 ------------------------------
 1001 PROC INIT_PMG_REGISTERS
 1002   REM *** control registers ***
