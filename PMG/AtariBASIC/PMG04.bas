@@ -17,8 +17,9 @@
 26 REM * - changes player 0 width *
 27 REM *   to 1x, 2x, and 4x    . *
 28 REM *   horizontal size        *
-29 REM ****************************
-30 REM
+29 REM *                          *
+30 REM ****************************
+31 REM
 100 REM *** control registers ***
 101 REM *** mapped into memory ***
 110 REM 
