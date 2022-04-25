@@ -1,0 +1,26 @@
+  playfield:
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ ................................
+ ................................
+ ...XXXX....XXX.....XXX...XXXXX..
+ ...X...X..X...X...X...X....X....
+ ...XXXX...X...X...X...X....X....
+ ...X.X....X...X...X...X....X....
+ ...X..X...X...X...X...X....X....
+ ...X...X...XXX.....XXX.....X....
+ ................................
+ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+end
+
+
+  missile0x = 64
+  missile0y = 64
+  missile0height = 8
+
+mainloop
+    NUSIZ0 = $30
+    COLUPF = 14
+    COLUP0 = $1E
+
+    drawscreen
+    goto mainloop
