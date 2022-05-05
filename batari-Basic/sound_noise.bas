@@ -58,6 +58,6 @@ mainloop
 
     player0x = 20 + f*4
     player1x = 20 + s*4
-    
+
     drawscreen
     goto mainloop

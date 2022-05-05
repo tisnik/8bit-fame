@@ -42,6 +42,6 @@ mainloop
 
     if joy0fire then COLUP0 = $48:AUDV0 = 15
     if !joy0fire then AUDV0 = 0
-    
+
     drawscreen
     goto mainloop

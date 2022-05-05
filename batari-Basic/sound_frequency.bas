@@ -38,6 +38,6 @@ mainloop
     AUDF0 = f
     player0x = 20 + f*4
     score = f + 0
-    
+
     drawscreen
     goto mainloop
