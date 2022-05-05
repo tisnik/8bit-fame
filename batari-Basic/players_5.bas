@@ -82,25 +82,25 @@ mainloop
     player0x = player0x + a
     if player0x >= 152 then player0x = 152: a =- 1
     if player0x <= 0 then player0x = 0: a = 1
-    
+
     player1x = player1x + b
     if player1x >= 152 then player1x = 152: b =- 1
     if player1x <= 1 then player1x = 1: b = 1
-    
+
     missile0x = missile0x + c
     if missile0x >= 152 then missile0x = 152: c =- 1
     if missile0x <= 1 then missile0x = 1: c = 1
     missile0y = missile0y + d
     if missile0y >= 80 then missile0y = 80: d =- 1
     if missile0y <= 10 then missile0y = 10: d = 1
-    
+
     missile1x = missile1x + e
     if missile1x >= 152 then missile1x = 152: e =- 1
     if missile1x <= 1 then missile1x = 1: e = 1
     missile1y = missile1y + f
     if missile1y >= 80 then missile1y = 80: f =- 1
     if missile1y <= 10 then missile1y = 10: f = 1
-    
+
     if joy0up then bally = bally - 1
     if joy0down then bally = bally + 1
     if joy0left then ballx = ballx - 1
