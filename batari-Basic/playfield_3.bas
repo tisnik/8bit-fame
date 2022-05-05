@@ -13,6 +13,7 @@
 end
 
   COLUPF = 14
+
 mainloop
     drawscreen
     goto mainloop
