@@ -33,6 +33,6 @@ mainloop
     bally = bally + d
     if bally >= 80 then bally = 80: d =- 1
     if bally <= 10 then bally = 10: d = 1
-    
+
     drawscreen
     goto mainloop
