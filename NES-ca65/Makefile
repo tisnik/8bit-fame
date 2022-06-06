@@ -1,10 +1,10 @@
-objs := example01.o
-out := ctnes.nes
+objs := example01.o example02.o example03.o example04.o
+roms := example01.nes example02.nes example03.nes example04.nes
 
-all: $(out)
+all: $(roms)
 
 clean:
-	rm -f $(objs) $(out)
+	rm -f $(objs) $(roms)
 
 .PHONY: all clean
 
@@ -13,5 +13,15 @@ clean:
 
 main.o: main.asm
 
-ctnes.nes: link.cfg $(objs)
-	ld65 -C link.cfg $(objs) -o $@
+example01.nes: link.cfg example01.o
+	ld65 -C link.cfg example01.o -o $@
+
+example02.nes: example02.o
+	ld65 -C nes.cfg example02.o -o $@
+
+example03.nes: link.cfg example03.o
+	ld65 -C link.cfg example03.o -o $@
+
+example04.nes: link.cfg example04.o
+	ld65 -C link.cfg example04.o -o $@
+
