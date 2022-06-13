@@ -1,7 +1,9 @@
 ; ---------------------------------------------------------------------
-; Neoptimalizovaná kostra programu pro herní konzoli NES
+; Upravená kostra programu pro herní konzoli NES
+; Lokální automaticky generovaná návěští
 ;
-; Založeno na příkladu https://github.com/nesdoug/01_Hello
+; Založeno na příkladu https://github.com/depp/ctnes/tree/master/nesdev/01
+; Viz též článek na https://www.moria.us/blog/2018/03/nes-development
 ; ---------------------------------------------------------------------
  
 ; Jména řídicích registrů použitých v kódu
@@ -10,7 +12,6 @@ PPUMASK         = $2001
 PPUSTATUS       = $2002
 
 ;;; Other IO registers.
-OAMDMA          = $4014
 APUSTATUS       = $4015
 
 
@@ -36,8 +37,6 @@ mirroring = 1
         .byte chr_npage
         .byte ((mapper & $0f) << 4) | (mirroring & 1)
         .byte mapper & $f0
-.code
-
 
 
 ; ---------------------------------------------------------------------
@@ -48,6 +47,7 @@ mirroring = 1
 .segment "CHR0b"
 
 
+.code
 
 ; ---------------------------------------------------------------------
 ; Programový kód rutin pro NMI, RESET a IRQ volaných automaticky CPU
