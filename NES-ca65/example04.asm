@@ -104,7 +104,7 @@ mirroring = 1
         sta $600, x
         sta $700, x             ; vynulování X-tého bajtu v sedmé stránce
         inx                     ; přechod na další bajt
-        bne :-                   ; po přetečení 0xff -> 0x00 konec smyčky
+        bne :-                  ; po přetečení 0xff -> 0x00 konec smyčky
 
         ; čekání na dokončení dalšího snímku, potom může začít herní smyčka
 :       bit PPUSTATUS           ; test obsahu registru PPUSTATUS 
