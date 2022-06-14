@@ -1,5 +1,5 @@
-objs := example01.o example02.o example03.o example04.o example05.o
-roms := example01.nes example02.nes example03.nes example04.nes example05.nes
+objs := example01.o example02.o example03.o example04.o example05.o example06.o
+roms := example01.nes example02.nes example03.nes example04.nes example05.nes example06.nes
 
 all: $(roms)
 
@@ -9,7 +9,7 @@ clean:
 .PHONY: all clean
 
 %.o: %.asm
-	ca65 $< -o $@ -l test.list
+	ca65 $< -o $@ -l test.list --list-bytes 100
 
 main.o: main.asm
 
@@ -28,3 +28,5 @@ example04.nes: link.cfg example04.o
 example05.nes: link.cfg example05.o
 	ld65 -C link.cfg example05.o -o $@
 
+example06.nes: link.cfg example06.o
+	ld65 -C link.cfg example06.o -o $@
