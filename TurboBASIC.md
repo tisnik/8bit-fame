@@ -104,6 +104,7 @@
 3 REM to add two numbers
 4 ------------------------------
 10 PRINT 1+2
+999 STOP
 
 ```
 
@@ -114,6 +115,7 @@
 4 REM integer, second real
 5 ------------------------------
 10 PRINT 1+0.5
+999 STOP
 
 ```
 
@@ -125,6 +127,7 @@
 10 A=10
 20 B=20
 30 PRINT A+B
+999 STOP
 
 ```
 
@@ -132,9 +135,11 @@
 1 ------------------------------
 2 REM Basic usage of + operator
 3 REM to concatenate two strings
-4 REM which is not allowed in TP
-5 ------------------------------
+4 REM which is not allowed in
+5 REM Turbo Basic
+6 ------------------------------
 10 PRINT "FOO" + "BAR"
+999 STOP
 
 ```
 
@@ -147,6 +152,7 @@
 3 REM to add two numbers
 4 ------------------------------
 10 PRINT 1-2
+999 STOP
 
 ```
 
@@ -157,6 +163,7 @@
 4 REM integer, second real
 5 ------------------------------
 10 PRINT 1-0.5
+999 STOP
 
 ```
 
@@ -168,6 +175,7 @@
 10 A=10
 20 B=20
 30 PRINT A-B
+999 STOP
 
 ```
 
@@ -175,9 +183,37 @@
 1 ------------------------------
 2 REM Basic usage of - operator
 3 REM to concatenate two strings
-4 REM which is not allowed in TP
-5 ------------------------------
+4 REM which is not allowed in
+5 REM Turbo Basic
+6 ------------------------------
 10 PRINT "FOO" - "BAR"
+999 STOP
+
+```
+
+
+### Operator `*`
+
+```basic
+1 ------------------------------
+2 REM Basic usage of * operator
+3 REM to multiply two numbers
+4 ------------------------------
+10 PRINT 1*2
+999 STOP
+
+```
+
+```basic
+1 ------------------------------
+2 REM Basic usage of * operator
+3 REM to multiply two numbers, one
+4 REM integer, second real
+5 ------------------------------
+10 PRINT 3*0.5
+999 STOP
+
+```
 
 ```
 
