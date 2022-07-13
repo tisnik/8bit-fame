@@ -131,19 +131,19 @@ mirroring = 1
         wait_for_frame
 
         ; vynulování barvové palety
-	lda PPUSTATUS ; reset záchytného registru
-	lda #>PALETTE ; nastavení adresy pro barvovou paletu $3f00
-	sta PPUADDR
-	lda #<PALETTE ; nižší bajt adresy
-	sta PPUADDR
+        lda PPUSTATUS ; reset záchytného registru
+        lda #>PALETTE ; nastavení adresy pro barvovou paletu $3f00
+        sta PPUADDR
+        lda #<PALETTE ; nižší bajt adresy
+        sta PPUADDR
 
-	ldx #$20      ; počitadlo barev v paletě: 16+16
-	lda #$00      ; vynulování každé barvy
+        ldx #$20      ; počitadlo barev v paletě: 16+16
+        lda #$00      ; vynulování každé barvy
 
 :
-	sta PPUDATA   ; zápis barvy
-	dex           ; snížení hodnoty počitadla
-	bne :-
+        sta PPUDATA   ; zápis barvy
+        dex           ; snížení hodnoty počitadla
+        bne :-
 
         lda #%10000000 ; vysoká intenzita modré barvy
         sta PPUMASK
