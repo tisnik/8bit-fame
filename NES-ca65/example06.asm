@@ -123,14 +123,14 @@ mirroring = 1
         stx APUSTATUS           ; nastavení APUSTATUS = 0
 
         ; čekání na vnitřní inicializaci PPU (dva snímky)
-	wait_for_frame
-	wait_for_frame
+        wait_for_frame
+        wait_for_frame
 
         ; vymazání obsahu RAM
         clear_ram
 
         ; čekání na další snímek
-	wait_for_frame
+        wait_for_frame
 
         ; zvukový výstup
         lda #$01                ; povolení zvukového kanálu square1
