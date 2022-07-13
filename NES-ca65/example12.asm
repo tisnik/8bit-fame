@@ -52,11 +52,11 @@ PALETTE         = $3f00
 .endmacro
 
 .macro ppu_data_palette_address
-	lda PPUSTATUS   ; reset záchytného registru
-	lda #>PALETTE   ; nastavení adresy pro barvovou paletu $3f00
-	sta PPUADDR
-	lda #<PALETTE   ; nižší bajt adresy
-	sta PPUADDR
+        lda PPUSTATUS   ; reset záchytného registru
+        lda #>PALETTE   ; nastavení adresy pro barvovou paletu $3f00
+        sta PPUADDR
+        lda #<PALETTE   ; nižší bajt adresy
+        sta PPUADDR
 .endmacro
 
 
@@ -152,15 +152,15 @@ game_loop:
 .proc clear_palette
         ppu_data_palette_address
 
-	ldx #$20        ; počitadlo barev v paletě: 16+16
-	lda #$00        ; vynulování každé barvy
+        ldx #$20        ; počitadlo barev v paletě: 16+16
+        lda #$00        ; vynulování každé barvy
 
 :
-	sta PPUDATA     ; zápis barvy
-	dex             ; snížení hodnoty počitadla
-	bne :-
+        sta PPUDATA     ; zápis barvy
+        dex             ; snížení hodnoty počitadla
+        bne :-
 
-	rts             ; návrat ze subrutiny
+        rts             ; návrat ze subrutiny
 .endproc
 
 
@@ -170,18 +170,18 @@ game_loop:
         ppu_data_palette_address
 
         ; $3f00-$3f0f - paleta pozadí
-	; $3f10-$3f1f - paleta spritů
+        ; $3f10-$3f1f - paleta spritů
 
-	ldx #$00        ; vynulovat počitadlo a offset
+        ldx #$00        ; vynulovat počitadlo a offset
 
 :
         lda palette, x  ; načíst bajt s offsetem
-	sta PPUDATA     ; zápis barvy do PPU
-	inx             ; zvýšit počitadlo/offset
-	cpx #32         ; limit počtu barev
-	bne :-          ; opakovat smyčku 32x
+        sta PPUDATA     ; zápis barvy do PPU
+        inx             ; zvýšit počitadlo/offset
+        cpx #32         ; limit počtu barev
+        bne :-          ; opakovat smyčku 32x
 
-	rts             ; návrat ze subrutiny
+        rts             ; návrat ze subrutiny
 .endproc
 
 
