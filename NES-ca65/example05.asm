@@ -6,7 +6,7 @@
 ; Viz též článek na https://www.moria.us/blog/2018/03/nes-development
 ; Audio https://raw.githubusercontent.com/iliak/nes/master/doc/apu_ref.txt
 ; ---------------------------------------------------------------------
- 
+
 ; Jména řídicích registrů použitých v kódu
 PPUCTRL         = $2000
 PPUMASK         = $2001

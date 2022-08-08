@@ -5,7 +5,7 @@
 ; Založeno na příkladu https://github.com/depp/ctnes/tree/master/nesdev/01
 ; Viz též článek na https://www.moria.us/blog/2018/03/nes-development
 ; ---------------------------------------------------------------------
- 
+
 ; ---------------------------------------------------------------------
 ; Definice hlavičky obrazu ROM
 ; ---------------------------------------------------------------------
