@@ -2,7 +2,8 @@
 ; Kostra programu pro herní konzoli NES
 ; Nastavení barvové palety, zvýšení intenzity barvy
 ; Setup PPU přes makro
-; Definice spritu a zobrazení spritů s rozloženým Mariem
+; Definice spritu a zobrazení spritů s rozloženým Mariem. Současné
+; zobrazení většího množství spritů.
 ;
 ; Založeno na příkladu https://github.com/depp/ctnes/tree/master/nesdev/01
 ; Taktéž založeno na https://nerdy-nights.nes.science/#main_tutorial-3
