@@ -233,7 +233,7 @@ palette:
     .byte $22, $29, $1a, $0F, $22, $36, $17, $0F, $22, $30, $21, $0F, $22, $27, $17, $0F  ; barvy pozadí
     .byte $22, $16, $27, $18, $22, $1A, $30, $27, $22, $16, $30, $27, $22, $0F, $36, $17  ; barvy spritů
 
-; data pro jeden sprite
+; data pro větší množství spritů
 spritedata:
     .byte $10, $00, $00, $08   ; y-coord, tile number, attributes, x-coord
     .byte $10, $01, $00, $10
@@ -262,21 +262,21 @@ spritedata:
     .byte $28, $16, $00, $48
     .byte $28, $17, $00, $50
 
-    .byte $10, $18, $00, $68   ; y-coord, tile number, attributes, x-coord
-    .byte $10, $19, $00, $70
-    .byte $18, $1a, $00, $68
-    .byte $18, $1b, $00, $70
-    .byte $20, $1c, $00, $68
-    .byte $20, $1d, $00, $70
-    .byte $28, $1d, $00, $68
-    .byte $28, $1f, $00, $70
+    .byte $30, $18, $00, $68   ; y-coord, tile number, attributes, x-coord
+    .byte $30, $19, $00, $70
+    .byte $38, $1a, $00, $68
+    .byte $38, $1b, $00, $70
+    .byte $40, $1c, $00, $68
+    .byte $40, $1d, $00, $70
+    .byte $48, $1e, $00, $68
+    .byte $48, $1f, $00, $70
 
     .byte $10, $10, $00, $88   ; y-coord, tile number, attributes, x-coord
     .byte $10, $11, $00, $90
     .byte $18, $12, $00, $88
     .byte $18, $13, $00, $90
     .byte $20, $14, $00, $88
-    .byte $20, $15, $00, $00
+    .byte $20, $15, $00, $90
     .byte $28, $16, $00, $88
     .byte $28, $17, $00, $90
 

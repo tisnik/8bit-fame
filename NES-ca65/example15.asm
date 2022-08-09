@@ -233,7 +233,7 @@ palette:
     .byte $22, $29, $1a, $0F, $22, $36, $17, $0F, $22, $30, $21, $0F, $22, $27, $17, $0F  ; barvy pozadí
     .byte $22, $16, $27, $18, $22, $1A, $30, $27, $22, $16, $30, $27, $22, $0F, $36, $17  ; barvy spritů
 
-; data pro jeden sprite
+; data pro větší množství spritů
 spritedata:
     .byte $10, $00, $00, $08   ; y-coord, tile number, attributes, x-coord
     .byte $10, $01, $00, $10

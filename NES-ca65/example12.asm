@@ -180,7 +180,7 @@ game_loop:
         sta PPUDATA     ; zápis barvy do PPU
         inx             ; zvýšit počitadlo/offset
         cpx #32         ; limit počtu barev
-        bne :-          ; opakovat smyčku 32x
+        bne :-          ; opakovat tuto smyčku 32x
 
         rts             ; návrat ze subrutiny
 .endproc
