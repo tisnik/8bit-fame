@@ -1,5 +1,5 @@
-objs := example01.o example02.o example03.o example04.o example05.o example06.o example07.o example08.o example09.o example10.o example11.o example12.o example13.o example14.o example15.o example16.o
-roms := example01.nes example02.nes example03.nes example04.nes example05.nes example06.nes example07.nes example08.nes example09.nes example10.nes example11.nes example12.nes example13.nes example14.nes example15.nes example16.nes
+objs := example01.o example02.o example03.o example04.o example05.o example06.o example07.o example08.o example09.o example10.o example11.o example12.o example13.o example14.o example15.o example16.o example16B.o example16C.o
+roms := example01.nes example02.nes example03.nes example04.nes example05.nes example06.nes example07.nes example08.nes example09.nes example10.nes example11.nes example12.nes example13.nes example14.nes example15.nes example16.nes example16B.nes example16C.nes
 
 all: $(roms)
 
@@ -60,6 +60,12 @@ example15.nes: link.cfg example15.o
 
 example16.nes: link.cfg example16.o
 	ld65 -t nes example16.o -o $@
+
+example16B.nes: link.cfg example16B.o
+	ld65 -t nes example16B.o -o $@
+
+example16C.nes: link.cfg example16C.o
+	ld65 -t nes example16C.o -o $@
 
 mario.chr:
 	wget https://github.com/ericdigioia/6502-Assembly-NES-Game-Development-Playground/raw/main/mario.chr
