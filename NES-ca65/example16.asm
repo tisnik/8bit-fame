@@ -262,14 +262,14 @@ spritedata:
     .byte $28, $16, $00, $48
     .byte $28, $17, $00, $50
 
-    .byte $30, $18, $00, $68   ; y-coord, tile number, attributes, x-coord
-    .byte $30, $19, $00, $70
-    .byte $38, $1a, $00, $68
-    .byte $38, $1b, $00, $70
-    .byte $40, $1c, $00, $68
-    .byte $40, $1d, $00, $70
-    .byte $48, $1e, $00, $68
-    .byte $48, $1f, $00, $70
+    .byte $10, $18, $00, $68   ; y-coord, tile number, attributes, x-coord
+    .byte $10, $19, $00, $70
+    .byte $18, $1a, $00, $68
+    .byte $18, $1b, $00, $70
+    .byte $20, $1c, $00, $68
+    .byte $20, $1d, $00, $70
+    .byte $28, $1e, $00, $68
+    .byte $28, $1f, $00, $70
 
     .byte $10, $10, $00, $88   ; y-coord, tile number, attributes, x-coord
     .byte $10, $11, $00, $90
