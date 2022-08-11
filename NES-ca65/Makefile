@@ -9,7 +9,7 @@ clean:
 .PHONY: all clean
 
 %.o: %.asm
-	ca65 $< -o $@ -l test.list --list-bytes 100
+	ca65 $< -o $@ -l $(basename $<).list --list-bytes 100
 
 main.o: main.asm
 
