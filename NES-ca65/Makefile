@@ -1,5 +1,5 @@
-objs := example01.o example02.o example03.o example04.o example05.o example06.o example07.o example08.o example09.o example10.o example11.o example12.o example13.o example14.o example15.o example15B.o example16.o example16B.o example16C.o
-roms := example01.nes example02.nes example03.nes example04.nes example05.nes example06.nes example07.nes example08.nes example09.nes example10.nes example11.nes example12.nes example13.nes example14.nes example15.nes example15B.nes example16.nes example16B.nes example16C.nes
+objs := example01.o example02.o example03.o example04.o example05.o example06.o example07.o example08.o example09.o example10.o example11.o example12.o example13.o example14.o example15.o example15B.o example16.o example16B.o example16C.o example17.o example18B.o example18.o example19.o example20.o example21.o
+roms := example01.nes example02.nes example03.nes example04.nes example05.nes example06.nes example07.nes example08.nes example09.nes example10.nes example11.nes example12.nes example13.nes example14.nes example15.nes example15B.nes example16.nes example16B.nes example16C.nes example17.nes example18B.nes example18.nes example19.nes example20.nes example21.nes
 
 all: $(roms)
 
@@ -69,6 +69,24 @@ example16B.nes: link.cfg example16B.o
 
 example16C.nes: link.cfg example16C.o
 	ld65 -t nes example16C.o -o $@
+
+example17.nes: link.cfg example17.o
+	ld65 -t nes example17.o -o $@
+
+example18B.nes: link.cfg example18B.o
+	ld65 -t nes example18B.o -o $@
+
+example18.nes: link.cfg example18.o
+	ld65 -t nes example18.o -o $@
+
+example19.nes: link.cfg example19.o
+	ld65 -t nes example19.o -o $@
+
+example20.nes: link.cfg example20.o
+	ld65 -t nes example20.o -o $@
+
+example21.nes: link.cfg example21.o
+	ld65 -t nes example21.o -o $@
 
 mario.chr:
 	wget https://github.com/ericdigioia/6502-Assembly-NES-Game-Development-Playground/raw/main/mario.chr
