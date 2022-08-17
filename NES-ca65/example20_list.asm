@@ -6,7 +6,10 @@ Current file: example20.asm
 000000r 1               ; Kostra programu pro herní konzoli NES
 000000r 1               ; Nastavení barvové palety, zvýšení intenzity barvy
 000000r 1               ; Setup PPU přes makro
-000000r 1               ; Definice spritu a zobrazení spritů s rozloženým Mariem. Pohyb spritu.
+000000r 1               ; Definice spritu a zobrazení spritů s rozloženým Mariem.
+000000r 1               ; Pohyb jednoho spritu pomocí ovladače.
+000000r 1               ; Využití symbolických jmen adres.
+000000r 1               ; Pohyb spritu založen na instrukcích INC a DEC.
 000000r 1               ;
 000000r 1               ; Založeno na příkladu https://github.com/depp/ctnes/tree/master/nesdev/01
 000000r 1               ; Taktéž založeno na https://nerdy-nights.nes.science/#main_tutorial-3
