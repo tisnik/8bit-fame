@@ -233,7 +233,7 @@ Current file: example15.asm
 000088r 1  9D 00 02             sta $0200,X       ; uložení do paměti spritů
 00008Br 1  E8                   inx               ; zvýšení hodnoty počitadla
 00008Cr 1  E0 80                cpx #128          ; každý sprite má 4 bajty: y-coord, tile, attributy, y-coord * 8 spritů = 32
-00008Er 1               	                  ; * 4 postavičky = 128
+00008Er 1                                         ; * 4 postavičky = 128
 00008Er 1  D0 F5                bne :-
 000090r 1               
 000090r 1  58                   cli               ; vynulování bitu I - povolení přerušení
