@@ -6,7 +6,10 @@ Current file: example19.asm
 000000r 1               ; Kostra programu pro herní konzoli NES
 000000r 1               ; Nastavení barvové palety, zvýšení intenzity barvy
 000000r 1               ; Setup PPU přes makro
-000000r 1               ; Definice spritu a zobrazení spritů s rozloženým Mariem. Pohyb spritu.
+000000r 1               ; Definice spritu a zobrazení spritů s rozloženým Mariem.
+000000r 1               ; Pohyb jednoho spritu pomocí ovladače.
+000000r 1               ; Využití symbolických jmen adres.
+000000r 1               ; Pomocná makra pro pohyb spritu.
 000000r 1               ;
 000000r 1               ; Založeno na příkladu https://github.com/depp/ctnes/tree/master/nesdev/01
 000000r 1               ; Taktéž založeno na https://nerdy-nights.nes.science/#main_tutorial-3
@@ -75,14 +78,14 @@ Current file: example19.asm
 000000r 1               .macro increment address
 000000r 1                       lda address
 000000r 1                       clc                ; vynulovat přenos
-000000r 1                       adc #$01           ; x++
+000000r 1                       adc #$02           ; x++
 000000r 1                       sta address
 000000r 1               .endmacro
 000000r 1               
 000000r 1               .macro decrement address
 000000r 1                       lda address
-000000r 1                       sec                ; vynulovat přenos
-000000r 1                       sbc #$01           ; x--
+000000r 1                       sec                ; nastavit přenos
+000000r 1                       sbc #$02           ; x--
 000000r 1                       sta address
 000000r 1               .endmacro
 000000r 1               
@@ -175,7 +178,7 @@ Current file: example19.asm
 000028r 1  F0 09                beq up_not_pressed ; není stisknuto? => skok
 00002Ar 1               
 00002Ar 1  AD 00 02 38          decrement YPOS
-00002Er 1  E9 01 8D 00  
+00002Er 1  E9 02 8D 00  
 000032r 1  02           
 000033r 1               
 000033r 1               up_not_pressed:
@@ -185,7 +188,7 @@ Current file: example19.asm
 000038r 1  F0 09                beq down_not_pressed ; není stisknuto? => skok
 00003Ar 1               
 00003Ar 1  AD 00 02 18          increment YPOS
-00003Er 1  69 01 8D 00  
+00003Er 1  69 02 8D 00  
 000042r 1  02           
 000043r 1               
 000043r 1               down_not_pressed:
@@ -195,7 +198,7 @@ Current file: example19.asm
 000048r 1  F0 09                beq left_not_pressed ; není stisknuto? => skok
 00004Ar 1               
 00004Ar 1  AD 03 02 38          decrement XPOS
-00004Er 1  E9 01 8D 03  
+00004Er 1  E9 02 8D 03  
 000052r 1  02           
 000053r 1               
 000053r 1               left_not_pressed:
@@ -205,7 +208,7 @@ Current file: example19.asm
 000058r 1  F0 09                beq right_not_pressed ; není stisknuto? => skok
 00005Ar 1               
 00005Ar 1  AD 03 02 18          increment XPOS
-00005Er 1  69 01 8D 03  
+00005Er 1  69 02 8D 03  
 000062r 1  02           
 000063r 1               
 000063r 1               right_not_pressed:
