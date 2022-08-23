@@ -77,12 +77,12 @@ JOYPAD2         = $4017
 :
         inc address, x     ; zvýšit pozici spritu o jedničku
 
-	txa                ; přesun offsetu do akumulátoru
-	clc
-	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-	tax                ; přesun nového offsetu zpět do registru X
+        txa                ; přesun offsetu do akumulátoru
+        clc
+        adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+        tax                ; přesun nového offsetu zpět do registru X
 
-	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+        cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 
         bne :-             ; pokud ne, skok na začátek smyčky
 .endmacro
@@ -92,12 +92,12 @@ JOYPAD2         = $4017
 :
         dec address, x     ; zvýšit pozici spritu o jedničku
 
-	txa                ; přesun offsetu do akumulátoru
-	clc
-	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-	tax                ; přesun nového offsetu zpět do registru X
+        txa                ; přesun offsetu do akumulátoru
+        clc
+        adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+        tax                ; přesun nového offsetu zpět do registru X
 
-	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+        cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 
         bne :-             ; pokud ne, skok na začátek smyčky
 .endmacro
@@ -107,16 +107,16 @@ JOYPAD2         = $4017
 :
         inc address, x     ; zvýšit pozici spritu o jedničku
 
-	lda address, x     ; maskování hodnoty
-	and #mask
-	sta address, x
+        lda address, x     ; maskování hodnoty
+        and #mask
+        sta address, x
 
-	txa                ; přesun offsetu do akumulátoru
-	clc
-	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-	tax                ; přesun nového offsetu zpět do registru X
+        txa                ; přesun offsetu do akumulátoru
+        clc
+        adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+        tax                ; přesun nového offsetu zpět do registru X
 
-	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+        cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 
         bne :-             ; pokud ne, skok na začátek smyčky
 .endmacro
@@ -195,7 +195,7 @@ mirroring = 1
 
         XPOS = $0203       ; adresa buňky paměti s x-ovou souřadnicí spritu
         YPOS = $0200       ; adresa buňky paměti y x-ovou souřadnicí spritu
-	ATTRS = $0202      ; adresa buňky paměti s atributy spritu
+        ATTRS = $0202      ; adresa buňky paměti s atributy spritu
 
         read_button        ; stisk tlačítka A bude sloužit pro přepínání barvy spritů
         beq button_a_not_pressed ; není stisknuto? => skok
