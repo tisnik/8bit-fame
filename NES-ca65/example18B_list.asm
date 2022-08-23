@@ -149,7 +149,7 @@ Current file: example18B.asm
 00001Br 1                       YPOS = $0200       ; adresa buňky paměti y x-ovou souřadnicí spritu
 00001Br 1               
 00001Br 1                       BUTTON_MASK = %00000001
-00001Br 1               	STEP = $02
+00001Br 1                       STEP = $02
 00001Br 1               
 00001Br 1  AD 16 40             lda JOYPAD1        ; stav tlačítka Up
 00001Er 1  29 01                and #BUTTON_MASK   ; maskovat všechny bity kromě prvního
