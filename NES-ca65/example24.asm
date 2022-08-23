@@ -81,12 +81,12 @@ COUNTER2        = $00ff
 :
         inc address, x     ; zvýšit pozici spritu o jedničku
 
-	txa                ; přesun offsetu do akumulátoru
-	clc
-	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-	tax                ; přesun nového offsetu zpět do registru X
+        txa                ; přesun offsetu do akumulátoru
+        clc
+        adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+        tax                ; přesun nového offsetu zpět do registru X
 
-	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+        cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 
         bne :-             ; pokud ne, skok na začátek smyčky
 .endmacro
@@ -96,12 +96,12 @@ COUNTER2        = $00ff
 :
         dec address, x     ; zvýšit pozici spritu o jedničku
 
-	txa                ; přesun offsetu do akumulátoru
-	clc
-	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-	tax                ; přesun nového offsetu zpět do registru X
+        txa                ; přesun offsetu do akumulátoru
+        clc
+        adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+        tax                ; přesun nového offsetu zpět do registru X
 
-	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+        cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 
         bne :-             ; pokud ne, skok na začátek smyčky
 .endmacro
@@ -111,16 +111,16 @@ COUNTER2        = $00ff
 :
         inc address, x     ; zvýšit pozici spritu o jedničku
 
-	lda address, x     ; maskování hodnoty
-	and #mask
-	sta address, x
+        lda address, x     ; maskování hodnoty
+        and #mask
+        sta address, x
 
-	txa                ; přesun offsetu do akumulátoru
-	clc
-	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-	tax                ; přesun nového offsetu zpět do registru X
+        txa                ; přesun offsetu do akumulátoru
+        clc
+        adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+        tax                ; přesun nového offsetu zpět do registru X
 
-	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+        cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 
         bne :-             ; pokud ne, skok na začátek smyčky
 .endmacro
@@ -128,16 +128,16 @@ COUNTER2        = $00ff
 .macro flip_bit_block address, count, gap, mask
         ldx #0             ; inicializace offsetu
 :
-	lda address, x     ; maskování hodnoty
-	eor #mask
-	sta address, x
+        lda address, x     ; maskování hodnoty
+        eor #mask
+        sta address, x
 
-	txa                ; přesun offsetu do akumulátoru
-	clc
-	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-	tax                ; přesun nového offsetu zpět do registru X
+        txa                ; přesun offsetu do akumulátoru
+        clc
+        adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+        tax                ; přesun nového offsetu zpět do registru X
 
-	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+        cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 
         bne :-             ; pokud ne, skok na začátek smyčky
 .endmacro
@@ -216,16 +216,16 @@ mirroring = 1
 
         XPOS = $0203       ; adresa buňky paměti s x-ovou souřadnicí spritu
         YPOS = $0200       ; adresa buňky paměti y x-ovou souřadnicí spritu
-	ATTRS = $0202      ; adresa buňky paměti s atributy spritu
+        ATTRS = $0202      ; adresa buňky paměti s atributy spritu
 
         read_button        ; stisk tlačítka A bude sloužit pro přepínání barvy spritů
         beq button_a_not_pressed ; není stisknuto? => skok
 
-	dec COUNTER1
-	bne button_a_not_pressed
+        dec COUNTER1
+        bne button_a_not_pressed
 
-	lda #10
-	sta COUNTER1
+        lda #10
+        sta COUNTER1
 
         increment_block_mask ATTRS, 8, 4, 3
 
@@ -234,11 +234,11 @@ button_a_not_pressed:
         read_button        ; stisk tlačítka B bude sloužit pro přepínání atributů spritů
         beq button_b_not_pressed ; není stisknuto? => skok
 
-	dec COUNTER2
-	bne button_b_not_pressed
+        dec COUNTER2
+        bne button_b_not_pressed
 
-	lda #10
-	sta COUNTER2
+        lda #10
+        sta COUNTER2
 
         flip_bit_block ATTRS, 8, 4, %01000000
 
@@ -247,11 +247,11 @@ button_b_not_pressed:
         read_button        ; stisk tlačítka Select bude sloužit pro přepínání atributů spritů
         beq button_select_not_pressed ; není stisknuto? => skok
 
-	dec COUNTER2
-	bne button_select_not_pressed
+        dec COUNTER2
+        bne button_select_not_pressed
 
-	lda #10
-	sta COUNTER2
+        lda #10
+        sta COUNTER2
 
         flip_bit_block ATTRS, 8, 4, %10000000
 
@@ -332,9 +332,9 @@ right_not_pressed:
         ; nastavení spritů
         jsr load_sprites  ; zavolání subrutiny
 
-	lda #10           ; inicializace čítačů
-	sta COUNTER1
-	sta COUNTER2
+        lda #10           ; inicializace čítačů
+        sta COUNTER1
+        sta COUNTER2
 
         ; vlastní herní smyčka je prozatím prázdná
 game_loop:
