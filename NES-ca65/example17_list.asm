@@ -6,7 +6,8 @@ Current file: example17.asm
 000000r 1               ; Kostra programu pro herní konzoli NES
 000000r 1               ; Nastavení barvové palety, zvýšení intenzity barvy
 000000r 1               ; Setup PPU přes makro
-000000r 1               ; Definice spritu a zobrazení spritů s rozloženým Mariem. Pohyb spritu.
+000000r 1               ; Definice spritu a zobrazení spritů s rozloženým Mariem.
+000000r 1               ; Pohyb jednoho spritu pomocí ovladače.
 000000r 1               ;
 000000r 1               ; Založeno na příkladu https://github.com/depp/ctnes/tree/master/nesdev/01
 000000r 1               ; Taktéž založeno na https://nerdy-nights.nes.science/#main_tutorial-3
@@ -171,7 +172,7 @@ Current file: example17.asm
 000042r 1               
 000042r 1  AD 03 02             lda $0203          ; změna x-ové pozice spritu
 000045r 1  38                   sec                ; nastavit přenos
-000046r 1  E9 04                sbc #$04           ; x--
+000046r 1  E9 02                sbc #$02           ; x--
 000048r 1  8D 03 02             sta $0203          ; uložení nové x-ové pozice spritu
 00004Br 1               
 00004Br 1               left_not_pressed:
