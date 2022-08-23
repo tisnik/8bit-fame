@@ -213,7 +213,7 @@ game_loop:
         sta $0200,X       ; uložení do paměti spritů
         inx               ; zvýšení hodnoty počitadla
         cpx #128          ; každý sprite má 4 bajty: y-coord, tile, attributy, y-coord * 8 spritů = 32
-	                  ; * 4 postavičky = 128
+                          ; * 4 postavičky = 128
         bne :-
 
         cli               ; vynulování bitu I - povolení přerušení
