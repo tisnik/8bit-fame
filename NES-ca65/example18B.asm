@@ -145,7 +145,7 @@ mirroring = 1
         YPOS = $0200       ; adresa buňky paměti y x-ovou souřadnicí spritu
 
         BUTTON_MASK = %00000001
-	STEP = $02
+        STEP = $02
 
         lda JOYPAD1        ; stav tlačítka Up
         and #BUTTON_MASK   ; maskovat všechny bity kromě prvního
