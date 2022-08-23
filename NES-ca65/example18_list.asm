@@ -6,7 +6,9 @@ Current file: example18.asm
 000000r 1               ; Kostra programu pro herní konzoli NES
 000000r 1               ; Nastavení barvové palety, zvýšení intenzity barvy
 000000r 1               ; Setup PPU přes makro
-000000r 1               ; Definice spritu a zobrazení spritů s rozloženým Mariem. Pohyb spritu.
+000000r 1               ; Definice spritu a zobrazení spritů s rozloženým Mariem.
+000000r 1               ; Pohyb jednoho spritu pomocí ovladače.
+000000r 1               ; Využití symbolických jmen adres.
 000000r 1               ;
 000000r 1               ; Založeno na příkladu https://github.com/depp/ctnes/tree/master/nesdev/01
 000000r 1               ; Taktéž založeno na https://nerdy-nights.nes.science/#main_tutorial-3
@@ -138,54 +140,54 @@ Current file: example18.asm
 00000Fr 1                                          ; 7) Left
 00000Fr 1                                          ; 8) Right
 00000Fr 1               
-00000Fr 1  AD 16 40             lda $4016          ; stav tlačítka A jen načteme a ingorujeme
-000012r 1  AD 16 40             lda $4016          ; stav tlačítka B jen načteme a ingorujeme
-000015r 1  AD 16 40             lda $4016          ; stav tlačítka Select jen načteme a ingorujeme
-000018r 1  AD 16 40             lda $4016          ; stav tlačítka Start jen načteme a ingorujeme
+00000Fr 1  AD 16 40             lda JOYPAD1        ; stav tlačítka A jen načteme a ingorujeme
+000012r 1  AD 16 40             lda JOYPAD1        ; stav tlačítka B jen načteme a ingorujeme
+000015r 1  AD 16 40             lda JOYPAD1        ; stav tlačítka Select jen načteme a ingorujeme
+000018r 1  AD 16 40             lda JOYPAD1        ; stav tlačítka Start jen načteme a ingorujeme
 00001Br 1               
 00001Br 1                       XPOS = $0203       ; adresa buňky paměti s x-ovou souřadnicí spritu
 00001Br 1                       YPOS = $0200       ; adresa buňky paměti y x-ovou souřadnicí spritu
 00001Br 1               
-00001Br 1  AD 16 40             lda $4016          ; stav tlačítka Up
+00001Br 1  AD 16 40             lda JOYPAD1        ; stav tlačítka Up
 00001Er 1  29 01                and #%00000001     ; maskovat všechny bity kromě prvního
 000020r 1  F0 09                beq up_not_pressed ; není stisknuto? => skok
 000022r 1               
 000022r 1  AD 00 02             lda YPOS           ; změna y-ové pozice spritu
-000025r 1  18                   clc                ; vynulovat přenos
-000026r 1  E9 01                sbc #$01           ; y--
+000025r 1  38                   sec                ; nastavit přenos
+000026r 1  E9 02                sbc #$02           ; y--
 000028r 1  8D 00 02             sta YPOS           ; uložení nové y-ové pozice spritu
 00002Br 1               
 00002Br 1               up_not_pressed:
 00002Br 1               
-00002Br 1  AD 16 40             lda $4016          ; stav tlačítka Down
+00002Br 1  AD 16 40             lda JOYPAD1        ; stav tlačítka Down
 00002Er 1  29 01                and #%00000001     ; maskovat všechny bity kromě prvního
 000030r 1  F0 09                beq down_not_pressed ; není stisknuto? => skok
 000032r 1               
 000032r 1  AD 00 02             lda YPOS           ; změna y-ové pozice spritu
 000035r 1  18                   clc                ; vynulovat přenos
-000036r 1  69 01                adc #$01           ; y++
+000036r 1  69 02                adc #$02           ; y++
 000038r 1  8D 00 02             sta YPOS           ; uložení nové y-ové pozice spritu
 00003Br 1               
 00003Br 1               down_not_pressed:
 00003Br 1               
-00003Br 1  AD 16 40             lda $4016          ; stav tlačítka Left
+00003Br 1  AD 16 40             lda JOYPAD1        ; stav tlačítka Left
 00003Er 1  29 01                and #%00000001     ; maskovat všechny bity kromě prvního
 000040r 1  F0 09                beq left_not_pressed ; není stisknuto? => skok
 000042r 1               
 000042r 1  AD 03 02             lda XPOS           ; změna x-ové pozice spritu
-000045r 1  18                   clc                ; vynulovat přenos
-000046r 1  E9 01                sbc #$01           ; x--
+000045r 1  38                   sec                ; nastavit přenos
+000046r 1  E9 02                sbc #$02           ; x--
 000048r 1  8D 03 02             sta XPOS           ; uložení nové x-ové pozice spritu
 00004Br 1               
 00004Br 1               left_not_pressed:
 00004Br 1               
-00004Br 1  AD 16 40             lda $4016          ; stav tlačítka Right
+00004Br 1  AD 16 40             lda JOYPAD1        ; stav tlačítka Right
 00004Er 1  29 01                and #%00000001     ; maskovat všechny bity kromě prvního
 000050r 1  F0 09                beq right_not_pressed ; není stisknuto? => skok
 000052r 1               
 000052r 1  AD 03 02             lda XPOS           ; změna x-ové pozice spritu
 000055r 1  18                   clc                ; vynulovat přenos
-000056r 1  69 01                adc #$01           ; x--
+000056r 1  69 02                adc #$02           ; x--
 000058r 1  8D 03 02             sta XPOS           ; uložení nové x-ové pozice spritu
 00005Br 1               
 00005Br 1               right_not_pressed:
