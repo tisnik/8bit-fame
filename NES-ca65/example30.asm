@@ -97,7 +97,7 @@ chr_npage = 1
 mapper = 0
 
 ; Mirroring (0 = horizontal, 1 = vertical)
-mirroring = 1
+mirroring = 0
 
 .segment "HEADER"
         .byte $4e, $45, $53, $1a
