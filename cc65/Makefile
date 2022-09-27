@@ -13,7 +13,8 @@ all:	local_add_1.asm local_add_2.asm local_add_3.asm local_add_4.asm local_add_5
 	empty_main.asm local_var_1.asm local_var_2.asm register_var_1.asm register_var_2.asm \
 	a_register.asm ax_register_1.asm ax_register_2.asm eax_register_1.asm eax_register_2.asm \
 	post_increment_1.asm post_increment_2.asm pre_increment_1.asm pre_increment_2.asm \
-	assembly1.asm assembly2.asm assembly3.asm assembly4.asm
+	assembly1.asm assembly2.asm assembly3.asm assembly4.asm \
+	a_register_add.asm a_register_shift.asm a_register_double.asm a_register_triple.asm a_register_half.asm
 
 clean:
 	rm *.asm
@@ -116,3 +117,19 @@ assembly3.asm:	assembly3.c
 
 assembly4.asm:	assembly4.c
 	${CC65} ${STD_FLAGS} ${INCLUDE_SOURCE} ${pre_incrementS} ${STD_OPTIMIZATION} ${REGISTER_VARS} -o $@ $<
+
+a_register_add.asm:	a_register_add.c
+	${CC65} ${STD_FLAGS} ${INCLUDE_SOURCE} ${STD_OPTIMIZATION} -o $@ $<
+
+a_register_shift.asm:	a_register_shift.c
+	${CC65} ${STD_FLAGS} ${INCLUDE_SOURCE} ${STD_OPTIMIZATION} -o $@ $<
+
+a_register_double.asm:	a_register_double.c
+	${CC65} ${STD_FLAGS} ${INCLUDE_SOURCE} ${STD_OPTIMIZATION} -o $@ $<
+
+a_register_triple.asm:	a_register_triple.c
+	${CC65} ${STD_FLAGS} ${INCLUDE_SOURCE} ${STD_OPTIMIZATION} -o $@ $<
+
+a_register_half.asm:	a_register_half.c
+	${CC65} ${STD_FLAGS} ${INCLUDE_SOURCE} ${STD_OPTIMIZATION} -o $@ $<
+
