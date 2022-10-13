@@ -488,7 +488,7 @@
 4605 ? #6;"nes/gameboy"
 4606 ? #6;""
 4607 ? #6;"2a03 - ntsc"
-4608 ? #6;"2007 - pal"
+4608 ? #6;"2a07 - pal"
 4610 RETURN 
 4700 REM slide # 47
 4701 GRAPHICS 2
