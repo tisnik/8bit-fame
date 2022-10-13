@@ -1,6 +1,10 @@
 import sys
 
 
+# special files to be inserted and appended into output slides
+STARTUP_FILE = "startup.bas"
+
+
 def main(argv):
     # check if input and output files are specified
     if len(argv) < 2:
@@ -10,14 +14,20 @@ def main(argv):
     # process input file
     input_file = argv[1]
     output_file = argv[2]
-    process(input_file, output_file)
+    process(input_file, output_file, STARTUP_FILE)
 
 
 
-def process(input_file, output_file):
+def process(input_file, output_file, startup_file):
     """Open input and output files + start processing."""
-    with open(input_file, "r") as fin:
-        with open(output_file, "w") as fout:
+    with open(output_file, "w") as fout:
+        # insert startup code into the output file
+        with open(startup_file, "r") as fin:
+            for line in fin.readlines():
+                line = line.strip()
+                print(line, file=fout)
+
+        with open(input_file, "r") as fin:
             for line in fin.readlines():
                 line = line.strip()
                 print(line)
