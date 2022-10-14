@@ -16,7 +16,7 @@ def main(argv):
     # process input file
     input_file = argv[1]
     output_file = argv[2]
-    process(input_file, output_file, STARTUP_FILE)
+    process(input_file, output_file, STARTUP_FILE, INIT_FILE)
 
 
 def process(input_file, output_file, startup_file, init_file):
