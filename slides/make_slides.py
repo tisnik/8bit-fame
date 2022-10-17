@@ -4,7 +4,7 @@ import sys
 # special files to be inserted and appended into output slides
 STARTUP_FILE = "startup.bas"
 INIT_FILE = "init.bas"
-
+LOAD_BITMAP_FILE = "load.bas"
 
 
 def main(argv):
@@ -16,10 +16,10 @@ def main(argv):
     # process input file
     input_file = argv[1]
     output_file = argv[2]
-    process(input_file, output_file, STARTUP_FILE, INIT_FILE)
+    process(input_file, output_file, STARTUP_FILE, INIT_FILE, LOAD_BITMAP_FILE)
 
 
-def process(input_file, output_file, startup_file, init_file):
+def process(input_file, output_file, startup_file, init_file, load_bitmap_file):
     """Open input and output files and start processing."""
     with open(output_file, "w") as fout:
         # insert startup code into the output file
@@ -27,12 +27,22 @@ def process(input_file, output_file, startup_file, init_file):
 
         # process input file and generate slide section
         with open(input_file, "r") as fin:
-            for line in fin.readlines():
-                line = line.strip()
-                print(line)
+            convert_markdown_to_basic(fout, fin)
 
         # insert init code into the output file
         insert_file(fout, init_file)
+
+        # insert code to load images the output file
+        insert_file(fout, load_bitmap_file)
+
+
+def convert_markdown_to_basic(fout, fin):
+    """Convert text in Markdown to BASIC slides."""
+    slide_number = 0
+
+    for line in fin.readlines():
+        line = line.strip()
+        print(line, file=fout)
 
 
 def insert_file(fout, filename):
