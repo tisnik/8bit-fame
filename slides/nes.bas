@@ -17,6 +17,138 @@
 41 SLIDE=SLIDE+(KEY=RIGHTKEY)
 50 IF SLIDE>0 THEN GOSUB SLIDE*100
 60 GOTO MAINLOOP
+100 REM slide # 0
+101 GRAPHICS 2
+--
+
+## NES
+
+* Nintendo
+* Entertainment
+* System
+
+200 REM slide # 1
+201 GRAPHICS 2
+---
+
+## Overview
+
+* cpu
+* memory
+* graphics
+* sound
+* controllers
+* copy protection
+
+300 REM slide # 2
+301 GRAPHICS 2
+---
+
+## RICOH 2A03/2A07
+
+* ricoh 2a03 cpu
+* nes/gameboy
+
+* 2a03 - ntsc
+* 2a07 - pal
+
+400 REM slide # 3
+401 GRAPHICS 2
+--
+
+## RICOH 2A03/2A07
+
+* based on mos 6502
+
+* 2a03 vs mos 6502
+* - ÂÃÄ ÍÏÄÅ
+* + ÔÉÍÅÒ
+* + ÄÍÁ
+* + ÓÏÕÎÄ ÓÙÓÔÅÍ
+
+500 REM slide # 4
+501 GRAPHICS 2
+--
+
+## MEMORY
+
+600 REM slide # 5
+601 GRAPHICS 2
+--
+
+## GRAPHICS
+
+700 REM slide # 6
+701 GRAPHICS 2
+--
+
+## SOUND
+
+800 REM slide # 7
+801 GRAPHICS 2
+--
+
+## 2A03 SOUND SYSTEM
+
+* 5 channels
+* 2 square waves
+* 1 triangle wave
+* 1 noise generator
+* 1 d/a converter
+
+* 22 control registers
+
+900 REM slide # 8
+901 GRAPHICS 2
+--
+
+## 2A03 SQUARE WAVES
+
+* 54.6 hz - 12,4 khz
+* 4 bit amplitude
+* variable duty
+* 1:8
+* 1:4
+* 1:2
+* 3:4
+
+1000 REM slide # 9
+1001 GRAPHICS 2
+--
+
+## 2A03 TRIANGLE WAVE
+
+* 27.3 hz - 55.9 khz
+* 4 bit amplitude
+* (automatic control)
+
+1100 REM slide # 10
+1101 GRAPHICS 2
+--
+
+## 2A03 NOISE GENERATOR
+
+* 15 bit lfsr
+* 29.3 hz - 447 khz
+* two modes
+* ÌÏÎÇ
+* 32767 âéô ãùãìå
+* ÓÈÏÒÔ
+* 93 âéô ãùãìå
+
+1200 REM slide # 11
+1201 GRAPHICS 2
+--
+
+## 2A03 D/A CONVERTER
+
+* dmc
+* ÄÅÌÔÁ ÍÏÄÕÌÁÔÉÏÎ
+
+* 7 bit
+* 4.2 khz - 33.5 khz
+* semi automatic dma
+* non-linear d/a
 10000 REM
 10001 REM ---------------------
 10002 REM INICIALIZACE
@@ -34,3 +166,17 @@
 10110 POKE 754,255
 10120 IF PEEK(754)=255 THEN 10120
 10130 RETURN
+20000 REM
+20001 REM ---------------------
+20002 REM LOAD RUTINA
+20003 REM ---------------------
+20010 GRAPHICS 8
+20020 ADDR=PEEK(88)+256*PEEK(89)
+20030 OPEN #1,4,0,"H:IMAGE.PBM"
+20040 FOR I=0 TO 6400-1
+20050 GET #1,A
+20060 POKE ADDR,A
+20070 ADDR=ADDR+1
+20080 NEXT I
+20090 CLOSE #1
+20100 RETURN
