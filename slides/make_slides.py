@@ -37,12 +37,22 @@ def process(input_file, output_file, startup_file, init_file, load_bitmap_file):
 
 
 def convert_markdown_to_basic(fout, fin):
-    """Convert text in Markdown to BASIC slides."""
+    """Convert text stored in Markdown to BASIC slides."""
     slide_number = 0
-
     for line in fin.readlines():
         line = line.strip()
+        if line.startswith("--"):
+            append_slide_header(fout, slide_number)
+            slide_number += 1
         print(line, file=fout)
+
+
+def append_slide_header(fout, slide_number):
+    """Appends slide header into the generated file with BASIC slides."""
+    line_number = (1 + slide_number) * 100
+    print(f"{line_number} REM slide # {slide_number}", file=fout)
+    line_number += 1
+    print(f"{line_number} GRAPHICS 2", file=fout)
 
 
 def insert_file(fout, filename):
