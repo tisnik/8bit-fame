@@ -13,14 +13,16 @@ def main(argv):
         print("Error - not enough arguments")
         return 1
 
-    # process input file
+    # retrieve command line arguments
     input_file = argv[1]
     output_file = argv[2]
+
+    # process input file, generate output one
     process(input_file, output_file, STARTUP_FILE, INIT_FILE, LOAD_BITMAP_FILE)
 
 
 def process(input_file, output_file, startup_file, init_file, load_bitmap_file):
-    """Open input and output files and start processing."""
+    """Open input and output files and start processing input file."""
     with open(output_file, "w") as fout:
         # insert startup code into the output file
         insert_file(fout, startup_file)
@@ -38,13 +40,21 @@ def process(input_file, output_file, startup_file, init_file, load_bitmap_file):
 
 def convert_markdown_to_basic(fout, fin):
     """Convert text stored in Markdown to BASIC slides."""
+    # counters
     slide_number = 0
+    line_number = 0
+
     for line in fin.readlines():
         line = line.strip()
+
+        # slide separator
         if line.startswith("--"):
             append_slide_header(fout, slide_number)
             slide_number += 1
-        print(line, file=fout)
+            line_number = 0
+        else:
+            line_number += 1
+            print(line, file=fout)
 
 
 def append_slide_header(fout, slide_number):
