@@ -42,20 +42,25 @@ def convert_markdown_to_basic(fout, fin):
     """Convert text stored in Markdown to BASIC slides."""
     # counters
     slide_number = 0
-    line_number = 0
+    line_number = 1
 
     for line in fin.readlines():
         line = line.strip()
 
         # slide separator
         if line.startswith("--"):
+            if slide_number > 0:
+                append_return(fout, slide_number, line_number)
             append_slide_header(fout, slide_number)
             slide_number += 1
-            line_number = 0
+            line_number = 1
         else:
             line_number += 1
-            print(line, file=fout)
+            append_slide_line(fout, line, slide_number, line_number)
 
+def append_return(fout, slide_number, line_number):
+    line_number = slide_number * 100 + line_number + 1
+    print(f"{line_number} RETURN", file=fout)
 
 def append_slide_header(fout, slide_number):
     """Appends slide header into the generated file with BASIC slides."""
@@ -63,6 +68,11 @@ def append_slide_header(fout, slide_number):
     print(f"{line_number} REM slide # {slide_number}", file=fout)
     line_number += 1
     print(f"{line_number} GRAPHICS 2", file=fout)
+
+def append_slide_line(fout, line, slide_number, line_number):
+    """Append normal line into the slide."""
+    line_number = slide_number * 100 + line_number
+    print(f"{line_number} ? #6;\"{line}\"", file=fout)
 
 
 def insert_file(fout, filename):
