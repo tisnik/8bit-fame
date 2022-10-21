@@ -23,7 +23,7 @@ def main(argv):
 
 def process(input_file, output_file, startup_file, init_file, load_bitmap_file):
     """Open input and output files and start processing input file."""
-    with open(output_file, "w") as fout:
+    with open(output_file, "wb") as fout:
         # insert startup code into the output file
         insert_file(fout, startup_file)
 
@@ -58,29 +58,39 @@ def convert_markdown_to_basic(fout, fin):
             line_number += 1
             append_slide_line(fout, line, slide_number, line_number)
 
+
 def append_return(fout, slide_number, line_number):
     line_number = slide_number * 100 + line_number + 1
-    print(f"{line_number} RETURN", file=fout)
+    fout.write(f"{line_number} RETURN\n".encode("ascii"))
+
 
 def append_slide_header(fout, slide_number):
     """Appends slide header into the generated file with BASIC slides."""
     line_number = (1 + slide_number) * 100
-    print(f"{line_number} REM slide # {slide_number}", file=fout)
+    fout.write(f"{line_number} REM slide # {slide_number}\n".encode("ascii"))
     line_number += 1
-    print(f"{line_number} GRAPHICS 2", file=fout)
+    fout.write(f"{line_number} GRAPHICS 2\n".encode("ascii"))
+
 
 def append_slide_line(fout, line, slide_number, line_number):
     """Append normal line into the slide."""
     line_number = slide_number * 100 + line_number
-    print(f"{line_number} ? #6;\"{line}\"", file=fout)
+    if line.startswith("## "):
+        line = line[3:]
+        # set high bit for all characters
+        b = [ord(char)+128 for char in line]
+        fout.write(f"{line_number} ? #6;\"".encode("ascii"))
+        fout.write(bytes(b))
+        fout.write(f"\"\n".encode("ascii"))
+    else:
+        fout.write(f"{line_number} ? #6;\"{line}\"\n".encode("ascii"))
 
 
 def insert_file(fout, filename):
     """Insert content of selected file into the output file."""
     with open(filename, "r") as fin:
         for line in fin.readlines():
-            line = line.strip()
-            print(line, file=fout)
+            fout.write(bytes(line.encode("ascii")))
 
 
 # If this script is started from command line, run the `main` function which is
