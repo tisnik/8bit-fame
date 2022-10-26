@@ -381,6 +381,47 @@
 3101 GRAPHICS 2
 3102 ? #6;""
 3103 ? #6;"цонтроллерс"
+3104 ? #6;""
+3105 ? #6;"* two controllers"
+3106 ? #6;"* d-pad"
+3107 ? #6;"* four buttons"
+3108 ? #6;"- A"
+3109 ? #6;"- B"
+3110 ? #6;"- START"
+3111 ? #6;"- SELECT"
+3112 ? #6;""
+3113 RETURN
+3200 REM slide # 31
+3201 GRAPHICS 2
+3202 ? #6;""
+3203 ? #6;"цонтроллерс"
+3204 ? #6;""
+3205 ? #6;"* theoretically"
+3206 ? #6;"- 8 pins"
+3207 ? #6;"- similar to"
+3208 ? #6;"Atari, C64, ..."
+3209 ? #6;"* actually"
+3210 ? #6;"- serial IO"
+3211 ? #6;"- latch"
+3212 ? #6;"- and shift register"
+3213 ? #6;""
+3214 RETURN
+3300 REM slide # 32
+3301 GRAPHICS 2
+3302 ? #6;""
+3303 ? #6;"цонтроллерс"
+3304 ? #6;""
+3305 ? #6;"* latch values"
+3306 ? #6;"* read from shift"
+3307 ? #6;"register"
+3308 ? #6;"- 8x lda"
+3309 ? #6;"* LDA + AND + BEQ"
+3310 ? #6;""
+3311 RETURN
+3400 REM slide # 33
+3401 GRAPHICS 2
+3402 ? #6;""
+3403 ? #6;"еьамплес"
 10000 REM 
 10001 REM ---------------------
 10002 REM INICIALIZACE
