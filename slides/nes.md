@@ -301,3 +301,38 @@
 --
 
 ## CONTROLLERS
+
+* two controllers
+* d-pad
+* four buttons
+    - A
+    - B
+    - START
+    - SELECT
+
+--
+
+## CONTROLLERS
+
+* theoretically
+    - 8 pins
+    - similar to
+    Atari, C64, ...
+* actually
+    - serial IO
+    - latch
+    - and shift register
+
+--
+
+## CONTROLLERS
+
+* latch values
+* read from shift
+  register
+     - 8x lda
+* LDA + AND + BEQ
+
+--
+
+## EXAMPLES
