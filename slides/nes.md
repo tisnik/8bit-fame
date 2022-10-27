@@ -254,13 +254,13 @@
 * 1 noise generator
 * 1 d/a converter
 
-* 22 control registers
+* 22 control regs
 
 -- 
 
 ## 2A03 SQUARE WAVES
 
-* 54.6 hz - 12,4 khz
+* 54.6 hz-12,4 khz
 * 4 bit amplitude
 * variable duty
 * 1:8
@@ -274,12 +274,11 @@
 
 * 27.3 hz - 55.9 khz
 * 4 bit amplitude
-* (automatic control)
+* automatic control
 
 --
 
 ## 2A03 NOISE GENERATOR
-
 * 15 bit lfsr
 * 29.3 hz - 447 khz
 * two modes
@@ -290,7 +289,6 @@
 --
 
 ## 2A03 D/A CONVERTER
-
 * dmc
   - delta modulation
 * 7 bit
@@ -313,15 +311,14 @@
 --
 
 ## CONTROLLERS
-
 * theoretically
     - 8 pins
     - similar to
-    Atari, C64, ...
+    atari, c64, ...
 * actually
-    - serial IO
+    - serial io
     - latch
-    - and shift register
+    + shift register
 
 --
 
