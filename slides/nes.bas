@@ -324,7 +324,7 @@
 2608 ? #6;"* 1 noise generator"
 2609 ? #6;"* 1 d/a converter"
 2610 ? #6;""
-2611 ? #6;"* 22 control registers"
+2611 ? #6;"* 22 control regs"
 2612 ? #6;""
 2613 RETURN
 2700 REM slide # 26
@@ -332,7 +332,7 @@
 2702 ? #6;""
 2703 ? #6;"╡а╟Ё═сяуаре═важес"
 2704 ? #6;""
-2705 ? #6;"* 54.6 hz - 12,4 khz"
+2705 ? #6;"* 54.6 hz-12,4 khz"
 2706 ? #6;"* 4 bit amplitude"
 2707 ? #6;"* variable duty"
 2708 ? #6;"* 1:8"
@@ -348,35 +348,33 @@
 2804 ? #6;""
 2805 ? #6;"* 27.3 hz - 55.9 khz"
 2806 ? #6;"* 4 bit amplitude"
-2807 ? #6;"* (automatic control)"
+2807 ? #6;"* automatic control"
 2808 ? #6;""
 2809 RETURN
 2900 REM slide # 28
 2901 GRAPHICS 2
 2902 ? #6;""
 2903 ? #6;"╡а╟Ё═ноисе═генератор"
-2904 ? #6;""
-2905 ? #6;"* 15 bit lfsr"
-2906 ? #6;"* 29.3 hz - 447 khz"
-2907 ? #6;"* two modes"
-2908 ? #6;"* long"
-2909 ? #6;"*   32767 bit cycle"
-2910 ? #6;"* short"
-2911 ? #6;"*   93 bit cycle"
-2912 RETURN
+2904 ? #6;"* 15 bit lfsr"
+2905 ? #6;"* 29.3 hz - 447 khz"
+2906 ? #6;"* two modes"
+2907 ? #6;"* long"
+2908 ? #6;"*   32767 bit cycle"
+2909 ? #6;"* short"
+2910 ? #6;"*   93 bit cycle"
+2911 RETURN
 3000 REM slide # 29
 3001 GRAPHICS 2
 3002 ? #6;""
 3003 ? #6;"╡а╟Ё═д╞а═цонжертер"
-3004 ? #6;""
-3005 ? #6;"* dmc"
-3006 ? #6;"- delta modulation"
-3007 ? #6;"* 7 bit"
-3008 ? #6;"* 4.2 khz - 33.5 khz"
-3009 ? #6;"* semi automatic dma"
-3010 ? #6;"* non-linear d/a"
-3011 ? #6;""
-3012 RETURN
+3004 ? #6;"* dmc"
+3005 ? #6;"- delta modulation"
+3006 ? #6;"* 7 bit"
+3007 ? #6;"* 4.2 khz - 33.5 khz"
+3008 ? #6;"* semi automatic dma"
+3009 ? #6;"* non-linear d/a"
+3010 ? #6;""
+3011 RETURN
 3100 REM slide # 30
 3101 GRAPHICS 2
 3102 ? #6;""
@@ -395,17 +393,16 @@
 3201 GRAPHICS 2
 3202 ? #6;""
 3203 ? #6;"цонтроллерс"
-3204 ? #6;""
-3205 ? #6;"* theoretically"
-3206 ? #6;"- 8 pins"
-3207 ? #6;"- similar to"
-3208 ? #6;"Atari, C64, ..."
-3209 ? #6;"* actually"
-3210 ? #6;"- serial IO"
-3211 ? #6;"- latch"
-3212 ? #6;"- and shift register"
-3213 ? #6;""
-3214 RETURN
+3204 ? #6;"* theoretically"
+3205 ? #6;"- 8 pins"
+3206 ? #6;"- similar to"
+3207 ? #6;"atari, c64, ..."
+3208 ? #6;"* actually"
+3209 ? #6;"- serial io"
+3210 ? #6;"- latch"
+3211 ? #6;"+ shift register"
+3212 ? #6;""
+3213 RETURN
 3300 REM slide # 32
 3301 GRAPHICS 2
 3302 ? #6;""
