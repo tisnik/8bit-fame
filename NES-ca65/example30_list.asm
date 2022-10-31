@@ -280,7 +280,7 @@ Current file: example30.asm
 0000C3r 1                       sta PPUDATA           ; uložení tvaru (cifry) do pozadí
 0000C3r 1               
 0000C3r 1                       lda address           ; opět přečíst offset pro scrolling
-0000C3r 1                       and #$0f              ; získání horního nibblu
+0000C3r 1                       and #$0f              ; získání dolního nibblu
 0000C3r 1                       sta PPUDATA           ; uložení tvaru (cifry) do pozadí
 0000C3r 1               .endmacro
 0000C3r 1               

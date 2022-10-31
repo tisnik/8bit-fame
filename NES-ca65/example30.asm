@@ -258,7 +258,7 @@ game_loop:
         sta PPUDATA           ; uložení tvaru (cifry) do pozadí
 
         lda address           ; opět přečíst offset pro scrolling
-        and #$0f              ; získání horního nibblu
+        and #$0f              ; získání dolního nibblu
         sta PPUDATA           ; uložení tvaru (cifry) do pozadí
 .endmacro
 
