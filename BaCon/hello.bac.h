@@ -1,0 +1,11 @@
+/* Created with BaCon 4.4.1 - (c) Peter van Eerten - MIT License */
+#include "hello.bac.generic.h"
+#include "hello.bac.functions.h"
+#line 1 "hello.bac"
+#line 2 "hello.bac"
+#line 3 "hello.bac"
+#line 4 "hello.bac"
+#line 5 "hello.bac"
+#line 6 "hello.bac"
+#line 7 "hello.bac"
+#line 9 "hello.bac"
