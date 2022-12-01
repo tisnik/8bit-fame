@@ -6,7 +6,7 @@ REM Uprava pro BaCon
 REM 
 REM *****************************
 
-LOCAL M[5][5]
+LOCAL M[6][6]
 
 FOR I=0 TO 5
     FOR J=0 TO 5
