@@ -1,6 +1,6 @@
 REM *****************************
 REM 
-REM Vypocet faktorialu
+REM Program "Hello world"
 REM 
 REM Uprava pro BaCon
 REM 
