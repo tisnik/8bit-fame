@@ -1,0 +1,46 @@
+# 1 "macros.bac"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 32 "<command-line>" 2
+# 1 "macros.bac"
+REM *****************************
+REM
+REM Bubble sort
+REM
+REM Uprava pro BaCon
+REM
+REM *****************************
+# 21 "macros.bac"
+GLOBAL A[20]
+
+FOR I=0 TO 20
+    A[I]=INT(RANDOM(100))
+NEXT I
+
+GOSUB PRINT_ARRAY
+
+FOR I=19 TO 0 STEP -1
+    PRINT ".";
+    FOR J=0 TO I
+        IF A[J]>A[J+1] THEN
+            X=A[J]
+            A[J]=A[J+1]
+            A[J+1]=X
+        END IF
+    NEXT J
+NEXT I
+
+PRINT ""
+PRINT "SORTED:"
+
+GOSUB PRINT_ARRAY
+END
+
+LABEL PRINT_ARRAY
+REM TISK OBSAHU POLE
+FOR I=0 TO 20
+    PRINT I," ", A[I]
+NEXT I
+RETURN
