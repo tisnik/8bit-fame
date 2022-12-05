@@ -101,9 +101,10 @@
 ```basic
 1 ------------------------------
 2 REM Basic usage of + operator
-3 REM to add two numbers
+3 REM to add two integer numbers
 4 ------------------------------
 10 PRINT 1+2
+998 REM finito
 999 STOP
 
 ```
@@ -112,9 +113,10 @@
 1 ------------------------------
 2 REM Basic usage of + operator
 3 REM to add two numbers, one
-4 REM integer, second real
+4 REM integer, second one real
 5 ------------------------------
 10 PRINT 1+0.5
+998 REM finito
 999 STOP
 
 ```
@@ -123,10 +125,12 @@
 1 ------------------------------
 2 REM Basic usage of + operator
 3 REM to add two variables
-4 ------------------------------
+4 REM containing integer values
+5 ------------------------------
 10 A=10
 20 B=20
 30 PRINT A+B
+998 REM finito
 999 STOP
 
 ```
@@ -139,6 +143,7 @@
 5 REM Turbo Basic
 6 ------------------------------
 10 PRINT "FOO" + "BAR"
+998 REM finito
 999 STOP
 
 ```
@@ -152,6 +157,7 @@
 3 REM to add two numbers
 4 ------------------------------
 10 PRINT 1-2
+998 REM finito
 999 STOP
 
 ```
@@ -163,6 +169,7 @@
 4 REM integer, second real
 5 ------------------------------
 10 PRINT 1-0.5
+998 REM finito
 999 STOP
 
 ```
@@ -175,6 +182,7 @@
 10 A=10
 20 B=20
 30 PRINT A-B
+998 REM finito
 999 STOP
 
 ```
@@ -187,6 +195,7 @@
 5 REM Turbo Basic
 6 ------------------------------
 10 PRINT "FOO" - "BAR"
+998 REM finito
 999 STOP
 
 ```
@@ -464,6 +473,7 @@ is useable in emulators).
 10035 REM 
 10040 REM Filename is to be provided
 10050 REM via FILENAME$ variable.
+10055 REM (Example: "H:TEST.BMP")
 10060 ------------------------------
 10070 PROC WRITE_BMP
 10075   OPEN #1,8,0,FILENAME$
@@ -509,7 +519,7 @@ is useable in emulators).
 10520 DATA $00,$00,$00
 10521 REM second color in palette
 10522 DATA $FF,$FF,$FF
-10523 REM end of bmp header
+10523 REM end of BMP file header
 
 ```
 
@@ -531,6 +541,7 @@ initialized and then its address is printed:
 10 DIM A$(10)
 20 A$="FOO"
 30 PRINT ADR(A$)
+998 REM finito
 999 STOP 
 
 ```
@@ -547,6 +558,7 @@ as can be tested by this example:
 20 PRINT ADR(A$)
 30 PRINT ADR(B$)
 40 PRINT ADR(C$)
+998 REM finito
 999 STOP 
 
 ```
@@ -562,6 +574,7 @@ for storing machine code, for example):
 10 PRINT ADR("FOO")
 20 PRINT ADR("BAR")
 30 PRINT ADR("BAZ")
+998 REM finito
 999 STOP 
 
 ```
@@ -585,6 +598,7 @@ just one character. In this case, ATASCII value of such character is returned:
 4 REM one character
 5 ------------------------------
 10 PRINT ASC("A")
+998 REM finito
 999 STOP 
 
 ```
@@ -598,6 +612,7 @@ ATASCII value of the first character from the string is returned:
 4 REM multiple characters
 5 ------------------------------
 10 PRINT ASC("ABC")
+998 REM finito
 999 STOP 
 
 ```
@@ -610,6 +625,7 @@ When empty string is passed, value 44 is returned (ATASCII value for comma):
 3 REM for empty string literal
 4 ------------------------------
 10 PRINT ASC("")
+998 REM finito
 999 STOP 
 
 ```
@@ -641,6 +657,7 @@ results in radians.
 100 DATA -1E20, -1, -0.5
 110 DATA 0
 120 DATA 0.5, 1, 1E20
+998 REM finito
 999 STOP 
 
 ```
@@ -662,6 +679,7 @@ results in radians.
 100 DATA -1E20, -1, -0.5
 110 DATA 0
 120 DATA 0.5, 1, 1E20
+998 REM finito
 999 STOP 
 
 ```
@@ -682,6 +700,7 @@ Display of `ATN` function (simplest variant):
 70   Y=79-0.8*ATN((X-160)/2)
 80   PLOT X,Y
 90 NEXT X
+998 REM finito
 999 STOP 
 
 ```
@@ -703,6 +722,7 @@ standard graphics mode 8, display axis etc.:
 70   IF Y<0 OR Y>159 THEN GOTO 90
 80   PLOT X,Y
 90 NEXT X
+998 REM finito
 999 STOP 
 1000 ------------------------------
 1010 REM SET GRAPHICS MODE
@@ -756,6 +776,7 @@ is useable in emulators).
 4 REM value
 5 ------------------------------
 10 PRINT CHR$(42)
+998 REM finito
 999 STOP
 
 ```
@@ -768,6 +789,7 @@ is useable in emulators).
 5 REM 255
 6 ------------------------------
 10 PRINT CHR$(1234)
+998 REM finito
 999 STOP
 
 ```
@@ -779,6 +801,7 @@ is useable in emulators).
 4 REM input value
 5 ------------------------------
 10 PRINT CHR$(42.3)
+998 REM finito
 999 STOP
 
 ```
@@ -798,6 +821,7 @@ is useable in emulators).
 40 PRINT COS(45)
 50 PRINT COS(60)
 60 PRINT COS(90)
+998 REM finito
 999 STOP
 
 ```
@@ -814,6 +838,7 @@ is useable in emulators).
 40 PRINT COS(45)
 50 PRINT COS(60)
 60 PRINT COS(90)
+998 REM finito
 999 STOP
 
 ```
@@ -832,6 +857,7 @@ is useable in emulators).
 70   Y=79-60*COS(X*360/320)
 80   PLOT X,Y
 90 NEXT X
+998 REM finito
 999 STOP 
 
 ```
@@ -846,6 +872,7 @@ is useable in emulators).
 4 REM value (as usual)
 5 ------------------------------
 10 PRINT FRE(0)
+998 REM finito
 999 STOP
 
 ```
@@ -857,6 +884,7 @@ is useable in emulators).
 4 REM value (which is legit)
 5 ------------------------------
 10 PRINT FRE(42)
+998 REM finito
 999 STOP
 
 ```
@@ -868,6 +896,7 @@ is useable in emulators).
 4 REM value (which is legit)
 5 ------------------------------
 10 PRINT FRE(3.1415)
+998 REM finito
 999 STOP
 
 ```
@@ -887,6 +916,7 @@ is useable in emulators).
 40 PRINT SIN(45)
 50 PRINT SIN(60)
 60 PRINT SIN(90)
+998 REM finito
 999 STOP
 
 ```
@@ -903,6 +933,7 @@ is useable in emulators).
 40 PRINT SIN(45)
 50 PRINT SIN(60)
 60 PRINT SIN(90)
+998 REM finito
 999 STOP
 
 ```
@@ -921,6 +952,7 @@ is useable in emulators).
 70   Y=79-60*SIN(X*360/320)
 80   PLOT X,Y
 90 NEXT X
+998 REM finito
 999 STOP 
 
 ```
@@ -942,6 +974,7 @@ is useable in emulators).
 80   Y=79-60*COS(X*360/320)
 85   PLOT X,Y
 90 NEXT X
+998 REM finito
 999 STOP
 
 ```
@@ -966,11 +999,14 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 2 REM FOR-NEXT statement with
 3 REM legal start and stop
 4 REM values and default STEP
-5 REM parameter.
-6 ------------------------------
+5 REM parameter that is equal
+6 REM to 1.
+7 ------------------------------
 10 FOR I=0 TO 10
 20   PRINT I
 30 NEXT I
+998 REM finito
+999 STOP
 
 ```
 
@@ -986,6 +1022,8 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 10 FOR I=0 TO 10 STEP 2
 20   PRINT I
 30 NEXT I
+998 REM finito
+999 STOP
 
 ```
 
@@ -996,11 +1034,14 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 2 REM FOR-NEXT statement with
 3 REM legal start and stop
 4 REM values and negative STEP
-5 REM parameter.
-6 ------------------------------
+5 REM parameter that must be
+6 REM set explicitly.
+7 ------------------------------
 10 FOR I=10 TO 0 STEP -2
 20   PRINT I
 30 NEXT I
+998 REM finito
+999 STOP
 
 ```
 
@@ -1011,11 +1052,14 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 2 REM FOR-NEXT statement with
 3 REM illlegal start and stop
 4 REM values and default STEP
-5 REM parameter.
-6 ------------------------------
+5 REM parameter that is equal
+6 REM to 1.
+7 ------------------------------
 10 FOR I=10 TO 0
 20   PRINT I
 30 NEXT I
+998 REM finito
+999 STOP
 
 ```
 
@@ -1026,12 +1070,17 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 2 REM FOR-NEXT statement with
 3 REM illegal start and stop
 4 REM values.
-5 REM Usage of *F - option
-6 ------------------------------
+5 REM
+6 REM Usage of "*F -" option
+7 REM that affects FOR-LOOP
+8 REM behaviour.
+9 ------------------------------
 10 *F -
 20 FOR I=10 TO 0
 30   PRINT I
 40 NEXT I
+998 REM finito
+999 STOP
 
 ```
 
@@ -1042,12 +1091,17 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 2 REM FOR-NEXT statement with
 3 REM illegal start and stop
 4 REM values.
-5 REM Usage of *F + option
-6 ------------------------------
+5 REM
+6 REM Usage of "*F +" option
+7 REM that affects FOR-LOOP
+8 REM behaviour.
+9 ------------------------------
 10 *F +
 20 FOR I=10 TO 0
 30   PRINT I
 40 NEXT I
+998 REM finito
+999 STOP
 
 ```
 
@@ -1064,7 +1118,8 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 30   PRINT I,N,PI
 35   N=N*2
 40 NEXT I
-999 END 
+998 REM finito
+999 STOP
 1000 ------------------------------
 1001 REM SUBRUTINA PRO VYPOCET PI
 1002 PROC COMPUTE_PI
@@ -1092,6 +1147,7 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 30   A=A+1
 40   PRINT A
 50 UNTIL A=10
+998 REM finito
 999 STOP
 
 ```
@@ -1108,6 +1164,7 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 30   PRINT A
 40   A=A*2
 50 UNTIL A>1024
+998 REM finito
 999 STOP
 
 ```
@@ -1126,6 +1183,7 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 80   A=A+1
 90   PRINT 
 95 UNTIL A>6
+998 REM finito
 999 STOP
 
 ```
@@ -1141,7 +1199,8 @@ This variant of loop construct was taken from Atari BASIC, including the bug men
 30   PRINT N,PI
 35   N=N*2
 40 UNTIL N>2000
-999 END 
+998 REM finito
+999 STOP
 1000 ------------------------------
 1001 REM SUBRUTINA PRO VYPOCET PI
 1002 PROC COMPUTE_PI
