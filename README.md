@@ -1,5 +1,7 @@
 # 8bit-fame
 
+[![GitHub Pages](https://img.shields.io/badge/%20-GitHub%20Pages-informational)](https://tisnik.github.io/8bit-fame/)
+
 ## Documents
 
 1. [Turbo-BASIC XL Cheatsheet](TurboBASIC.md)
