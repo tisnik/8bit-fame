@@ -4,9 +4,9 @@
 
 .proc main
         lda #33                 ; ATASCII hodnota znaku "A"
-	ldy #0                  ; vynulovat registr Y
-        sta (88),y		; tisk znaku "A" na první místo na obrazovce
-	                        ; (adresa Video RAM je na adresách 88 a 89)
+        ldy #0                  ; vynulovat registr Y
+        sta (88),y              ; tisk znaku "A" na první místo na obrazovce
+                                ; (adresa Video RAM je na adresách 88 a 89)
 loop:   jmp loop
 end:
 .endproc
