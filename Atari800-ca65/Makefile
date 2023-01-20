@@ -9,7 +9,7 @@ clean:
 .PHONY: all clean
 
 %.o: %.asm
-	ca65 $< -t atari -o $@ -l test.list --list-bytes 100
+	ca65 $< -t atari -o $@ -l $(basename $<)_list.asm --list-bytes 100
 
 print_a.o: print_a.asm
 
