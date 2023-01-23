@@ -373,7 +373,7 @@ Plot of `ABS` function with storing the image into BMP format:
 
 The generated image converted into PNG:
 
-![images/ABS.png](images/ABS.png)
+![images/TurboBasic/ABS.png](images/TurboBasic/ABS.png)
 
 ---
 **NOTE**
@@ -695,7 +695,7 @@ Plot of `ATN` function with storing the image into BMP format:
 
 The generated image converted into PNG:
 
-![images/ATN.png](images/ATN.png)
+![images/TurboBasic/ATN.png](images/TurboBasic/ATN.png)
 
 ---
 **NOTE**
@@ -799,6 +799,12 @@ is useable in emulators).
 999 STOP 
 
 ```
+
+Plot of `COS` function with storing the image into BMP format:
+
+The generated image converted into PNG:
+
+![images/TurboBasic/COS.png](images/TurboBasic/COS.png)
 
 ### `FRE`
 
@@ -909,6 +915,20 @@ is useable in emulators).
 999 STOP
 
 ```
+
+Plot of `SIN` function with storing the image into BMP format:
+
+The generated image converted into PNG:
+
+![images/TurboBasic/SIN.png](images/TurboBasic/SIN.png)
+
+### `SQR`
+
+Plot of `SQR` function with storing the image into BMP format:
+
+The generated image converted into PNG:
+
+![images/TurboBasic/SQR.png](images/TurboBasic/SQR.png)
 
 ## Loops
 
