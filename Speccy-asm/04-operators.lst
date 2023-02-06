@@ -1,0 +1,18 @@
+attribute_adr	EQU 5800
+entry_point	EQU 8000
+blink_bit	EQU 0080
+intensity_bit	EQU 0040
+black_color	EQU 0000
+blue_color	EQU 0001
+red_color	EQU 0002
+magenta_color	EQU 0003
+green_color	EQU 0004
+cyan_color	EQU 0005
+yellow_color	EQU 0006
+white_color	EQU 0007
+		ORG 8000
+8000:		label start
+8000:3ECF	LD A, CF
+8002:320058	LD (5800), A
+8005:C9		RET
+Emiting TAP from 8000 to 8005
