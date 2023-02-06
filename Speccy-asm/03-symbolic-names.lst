@@ -1,0 +1,8 @@
+attribute_adr	EQU 5800
+entry_point	EQU 8000
+		ORG 8000
+8000:		label start
+8000:3ED6	LD A, D6
+8002:320058	LD (5800), A
+8005:C9		RET
+Emiting TAP from 8000 to 8005
