@@ -1,6 +1,6 @@
 ASSEMBLER := pasmo
 
-all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap
+all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap 11.tap
 
 clean:
 	rm -f *.tap
@@ -27,3 +27,15 @@ clean:
 
 07.tap:	07-tapbas-v2.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 07-tapbas-v2.lst
+
+08.tap:	08-loop.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 08-loop.lst
+
+09.tap:	09-loop.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 09-loop.lst
+
+10.tap:	10-loop.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 10-loop.lst
+
+11.tap:	11-loop.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 11-loop.lst
