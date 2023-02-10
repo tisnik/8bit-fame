@@ -5,7 +5,7 @@ ENTRY_POINT   equ $8000
 
 start:
 	ld hl, ATTRIBUTE_ADR  ; adresa pro zápis
-        xor a                 ; zapisovaná hodnota
+	xor a                 ; zapisovaná hodnota
 	ld b, a               ; počitadlo smyčky
 
 loop:
