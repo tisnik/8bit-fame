@@ -9,7 +9,7 @@ start:
 	ld b, a               ; počitadlo smyčky
 
 loop:
-	ld (ix),a             ; zápis hodnoty na adresu (HL)
+	ld (ix),a             ; zápis hodnoty na adresu (IX)
 	inc ix                ; zvýšení adresy
 	inc a                 ; zvýšení zapisované hodnoty
 	djnz loop             ; kombinace dec b + jp NZ, loop
