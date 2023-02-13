@@ -6,7 +6,7 @@ ENTRY_POINT   equ $8000
 start:
 	ld hl, ATTRIBUTE_ADR  ; adresa pro zápis
 	ld a, 2               ; počet opakování bloku s 256 zápisy
-	ld b, 0
+	ld b, 0               ; počitadlo vnitřní smyčky
 
 loop:
 	ld (hl),l             ; zápis hodnoty na adresu (HL)
