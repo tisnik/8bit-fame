@@ -10,7 +10,7 @@ start:
 	ld  b, 96+16    ; počitadlo smyčky
 
 loop:
-        ld   a, c
+	ld   a, c
 	rst  0x10       ; zavolání rutiny v ROM
 
 	inc c           ; zvýšení zapisované hodnoty (kód znaku)
