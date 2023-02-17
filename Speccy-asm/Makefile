@@ -1,6 +1,8 @@
 ASSEMBLER := pasmo
 
-all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap 11.tap 12.tap 13.tap 14.tap. 15.tap 16.tap 17.tap
+all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
+    11.tap 12.tap 13.tap 14.tap. 15.tap 16.tap 17.tap 18.tap 19.tap 20.tap \
+    21.tap 22.tap
 
 clean:
 	rm -f *.tap
@@ -57,3 +59,18 @@ clean:
 
 17.tap:	17-loop.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 17-loop.lst
+
+18.tap:	18-cls.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 18-cls.lst
+
+19.tap:	19-print-char.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 19-print-char.lst
+
+20.tap:	20-print-char.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 20-print-char.lst
+
+21.tap:	21-print-all-chars.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 21-print-all-chars.lst
+
+22.tap:	22-print-all-chars.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 22-print-all-chars.lst
