@@ -14,6 +14,10 @@
 1. [Examples for NES game console written in CA65](<NES-ca65>)
 1. [Examples for NES game console written in CC65](<NES-cc65>)
 
+## Various programs written in assembly for 8bit computers
+
+1. [Examples for ZX Spectrum](<Speccy-asm>)
+
 ## Various programs written in BASIC for 8bit computers
 
 1. [Examples for Atari BASIC programming language](<Atari BASIC>)
