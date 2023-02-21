@@ -2,7 +2,8 @@ ASSEMBLER := pasmo
 
 all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     11.tap 12.tap 13.tap 14.tap 15.tap 16.tap 17.tap 18.tap 19.tap 20.tap \
-    21.tap 22.tap 23.tap 24.tap 25.tap 26.tap 27.tap 28.tap 29.tap 30.tap
+    21.tap 22.tap 23.tap 24.tap 25.tap 26.tap 27.tap 28.tap 29.tap 30.tap \
+    31.tap
 
 clean:
 	rm -f *.tap
@@ -99,3 +100,6 @@ clean:
 
 30.tap:	30-print-string-ROM.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 30-print-string-ROM.lst
+
+31.tap:	31-attributes.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 31-attributes.lst
