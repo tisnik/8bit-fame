@@ -18,6 +18,6 @@ loop:
 	dec a                 ; počitadlo vnější smyčky
 	jp NZ, loop           ; skok pokud se ještě nedosáhlo nuly
 finish:
-	jr finish             ; nevrátíme se do systému
+	ret                   ; ukončit program
 
 end ENTRY_POINT
