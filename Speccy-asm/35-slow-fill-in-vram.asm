@@ -23,6 +23,6 @@ delay:
 	djnz loop             ; vnitřní smyčka: blok s 256 zápisy
 	dec c                 ; počitadlo vnější smyčky
 	jp NZ, loop           ; skok pokud se ještě nedosáhlo nuly
-	ret
+	ret                   ; návrat do systému
 
 end ENTRY_POINT
