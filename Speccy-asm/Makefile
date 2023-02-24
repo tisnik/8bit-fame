@@ -3,7 +3,8 @@ ASSEMBLER := pasmo
 all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     11.tap 12.tap 13.tap 14.tap 15.tap 16.tap 17.tap 18.tap 19.tap 20.tap \
     21.tap 22.tap 23.tap 24.tap 25.tap 26.tap 27.tap 28.tap 29.tap 30.tap \
-    31.tap 32.tap 33.tap 34.tap 35.tap 36.tap
+    31.tap 32.tap 33.tap 34.tap 35.tap 36.tap 37.tap 38.tap 39.tap 40.tap \
+    41.tap
 
 clean:
 	rm -f *.tap
@@ -118,3 +119,18 @@ clean:
 
 36.tap:	36-slow-fill-in-vram-no-ret.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 36-slow-fill-in-vram-no-ret.lst
+
+37.tap:	37-fill-block.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 37-fill-block.lst
+
+38.tap:	38-fill-block-with-pattern.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 38-fill-block-with-pattern.lst
+
+39.tap:	39-fill-block-optimized.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 39-fill-block-optimized.lst
+
+40.tap:	40-draw-char.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 40-draw-char.lst
+
+41.tap:	41-draw-any-char.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 41-draw-any-char.lst
