@@ -134,3 +134,6 @@ clean:
 
 41.tap:	41-draw-any-char.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 41-draw-any-char.lst
+
+42.tap:	42-block-anywhere.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 42-block-anywhere.lst
