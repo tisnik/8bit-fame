@@ -37,7 +37,7 @@ finish:
 
 
 calc_block_address:
-        ; parametry:
+	; parametry:
 	; B - x-ová souřadnice (ve znacích, ne pixelech)
 	; C - y-ová souřadnice (ve znacích, ne pixelech)
 	;
@@ -64,9 +64,9 @@ calc_block_address:
 
 
 fill_block:
-        ; parametry:
-        ; A - pattern
-        ; HL - adresa vykreslení bloku
+	; parametry:
+	; A - pattern
+	; HL - adresa vykreslení bloku
 	ld b, 8               ; počitadlo zapsaných bajtů
 loop:
 	ld (hl), PATTERN      ; zápis hodnoty na adresu (HL)
