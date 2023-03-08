@@ -24,7 +24,7 @@ finish:
 
 
 calc_char_address:
-        ; parametry:
+	; parametry:
 	; B - x-ová souřadnice (ve znacích, ne pixelech)
 	; C - y-ová souřadnice (ve znacích, ne pixelech)
 	;
@@ -52,59 +52,59 @@ calc_char_address:
 
 draw_char:
 	ld bc, CHAR_ADR          ; adresa, od níž začínají masky znaků
-        ld h, c                  ; C je nulové, protože CHAR_ADR=0x3c00
-        ld l, a                  ; kód znaku je nyní ve dvojici HL
+	ld h, c                  ; C je nulové, protože CHAR_ADR=0x3c00
+	ld l, a                  ; kód znaku je nyní ve dvojici HL
 
-        add  hl, hl              ; 2x
-        add  hl, hl              ; 4x
-        add  hl, hl              ; 8x
-        add  hl, bc              ; přičíst bázovou adresu masek znaků
+	add  hl, hl              ; 2x
+	add  hl, hl              ; 4x
+	add  hl, hl              ; 8x
+	add  hl, bc              ; přičíst bázovou adresu masek znaků
 
 	ld c, d
 
-        ld   a,(hl)              ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
+	ld   a,(hl)              ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
 
-        ld   a,(hl)              ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
+	ld   a,(hl)              ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
 
-        ld   a,(hl)              ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
+	ld   a,(hl)              ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
 
-        ld   a,(hl)              ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
+	ld   a,(hl)              ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
 
-        ld   a,(hl)              ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
+	ld   a,(hl)              ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
 
-        ld   a,(hl)              ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
+	ld   a,(hl)              ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
 
-        ld   a,(hl)              ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
+	ld   a,(hl)              ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
 
-        ld   a,(hl)              ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
+	ld   a,(hl)              ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
 
-        inc   e
-        ret   z                  ; D+=8,E=E+1=0
-        ld    d, c
-        ret                      ; D=D,E=E+1
+	inc   e
+	ret   z                  ; D+=8,E=E+1=0
+	ld    d, c
+	ret                      ; D=D,E=E+1
 
 end ENTRY_POINT
