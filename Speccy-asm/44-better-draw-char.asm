@@ -22,22 +22,22 @@ finish:
 
 draw_char:
 	ld bc, CHAR_ADR          ; adresa, od níž začínají masky znaků
-        ld h, c                  ; C je nulové, protože CHAR_ADR=0x3c00
-        ld l, a                  ; kód znaku je nyní ve dvojici HL
+	ld h, c                  ; C je nulové, protože CHAR_ADR=0x3c00
+	ld l, a                  ; kód znaku je nyní ve dvojici HL
 
-        add  hl, hl              ; 2x
-        add  hl, hl              ; 4x
-        add  hl, hl              ; 8x
-        add  hl, bc              ; přičíst bázovou adresu masek znaků
+	add  hl, hl              ; 2x
+	add  hl, hl              ; 4x
+	add  hl, hl              ; 8x
+	add  hl, bc              ; přičíst bázovou adresu masek znaků
 
 	ld b, 8                  ; počitadlo zapsaných bajtů
 
 loop:
-        ld    a,(hl)             ; načtení jednoho bajtu z masky
-        ld  (de),a               ; zápis hodnoty na adresu (DE)
-        inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
-        inc  d                   ; posun na definici dalšího obrazového řádku
-        djnz loop                ; vnitřní smyčka: blok s osmi zápisy
-        ret                      ; návrat z podprogramu
+	ld    a,(hl)             ; načtení jednoho bajtu z masky
+	ld  (de),a               ; zápis hodnoty na adresu (DE)
+	inc  l                   ; posun na další bajt masky (nemusíme řešit přetečení do vyššího bajtu)
+	inc  d                   ; posun na definici dalšího obrazového řádku
+	djnz loop                ; vnitřní smyčka: blok s osmi zápisy
+	ret                      ; návrat z podprogramu
 
 end ENTRY_POINT
