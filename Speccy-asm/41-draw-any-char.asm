@@ -39,6 +39,6 @@ loop:
 	inc hl                   ; posun na další bajt masky
 	inc d                    ; posun na definici dalšího obrazového řádku
 	djnz loop                ; vnitřní smyčka: blok s osmi zápisy
-	ret
+	ret                      ; návrat z podprogramu
 
 end ENTRY_POINT
