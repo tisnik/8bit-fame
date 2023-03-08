@@ -4,7 +4,7 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     11.tap 12.tap 13.tap 14.tap 15.tap 16.tap 17.tap 18.tap 19.tap 20.tap \
     21.tap 22.tap 23.tap 24.tap 25.tap 26.tap 27.tap 28.tap 29.tap 30.tap \
     31.tap 32.tap 33.tap 34.tap 35.tap 36.tap 37.tap 38.tap 39.tap 40.tap \
-    41.tap
+    41.tap 42.tap 43.tap 44.tap 45.tap 46.tap 47.tap 48.tap 49.tap
 
 clean:
 	rm -f *.tap
@@ -137,3 +137,24 @@ clean:
 
 42.tap:	42-block-anywhere.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 42-block-anywhere.lst
+
+43.tap:	43-block-anywhere-rrca.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 43-block-anywhere-rrca.lst
+
+44.tap:	44-better-draw-char.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 44-better-draw-char.lst
+
+45.tap:	45-even-better-draw-char.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 45-even-better-draw-char.lst
+
+46.tap:	46-draw-char-at.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 46-draw-char-at.lst
+
+47.tap:	47-draw-char-at-unrolled.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 47-draw-char-at-unrolled.lst
+
+48.tap:	48-incorrect-print-string.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 48-incorrect-print-string.lst
+
+49.tap:	49-correct-print-string.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 49-correct-print-string.lst
