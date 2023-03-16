@@ -5,7 +5,7 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     21.tap 22.tap 23.tap 24.tap 25.tap 26.tap 27.tap 28.tap 29.tap 30.tap \
     31.tap 32.tap 33.tap 34.tap 35.tap 36.tap 37.tap 38.tap 39.tap 40.tap \
     41.tap 42.tap 43.tap 44.tap 45.tap 46.tap 47.tap 48.tap 49.tap 50.tap \
-    51.tap 52.tap 53.tap
+    51.tap 52.tap 53.tap 54.tap 55.tap
 
 clean:
 	rm -f *.tap
@@ -171,3 +171,9 @@ clean:
 
 53.tap:	53-plot-pixel.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 53-plot-pixel.lst
+
+54.tap:	54-plot-pixel-on-background.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 54-plot-pixel-on-background.lst
+
+55.tap:	55-plot-pixel-on-background.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 55-plot-pixel-on-background.lst
