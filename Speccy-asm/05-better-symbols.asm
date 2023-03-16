@@ -8,6 +8,9 @@
 ;
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
+;
+; Example #5:
+;    Symbolic names are usually written in uppercase
 
 
 
