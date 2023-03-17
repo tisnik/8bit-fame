@@ -7,3 +7,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Symbolic names in assembly sources](03-symbolic-names.asm)
 1. [Operators in assembly sources](04-operators.asm)
 1. [Symbolic names are usually written in uppercase](05-better-symbols.asm)
+1. [Generating tape image with BASIC loader (incorrect version)](06-tapbas-v1.asm)
+1. [Generating tape image with BASIC loader (correct version)](07-tapbas-v2.asm)
+1. [Counted loop to fill-in attribute memory based on JP instruction](08-loop.asm)
+1. [Counted loop to fill-in attribute memory based on JP instruction](09-loop.asm)
+1. [Counted loop to fill-in attribute memory based on DJNZ instruction](10-loop.asm)
