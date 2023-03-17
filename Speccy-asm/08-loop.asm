@@ -8,6 +8,9 @@
 ;
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
+;
+; Example #8:
+;    Counted loop to fill-in attribute memory based on JP instruction.
 
 
 
