@@ -8,6 +8,9 @@
 ;
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
+;
+; Example #6:
+;    Generating tape image with BASIC loader (incorrect version)
 
 
 
