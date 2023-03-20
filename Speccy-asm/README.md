@@ -12,3 +12,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Counted loop to fill-in attribute memory based on JP instruction](08-loop.asm)
 1. [Counted loop to fill-in attribute memory based on JP instruction](09-loop.asm)
 1. [Counted loop to fill-in attribute memory based on DJNZ instruction](10-loop.asm)
+1. [Simplified counted loop to fill-in attribute memory based on DJNZ instruction](11-loop.asm)
+1. [Counted loop to fill-in attribute memory based on DJNZ instruction and IX register](12-loop.asm)
+1. [Counted loop to fill-in attribute memory based on DJNZ instruction and IY register](13-loop.asm)
+1. [Counted loop with 16-bit counter (non optimized variant)](14-loop.asm)
+1. [Counted loop with 16-bit counter (optimized variant)](15-loop.asm)
