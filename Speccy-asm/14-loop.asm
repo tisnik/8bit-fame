@@ -8,6 +8,9 @@
 ;
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
+;
+; Example #14:
+;    Counted loop with 16-bit counter (non optimized variant).
 
 
 
