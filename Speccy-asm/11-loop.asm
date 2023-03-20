@@ -8,6 +8,9 @@
 ;
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
+;
+; Example #11:
+;    Simplified counted loop to fill-in attribute memory based on DJNZ instruction.
 
 
 
