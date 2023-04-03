@@ -6,7 +6,8 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     31.tap 32.tap 33.tap 34.tap 35.tap 36.tap 37.tap 38.tap 39.tap 40.tap \
     41.tap 42.tap 43.tap 44.tap 45.tap 46.tap 47.tap 48.tap 49.tap 50.tap \
     51.tap 52.tap 53.tap 54.tap 55.tap 56.tap 57.tap 58.tap 59.tap 60.tap \
-    61.tap 62.tap 63.tap 64.tap 65.tap 66.tap
+    61.tap 62.tap 63.tap 64.tap 65.tap 66.tap 67.tap 68.tap 69.tap 70.tap \
+    71.tap 72.tap
 
 clean:
 	rm -f *.tap
@@ -211,3 +212,21 @@ clean:
 
 66.tap:	66-more-numbers-B.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 66-more-numbers-B.lst
+
+67.tap:	67-print-flags-1.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 67-print-flags-1.lst
+
+68.tap:	68-print-flags-2.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 68-print-flags-2.lst
+
+69.tap:	69-print-flags-3.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 69-print-flags-3.lst
+
+70.tap:	70-print-flags-4.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 70-print-flags-4.lst
+
+71.tap:	71-print-flags-5.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 71-print-flags-5.lst
+
+72.tap:	72-print-flags-6.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 72-print-flags-6.lst
