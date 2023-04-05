@@ -1,3 +1,15 @@
+; Example that is used in following article:
+;    Vývoj her a dem pro ZX Spectrum: vlastní vykreslovací subrutiny
+;    https://www.root.cz/clanky/vyvoj-her-a-dem-pro-zx-spectrum-vlastni-vykreslovaci-subrutiny/
+;
+; This article is part of series:
+;    "Vývoj pro slavné ZX Spectrum"
+;    https://www.root.cz/serialy/vyvoj-pro-slavne-zx-spectrum/
+;
+; Repository:
+;    https://github.com/tisnik/8bit-fame
+;
+
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
 ROM_PRINT        equ $203C
