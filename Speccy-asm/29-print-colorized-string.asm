@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #29:
+;    Print string with changing text color
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
