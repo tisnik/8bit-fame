@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #21:
+;    Open channel #2 to write on screen
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
