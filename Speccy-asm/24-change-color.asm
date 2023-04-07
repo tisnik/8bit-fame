@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #24:
+;    Change character colors via control characters
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
