@@ -1,3 +1,15 @@
+; Example that is used in following article:
+;    Vývoj pro ZX Spectrum: dokončení realizace příkazu PLOT
+;    https://www.root.cz/clanky/vyvoj-pro-zx-spectrum-dokonceni-realizace-prikazu-plot/
+;
+; This article is part of series:
+;    "Vývoj pro slavné ZX Spectrum"
+;    https://www.root.cz/serialy/vyvoj-pro-slavne-zx-spectrum/
+;
+; Repository:
+;    https://github.com/tisnik/8bit-fame
+;
+
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
 ENTRY_POINT     equ $8000
