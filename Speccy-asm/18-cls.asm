@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #18:
+;    Clear screen and opening I/O channel #2
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
