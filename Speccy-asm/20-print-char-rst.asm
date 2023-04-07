@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #20:
+;    Clear screen and print character, ROM subroutine called via RST instruction
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
