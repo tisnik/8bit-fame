@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #30:
+;    Print string using subroutine stored in ROM
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
