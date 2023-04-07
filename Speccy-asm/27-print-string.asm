@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #27:
+;    Print whole string onto screen, unoptimized version
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
