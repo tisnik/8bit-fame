@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #23:
+;    Print ASCII table on screen, optimized version
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
