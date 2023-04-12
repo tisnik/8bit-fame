@@ -22,3 +22,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Clear screen and opening I/O channel #2](18-cls.asm)
 1. [Clear screen and print character to screen](19-print-char-call.asm)
 1. [Clear screen and print character, ROM subroutine called via RST instruction](20-print-char-rst.asm)
+1. [Open channel #2 to write on screen](21-print-char.asm)
+1. [Print ASCII table on screen. unoptimized version](22-print-all-chars.asm)
+1. [Print ASCII table on screen, optimized version](23-print-all-chars.asm)
+1. [Change character colors via control characters](24-change-color.asm)
+1. [Change character blinking attribute via control characters](25-change-flash.asm)
