@@ -1,3 +1,15 @@
+; Example that is used in following article:
+;    Aritmetické operace s hodnotami uloženými binárně i ve formátu BCD
+;    https://www.root.cz/clanky/aritmeticke-operace-s-hodnotami-ulozenymi-binarne-i-ve-formatu-bcd/
+;
+; This article is part of series:
+;    "Vývoj pro slavné ZX Spectrum"
+;    https://www.root.cz/serialy/vyvoj-pro-slavne-zx-spectrum/
+;
+; Repository:
+;    https://github.com/tisnik/8bit-fame
+;
+
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
 OUT_NUM_1     equ $1A1B
