@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #34:
+;    Fill-in screen by specified bit pattern.
 
 SCREEN_ADR    equ $4000
 ENTRY_POINT   equ $8000
