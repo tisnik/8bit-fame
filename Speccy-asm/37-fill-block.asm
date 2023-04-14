@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #37:
+;    Fill-in the 8x8 block of pixels by constant pattern.
 
 SCREEN_ADR      equ $4000
 ENTRY_POINT     equ $8000
