@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #32:
+;    Fill-in screen by ink color.
 
 SCREEN_ADR    equ $4000
 ENTRY_POINT   equ $8000
