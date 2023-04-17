@@ -7,7 +7,8 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     41.tap 42.tap 43.tap 44.tap 45.tap 46.tap 47.tap 48.tap 49.tap 50.tap \
     51.tap 52.tap 53.tap 54.tap 55.tap 56.tap 57.tap 58.tap 59.tap 60.tap \
     61.tap 62.tap 63.tap 64.tap 65.tap 66.tap 67.tap 68.tap 69.tap 70.tap \
-    71.tap 72.tap 73.tap 74.tap 75.tap 76.tap 77.tap 78.tap
+    71.tap 72.tap 73.tap 74.tap 75.tap 76.tap 77.tap 78.tap 79.tap 80.tap \
+    81.tap 82.tap 83.tap
 
 clean:
 	rm -f *.tap
@@ -248,3 +249,18 @@ clean:
 
 78.tap:	78-add-bcd-numbers.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 78-add-bcd-numbers.lst
+
+79.tap:	79-print-hex-digit-jmp.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 79-print-hex-digit-jmp.lst
+
+80.tap:	80-print-hex-digit-overflow.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 80-print-hex-digit-overflow.lst
+
+81.tap:	81-print-hex-digit-daa.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 81-print-hex-digit-daa.lst
+
+82.tap:	82-print-hex-numbers-daa.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 82-print-hex-numbers-daa.lst
+
+83.tap:	83-print-fp-numbers.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 83-print-fp-numbers.lst
