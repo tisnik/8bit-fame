@@ -27,3 +27,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Print ASCII table on screen, optimized version](23-print-all-chars.asm)
 1. [Change character colors via control characters](24-change-color.asm)
 1. [Change character blinking attribute via control characters](25-change-flash.asm)
+1. [Change text position on screen via control characters](26-print-at.asm)
+1. [Print whole string onto screen, unoptimized version](27-print-string.asm)
+1. [Print whole string onto screen, optimized version](28-print-string.asm)
+1. [Print string with changing text color](29-print-colorized-string.asm)
+1. [Print string using subroutine stored in ROM](30-print-string-ROM.asm)
