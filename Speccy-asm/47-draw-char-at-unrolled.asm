@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #47:
+;    Draw any character anywhere on screen using own drawing routine (unrolled loop).
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
