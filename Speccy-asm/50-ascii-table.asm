@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #50:
+;    Print ASCII table on screen.
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
