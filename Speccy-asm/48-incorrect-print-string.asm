@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #48:
+;    Print string on screen (incorrect solution).
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
