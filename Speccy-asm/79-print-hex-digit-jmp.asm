@@ -1,3 +1,15 @@
+; Example that is used in following article:
+;    Tisk hexadecimálních hodnot s využitím instrukce DAA na ZX Spectru
+;    https://www.root.cz/clanky/tisk-hexadecimalnich-hodnot-s-vyuzitim-instrukce-daa-na-zx-spectru/
+;
+; This article is part of series:
+;    "Vývoj pro slavné ZX Spectrum"
+;    https://www.root.cz/serialy/vyvoj-pro-slavne-zx-spectrum/
+;
+; Repository:
+;    https://github.com/tisnik/8bit-fame
+;
+
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
 OUT_NUM_1     equ $1A1B
