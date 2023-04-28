@@ -12,13 +12,13 @@ ENTRY_POINT         equ $8000
 
 	; Vstupní bod celého programu
 start:
-	call fill_in_screen      ; vyplnění obrazovky ASCII tabulkami
-	ld   bc, SCREEN_ADR
-	ld   de, SECOND_SCREEN_BLOCK
-	ld   hl, SCREEN_BLOCK_SIZE
+	call fill_in_screen           ; vyplnění obrazovky ASCII tabulkami
+	ld   hl, SCREEN_ADR           ; adresa zdrojového bloku
+	ld   de, SECOND_SCREEN_BLOCK  ; adresa cílového bloku
+	ld   bc, SCREEN_BLOCK_SIZE    ; velikost přenášených dat
 	call mem_copy
 finito:
-	jr finito                ; ukončit program nekonečnou smyčkou
+	jr finito                     ; ukončit program nekonečnou smyčkou
 
 
 fill_in_screen:
@@ -32,13 +32,13 @@ fill_in_screen:
 
 
 mem_copy:
-	ld A, (BC)               ; načtení bajtu ze zdrojového bloku
+	ld A, (HL)               ; načtení bajtu ze zdrojového bloku
 	ld (DE), A               ; uložení bajtu do cílového bloku
-	inc BC                   ; zvýšení ukazatele do zdrojového bloku
+	inc HL                   ; zvýšení ukazatele do zdrojového bloku
 	inc DE                   ; zvýšení ukazatele do cílového bloku
-	dec HL                   ; snížení hodnoty počitadla
-	ld A, H                  ; test, zda počitadlo dosáhlo nuly
-	or L
+	dec BC                   ; snížení hodnoty počitadla
+	ld A, B                  ; test, zda počitadlo dosáhlo nuly
+	or C
 	jp NZ, mem_copy          ; opakovat
 	ret                      ; návrat z podprogramu
 
