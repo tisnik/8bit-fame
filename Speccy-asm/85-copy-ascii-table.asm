@@ -1,5 +1,5 @@
-; Example #84:
-;    Print ASCII table on screen.
+; Example #85:
+;    Print ASCII table on screen + copy it to second part of screen using custom mem copy.
 
 SCREEN_ADR          equ $4000
 SCREEN_BLOCK_SIZE   equ 32*64
