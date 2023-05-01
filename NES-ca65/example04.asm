@@ -4,6 +4,9 @@
 ;
 ; Založeno na příkladu https://github.com/depp/ctnes/tree/master/nesdev/01
 ; Viz též článek na https://www.moria.us/blog/2018/03/nes-development
+;
+; Tento zdrojový kód je součástí seriálu Vývoj her pro herní konzoli NES
+; https://www.root.cz/serialy/vyvoj-her-pro-herni-konzoli-nes/
 ; ---------------------------------------------------------------------
 
 ; Jména řídicích registrů použitých v kódu
