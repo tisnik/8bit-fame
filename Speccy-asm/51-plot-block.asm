@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #51:
+;    Drawing blocky pixel of 8x1 real pixels size (no mask applied).
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
