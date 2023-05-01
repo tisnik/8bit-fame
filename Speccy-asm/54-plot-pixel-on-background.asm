@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #54:
+;    Drawing real pixel, but erasing whole 8x1 pixel background (optimized variant).
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
