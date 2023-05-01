@@ -8,7 +8,7 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     51.tap 52.tap 53.tap 54.tap 55.tap 56.tap 57.tap 58.tap 59.tap 60.tap \
     61.tap 62.tap 63.tap 64.tap 65.tap 66.tap 67.tap 68.tap 69.tap 70.tap \
     71.tap 72.tap 73.tap 74.tap 75.tap 76.tap 77.tap 78.tap 79.tap 80.tap \
-    81.tap 82.tap 83.tap 84.tap 85.tap x.tap
+    81.tap 82.tap 83.tap 84.tap 85.tap 86.tap 87.tap 88.tap 80.tap 90.tap
 
 clean:
 	rm -f *.tap
@@ -270,6 +270,21 @@ clean:
 
 85.tap:	85-copy-ascii-table.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 85-copy-ascii-table.lst
+
+86.tap:	86-copy-ascii-table-B.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 86-copy-ascii-table-B.lst
+
+87.tap:	87-copy-ascii-table-C.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 87-copy-ascii-table-C.lst
+
+88.tap:	88-copy-ascii-table-D.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 88-copy-ascii-table-D.lst
+
+89.tap:	89-copy-ascii-table-E.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 89-copy-ascii-table-E.lst
+
+90.tap:	90-copy-ascii-table-F.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 90-copy-ascii-table-F.lst
 
 x.tap:	x.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > x.lst
