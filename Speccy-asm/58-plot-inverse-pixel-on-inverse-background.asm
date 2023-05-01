@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #58:
+;    Drawing inverse pixel without erasing background onto screen with inverse ASCII table.
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
