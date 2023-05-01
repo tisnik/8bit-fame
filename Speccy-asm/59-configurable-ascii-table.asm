@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #59:
+;    Print ASCII table in normal and also inverse colors on screen.
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
