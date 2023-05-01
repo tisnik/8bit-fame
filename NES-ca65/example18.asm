@@ -10,6 +10,9 @@
 ; Taktéž založeno na https://nerdy-nights.nes.science/#main_tutorial-3
 ; Viz též článek na https://www.moria.us/blog/2018/03/nes-development
 ; Audio https://raw.githubusercontent.com/iliak/nes/master/doc/apu_ref.txt
+;
+; Tento zdrojový kód je součástí seriálu Vývoj her pro herní konzoli NES
+; https://www.root.cz/serialy/vyvoj-her-pro-herni-konzoli-nes/
 ; ---------------------------------------------------------------------
 
 ; Jména řídicích registrů použitých v kódu
