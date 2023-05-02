@@ -26,7 +26,7 @@ mem_copy:
 	ret  z                   ; při prázdném bloku podprogram ukončíme
 
 	ld   a, 16               ; na základě hodnoty v C vypočteme, kolik
-	sub  c                   ; insturkcí LDI se má na začátku přenosu přeskočit
+	sub  c                   ; instrukcí LDI se má na začátku přenosu přeskočit
 	and  15                  ; maximálně se přeskočí 15 instrukcí ze 16
 
 	add  a, a                ; vynásobit dvěma protože LDI je dvoubajtová instrukce
