@@ -32,3 +32,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Print whole string onto screen, optimized version](28-print-string.asm)
 1. [Print string with changing text color](29-print-colorized-string.asm)
 1. [Print string using subroutine stored in ROM](30-print-string-ROM.asm)
+1. [Print string using attribute changed directly in memory](31-attributes.asm)
+1. [Fill-in screen by ink color](32-fill-in-vram.asm)
+1. [Fill-in screen by ink color, RET optimization](33-fill-in-vram-no-ret.asm)
+1. [Fill-in screen by specified bit pattern](34-fill-in-vram-pattern.asm)
+1. [Fill-in the whole screen by ink color](35-slow-fill-in-vram.asm)
