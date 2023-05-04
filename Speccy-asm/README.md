@@ -37,3 +37,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Fill-in screen by ink color, RET optimization](33-fill-in-vram-no-ret.asm)
 1. [Fill-in screen by specified bit pattern](34-fill-in-vram-pattern.asm)
 1. [Fill-in the whole screen by ink color](35-slow-fill-in-vram.asm)
+1. [Fill-in the whole screen by ink color, RET optimization (no return to system)](36-slow-fill-in-vram-no-ret.asm)
+1. [Fill-in the 8x8 block of pixels by constant pattern](37-fill-block.asm)
+1. [Fill-in the 8x8 block of pixels by specified pattern, unoptimized variant](38-fill-block-with-pattern.asm)
+1. [Fill-in the 8x8 block of pixels by specified pattern, optimized variant](39-fill-block-optimized.asm)
+1. [Draw one selected character using own drawing routine](40-draw-char.asm)
