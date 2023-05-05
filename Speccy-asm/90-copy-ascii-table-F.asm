@@ -1,5 +1,5 @@
-; Example #88:
-;    Print ASCII table on screen + copy it to second part of screen using unrolled loop.
+; Example #90:
+;    Print ASCII table on screen + copy it to second part of screen using stack.
 
 SCREEN_ADR          equ $4000
 SCREEN_BLOCK_SIZE   equ 32*64
