@@ -1,4 +1,4 @@
-; Example #88:
+; Example #89:
 ;    Print ASCII table on screen + copy it to second part of screen using unrolled loop.
 
 SCREEN_ADR          equ $4000
