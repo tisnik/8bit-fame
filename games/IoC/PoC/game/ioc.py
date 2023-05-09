@@ -19,6 +19,7 @@ import pygame.locals
 
 from ghost import Ghost
 from config import WINDOW_WIDTH, WINDOW_HEIGHT
+from colors import Colors
 
 
 pygame.init()
@@ -30,10 +31,7 @@ display = pygame.display.set_mode([WINDOW_WIDTH, WINDOW_HEIGHT])
 # set window title
 pygame.display.set_caption("Inversion of Control")
 
-# colors
-BLACK = (0, 0, 0)
-
-display.fill(BLACK)
+display.fill(Colors.BLACK.value)
 
 
 green_ghost = Ghost(display, "ghost_green")
