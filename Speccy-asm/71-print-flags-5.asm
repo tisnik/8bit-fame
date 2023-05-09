@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #71:
+;    Print flags after arithmetic operation 255+255.
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
