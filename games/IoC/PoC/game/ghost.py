@@ -16,8 +16,7 @@ from sprite import Sprite
 
 class Ghost(Sprite):
     def __init__(self, display, filename_prefix):
-        self._direction = Direction.UP
-        self._display = display
+        super(Ghost, self).__init__(display)
 
         self._sprites = {}
         self._sprites[Direction.LEFT] = self.loadImage(filename_prefix, "left")

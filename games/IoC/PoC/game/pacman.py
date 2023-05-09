@@ -16,11 +16,10 @@ from sprite import Sprite
 
 class PacMan(Sprite):
     def __init__(self, display, filename_prefix):
-        self._direction = Direction.LEFT
-        self._display = display
+        super(PacMan, self).__init__(display)
 
         self._sprites = {}
         self._sprites[Direction.LEFT] = self.loadImage(filename_prefix, "full")
-
-    def draw(self):
-        self._display.blit(self._sprites[self._direction], (10, 10))
+        self._sprites[Direction.RIGHT] = self.loadImage(filename_prefix, "full")
+        self._sprites[Direction.UP] = self.loadImage(filename_prefix, "full")
+        self._sprites[Direction.DOWN] = self.loadImage(filename_prefix, "full")
