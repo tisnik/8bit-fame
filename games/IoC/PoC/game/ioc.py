@@ -39,6 +39,10 @@ green_ghost = Ghost(display, "ghost_green")
 green_ghost.draw()
 
 pacman = PacMan(display, "pacman")
+
+for i in range(50):
+    pacman.tick()
+    pacman.move()
 pacman.draw()
 
 
