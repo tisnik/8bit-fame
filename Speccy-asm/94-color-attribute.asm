@@ -16,7 +16,7 @@ WHITE_COLOR   equ %111
 
 start:
 	ld a, INTENSITY_BIT | (BLUE_COLOR << 3) | RED_COLOR
-	ld (ATTRIBUTE_ADR+32*3+2),a
-	ret
+	ld (ATTRIBUTE_ADR+32*3+2), a  ; zápis atributu do atributové paměti
+	ret                           ; návrat do BASICu
 
 end ENTRY_POINT
