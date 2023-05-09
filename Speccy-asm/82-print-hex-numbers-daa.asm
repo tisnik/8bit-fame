@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #82:
+;    Print more hexadecimal numbers, based on DAA instruction trick.
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
