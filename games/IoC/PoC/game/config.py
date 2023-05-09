@@ -10,4 +10,12 @@
 #      Pavel Tisnovsky
 #
 
+import configparser
+
 IMAGES_PATH = "images"
+
+def loadConfiguration(filename):
+    pass
+
+def saveConfiguration(filename):
+    pass
