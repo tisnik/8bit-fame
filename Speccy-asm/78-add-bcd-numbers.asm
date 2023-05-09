@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #78:
+;    Add numbers and print results in BCD format.
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
