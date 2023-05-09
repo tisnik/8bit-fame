@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #83:
+;    Print floating point number on screen using standard ROM call.
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
