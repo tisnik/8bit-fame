@@ -10,7 +10,7 @@
 #      Pavel Tisnovsky
 #
 
-from setup import IMAGES_PATH
+from config import IMAGES_PATH
 from direction import Direction
 
 import pygame

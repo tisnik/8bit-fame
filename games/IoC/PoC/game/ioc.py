@@ -23,8 +23,6 @@ from ghost import Ghost
 WIDTH = 640
 HEIGHT = 480
 
-IMAGES_PATH = "images"
-
 
 pygame.init()
 clock = pygame.time.Clock()
