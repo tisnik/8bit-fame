@@ -18,6 +18,7 @@ import pygame
 import pygame.locals
 
 from ghost import Ghost
+from pacman import PacMan
 from config import WINDOW_WIDTH, WINDOW_HEIGHT
 from colors import Colors
 
@@ -36,6 +37,9 @@ display.fill(Colors.BLACK.value)
 
 green_ghost = Ghost(display, "ghost_green")
 green_ghost.draw()
+
+pacman = PacMan(display, "pacman")
+pacman.draw()
 
 
 while True:
