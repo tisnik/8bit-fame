@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #64:
+;    Print very large number (10000) using standard ROM call.
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
