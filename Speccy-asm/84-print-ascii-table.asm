@@ -1,3 +1,14 @@
+; Example that is used in following article:
+;    Kopie datových bloků na ZX Spectru: přenášení bajt po bajtu
+;    https://www.root.cz/clanky/kopie-datovych-bloku-na-zx-spectru-prenaseni-bajt-po-bajtu/
+;
+; This article is part of series:
+;    "Vývoj pro slavné ZX Spectrum"
+;    https://www.root.cz/serialy/vyvoj-pro-slavne-zx-spectrum/
+;
+; Repository:
+;    https://github.com/tisnik/8bit-fame
+;
 ; Example #84:
 ;    Print ASCII table on screen.
 
