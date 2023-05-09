@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #75:
+;    Print hexadecimal number (naive implementation, but optimized a bit).
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
