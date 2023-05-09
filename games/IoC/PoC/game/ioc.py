@@ -18,17 +18,14 @@ import pygame
 import pygame.locals
 
 from ghost import Ghost
-
-
-WIDTH = 640
-HEIGHT = 480
+from config import WINDOW_WIDTH, WINDOW_HEIGHT
 
 
 pygame.init()
 clock = pygame.time.Clock()
 
 # create game window
-display = pygame.display.set_mode([WIDTH, HEIGHT])
+display = pygame.display.set_mode([WINDOW_WIDTH, WINDOW_HEIGHT])
 
 # set window title
 pygame.display.set_caption("Inversion of Control")

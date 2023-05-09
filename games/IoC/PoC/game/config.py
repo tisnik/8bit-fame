@@ -13,6 +13,9 @@
 import configparser
 
 IMAGES_PATH = "images"
+WINDOW_WIDTH = 800
+WINDOW_HEIGHT = 600
+
 
 def loadConfiguration(filename):
     pass
