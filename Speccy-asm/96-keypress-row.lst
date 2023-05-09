@@ -1,0 +1,100 @@
+ATTRIBUTE_ADR	EQU 5800
+ENTRY_POINT	EQU 8000
+ROM_CLS		EQU 0DAF
+		ORG 8000
+BLINK_BIT	EQU 0080
+INTENSITY_BIT	EQU 0040
+BLACK_COLOR	EQU 0000
+BLUE_COLOR	EQU 0001
+RED_COLOR	EQU 0002
+MAGENTA_COLOR	EQU 0003
+GREEN_COLOR	EQU 0004
+CYAN_COLOR	EQU 0005
+YELLOW_COLOR	EQU 0006
+WHITE_COLOR	EQU 0007
+KB_ROW_0_PORT	EQU FEF0
+Defining MACRO printChar
+Params: character
+Defining MACRO changeAttribute
+Params: attribute
+8000:		label start
+8000:CDAF0D	CALL 0DAF
+Expanding MACRO printChar
+character= ^ 
+LD A , character 
+8003:3E5E	LD A, 5E
+RST 0010 
+8005:D7		RST 10
+ENDM 
+		ENDM
+End of MACRO printChar
+Expanding MACRO printChar
+character= Z 
+LD A , character 
+8006:3E5A	LD A, 5A
+RST 0010 
+8008:D7		RST 10
+ENDM 
+		ENDM
+End of MACRO printChar
+Expanding MACRO printChar
+character= X 
+LD A , character 
+8009:3E58	LD A, 58
+RST 0010 
+800B:D7		RST 10
+ENDM 
+		ENDM
+End of MACRO printChar
+Expanding MACRO printChar
+character= C 
+LD A , character 
+800C:3E43	LD A, 43
+RST 0010 
+800E:D7		RST 10
+ENDM 
+		ENDM
+End of MACRO printChar
+Expanding MACRO printChar
+character= V 
+LD A , character 
+800F:3E56	LD A, 56
+RST 0010 
+8011:D7		RST 10
+ENDM 
+		ENDM
+End of MACRO printChar
+8012:		label keypress
+8012:01F0FE	LD BC, FEF0
+8015:ED78	IN A, (C)
+8017:210058	LD HL, 5800
+801A:0605	LD B, 05
+801C:		label next_key
+801C:CB3F	SRL A
+801E:3005	JR NC, 8025
+Expanding MACRO changeAttribute
+attribute= WHITE_COLOR << 0003 
+LD ( HL ) , attribute 
+8020:3638	LD (HL), 38
+INC HL 
+8022:23		INC HL
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+8023:1803	JR 8028
+8025:		label key_pressed
+Expanding MACRO changeAttribute
+attribute= INTENSITY_BIT | ( RED_COLOR << 0003 ) 
+LD ( HL ) , attribute 
+8025:3650	LD (HL), 50
+INC HL 
+8027:23		INC HL
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+8028:		label next
+8028:10F2	DJNZ 801C
+802A:C31280	JP 8012
+802D:		END 8000
+Emiting TAP basic loader
+Emiting TAP from 8000 to 802C
