@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #66:
+;    Print sequence of numbers on screen.
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
