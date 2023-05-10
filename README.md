@@ -17,6 +17,7 @@
 ## Various programs written in assembly for 8bit computers
 
 1. [Examples for ZX Spectrum](<Speccy-asm>)
+1. [Examples for 8-bit Ataris](<Atari800-ca65>)
 
 ## Various programs written in BASIC for 8bit computers
 
@@ -28,6 +29,7 @@
 1. [Examples fro BBC Basic](<BBC Basic>)
 1. [Player-missile graphics on 8bit Atari](<PMG>)
 1. [Simple games for 8bit Atari](games)
+1. [Curves in Computer Graphics](<curves>)
 1. [Various Atari-related tools](tools)
 1. [Proofs of concept](PoCs)
 
@@ -49,3 +51,4 @@ IBM PC based on Intel 8088 microprocessor is 8/16 bit computer
 
 1. [Examples that are based on cc65 C compiler](<cc65>)
 1. [Examples for NES game console written in CC65](<NES-cc65>)
+
