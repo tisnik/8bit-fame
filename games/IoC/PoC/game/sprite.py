@@ -16,6 +16,7 @@ import os
 from direction import Direction
 from config import IMAGES_PATH
 
+
 class Sprite:
     def __init__(self, display):
         self._direction = Direction.RIGHT
