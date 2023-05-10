@@ -25,6 +25,7 @@ class Sprite:
         self._display = display
 
     def draw(self):
+        """Elementary draw method to be overwritten in derived classes."""
         self._display.blit(self._sprites[self._direction], (self._x, self._y))
 
     def loadImage(self, filename_prefix, filename_suffix):
