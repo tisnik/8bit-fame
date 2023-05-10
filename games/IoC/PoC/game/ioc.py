@@ -39,15 +39,21 @@ display.fill(Colors.BLACK.value)
 green_ghost = Ghost(display, "ghost_green")
 green_ghost.draw()
 
+cyan_ghost = Ghost(display, "ghost_cyan")
+
 pacman = PacMan(display, "pacman")
 
 for i in range(50):
     pacman.tick()
     pacman.move()
+    cyan_ghost.move()
+    cyan_ghost.move()
 
 pacman.setDirection(Direction.UP)
 pacman.draw()
 
+cyan_ghost.setScared(True)
+cyan_ghost.draw()
 
 while True:
     for event in pygame.event.get():
