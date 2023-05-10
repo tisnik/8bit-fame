@@ -20,5 +20,6 @@ WINDOW_HEIGHT = 600
 def loadConfiguration(filename):
     pass
 
+
 def saveConfiguration(filename):
     pass
