@@ -35,6 +35,10 @@ class Sprite:
     def setDirection(self, direction):
         self._direction = direction
 
+    def setPosition(self, x, y):
+        self._x = x
+        self._y = y
+
     def move(self):
         if self._direction == Direction.UP:
             self._y -= 1
