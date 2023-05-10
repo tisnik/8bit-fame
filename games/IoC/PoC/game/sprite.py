@@ -30,6 +30,9 @@ class Sprite:
         filename = f"{filename_prefix}_{filename_suffix}.png"
         return pygame.image.load(os.path.join(IMAGES_PATH, filename))
 
+    def setDirection(self, direction):
+        self._direction = direction
+
     def move(self):
         if self._direction == Direction.UP:
             self._y -= 1

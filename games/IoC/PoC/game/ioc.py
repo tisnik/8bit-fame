@@ -21,6 +21,7 @@ from ghost import Ghost
 from pacman import PacMan
 from config import WINDOW_WIDTH, WINDOW_HEIGHT
 from colors import Colors
+from direction import Direction
 
 
 pygame.init()
@@ -43,6 +44,8 @@ pacman = PacMan(display, "pacman")
 for i in range(50):
     pacman.tick()
     pacman.move()
+
+pacman.setDirection(Direction.UP)
 pacman.draw()
 
 
