@@ -22,6 +22,7 @@ from pacman import PacMan
 from config import WINDOW_WIDTH, WINDOW_HEIGHT
 from colors import Colors
 from direction import Direction
+from splash_screen import SplashScreen
 
 
 pygame.init()
@@ -55,6 +56,8 @@ pacman.draw()
 cyan_ghost.setScared(True)
 cyan_ghost.draw()
 
+splash_screen = SplashScreen(display, "splash_screen", 8)
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.locals.QUIT:
@@ -63,8 +66,10 @@ while True:
         if event.type == pygame.locals.KEYDOWN and event.key == pygame.locals.K_ESCAPE:
             pygame.quit()
             sys.exit()
+    display.fill(Colors.BLACK.value)
+    splash_screen.draw()
     pygame.display.update()
-    clock.tick(20)
+    clock.tick(8)
 
 
 # finito
