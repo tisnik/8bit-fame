@@ -1,4 +1,16 @@
+; Example that is used in following article:
+;    Kopie datových bloků na ZX Spectru s využitím zásobníku
+;    https://www.root.cz/clanky/kopie-datovych-bloku-na-zx-spectru-s-vyuzitim-zasobniku/
+;
+; This article is part of series:
+;    "Vývoj pro slavné ZX Spectrum"
+;    https://www.root.cz/serialy/vyvoj-pro-slavne-zx-spectrum/
+;
+; Repository:
+;    https://github.com/tisnik/8bit-fame
+;
 ; Example #91:
+;    Usage of macros supported by Pasmo.
 
 SCREEN_ADR          equ $4000
 SCREEN_BLOCK_SIZE   equ 32*64
