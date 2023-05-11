@@ -19,11 +19,13 @@ import pygame.locals
 
 from ghost import Ghost
 from pacman import PacMan
-from config import WINDOW_WIDTH, WINDOW_HEIGHT
+from config import WINDOW_WIDTH, WINDOW_HEIGHT, loadConfiguration
 from colors import Colors
 from direction import Direction
 from splash_screen import SplashScreen
 
+
+configuration = loadConfiguration("ioc.ini")
 
 pygame.init()
 clock = pygame.time.Clock()

@@ -18,7 +18,9 @@ WINDOW_HEIGHT = 600
 
 
 def loadConfiguration(filename):
-    pass
+    config = configparser.ConfigParser()
+    config.read(filename)
+    return config
 
 
 def saveConfiguration(filename):
