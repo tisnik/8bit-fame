@@ -38,6 +38,9 @@ class SplashScreen:
             self._small_font.render("Quit", True, (120,120,255), (0,0,0)),
         )
 
+        # actually selected menu item
+        self._selected_menu_item = 0
+
         self._display = display
 
         self._ghost = ghost
@@ -89,9 +92,40 @@ class SplashScreen:
 
     def drawGhost(self):
         """Draw the ghost on left side of main menu."""
-        self._ghost.setPosition(40, 310)
+        # compute ghost vertical position based on selected menu item
+        y = 310 + self._selected_menu_item * 50
+        self._ghost.setPosition(40, y)
         self._ghost.draw()
+        self.cycleGhostDirection()
+
+    
+    def cycleGhostDirection(self):
+        """Periodically change ghost direction to create simple animation."""
         self._cycleDirectionCounter -= 1
         if self._cycleDirectionCounter == 0:
             self._ghost.cycleDirection()
             self._cycleDirectionCounter = SplashScreen.CYCLE_DIRECTION_COUNTER_START_VALUE
+
+    def moveGhostUp(self):
+        """Move ghost up to previous menu item."""
+        # previous item
+        self._selected_menu_item -= 1
+
+        # wrapping
+        if self._selected_menu_item < 0:
+            self._selected_menu_item = len(self._menu) - 1
+
+        # redraw the screen immediatelly
+        self.draw()
+
+    def moveGhostDown(self):
+        """Move ghost down to next menu item."""
+        # next item
+        self._selected_menu_item += 1
+
+        # wrapping
+        if self._selected_menu_item > len(self._menu) - 1:
+            self._selected_menu_item = 0
+
+        # redraw the screen immediatelly
+        self.draw()
