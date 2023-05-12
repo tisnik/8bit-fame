@@ -14,7 +14,13 @@ from enum import Enum
 
 
 class Direction(Enum):
-    LEFT = 1
+    UP = 1
     RIGHT = 2
-    UP = 3
-    DOWN = 4
+    DOWN = 3
+    LEFT = 4
+
+    def succ(self):
+        value = self.value + 1
+        if value > Direction.LEFT.value:
+            return Direction.UP
+        return Direction(value)
