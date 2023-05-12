@@ -129,3 +129,7 @@ class SplashScreen:
 
         # redraw the screen immediatelly
         self.draw()
+
+    def getSelectedMenuItem(self):
+        """Retrieve actually selected menu item."""
+        return self._selected_menu_item
