@@ -20,7 +20,7 @@ from config import IMAGES_PATH
 class Sprite:
     """Super class for all movable objects in the game."""
 
-    def __init__(self, display):
+    def __init__(self, surface):
         """Initialize the sprite."""
 
         # most sprites can be rotated in four directions
@@ -38,22 +38,40 @@ class Sprite:
         self._surface.blit(self._sprites[self._direction], (self._x, self._y))
 
     def loadImage(self, filename_prefix, filename_suffix):
+        """Load image for sprite."""
         filename = f"{filename_prefix}_{filename_suffix}.png"
         return pygame.image.load(os.path.join(IMAGES_PATH, filename))
 
     def setDirection(self, direction):
+        """Set sprite direction (if applicable)."""
         self._direction = direction
 
+    def cycleDirection(self):
+        self._direction = self._direction.succ()
+
     def setPosition(self, x, y):
+        """Set sprite position."""
         self._x = x
         self._y = y
 
-    def move(self):
+    def move(self, step=1):
+        """Move sprite in actual direction."""
         if self._direction == Direction.UP:
-            self._y -= 1
+            self._y -= step
         elif self._direction == Direction.DOWN:
-            self._y += 1
+            self._y += step
         if self._direction == Direction.LEFT:
-            self._x -= 1
+            self._x -= step
         elif self._direction == Direction.RIGHT:
-            self._x += 1
+            self._x += step
+
+    def moveTo(self, x, y):
+        """Move sprite to absolute position."""
+        self._x = x
+        self._y = y
+
+
+    def moveRel(self, dx, dy):
+        """Move sprite to relative position."""
+        self._x += dx
+        self._y += dy
