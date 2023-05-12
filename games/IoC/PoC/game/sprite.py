@@ -70,7 +70,6 @@ class Sprite:
         self._x = x
         self._y = y
 
-
     def moveRel(self, dx, dy):
         """Move sprite to relative position."""
         self._x += dx
