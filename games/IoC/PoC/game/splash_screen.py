@@ -19,11 +19,18 @@ from config import IMAGES_PATH
 
 
 class SplashScreen:
-    def __init__(self, display, filename_prefix, frames_count):
+    """Splash screen with title, welcome animation, and a main menu."""
+    CYCLE_DIRECTION_COUNTER_START_VALUE = 3
+
+    def __init__(self, display, filename_prefix, frames_count, ghost):
+        # load fonts
         self._big_font = pygame.font.Font("fonts/FreeSans.ttf", 60)
         self._small_font = pygame.font.Font("fonts/FreeSans.ttf", 40)
+
+        # pre-render game title
         self._title = self._big_font.render("Inversion of Control", True, (255,255,255), (0,0,0))
 
+        # pre-render all menu items onto surfaces
         self._menu = (
             self._small_font.render("Start new game", True, (120,120,255), (0,0,0)),
             self._small_font.render("Settings", True, (120,120,255), (0,0,0)),
@@ -33,6 +40,10 @@ class SplashScreen:
 
         self._display = display
 
+        self._ghost = ghost
+        self._cycleDirectionCounter = SplashScreen.CYCLE_DIRECTION_COUNTER_START_VALUE
+
+        # load all animation frames
         self._frames = []
         for i in range(1, frames_count+1):
             filename = f"{filename_prefix}_{i}.png"
@@ -43,18 +54,22 @@ class SplashScreen:
 
 
     def draw(self):
+        """Draw splash screen."""
         self.drawAnimation()
         self.drawTitle()
         self.drawMenu()
+        self.drawGhost()
 
 
     def drawTitle(self):
+        """Draw the title."""
         x = self._display.get_width() / 2 - self._title.get_width() / 2
         y = 0
         self._display.blit(self._title, (x, y))
 
 
     def drawAnimation(self):
+        """Draw the welcome animation."""
         x = self._display.get_width() / 2 - self._frames[0].get_width() / 2 - 20
         y = 50
         self._display.blit(self._frames[self._frame], (x, y))
@@ -64,8 +79,19 @@ class SplashScreen:
 
 
     def drawMenu(self):
+        """Draw the main menu."""
         x = 100
         y = 300
         for menuItem in self._menu:
             self._display.blit(menuItem, (x, y))
             y += 50
+
+
+    def drawGhost(self):
+        """Draw the ghost on left side of main menu."""
+        self._ghost.setPosition(40, 310)
+        self._ghost.draw()
+        self._cycleDirectionCounter -= 1
+        if self._cycleDirectionCounter == 0:
+            self._ghost.cycleDirection()
+            self._cycleDirectionCounter = SplashScreen.CYCLE_DIRECTION_COUNTER_START_VALUE
