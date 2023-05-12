@@ -20,6 +20,10 @@ from config import IMAGES_PATH
 
 class SplashScreen:
     def __init__(self, display, filename_prefix, frames_count):
+        self._big_font = pygame.font.Font("fonts/FreeSans.ttf", 60)
+        self._title = self._big_font.render("Inversion of Control", True, (255,255,255), (0,0,0))
+
+
         self._display = display
 
         self._frames = []
@@ -30,11 +34,15 @@ class SplashScreen:
 
         self._frame = 0
 
-        self._x = display.get_width() / 2 - self._frames[0].get_width() / 2
-        self._y = 0
 
     def draw(self):
-        self._display.blit(self._frames[self._frame], (self._x, self._y))
+        x = self._display.get_width() / 2 - self._title.get_width() / 2
+        y = 0
+        self._display.blit(self._title, (x, y))
+
+        x = self._display.get_width() / 2 - self._frames[0].get_width() / 2 - 20
+        y = 50
+        self._display.blit(self._frames[self._frame], (x, y))
         self._frame += 1
         if self._frame >= len(self._frames):
             self._frame = 0
