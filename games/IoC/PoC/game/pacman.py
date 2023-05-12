@@ -17,8 +17,8 @@ from sprite import Sprite
 
 
 class PacMan(Sprite):
-    def __init__(self, display, filename_prefix):
-        super(PacMan, self).__init__(display)
+    def __init__(self, surface, filename_prefix):
+        super(PacMan, self).__init__(surface)
         self._tick = 0
 
         img_full = self.loadImage(filename_prefix, "full")
@@ -49,7 +49,7 @@ class PacMan(Sprite):
         self._sprites[Direction.DOWN] = (img_full, img_half, img_open)
 
     def draw(self):
-        self._display.blit(self._sprites[self._direction][self._tick], (self._x, self._y))
+        self._surface.blit(self._sprites[self._direction][self._tick], (self._x, self._y))
 
     def tick(self):
         self._tick += 1

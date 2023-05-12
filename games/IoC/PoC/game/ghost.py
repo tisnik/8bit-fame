@@ -21,8 +21,8 @@ class Scared(Enum):
 
 
 class Ghost(Sprite):
-    def __init__(self, display, filename_prefix):
-        super(Ghost, self).__init__(display)
+    def __init__(self, surface, filename_prefix):
+        super(Ghost, self).__init__(surface)
 
         self._scared = False
         self._scared_tick = 0
@@ -41,8 +41,8 @@ class Ghost(Sprite):
     def draw(self):
         if self._scared:
             if self._scared_tick == 0:
-                self._display.blit(self._sprites[Scared.SCARED1], (self._x, self._y))
+                self._surface.blit(self._sprites[Scared.SCARED1], (self._x, self._y))
             else:
-                self._display.blit(self._sprites[Scared.SCARED2], (self._x, self._y))
+                self._surface.blit(self._sprites[Scared.SCARED2], (self._x, self._y))
         else:
-            self._display.blit(self._sprites[self._direction], (self._x, self._y))
+            self._surface.blit(self._sprites[self._direction], (self._x, self._y))

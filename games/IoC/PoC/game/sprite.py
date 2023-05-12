@@ -18,15 +18,24 @@ from config import IMAGES_PATH
 
 
 class Sprite:
+    """Super class for all movable objects in the game."""
+
     def __init__(self, display):
+        """Initialize the sprite."""
+
+        # most sprites can be rotated in four directions
         self._direction = Direction.RIGHT
+
+        # absolute position of sprite on screen
         self._x = 0
         self._y = 0
-        self._display = display
+
+        # surface used to display the sprite
+        self._surface = surface
 
     def draw(self):
         """Elementary draw method to be overwritten in derived classes."""
-        self._display.blit(self._sprites[self._direction], (self._x, self._y))
+        self._surface.blit(self._sprites[self._direction], (self._x, self._y))
 
     def loadImage(self, filename_prefix, filename_suffix):
         filename = f"{filename_prefix}_{filename_suffix}.png"
