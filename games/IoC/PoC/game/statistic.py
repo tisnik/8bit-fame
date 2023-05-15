@@ -20,6 +20,15 @@ STATISTIC_FILENAME = "ioc.stats"
 class Statistic:
     def __init__(self):
         self.games = 0
+        self.totalTime = 0
+        self.scaredTime = 0
+        self.smallDotsEaten = 0
+        self.largeDotsEaten = 0
+        self.pacmanKills = 0
+        self.cyanGhostKills = 0
+        self.greenGhostKills = 0
+        self.pinkGhostKills = 0
+        self.redGhostKills = 0
 
 
 def loadStatistic():
