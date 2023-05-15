@@ -15,11 +15,15 @@
 import os
 import pygame
 
+from colors import Colors
 
 
 class SplashScreen:
     """Splash screen with title, welcome animation, and a main menu."""
     CYCLE_DIRECTION_COUNTER_START_VALUE = 3
+    BACKGROUND_COLOR = Colors.BLACK.value
+    TITLE_COLOR = (255, 255, 255)
+    MENU_COLOR = (120, 120, 255)
 
     def __init__(self, display, images_path, filename_prefix, frames_count, ghost):
         # load fonts
@@ -28,7 +32,8 @@ class SplashScreen:
 
         # pre-render game title
         self._title = self._big_font.render("Inversion of Control", True,
-                                            (255, 255, 255), (0, 0, 0))
+                                            SplashScreen.TITLE_COLOR,
+                                            SplashScreen.BACKGROUND_COLOR)
 
         # pre-render all menu items onto surfaces
         self._menu = (

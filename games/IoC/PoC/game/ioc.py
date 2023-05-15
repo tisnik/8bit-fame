@@ -24,7 +24,7 @@ from colors import Colors
 from direction import Direction
 from splash_screen import SplashScreen
 from main_menu import MainMenu
-
+from statistic import loadStatistic, saveStatistic
 
 configuration = loadConfiguration("ioc.ini")
 
@@ -32,7 +32,9 @@ pygame.init()
 clock = pygame.time.Clock()
 
 # create game window
-display = pygame.display.set_mode([WINDOW_WIDTH, WINDOW_HEIGHT])
+window_width = int(configuration["screen"]["window_width"])
+window_height = int(configuration["screen"]["window_height"])
+display = pygame.display.set_mode([window_width, window_height])
 
 # set window title
 pygame.display.set_caption("Inversion of Control")
