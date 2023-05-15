@@ -12,7 +12,7 @@ CYAN_COLOR    equ %101
 YELLOW_COLOR  equ %110
 WHITE_COLOR   equ %111
 
-KB_ROW_0_PORT equ $fef0
+KB_ROW_0_PORT equ $fefe
 
 SHIFT_KEY_MASK equ %00000001
 
