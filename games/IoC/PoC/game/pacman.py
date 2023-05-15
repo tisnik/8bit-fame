@@ -1,3 +1,5 @@
+# vim: set fileencoding=utf-8
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
@@ -17,8 +19,8 @@ from sprite import Sprite
 
 
 class PacMan(Sprite):
-    def __init__(self, surface, filename_prefix):
-        super(PacMan, self).__init__(surface)
+    def __init__(self, surface, images_path, filename_prefix):
+        super(PacMan, self).__init__(surface, images_path)
         self._tick = 0
 
         img_full = self.loadImage(filename_prefix, "full")

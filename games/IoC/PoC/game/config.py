@@ -1,3 +1,5 @@
+# vim: set fileencoding=utf-8
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
@@ -11,10 +13,6 @@
 #
 
 import configparser
-
-IMAGES_PATH = "images"
-WINDOW_WIDTH = 800
-WINDOW_HEIGHT = 600
 
 
 def loadConfiguration(filename):

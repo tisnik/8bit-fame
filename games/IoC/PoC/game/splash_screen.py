@@ -15,14 +15,13 @@
 import os
 import pygame
 
-from config import IMAGES_PATH
 
 
 class SplashScreen:
     """Splash screen with title, welcome animation, and a main menu."""
     CYCLE_DIRECTION_COUNTER_START_VALUE = 3
 
-    def __init__(self, display, filename_prefix, frames_count, ghost):
+    def __init__(self, display, images_path, filename_prefix, frames_count, ghost):
         # load fonts
         self._big_font = pygame.font.Font("fonts/FreeSans.ttf", 60)
         self._small_font = pygame.font.Font("fonts/FreeSans.ttf", 40)
@@ -51,7 +50,7 @@ class SplashScreen:
         self._frames = []
         for i in range(1, frames_count+1):
             filename = f"{filename_prefix}_{i}.png"
-            frame = pygame.image.load(os.path.join(IMAGES_PATH, filename))
+            frame = pygame.image.load(os.path.join(images_path, filename))
             self._frames.append(frame)
 
         self._frame = 0

@@ -19,7 +19,7 @@ import pygame.locals
 
 from ghost import Ghost
 from pacman import PacMan
-from config import WINDOW_WIDTH, WINDOW_HEIGHT, loadConfiguration
+from config import loadConfiguration
 from colors import Colors
 from direction import Direction
 from splash_screen import SplashScreen
@@ -39,14 +39,15 @@ pygame.display.set_caption("Inversion of Control")
 
 display.fill(Colors.BLACK.value)
 
-red_ghost = Ghost(display, "ghost_red")
+images_path = configuration["paths"]["images"]
+red_ghost = Ghost(display, images_path, "ghost_red")
 
-green_ghost = Ghost(display, "ghost_green")
+green_ghost = Ghost(display, images_path, "ghost_green")
 green_ghost.draw()
 
-cyan_ghost = Ghost(display, "ghost_cyan")
+cyan_ghost = Ghost(display, images_path, "ghost_cyan")
 
-pacman = PacMan(display, "pacman")
+pacman = PacMan(display, images_path, "pacman")
 
 for i in range(50):
     pacman.tick()
@@ -60,7 +61,7 @@ pacman.draw()
 cyan_ghost.setScared(True)
 cyan_ghost.draw()
 
-splash_screen = SplashScreen(display, "splash_screen", 8, red_ghost)
+splash_screen = SplashScreen(display, images_path, "splash_screen", 8, red_ghost)
 
 while True:
     for event in pygame.event.get():

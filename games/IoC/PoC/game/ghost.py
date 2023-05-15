@@ -1,3 +1,5 @@
+# vim: set fileencoding=utf-8
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
@@ -21,8 +23,8 @@ class Scared(Enum):
 
 
 class Ghost(Sprite):
-    def __init__(self, surface, filename_prefix):
-        super(Ghost, self).__init__(surface)
+    def __init__(self, surface, images_path, filename_prefix):
+        super(Ghost, self).__init__(surface, images_path)
 
         self._scared = False
         self._scared_tick = 0
