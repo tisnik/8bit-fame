@@ -1,3 +1,5 @@
+# vim: set fileencoding=utf-8
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
@@ -14,13 +16,12 @@ import pygame
 import os
 
 from direction import Direction
-from config import IMAGES_PATH
 
 
 class Sprite:
     """Super class for all movable objects in the game."""
 
-    def __init__(self, surface):
+    def __init__(self, surface, images_path):
         """Initialize the sprite."""
 
         # most sprites can be rotated in four directions
@@ -33,6 +34,9 @@ class Sprite:
         # surface used to display the sprite
         self._surface = surface
 
+        # path to images to be loaded later
+        self._images_path = images_path
+
     def draw(self):
         """Elementary draw method to be overwritten in derived classes."""
         self._surface.blit(self._sprites[self._direction], (self._x, self._y))
@@ -40,7 +44,7 @@ class Sprite:
     def loadImage(self, filename_prefix, filename_suffix):
         """Load image for sprite."""
         filename = f"{filename_prefix}_{filename_suffix}.png"
-        return pygame.image.load(os.path.join(IMAGES_PATH, filename))
+        return pygame.image.load(os.path.join(self._images_path, filename))
 
     def setDirection(self, direction):
         """Set sprite direction (if applicable)."""

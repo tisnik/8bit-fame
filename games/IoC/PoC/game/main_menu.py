@@ -17,4 +17,5 @@ class MainMenu(Enum):
     NEW_GAME = 0
     SETTINGS = 1
     STATISTIC = 2
-    QUIT = 3
+    ABOUT = 3
+    QUIT = 4

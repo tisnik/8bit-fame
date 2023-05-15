@@ -32,10 +32,11 @@ class SplashScreen:
 
         # pre-render all menu items onto surfaces
         self._menu = (
-            self._small_font.render("Start new game", True, (120, 120, 255), (0, 0, 0)),
-            self._small_font.render("Settings", True, (120, 120, 255), (0, 0, 0)),
-            self._small_font.render("Statistic", True, (120, 120, 255), (0, 0, 0)),
-            self._small_font.render("Quit", True, (120, 120, 255), (0, 0, 0)),
+            self.renderMenuItem("Start new game"),
+            self.renderMenuItem("Settings"),
+            self.renderMenuItem("Statistic"),
+            self.renderMenuItem("About"),
+            self.renderMenuItem("Quit"),
         )
 
         # actually selected menu item
@@ -54,6 +55,11 @@ class SplashScreen:
             self._frames.append(frame)
 
         self._frame = 0
+
+    def renderMenuItem(self, text):
+        return self._small_font.render(text, True,
+                                       SplashScreen.MENU_COLOR,
+                                       SplashScreen.BACKGROUND_COLOR)
 
     def draw(self):
         """Draw splash screen."""
