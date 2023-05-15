@@ -1,0 +1,204 @@
+ATTRIBUTE_ADR	EQU 5800
+ENTRY_POINT	EQU 8000
+ROM_CLS		EQU 0DAF
+		ORG 8000
+BLINK_BIT	EQU 0080
+INTENSITY_BIT	EQU 0040
+BLACK_COLOR	EQU 0000
+BLUE_COLOR	EQU 0001
+RED_COLOR	EQU 0002
+MAGENTA_COLOR	EQU 0003
+GREEN_COLOR	EQU 0004
+CYAN_COLOR	EQU 0005
+YELLOW_COLOR	EQU 0006
+WHITE_COLOR	EQU 0007
+KB_ROW_0_PORT	EQU 00FE
+KB_ROW_1_PORT	EQU 00FD
+KB_ROW_2_PORT	EQU 00FB
+KB_ROW_3_PORT	EQU 00F7
+KB_ROW_4_PORT	EQU 00EF
+KB_ROW_5_PORT	EQU 00DF
+KB_ROW_6_PORT	EQU 00BF
+KB_ROW_7_PORT	EQU 007F
+Defining MACRO changeAttribute
+Params: attribute
+Defining MACRO keypress
+Params: port, attribute_address
+8000:		label start
+8000:CDAF0D	CALL 0DAF
+8003:217880	LD HL, 8078
+8006:CD7080	CALL 8070
+8009:		label repeat
+Expanding MACRO keypress
+port= KB_ROW_0_PORT 
+attribute_address= ATTRIBUTE_ADR + 0020 * 0000 
+LD B , port 
+8009:06FE	LD B, FE
+LD C , 00FE 
+800B:0EFE	LD C, FE
+LD HL , attribute_address 
+800D:210058	LD HL, 5800
+CALL keypress_detection 
+8010:CD5D80	CALL 805D
+ENDM 
+		ENDM
+End of MACRO keypress
+Expanding MACRO keypress
+port= KB_ROW_1_PORT 
+attribute_address= ATTRIBUTE_ADR + 0020 * 0001 
+LD B , port 
+8013:06FD	LD B, FD
+LD C , 00FE 
+8015:0EFE	LD C, FE
+LD HL , attribute_address 
+8017:212058	LD HL, 5820
+CALL keypress_detection 
+801A:CD5D80	CALL 805D
+ENDM 
+		ENDM
+End of MACRO keypress
+Expanding MACRO keypress
+port= KB_ROW_2_PORT 
+attribute_address= ATTRIBUTE_ADR + 0020 * 0002 
+LD B , port 
+801D:06FB	LD B, FB
+LD C , 00FE 
+801F:0EFE	LD C, FE
+LD HL , attribute_address 
+8021:214058	LD HL, 5840
+CALL keypress_detection 
+8024:CD5D80	CALL 805D
+ENDM 
+		ENDM
+End of MACRO keypress
+Expanding MACRO keypress
+port= KB_ROW_3_PORT 
+attribute_address= ATTRIBUTE_ADR + 0020 * 0003 
+LD B , port 
+8027:06F7	LD B, F7
+LD C , 00FE 
+8029:0EFE	LD C, FE
+LD HL , attribute_address 
+802B:216058	LD HL, 5860
+CALL keypress_detection 
+802E:CD5D80	CALL 805D
+ENDM 
+		ENDM
+End of MACRO keypress
+Expanding MACRO keypress
+port= KB_ROW_4_PORT 
+attribute_address= ATTRIBUTE_ADR + 0020 * 0004 
+LD B , port 
+8031:06EF	LD B, EF
+LD C , 00FE 
+8033:0EFE	LD C, FE
+LD HL , attribute_address 
+8035:218058	LD HL, 5880
+CALL keypress_detection 
+8038:CD5D80	CALL 805D
+ENDM 
+		ENDM
+End of MACRO keypress
+Expanding MACRO keypress
+port= KB_ROW_5_PORT 
+attribute_address= ATTRIBUTE_ADR + 0020 * 0005 
+LD B , port 
+803B:06DF	LD B, DF
+LD C , 00FE 
+803D:0EFE	LD C, FE
+LD HL , attribute_address 
+803F:21A058	LD HL, 58A0
+CALL keypress_detection 
+8042:CD5D80	CALL 805D
+ENDM 
+		ENDM
+End of MACRO keypress
+Expanding MACRO keypress
+port= KB_ROW_6_PORT 
+attribute_address= ATTRIBUTE_ADR + 0020 * 0006 
+LD B , port 
+8045:06BF	LD B, BF
+LD C , 00FE 
+8047:0EFE	LD C, FE
+LD HL , attribute_address 
+8049:21C058	LD HL, 58C0
+CALL keypress_detection 
+804C:CD5D80	CALL 805D
+ENDM 
+		ENDM
+End of MACRO keypress
+Expanding MACRO keypress
+port= KB_ROW_7_PORT 
+attribute_address= ATTRIBUTE_ADR + 0020 * 0007 
+LD B , port 
+804F:067F	LD B, 7F
+LD C , 00FE 
+8051:0EFE	LD C, FE
+LD HL , attribute_address 
+8053:21E058	LD HL, 58E0
+CALL keypress_detection 
+8056:CD5D80	CALL 805D
+ENDM 
+		ENDM
+End of MACRO keypress
+8059:C30980	JP 8009
+805C:C9		RET
+805D:		label keypress_detection
+805D:ED78	IN A, (C)
+805F:0605	LD B, 05
+8061:		label next_key
+8061:CB3F	SRL A
+8063:3005	JR NC, 806A
+Expanding MACRO changeAttribute
+attribute= WHITE_COLOR << 0003 
+LD ( HL ) , attribute 
+8065:3638	LD (HL), 38
+INC HL 
+8067:23		INC HL
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+8068:1803	JR 806D
+806A:		label key_pressed
+Expanding MACRO changeAttribute
+attribute= INTENSITY_BIT | ( RED_COLOR << 0003 ) 
+LD ( HL ) , attribute 
+806A:3650	LD (HL), 50
+INC HL 
+806C:23		INC HL
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+806D:		label next
+806D:10F2	DJNZ 8061
+806F:C9		RET
+8070:		label print_string
+8070:7E		LD A, (HL)
+8071:A7		AND A
+8072:C8		RET Z
+8073:D7		RST 10
+8074:23		INC HL
+8075:18F9	JR 8070
+8077:C9		RET
+8078:		label keys
+NEW_LINE	EQU 000D
+END_OF_STRING	EQU 0000
+8078:5E5A5843	DEFB of 6 bytes
+807C:560D
+807E:41534446	DEFB of 6 bytes
+8082:470D
+8084:51574552	DEFB of 6 bytes
+8088:540D
+808A:31323334	DEFB of 6 bytes
+808E:350D
+8090:30393837	DEFB of 6 bytes
+8094:360D
+8096:504F4955	DEFB of 6 bytes
+809A:590D
+809C:7F4C4B4A	DEFB of 6 bytes
+80A0:480D
+80A2:5F604D4E	DEFB of 6 bytes
+80A6:4200
+80A8:		END 8000
+Emiting TAP basic loader
+Emiting TAP from 8000 to 80A7
