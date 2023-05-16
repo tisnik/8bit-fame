@@ -25,10 +25,14 @@ class SplashScreen:
     TITLE_COLOR = (255, 255, 255)
     MENU_COLOR = (120, 120, 255)
 
+    # TODO: take from config
+    FONT_FILE_NAME = "fonts/FreeSans.ttf"
+
     def __init__(self, display, images_path, filename_prefix, frames_count, ghost):
         # load fonts
-        self._big_font = pygame.font.Font("fonts/FreeSans.ttf", 60)
-        self._small_font = pygame.font.Font("fonts/FreeSans.ttf", 40)
+        self._big_font = pygame.font.Font(SplashScreen.FONT_FILE_NAME, 60)
+        self._normal_font = pygame.font.Font(SplashScreen.FONT_FILE_NAME, 40)
+        self._small_font = pygame.font.Font(SplashScreen.FONT_FILE_NAME, 20)
 
         # pre-render game title
         self._title = self._big_font.render("Inversion of Control", True,
