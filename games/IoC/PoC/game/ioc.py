@@ -17,13 +17,13 @@ import sys
 import pygame
 import pygame.locals
 
+from main_menu import MainMenu
 from ghost import Ghost
 from pacman import PacMan
 from config import loadConfiguration
 from colors import Colors
 from direction import Direction
 from splash_screen import SplashScreen
-from main_menu import MainMenu
 from statistic import loadStatistic, saveStatistic
 
 configuration = loadConfiguration("ioc.ini")
@@ -64,29 +64,13 @@ cyan_ghost.setScared(True)
 cyan_ghost.draw()
 
 splash_screen = SplashScreen(display, images_path, "splash_screen", 8, red_ghost)
-
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.locals.QUIT:
-            pygame.quit()
-            sys.exit()
-        if event.type == pygame.locals.KEYDOWN:
-            if event.key == pygame.locals.K_ESCAPE:
-                pygame.quit()
-                sys.exit()
-            if event.key == pygame.locals.K_UP:
-                splash_screen.moveGhostUp()
-            if event.key == pygame.locals.K_DOWN:
-                splash_screen.moveGhostDown()
-            if event.key == pygame.locals.K_RETURN:
-                if splash_screen.getSelectedMenuItem() == MainMenu.QUIT.value:
-                    pygame.quit()
-                    sys.exit()
-
-    display.fill(Colors.BLACK.value)
-    splash_screen.draw()
-    pygame.display.update()
-    clock.tick(8)
-
+menuItem = splash_screen.eventLoop()
+if menuItem == MainMenu.QUIT.value:
+    pygame.quit()
+    sys.exit()
+elif menuItem == MainMenu.STATISTIC.value:
+    statistic_screen = StatisticScreen(display, statistic)
+    statistic_screen.draw()
+    statistic_screen.eventLoop()
 
 # finito

@@ -16,6 +16,7 @@ import os
 import pygame
 
 from colors import Colors
+from main_menu import MainMenu
 
 
 class SplashScreen:
@@ -69,6 +70,8 @@ class SplashScreen:
             self._frames.append(frame)
 
         self._frame = 0
+
+        self._clock = pygame.time.Clock()
 
     def renderMenuItem(self, text):
         return self._normal_font.render(text, True,
@@ -155,3 +158,23 @@ class SplashScreen:
         x = self._display.get_width() - self._credits.get_width() - 10
         y = self._display.get_height() - 30
         self._display.blit(self._credits, (x, y))
+
+    def eventLoop(self):
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.locals.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.locals.KEYDOWN:
+                    if event.key == pygame.locals.K_ESCAPE:
+                        return MainMenu.QUIT.value
+                    if event.key == pygame.locals.K_UP:
+                        self.moveGhostUp()
+                    if event.key == pygame.locals.K_DOWN:
+                        self.moveGhostDown()
+                    if event.key == pygame.locals.K_RETURN:
+                        return self.getSelectedMenuItem()
+
+            self.draw()
+            pygame.display.update()
+            self._clock.tick(8)
