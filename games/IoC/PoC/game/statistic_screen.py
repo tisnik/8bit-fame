@@ -12,44 +12,45 @@
 #      Pavel Tisnovsky
 #
 
+import sys
 import pygame
 
 from colors import Colors
 
 
 class StatisticScreen:
+    """Statistic screen displayed in the game."""
+
+    # colors used on statistic screen
     BACKGROUND_COLOR = Colors.BLACK.value
     TITLE_COLOR = (255, 255, 255)
     STATISTIC_COLOR = (120, 120, 255)
 
-    # TODO: take from config
-    FONT_FILE_NAME = "fonts/FreeSans.ttf"
-
-    def __init__(self, display, statistic):
-        # load fonts
-        self._big_font = pygame.font.Font(StatisticScreen.FONT_FILE_NAME, 60)
-        self._normal_font = pygame.font.Font(StatisticScreen.FONT_FILE_NAME, 40)
+    def __init__(self, display, resources, statistic):
+        """Initialize the statistic screen."""
+        # fonts and other required resources are taken from resources object.
 
         # pre-render game title
-        self._title = self._big_font.render("Statistic", True,
-                                            StatisticScreen.TITLE_COLOR,
-                                            StatisticScreen.BACKGROUND_COLOR)
+        self._title = resources.bigFont.render("Statistic", True,
+                                               StatisticScreen.TITLE_COLOR,
+                                               StatisticScreen.BACKGROUND_COLOR)
         self._display = display
         self._clock = pygame.time.Clock()
         self._statistic = statistic
 
     def draw(self):
-        """Draw splash screen."""
+        """Draw statistic screen."""
         self._display.fill(Colors.BLACK.value)
         self.drawTitle()
 
     def drawTitle(self):
-        """Draw the title."""
+        """Draw the title onto statistic screen."""
         x = self._display.get_width() / 2 - self._title.get_width() / 2
         y = 0
         self._display.blit(self._title, (x, y))
 
     def eventLoop(self):
+        """Implementation of event loop that just waits for keypress or window close operation."""
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.locals.QUIT:
@@ -61,6 +62,7 @@ class StatisticScreen:
                     if event.key == pygame.locals.K_RETURN:
                         return
 
+            # all events has been processed - redraw the screen
             self.draw()
             pygame.display.update()
             self._clock.tick(8)
