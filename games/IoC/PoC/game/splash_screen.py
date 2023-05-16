@@ -24,6 +24,7 @@ class SplashScreen:
     BACKGROUND_COLOR = Colors.BLACK.value
     TITLE_COLOR = (255, 255, 255)
     MENU_COLOR = (120, 120, 255)
+    CREDITS_COLOR = (140, 140, 140)
 
     # TODO: take from config
     FONT_FILE_NAME = "fonts/FreeSans.ttf"
@@ -51,6 +52,10 @@ class SplashScreen:
         # actually selected menu item
         self._selected_menu_item = 0
 
+        self._credits = self._small_font.render("2023 Markétka Tišnovská, Pavel Tišnovský",
+                                                True,
+                                                SplashScreen.CREDITS_COLOR,
+                                                SplashScreen.BACKGROUND_COLOR)
         self._display = display
 
         self._ghost = ghost
@@ -66,16 +71,18 @@ class SplashScreen:
         self._frame = 0
 
     def renderMenuItem(self, text):
-        return self._small_font.render(text, True,
+        return self._normal_font.render(text, True,
                                        SplashScreen.MENU_COLOR,
                                        SplashScreen.BACKGROUND_COLOR)
 
     def draw(self):
         """Draw splash screen."""
+        self._display.fill(Colors.BLACK.value)
         self.drawAnimation()
         self.drawTitle()
         self.drawMenu()
         self.drawGhost()
+        self.drawCredits()
 
     def drawTitle(self):
         """Draw the title."""
@@ -142,3 +149,9 @@ class SplashScreen:
     def getSelectedMenuItem(self):
         """Retrieve actually selected menu item."""
         return self._selected_menu_item
+
+    def drawCredits(self):
+        """Draw credits."""
+        x = self._display.get_width() - self._credits.get_width() - 10
+        y = self._display.get_height() - 30
+        self._display.blit(self._credits, (x, y))
