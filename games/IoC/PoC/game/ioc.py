@@ -24,7 +24,11 @@ from config import loadConfiguration
 from colors import Colors
 from direction import Direction
 from splash_screen import SplashScreen
-from statistic import loadStatistic, saveStatistic
+from statistic_screen import StatisticScreen
+from statistic import Statistic, loadStatistic, saveStatistic
+
+statistic = Statistic()
+saveStatistic(statistic)
 
 configuration = loadConfiguration("ioc.ini")
 
