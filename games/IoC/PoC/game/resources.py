@@ -13,6 +13,7 @@
 import os
 
 import pygame
+from os.path import isfile, join
 
 
 class Resources:
@@ -20,6 +21,7 @@ class Resources:
 
     def __init__(self, configuration):
         self.loadFonts(configuration)
+        self.loadImages(configuration)
 
     def loadFonts(self, configuration):
         fontDirectory = configuration["paths"]["fonts"]
@@ -28,6 +30,12 @@ class Resources:
         self._big_font = pygame.font.Font(fullFontFileName, 60)
         self._normal_font = pygame.font.Font(fullFontFileName, 40)
         self._small_font = pygame.font.Font(fullFontFileName, 20)
+
+    def loadImages(self, configuration):
+        imageList = getListOfImages(configuration)
+        self._images = {}
+        for imageName in imageList:
+            self._images[imageName[0]] = pygame.image.load(imageName[1])
 
     @property
     def bigFont(self):
@@ -40,3 +48,17 @@ class Resources:
     @property
     def smallFont(self):
         return self._small_font
+
+    @property
+    def images(self):
+        return self._images
+
+
+def getListOfImages(configuration):
+    path = configuration["paths"]["images"]
+    return [(shortFilename(fileName), join(path, fileName))
+            for fileName in os.listdir(path) if isfile(join(path, fileName))]
+
+
+def shortFilename(filename):
+    return filename[0:filename.index(".")]
