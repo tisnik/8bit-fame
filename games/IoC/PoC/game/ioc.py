@@ -26,6 +26,8 @@ from direction import Direction
 from splash_screen import SplashScreen
 from statistic_screen import StatisticScreen
 from statistic import Statistic, loadStatistic, saveStatistic
+from resources import Resources
+from about_screen import AboutScreen
 
 statistic = Statistic()
 saveStatistic(statistic)
@@ -33,6 +35,8 @@ saveStatistic(statistic)
 configuration = loadConfiguration("ioc.ini")
 
 pygame.init()
+resources = Resources(configuration)
+
 clock = pygame.time.Clock()
 
 # create game window
@@ -67,14 +71,18 @@ pacman.draw()
 cyan_ghost.setScared(True)
 cyan_ghost.draw()
 
-splash_screen = SplashScreen(display, images_path, "splash_screen", 8, red_ghost)
+splash_screen = SplashScreen(display, resources, images_path, "splash_screen", 8, red_ghost)
 menuItem = splash_screen.eventLoop()
 if menuItem == MainMenu.QUIT.value:
     pygame.quit()
     sys.exit()
 elif menuItem == MainMenu.STATISTIC.value:
-    statistic_screen = StatisticScreen(display, statistic)
+    statistic_screen = StatisticScreen(display, resources, statistic)
     statistic_screen.draw()
     statistic_screen.eventLoop()
+elif menuItem == MainMenu.ABOUT.value:
+    about_screen = AboutScreen(display, resources)
+    about_screen.draw()
+    about_screen.eventLoop()
 
 # finito
