@@ -50,14 +50,12 @@ pygame.display.set_caption("Inversion of Control")
 display.fill(Colors.BLACK.value)
 
 images_path = configuration["paths"]["images"]
-red_ghost = Ghost(display, images_path, "ghost_red")
-
-green_ghost = Ghost(display, images_path, "ghost_green")
+red_ghost = Ghost(display, resources, "ghost_red")
+green_ghost = Ghost(display, resources, "ghost_green")
 green_ghost.draw()
+cyan_ghost = Ghost(display, resources, "ghost_cyan")
 
-cyan_ghost = Ghost(display, images_path, "ghost_cyan")
-
-pacman = PacMan(display, images_path, "pacman")
+pacman = PacMan(display, resources, "pacman")
 
 for i in range(50):
     pacman.tick()
@@ -71,7 +69,7 @@ pacman.draw()
 cyan_ghost.setScared(True)
 cyan_ghost.draw()
 
-splash_screen = SplashScreen(display, resources, images_path, "splash_screen", 8, red_ghost)
+splash_screen = SplashScreen(display, resources, "splash_screen", 8, red_ghost)
 menuItem = splash_screen.eventLoop()
 if menuItem == MainMenu.QUIT.value:
     pygame.quit()
