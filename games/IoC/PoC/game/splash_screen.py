@@ -12,8 +12,6 @@
 #      Pavel Tisnovsky
 #
 
-import os
-import sys
 import pygame
 
 from colors import Colors
@@ -30,7 +28,7 @@ class SplashScreen:
     MENU_COLOR = (120, 120, 255)
     CREDITS_COLOR = (140, 140, 140)
 
-    def __init__(self, display, resources, images_path, filename_prefix, frames_count, ghost):
+    def __init__(self, display, resources, filename_prefix, frames_count, ghost):
         """Initialize the splash screen."""
         # fonts and other required resources are taken from resources object.
 
@@ -60,11 +58,11 @@ class SplashScreen:
         self._ghost = ghost
         self._cycleDirectionCounter = SplashScreen.CYCLE_DIRECTION_COUNTER_START_VALUE
 
-        # load all animation frames
+        # retrieve all animation frames
         self._frames = []
         for i in range(1, frames_count+1):
-            filename = f"{filename_prefix}_{i}.png"
-            frame = pygame.image.load(os.path.join(images_path, filename))
+            filename = f"{filename_prefix}_{i}"
+            frame = resources.images[filename]
             self._frames.append(frame)
 
         self._frame = 0
