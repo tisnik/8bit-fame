@@ -23,19 +23,19 @@ class Scared(Enum):
 
 
 class Ghost(Sprite):
-    def __init__(self, surface, images_path, filename_prefix):
-        super(Ghost, self).__init__(surface, images_path)
+    def __init__(self, surface, resources, filename_prefix):
+        super(Ghost, self).__init__(surface)
 
         self._scared = False
         self._scared_tick = 0
 
         self._sprites = {}
-        self._sprites[Direction.LEFT] = self.loadImage(filename_prefix, "left")
-        self._sprites[Direction.RIGHT] = self.loadImage(filename_prefix, "right")
-        self._sprites[Direction.UP] = self.loadImage(filename_prefix, "up")
-        self._sprites[Direction.DOWN] = self.loadImage(filename_prefix, "down")
-        self._sprites[Scared.SCARED1] = self.loadImage("ghost", "scared_1")
-        self._sprites[Scared.SCARED2] = self.loadImage("ghost", "scared_2")
+        self._sprites[Direction.LEFT] = resources.images[filename_prefix+"_left"]
+        self._sprites[Direction.RIGHT] = resources.images[filename_prefix+"_right"]
+        self._sprites[Direction.UP] = resources.images[filename_prefix+"_up"]
+        self._sprites[Direction.DOWN] = resources.images[filename_prefix+"_down"]
+        self._sprites[Scared.SCARED1] = resources.images["ghost_scared_1"]
+        self._sprites[Scared.SCARED2] = resources.images["ghost_scared_2"]
 
     def setScared(self, scared):
         self._scared = scared
