@@ -19,13 +19,13 @@ from sprite import Sprite
 
 
 class PacMan(Sprite):
-    def __init__(self, surface, images_path, filename_prefix):
-        super(PacMan, self).__init__(surface, images_path)
+    def __init__(self, surface, resources, filename_prefix):
+        super(PacMan, self).__init__(surface)
         self._tick = 0
 
-        img_full = self.loadImage(filename_prefix, "full")
-        img_half = self.loadImage(filename_prefix, "half")
-        img_open = self.loadImage(filename_prefix, "open")
+        img_full = resources.images[filename_prefix+"_full"]
+        img_half = resources.images[filename_prefix+"_half"]
+        img_open = resources.images[filename_prefix+"_open"]
 
         self._sprites = {}
 
