@@ -10,10 +10,14 @@
 #      Pavel Tisnovsky
 #
 
+"""Named colors used everywhere in game screens."""
+
 from enum import Enum
 
 
 class Colors(Enum):
+    """Named colors used everywhere in game screens."""
+
     BLACK = (0, 0, 0)
     BLUE = (0, 0, 255)
     CYAN = (0, 255, 255)
