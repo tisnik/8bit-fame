@@ -12,14 +12,19 @@
 #      Pavel Tisnovsky
 #
 
+"""Functions to load and store configuration to INI file."""
+
 import configparser
 
 
 def loadConfiguration(filename):
+    """Load configuration from provided INI file."""
     config = configparser.ConfigParser()
     config.read(filename)
     return config
 
 
 def saveConfiguration(filename):
+    """Store configuration into provided INI file."""
+    # TODO: add implementation there
     pass
