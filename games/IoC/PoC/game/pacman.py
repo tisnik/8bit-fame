@@ -12,6 +12,8 @@
 #      Pavel Tisnovsky
 #
 
+"""PacMan class that represents Pac man in the game."""
+
 import pygame.transform
 
 from direction import Direction
@@ -19,7 +21,10 @@ from sprite import Sprite
 
 
 class PacMan(Sprite):
+    """PacMan class that represents Pac man in the game."""
+
     def __init__(self, surface, resources, filename_prefix):
+        """Object initialization, including resource loading."""
         super(PacMan, self).__init__(surface)
         self._tick = 0
 
@@ -51,9 +56,11 @@ class PacMan(Sprite):
         self._sprites[Direction.DOWN] = (img_full, img_half, img_open)
 
     def draw(self):
+        """Draw Pac Man onto the screen or onto surface selected during initialization."""
         self._surface.blit(self._sprites[self._direction][self._tick], (self._x, self._y))
 
     def tick(self):
+        """Change sprite on screen according to clock ticks."""
         self._tick += 1
         if self._tick > 3:
             self._tick = 0
