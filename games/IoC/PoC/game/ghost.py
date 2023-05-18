@@ -12,18 +12,25 @@
 #      Pavel Tisnovsky
 #
 
+"""Ghost class that represents any ghost in the game."""
+
 from direction import Direction
 from sprite import Sprite
 from enum import Enum
 
 
 class Scared(Enum):
+    """Enumeration with all sprites for 'scared' ghosts."""
+
     SCARED1 = 5
     SCARED2 = 6
 
 
 class Ghost(Sprite):
+    """Ghost class that represents any ghost in the game."""
+
     def __init__(self, surface, resources, filename_prefix):
+        """Ghost object initialization, including resource loading."""
         super(Ghost, self).__init__(surface)
 
         self._scared = False
@@ -38,9 +45,11 @@ class Ghost(Sprite):
         self._sprites[Scared.SCARED2] = resources.images["ghost_scared_2"]
 
     def setScared(self, scared):
+        """Set 'scared ghost' mode."""
         self._scared = scared
 
     def draw(self):
+        """Draw ghost onto the screen or onto surface selected during initialization."""
         if self._scared:
             if self._scared_tick == 0:
                 self._surface.blit(self._sprites[Scared.SCARED1], (self._x, self._y))
