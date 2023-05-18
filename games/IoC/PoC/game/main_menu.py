@@ -10,10 +10,14 @@
 #      Pavel Tisnovsky
 #
 
+"""All entries from the main menu."""
+
 from enum import Enum
 
 
 class MainMenu(Enum):
+    """All entries from the main menu."""
+
     NEW_GAME = 0
     SETTINGS = 1
     STATISTIC = 2
