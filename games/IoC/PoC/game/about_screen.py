@@ -10,6 +10,8 @@
 #      Pavel Tisnovsky
 #
 
+"""About screen displayed in the game and selected from the main menu."""
+
 import sys
 import pygame
 
@@ -18,6 +20,7 @@ from colors import Colors
 
 class AboutScreen:
     """About screen displayed in the game."""
+
     # colors used on about screen
     BACKGROUND_COLOR = Colors.BLACK.value
     TITLE_COLOR = (255, 255, 255)
@@ -46,7 +49,7 @@ class AboutScreen:
         self._display.blit(self._title, (x, y))
 
     def eventLoop(self):
-        """Implementation of event loop that just waits for keypress or window close operation."""
+        """Event loop for About screen that just waits for keypress or window close operation."""
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.locals.QUIT:
