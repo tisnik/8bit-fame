@@ -10,17 +10,23 @@
 #      Pavel Tisnovsky
 #
 
+"""Enumeration describing all possible sprite directions."""
+
 from enum import Enum
 
 
 class Direction(Enum):
+    """Enumeration describing all possible sprite directions."""
+
     UP = 1
     RIGHT = 2
     DOWN = 3
     LEFT = 4
 
     def succ(self):
+        """Rotate by switching to the next possible direction."""
         value = self.value + 1
         if value > Direction.LEFT.value:
+            # cycle
             return Direction.UP
         return Direction(value)
