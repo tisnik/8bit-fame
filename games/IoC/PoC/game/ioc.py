@@ -51,38 +51,22 @@ pygame.display.set_caption("Inversion of Control")
 
 display.fill(Colors.BLACK.value)
 
-images_path = configuration["paths"]["images"]
 red_ghost = Ghost(display, resources, "ghost_red")
-green_ghost = Ghost(display, resources, "ghost_green")
-green_ghost.draw()
-cyan_ghost = Ghost(display, resources, "ghost_cyan")
-
-pacman = PacMan(display, resources, "pacman")
-
-for i in range(50):
-    pacman.tick()
-    pacman.move()
-    cyan_ghost.move()
-    cyan_ghost.move()
-
-pacman.setDirection(Direction.UP)
-pacman.draw()
-
-cyan_ghost.setScared(True)
-cyan_ghost.draw()
 
 splash_screen = SplashScreen(display, resources, "splash_screen", 8, red_ghost)
-menuItem = splash_screen.eventLoop()
-if menuItem == MainMenu.QUIT.value:
-    pygame.quit()
-    sys.exit()
-elif menuItem == MainMenu.STATISTIC.value:
-    statistic_screen = StatisticScreen(display, resources, statistic)
-    statistic_screen.draw()
-    statistic_screen.eventLoop()
-elif menuItem == MainMenu.ABOUT.value:
-    about_screen = AboutScreen(display, resources)
-    about_screen.draw()
-    about_screen.eventLoop()
+
+while True:
+    menuItem = splash_screen.eventLoop()
+    if menuItem == MainMenu.QUIT.value:
+        pygame.quit()
+        sys.exit()
+    elif menuItem == MainMenu.STATISTIC.value:
+        statistic_screen = StatisticScreen(display, resources, statistic)
+        statistic_screen.draw()
+        statistic_screen.eventLoop()
+    elif menuItem == MainMenu.ABOUT.value:
+        about_screen = AboutScreen(display, resources)
+        about_screen.draw()
+        about_screen.eventLoop()
 
 # finito
