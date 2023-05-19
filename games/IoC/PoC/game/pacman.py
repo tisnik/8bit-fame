@@ -62,5 +62,5 @@ class PacMan(Sprite):
     def tick(self):
         """Change sprite on screen according to clock ticks."""
         self._tick += 1
-        if self._tick > 3:
+        if self._tick >= len(self._sprites[Direction.DOWN]):
             self._tick = 0
