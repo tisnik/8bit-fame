@@ -12,6 +12,8 @@
 #      Pavel Tisnovsky
 #
 
+"""Entry point to initialization part + entry to the main event loop."""
+
 import sys
 
 import pygame
