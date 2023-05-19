@@ -12,6 +12,8 @@
 #      Pavel Tisnovsky
 #
 
+"""Super class for all movable objects in the game."""
+
 from direction import Direction
 
 
@@ -20,7 +22,6 @@ class Sprite:
 
     def __init__(self, surface):
         """Initialize the sprite."""
-
         # most sprites can be rotated in four directions
         self._direction = Direction.RIGHT
 
@@ -40,6 +41,7 @@ class Sprite:
         self._direction = direction
 
     def cycleDirection(self):
+        """Rotate the sprite by switching to the next possible direction."""
         self._direction = self._direction.succ()
 
     def setPosition(self, x, y):
