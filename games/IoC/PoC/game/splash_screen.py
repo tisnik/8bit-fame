@@ -12,6 +12,8 @@
 #      Pavel Tisnovsky
 #
 
+"""Splash screen with title, welcome animation, and a main menu."""
+
 import pygame
 
 from colors import Colors
@@ -20,6 +22,7 @@ from main_menu import MainMenu
 
 class SplashScreen:
     """Splash screen with title, welcome animation, and a main menu."""
+
     CYCLE_DIRECTION_COUNTER_START_VALUE = 3
 
     # colors used on splash screen
@@ -70,6 +73,7 @@ class SplashScreen:
         self._clock = pygame.time.Clock()
 
     def renderMenuItem(self, resources, text):
+        """Render one menu item to be displayed on splash screen."""
         return resources.normalFont.render(text, True,
                                            SplashScreen.MENU_COLOR,
                                            SplashScreen.BACKGROUND_COLOR)
@@ -156,7 +160,7 @@ class SplashScreen:
         self._display.blit(self._credits, (x, y))
 
     def eventLoop(self):
-        """Implementation of event loop that just waits for keypress or window close operation."""
+        """Event loop for splash screen that just waits for keypress or window close action."""
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.locals.QUIT:
