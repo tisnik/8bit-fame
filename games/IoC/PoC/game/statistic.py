@@ -12,13 +12,18 @@
 #      Pavel Tisnovsky
 #
 
+"""Games statistic."""
+
 import pickle
 
 STATISTIC_FILENAME = "ioc.stats"
 
 
 class Statistic:
+    """Games statistic."""
+
     def __init__(self):
+        """Statistic initialization."""
         self.games = 0
         self.totalTime = 0
         self.scaredTime = 0
@@ -32,10 +37,12 @@ class Statistic:
 
 
 def loadStatistic():
+    """Load statistic from binary file."""
     with open(STATISTIC_FILENAME, "rb") as fin:
         return pickle.load(fin)
 
 
 def saveStatistic(statistic):
+    """Save statistic into binary file."""
     with open(STATISTIC_FILENAME, "wb") as fout:
-        pickle.dump(statistic,fout)
+        pickle.dump(statistic, fout)
