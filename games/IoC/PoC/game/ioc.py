@@ -28,10 +28,12 @@ from direction import Direction
 from splash_screen import SplashScreen
 from statistic_screen import StatisticScreen
 from statistic import Statistic, loadStatistic, saveStatistic
+from settings_screen import SettingsScreen
 from resources import Resources
 from about_screen import AboutScreen
 
 statistic = Statistic()
+# save statistic into external file
 saveStatistic(statistic)
 
 configuration = loadConfiguration("ioc.ini")
@@ -60,6 +62,10 @@ while True:
     if menuItem == MainMenu.QUIT.value:
         pygame.quit()
         sys.exit()
+    elif menuItem == MainMenu.SETTINGS.value:
+        settings_screen = SettingsScreen(display, resources)
+        settings_screen.draw()
+        settings_screen.eventLoop()
     elif menuItem == MainMenu.STATISTIC.value:
         statistic_screen = StatisticScreen(display, resources, statistic)
         statistic_screen.draw()
