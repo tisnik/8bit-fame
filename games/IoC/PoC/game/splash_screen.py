@@ -16,23 +16,25 @@
 
 import pygame
 
+from screen import Screen
 from colors import Colors
 from main_menu import MainMenu
 
 
-class SplashScreen:
+class SplashScreen(Screen):
     """Splash screen with title, welcome animation, and a main menu."""
 
     CYCLE_DIRECTION_COUNTER_START_VALUE = 3
 
     # colors used on splash screen
-    BACKGROUND_COLOR = Colors.BLACK.value
     TITLE_COLOR = (255, 255, 255)
     MENU_COLOR = (120, 120, 255)
     CREDITS_COLOR = (140, 140, 140)
 
     def __init__(self, display, resources, filename_prefix, frames_count, ghost):
         """Initialize the splash screen."""
+        super(SplashScreen, self).__init__(display)
+
         # fonts and other required resources are taken from resources object.
 
         # pre-render game title
@@ -56,7 +58,6 @@ class SplashScreen:
                                                    True,
                                                    SplashScreen.CREDITS_COLOR,
                                                    SplashScreen.BACKGROUND_COLOR)
-        self._display = display
 
         self._ghost = ghost
         self._cycleDirectionCounter = SplashScreen.CYCLE_DIRECTION_COUNTER_START_VALUE
