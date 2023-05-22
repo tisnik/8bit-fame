@@ -1,3 +1,5 @@
+# vim: set fileencoding=utf-8
+
 #
 #  (C) Copyright 2023  Pavel Tisnovsky
 #
@@ -15,20 +17,22 @@
 import sys
 import pygame
 
+from screen import Screen
 from colors import Colors
 
 
-class AboutScreen:
+class AboutScreen(Screen):
     """About screen displayed in the game."""
 
     # colors used on about screen
-    BACKGROUND_COLOR = Colors.BLACK.value
     TITLE_COLOR = (255, 255, 255)
     AUTHOR_COLOR = (120, 120, 255)
     WORK_COLOR = (120, 120, 120)
 
     def __init__(self, display, resources):
         """Initialize the about screen."""
+        super(AboutScreen, self).__init__(display)
+
         # fonts and other required resources are taken from resources object.
 
         # pre-render game title
@@ -51,7 +55,6 @@ class AboutScreen:
                                                   AboutScreen.WORK_COLOR,
                                                   AboutScreen.BACKGROUND_COLOR)
 
-        self._display = display
         self._clock = pygame.time.Clock()
         self._photo1 = resources.images["authors1"]
         self._photo2 = resources.images["authors2"]
