@@ -17,21 +17,23 @@
 import sys
 import pygame
 
+from screen import Screen
 from colors import Colors
 from pacman import PacMan
 from ghost import Ghost
 
 
-class StatisticScreen:
+class StatisticScreen(Screen):
     """Statistic screen displayed in the game and selected from main menu."""
 
     # colors used on statistic screen
-    BACKGROUND_COLOR = Colors.BLACK.value
     TITLE_COLOR = (255, 255, 255)
     STATISTIC_COLOR = (120, 120, 255)
 
     def __init__(self, display, resources, statistic):
         """Initialize the statistic screen."""
+        super(StatisticScreen, self).__init__(display)
+
         # fonts and other required resources are taken from resources object.
 
         # pre-render game title
@@ -58,7 +60,6 @@ class StatisticScreen:
         self._pink_ghost = Ghost(display, resources, "ghost_pink")
         self._pink_ghost.moveTo(100, 400)
 
-        self._display = display
         self._clock = pygame.time.Clock()
         self._statistic = statistic
 
