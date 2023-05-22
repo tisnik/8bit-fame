@@ -1,0 +1,147 @@
+ATTRIBUTE_ADR	EQU 5800
+ENTRY_POINT	EQU 8000
+ROM_CLS		EQU 0DAF
+		ORG 8000
+BLINK_BIT	EQU 0080
+INTENSITY_BIT	EQU 0040
+BLACK_COLOR	EQU 0000
+BLUE_COLOR	EQU 0001
+RED_COLOR	EQU 0002
+MAGENTA_COLOR	EQU 0003
+GREEN_COLOR	EQU 0004
+CYAN_COLOR	EQU 0005
+YELLOW_COLOR	EQU 0006
+WHITE_COLOR	EQU 0007
+RED_BLOCK	EQU 0050
+ORIG_BLOCK	EQU 0038
+INIT_X		EQU 000F
+INIT_Y		EQU 000C
+INIT_POSITION	EQU 598F
+KEMPSTON_PORT	EQU 001F
+Defining MACRO changeAttribute
+Params: attribute
+Defining MACRO add_to_hl
+Params: value
+Defining MACRO sub_from_hl
+Params: value
+8000:		label start
+8000:CDAF0D	CALL 0DAF
+8003:218F59	LD HL, 598F
+Expanding MACRO changeAttribute
+attribute= RED_BLOCK 
+LD ( HL ) , attribute 
+8006:3650	LD (HL), 50
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+8008:		label repeat
+8008:011F00	LD BC, 001F
+800B:ED78	IN A, (C)
+800D:1F		RRA
+800E:3005	JR NC, 8015
+Expanding MACRO changeAttribute
+attribute= ORIG_BLOCK 
+LD ( HL ) , attribute 
+8010:3638	LD (HL), 38
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+8012:23		INC HL
+Expanding MACRO changeAttribute
+attribute= RED_BLOCK 
+LD ( HL ) , attribute 
+8013:3650	LD (HL), 50
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+8015:		label right_not_pressed
+8015:1F		RRA
+8016:3005	JR NC, 801D
+Expanding MACRO changeAttribute
+attribute= ORIG_BLOCK 
+LD ( HL ) , attribute 
+8018:3638	LD (HL), 38
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+801A:2B		DEC HL
+Expanding MACRO changeAttribute
+attribute= RED_BLOCK 
+LD ( HL ) , attribute 
+801B:3650	LD (HL), 50
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+801D:		label left_not_pressed
+801D:1F		RRA
+801E:3009	JR NC, 8029
+Expanding MACRO changeAttribute
+attribute= ORIG_BLOCK 
+LD ( HL ) , attribute 
+8020:3638	LD (HL), 38
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+Expanding MACRO add_to_hl
+value= 0020 
+LD B , 0000 
+8022:0600	LD B, 00
+LD C , value 
+8024:0E20	LD C, 20
+ADD HL , BC 
+8026:09		ADD HL, BC
+ENDM 
+		ENDM
+End of MACRO add_to_hl
+Expanding MACRO changeAttribute
+attribute= RED_BLOCK 
+LD ( HL ) , attribute 
+8027:3650	LD (HL), 50
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+8029:		label up_not_pressed
+8029:1F		RRA
+802A:300B	JR NC, 8037
+Expanding MACRO changeAttribute
+attribute= ORIG_BLOCK 
+LD ( HL ) , attribute 
+802C:3638	LD (HL), 38
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+Expanding MACRO sub_from_hl
+value= 0020 
+LD B , 0000 
+802E:0600	LD B, 00
+LD C , value 
+8030:0E20	LD C, 20
+OR A 
+8032:B7		OR A
+SBC HL , BC 
+8033:ED42	SBC HL, BC
+ENDM 
+		ENDM
+End of MACRO sub_from_hl
+Expanding MACRO changeAttribute
+attribute= RED_BLOCK 
+LD ( HL ) , attribute 
+8035:3650	LD (HL), 50
+ENDM 
+		ENDM
+End of MACRO changeAttribute
+8037:		label down_not_pressed
+8037:CD3C80	CALL 803C
+803A:18CC	JR 8008
+803C:		label delay
+803C:061E	LD B, 1E
+803E:		label outer_loop
+803E:0E00	LD C, 00
+8040:		label inner_loop
+8040:0D		DEC C
+8041:20FD	JR NZ, 8040
+8043:10F9	DJNZ 803E
+8045:C9		RET
+8046:		END 8000
+Emiting TAP basic loader
+Emiting TAP from 8000 to 8045
