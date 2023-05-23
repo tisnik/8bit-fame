@@ -25,9 +25,18 @@ class Screen:
     # colors used on screen
     BACKGROUND_COLOR = Colors.BLACK.value
 
-    def __init__(self, display):
+    # default clock tick
+    CLOCK_TICK = 5
+
+    def __init__(self, display, resources):
         """Initialize the screen."""
+        # primary display for blitting to screen
         self._display = display
+
+        # all loaded resources
+        self._resources = resources
+
+        # clock to be used in event loop
         self._clock = pygame.time.Clock()
 
     def draw(self):
@@ -52,4 +61,6 @@ class Screen:
             # all events has been processed - redraw the screen
             self.draw()
             pygame.display.update()
-            self._clock.tick(5)
+
+            # and wait a bit
+            self._clock.tick(Screen.CLOCK_TICK)
