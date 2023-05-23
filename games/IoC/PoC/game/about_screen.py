@@ -31,33 +31,33 @@ class AboutScreen(Screen):
 
     def __init__(self, display, resources):
         """Initialize the about screen."""
-        super(AboutScreen, self).__init__(display)
+        super(AboutScreen, self).__init__(display, resources)
 
         # fonts and other required resources are taken from resources object.
 
         # pre-render game title
-        self._title = resources.bigFont.render("About", True,
-                                               AboutScreen.TITLE_COLOR,
-                                               AboutScreen.BACKGROUND_COLOR)
+        self._title = self._resources.bigFont.render("About", True,
+                                                     AboutScreen.TITLE_COLOR,
+                                                     AboutScreen.BACKGROUND_COLOR)
 
         # pre-render other texts
-        self._author1 = resources.normalFont.render("Pavel", True,
-                                                    AboutScreen.AUTHOR_COLOR,
-                                                    AboutScreen.BACKGROUND_COLOR)
-        self._author2 = resources.normalFont.render("Markétka", True,
-                                                    AboutScreen.AUTHOR_COLOR,
-                                                    AboutScreen.BACKGROUND_COLOR)
+        self._author1 = self._resources.normalFont.render("Pavel", True,
+                                                          AboutScreen.AUTHOR_COLOR,
+                                                          AboutScreen.BACKGROUND_COLOR)
+        self._author2 = self._resources.normalFont.render("Markétka", True,
+                                                          AboutScreen.AUTHOR_COLOR,
+                                                          AboutScreen.BACKGROUND_COLOR)
 
-        self._work1 = resources.normalFont.render("code", True,
-                                                  AboutScreen.WORK_COLOR,
-                                                  AboutScreen.BACKGROUND_COLOR)
-        self._work2 = resources.normalFont.render("gfx & sfx", True,
-                                                  AboutScreen.WORK_COLOR,
-                                                  AboutScreen.BACKGROUND_COLOR)
+        self._work1 = self._resources.normalFont.render("code", True,
+                                                        AboutScreen.WORK_COLOR,
+                                                        AboutScreen.BACKGROUND_COLOR)
+        self._work2 = self._resources.normalFont.render("gfx & sfx", True,
+                                                        AboutScreen.WORK_COLOR,
+                                                        AboutScreen.BACKGROUND_COLOR)
 
         self._clock = pygame.time.Clock()
-        self._photo1 = resources.images["authors1"]
-        self._photo2 = resources.images["authors2"]
+        self._photo1 = self._resources.images["authors1"]
+        self._photo2 = self._resources.images["authors2"]
 
     def draw(self):
         """Draw about screen."""
