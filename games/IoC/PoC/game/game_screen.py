@@ -29,7 +29,7 @@ class GameScreen(Screen):
 
     def __init__(self, display, resources):
         """Initialize the game screen."""
-        super(GameScreen, self).__init__(display)
+        super(GameScreen, self).__init__(display, resources)
 
         # fonts and other required resources are taken from resources object.
 
