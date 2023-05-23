@@ -29,14 +29,14 @@ class SettingsScreen(Screen):
 
     def __init__(self, display, resources):
         """Initialize the settings screen."""
-        super(SettingsScreen, self).__init__(display)
+        super(SettingsScreen, self).__init__(display, resources)
 
         # fonts and other required resources are taken from resources object.
 
         # pre-render game title
-        self._title = resources.bigFont.render("Settings", True,
-                                               SettingsScreen.TITLE_COLOR,
-                                               SettingsScreen.BACKGROUND_COLOR)
+        self._title = self._resources.bigFont.render("Settings", True,
+                                                     SettingsScreen.TITLE_COLOR,
+                                                     SettingsScreen.BACKGROUND_COLOR)
         self._clock = pygame.time.Clock()
 
     def draw(self):
