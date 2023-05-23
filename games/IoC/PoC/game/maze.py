@@ -14,8 +14,19 @@
 
 """Representation of maze in a game."""
 
+import os
+
 class Maze:
     """Representation of maze in a game."""
 
-    def __init__(self):
-        pass
+    def __init__(self, display, configuration, maze_name):
+        self._display = display
+
+        maze_directory = configuration["paths"]["mazes"]
+        filename = os.path.join(maze_directory, maze_name)
+        raw_data = self.loadMaze(filename)
+
+    def loadMaze(self, filename):
+        with open(filename, "r") as fin:
+            lines = fin.readlines()
+        return lines
