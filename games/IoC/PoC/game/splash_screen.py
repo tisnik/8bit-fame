@@ -26,38 +26,39 @@ class SplashScreen(Screen):
 
     CYCLE_DIRECTION_COUNTER_START_VALUE = 3
 
-    # colors used on splash screen
+    # colors used on splash screen (background color is read from Screen class
     TITLE_COLOR = (255, 255, 255)
     MENU_COLOR = (120, 120, 255)
     CREDITS_COLOR = (140, 140, 140)
 
     def __init__(self, display, resources, filename_prefix, frames_count, ghost):
         """Initialize the splash screen."""
-        super(SplashScreen, self).__init__(display)
+        super(SplashScreen, self).__init__(display, resources)
 
         # fonts and other required resources are taken from resources object.
 
         # pre-render game title
-        self._title = resources.bigFont.render("Inversion of Control", True,
-                                               SplashScreen.TITLE_COLOR,
-                                               SplashScreen.BACKGROUND_COLOR)
+        self._title = self._resources.bigFont.render("Inversion of Control", True,
+                                                     SplashScreen.TITLE_COLOR,
+                                                     SplashScreen.BACKGROUND_COLOR)
 
         # pre-render all menu items onto surfaces
         self._menu = (
-            self.renderMenuItem(resources, "Start new game"),
-            self.renderMenuItem(resources, "Settings"),
-            self.renderMenuItem(resources, "Statistic"),
-            self.renderMenuItem(resources, "About"),
-            self.renderMenuItem(resources, "Quit"),
+            self.renderMenuItem("Start new game"),
+            self.renderMenuItem("Settings"),
+            self.renderMenuItem("Statistic"),
+            self.renderMenuItem("About"),
+            self.renderMenuItem("Quit"),
         )
 
         # actually selected menu item
         self._selected_menu_item = 0
 
-        self._credits = resources.smallFont.render("2023 Markétka Tišnovská, Pavel Tišnovský",
-                                                   True,
-                                                   SplashScreen.CREDITS_COLOR,
-                                                   SplashScreen.BACKGROUND_COLOR)
+        credits = "2023 Markétka Tišnovská, Pavel Tišnovský"
+        self._credits = self._resources.smallFont.render(credits,
+                                                         True,
+                                                         SplashScreen.CREDITS_COLOR,
+                                                         SplashScreen.BACKGROUND_COLOR)
 
         self._ghost = ghost
         self._cycleDirectionCounter = SplashScreen.CYCLE_DIRECTION_COUNTER_START_VALUE
@@ -66,18 +67,18 @@ class SplashScreen(Screen):
         self._frames = []
         for i in range(1, frames_count+1):
             filename = f"{filename_prefix}_{i}"
-            frame = resources.images[filename]
+            frame = self._resources.images[filename]
             self._frames.append(frame)
 
         self._frame = 0
 
         self._clock = pygame.time.Clock()
 
-    def renderMenuItem(self, resources, text):
+    def renderMenuItem(self, text):
         """Render one menu item to be displayed on splash screen."""
-        return resources.normalFont.render(text, True,
-                                           SplashScreen.MENU_COLOR,
-                                           SplashScreen.BACKGROUND_COLOR)
+        return self._resources.normalFont.render(text, True,
+                                                 SplashScreen.MENU_COLOR,
+                                                 SplashScreen.BACKGROUND_COLOR)
 
     def draw(self):
         """Draw splash screen."""
