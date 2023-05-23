@@ -32,32 +32,32 @@ class StatisticScreen(Screen):
 
     def __init__(self, display, resources, statistic):
         """Initialize the statistic screen."""
-        super(StatisticScreen, self).__init__(display)
+        super(StatisticScreen, self).__init__(display, resources)
 
         # fonts and other required resources are taken from resources object.
 
         # pre-render game title
-        self._title = resources.bigFont.render("Statistic", True,
-                                               StatisticScreen.TITLE_COLOR,
-                                               StatisticScreen.BACKGROUND_COLOR)
+        self._title = self._resources.bigFont.render("Statistic", True,
+                                                     StatisticScreen.TITLE_COLOR,
+                                                     StatisticScreen.BACKGROUND_COLOR)
         # pre-render base texts
-        self._overall = resources.normalFont.render("Overall", True,
-                                                    StatisticScreen.STATISTIC_COLOR,
-                                                    StatisticScreen.BACKGROUND_COLOR)
+        self._overall = self._resources.normalFont.render("Overall", True,
+                                                          StatisticScreen.STATISTIC_COLOR,
+                                                          StatisticScreen.BACKGROUND_COLOR)
         
-        self._pacman = PacMan(display, resources, "pacman")
+        self._pacman = PacMan(display, self._resources, "pacman")
         self._pacman.moveTo(100, 200)
 
-        self._red_ghost = Ghost(display, resources, "ghost_red")
+        self._red_ghost = Ghost(display, self._resources, "ghost_red")
         self._red_ghost.moveTo(100, 250)
 
-        self._cyan_ghost = Ghost(display, resources, "ghost_cyan")
+        self._cyan_ghost = Ghost(display, self._resources, "ghost_cyan")
         self._cyan_ghost.moveTo(100, 300)
 
-        self._green_ghost = Ghost(display, resources, "ghost_green")
+        self._green_ghost = Ghost(display, self._resources, "ghost_green")
         self._green_ghost.moveTo(100, 350)
 
-        self._pink_ghost = Ghost(display, resources, "ghost_pink")
+        self._pink_ghost = Ghost(display, self._resources, "ghost_pink")
         self._pink_ghost.moveTo(100, 400)
 
         self._clock = pygame.time.Clock()
