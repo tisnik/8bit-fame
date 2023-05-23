@@ -14,6 +14,7 @@
 
 """Games statistic."""
 
+from os.path import exists
 import pickle
 
 STATISTIC_FILENAME = "ioc.stats"
@@ -36,13 +37,19 @@ class Statistic:
         self.redGhostKills = 0
 
 
-def loadStatistic():
-    """Load statistic from binary file."""
-    with open(STATISTIC_FILENAME, "rb") as fin:
-        return pickle.load(fin)
+    @staticmethod
+    def load():
+        """Load statistic from binary file."""
+        with open(STATISTIC_FILENAME, "rb") as fin:
+            return pickle.load(fin)
 
 
-def saveStatistic(statistic):
-    """Save statistic into binary file."""
-    with open(STATISTIC_FILENAME, "wb") as fout:
-        pickle.dump(statistic, fout)
+    def save(self):
+        """Save statistic into binary file."""
+        with open(STATISTIC_FILENAME, "wb") as fout:
+            pickle.dump(self, fout)
+
+
+    def exists(self):
+        """Check if file with statistic exists."""
+        return exists(STATISTIC_FILENAME)
