@@ -58,13 +58,15 @@ red_ghost = Ghost(display, resources, "ghost_red")
 
 splash_screen = SplashScreen(display, resources, "splash_screen", 8, red_ghost)
 
+maze = Maze(display, configuration, "default.txt")
+
 while True:
     menuItem = splash_screen.eventLoop()
     if menuItem == MainMenu.QUIT.value:
         pygame.quit()
         sys.exit()
     elif menuItem == MainMenu.NEW_GAME.value:
-        game_screen = GameScreen(display, resources)
+        game_screen = GameScreen(display, resources, maze)
         game_screen.draw()
         game_screen.eventLoop()
     elif menuItem == MainMenu.SETTINGS.value:
