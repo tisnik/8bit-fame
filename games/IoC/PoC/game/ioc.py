@@ -27,15 +27,19 @@ from colors import Colors
 from direction import Direction
 from splash_screen import SplashScreen
 from statistic_screen import StatisticScreen
-from statistic import Statistic, loadStatistic, saveStatistic
+from statistic import Statistic
 from settings_screen import SettingsScreen
 from game_screen import GameScreen
 from resources import Resources
 from about_screen import AboutScreen
+from maze import Maze
 
 statistic = Statistic()
-# save statistic into external file
-saveStatistic(statistic)
+# save default statistic into external file
+if statistic.exists():
+    statistic = Statistic.load()
+else:
+    statistic.save()
 
 configuration = loadConfiguration("ioc.ini")
 
