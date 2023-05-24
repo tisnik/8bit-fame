@@ -95,6 +95,28 @@ class StatisticScreen(Screen):
         """Draw statistic onto screen."""
         self._display.blit(self._overall, (100, 100))
 
+        x = 250
+        y = 105
+
+        games = self.renderString(f"Games:")
+        self._display.blit(games, (x, y))
+        y += 20
+
+        totalTime = self.renderString(f"Total time:")
+        self._display.blit(totalTime, (x, y))
+        y += 20
+
+        scaredTime = self.renderString(f"Ghosts scared time:")
+        self._display.blit(games, (x, y))
+        y += 20
+
+        y = 105
+
+    def renderString(self, string):
+        return self._resources.smallFont.render(string, True,
+                                                StatisticScreen.VALUE_COLOR,
+                                                StatisticScreen.BACKGROUND_COLOR)
+
     def eventLoop(self):
         """Event loop for Statistic screen that just waits for keypress or window close action."""
         while True:
