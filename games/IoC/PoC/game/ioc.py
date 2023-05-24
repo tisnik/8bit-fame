@@ -29,6 +29,7 @@ from splash_screen import SplashScreen
 from statistic_screen import StatisticScreen
 from statistic import Statistic, loadStatistic, saveStatistic
 from settings_screen import SettingsScreen
+from game_screen import GameScreen
 from resources import Resources
 from about_screen import AboutScreen
 
@@ -62,6 +63,10 @@ while True:
     if menuItem == MainMenu.QUIT.value:
         pygame.quit()
         sys.exit()
+    elif menuItem == MainMenu.NEW_GAME.value:
+        game_screen = GameScreen(display, resources)
+        game_screen.draw()
+        game_screen.eventLoop()
     elif menuItem == MainMenu.SETTINGS.value:
         settings_screen = SettingsScreen(display, resources)
         settings_screen.draw()
