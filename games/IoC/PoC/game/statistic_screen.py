@@ -29,6 +29,7 @@ class StatisticScreen(Screen):
     # colors used on statistic screen
     TITLE_COLOR = (255, 255, 255)
     STATISTIC_COLOR = (120, 120, 255)
+    VALUE_COLOR = (120, 120, 120)
 
     def __init__(self, display, resources, statistic):
         """Initialize the statistic screen."""
