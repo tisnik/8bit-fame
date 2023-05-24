@@ -27,17 +27,19 @@ class GameScreen(Screen):
     # colors used on game screen
     TITLE_COLOR = (255, 255, 255)
 
-    def __init__(self, display, resources):
+    def __init__(self, display, resources, maze):
         """Initialize the game screen."""
         super(GameScreen, self).__init__(display, resources)
 
         # fonts and other required resources are taken from resources object.
 
+        self._maze = maze
         self._clock = pygame.time.Clock()
 
     def draw(self):
         """Draw game screen."""
         self._display.fill(Colors.BLACK.value)
+        self._maze.draw()
 
     def eventLoop(self):
         """Event loop for game screen."""
