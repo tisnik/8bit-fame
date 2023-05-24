@@ -67,18 +67,23 @@ class StatisticScreen(Screen):
         """Draw statistic screen."""
         self._display.fill(Colors.BLACK.value)
         self.drawTitle()
+        self.drawSprites()
         self.drawStatistic()
-        self._pacman.draw()
-        self._red_ghost.draw()
-        self._cyan_ghost.draw()
-        self._green_ghost.draw()
-        self._pink_ghost.draw()
+        self.nextFrame()
 
+    def nextFrame(self):
         self._pacman.tick()
         self._red_ghost.cycleDirection()
         self._cyan_ghost.cycleDirection()
         self._green_ghost.cycleDirection()
         self._pink_ghost.cycleDirection()
+
+    def drawSprites(self):
+        self._pacman.draw()
+        self._red_ghost.draw()
+        self._cyan_ghost.draw()
+        self._green_ghost.draw()
+        self._pink_ghost.draw()
 
     def drawTitle(self):
         """Draw the title onto statistic screen."""
