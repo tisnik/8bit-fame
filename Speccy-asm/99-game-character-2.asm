@@ -61,7 +61,7 @@ start:
 repeat:
 	ld  c, $fe                     ; port, ze kterého se bude číst
 
-	keypress KB_ROW_5_PORT         ; test stisku klávesy P a Q
+	keypress KB_ROW_5_PORT         ; test stisku klávesy O a P
 	rra                            ; nultý bit do příznaku carry
 	jr c, p_not_pressed            ; přeskok dalších instrukcí, pokud klávesa není stisknuta
 	changeAttribute ORIG_BLOCK     ; smazat hráče na původní pozici
