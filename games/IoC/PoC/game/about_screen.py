@@ -55,6 +55,17 @@ class AboutScreen(Screen):
                                                         AboutScreen.WORK_COLOR,
                                                         AboutScreen.BACKGROUND_COLOR)
 
+        # version info texts
+        self._pygame_version = self._resources.smallFont.render(f"Pygame version: {pygame.version.ver}",
+                                                                True,
+                                                                AboutScreen.WORK_COLOR,
+                                                                AboutScreen.BACKGROUND_COLOR)
+
+        sdlVersion = f"SDL version: {pygame.version.SDL.major}.{pygame.version.SDL.minor}.{pygame.version.SDL.patch}"
+        self._sdl_version = self._resources.smallFont.render(sdlVersion, True,
+                                                             AboutScreen.WORK_COLOR,
+                                                             AboutScreen.BACKGROUND_COLOR)
+
         self._clock = pygame.time.Clock()
         self._photo1 = self._resources.images["authors1"]
         self._photo2 = self._resources.images["authors2"]
@@ -65,6 +76,7 @@ class AboutScreen(Screen):
         self.drawTitle()
         self.drawAuthors()
         self.drawTexts()
+        self.drawVersionInfo()
 
     def drawTitle(self):
         """Draw the title onto the about screen."""
@@ -83,6 +95,11 @@ class AboutScreen(Screen):
         self._display.blit(self._author1, (250, 340))
         self._display.blit(self._work1, (250, 380))
         self._display.blit(self._work2, (250, 230))
+
+    def drawVersionInfo(self):
+        """Draw info about library versions onto the screen."""
+        self._display.blit(self._pygame_version, (500, 600))
+        self._display.blit(self._sdl_version, (500, 625))
 
     def eventLoop(self):
         """Event loop for About screen that just waits for keypress or window close operation."""
