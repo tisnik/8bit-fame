@@ -171,12 +171,16 @@ class SplashScreen(Screen):
                 if event.type == pygame.locals.KEYDOWN:
                     if event.key == pygame.locals.K_ESCAPE:
                         return MainMenu.QUIT.value
-                    if event.key == pygame.locals.K_UP:
+                    elif event.key == pygame.locals.K_UP:
                         self.moveGhostUp()
-                    if event.key == pygame.locals.K_DOWN:
+                    elif event.key == pygame.locals.K_DOWN:
                         self.moveGhostDown()
-                    if event.key == pygame.locals.K_RETURN:
+                    elif event.key == pygame.locals.K_RETURN:
                         return self.getSelectedMenuItem()
+                    elif event.key == pygame.locals.K_a:
+                        return MainMenu.ABOUT.value
+                    elif event.key == pygame.locals.K_q:
+                        return MainMenu.QUIT.value
 
             # all events has been processed - redraw the screen
             self.draw()
