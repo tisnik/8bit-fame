@@ -9,3 +9,5 @@
 #  Contributors:
 #      Pavel Tisnovsky
 #
+
+"""An implementation of Inversion of Control game."""
