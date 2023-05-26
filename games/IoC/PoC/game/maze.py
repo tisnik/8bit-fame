@@ -25,6 +25,7 @@ class Maze:
     WALL_COLOR = (120, 120, 255)
 
     def __init__(self, display, configuration, maze_name):
+        """Initialize maze by loading its topology from external text file."""
         self._display = display
 
         maze_directory = configuration["paths"]["mazes"]
@@ -33,11 +34,13 @@ class Maze:
         self._tiles = parseTiles(raw_data)
 
     def loadMaze(self, filename):
+        """Load maze topology from external text file."""
         with open(filename, "r") as fin:
             lines = fin.readlines()
         return lines
 
     def draw(self):
+        """Draw the whole maze onto the screen."""
         y = 20
         for row in self._tiles:
             x = 32
@@ -50,6 +53,7 @@ class Maze:
 
 
 def parseTiles(raw_data):
+    """Parse titles character by character."""
     rows = []
     for line in raw_data:
         line = line[:-1]
