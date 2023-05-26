@@ -73,6 +73,7 @@ class StatisticScreen(Screen):
         self.nextFrame()
 
     def nextFrame(self):
+        """Compute screen content for the next frame."""
         self._pacman.tick()
         self._red_ghost.cycleDirection()
         self._cyan_ghost.cycleDirection()
@@ -80,6 +81,7 @@ class StatisticScreen(Screen):
         self._pink_ghost.cycleDirection()
 
     def drawSprites(self):
+        """Draw all sprites onto the screen."""
         self._pacman.draw()
         self._red_ghost.draw()
         self._cyan_ghost.draw()
@@ -114,6 +116,7 @@ class StatisticScreen(Screen):
         y = 105
 
     def renderString(self, string):
+        """Render given string onto new surface."""
         return self._resources.smallFont.render(string, True,
                                                 StatisticScreen.VALUE_COLOR,
                                                 StatisticScreen.BACKGROUND_COLOR)
