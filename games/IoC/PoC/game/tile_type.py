@@ -12,9 +12,13 @@
 #      Pavel Tisnovsky
 #
 
+"""All tile types."""
+
 from enum import Enum
 
 class TileType(Enum):
+    """All tile types."""
+
     TOP_LEFT_CORNER = 0
     TOP_RIGHT_CORNER = 1
     BOTTOM_LEFT_CORNER = 2
