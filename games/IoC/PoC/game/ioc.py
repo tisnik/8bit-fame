@@ -15,6 +15,7 @@
 """Entry point to initialization part + entry to the main event loop."""
 
 import sys
+import os
 
 import pygame
 import pygame.locals
@@ -33,6 +34,13 @@ from game_screen import GameScreen
 from resources import Resources
 from about_screen import AboutScreen
 from maze import Maze
+
+
+def statisticScreenMode(display, resources, statistic):
+    statistic_screen = StatisticScreen(display, resources, statistic)
+    statistic_screen.draw()
+    statistic_screen.eventLoop()
+
 
 statistic = Statistic()
 # save default statistic into external file
@@ -63,6 +71,13 @@ red_ghost = Ghost(display, resources, "ghost_red")
 splash_screen = SplashScreen(display, resources, "splash_screen", 8, red_ghost)
 
 maze = Maze(display, configuration, "default.txt")
+
+statisticScreenMode(display, resources, statistic)
+
+game_screen = GameScreen(display, resources, maze)
+game_screen.draw()
+game_screen.eventLoop()
+sys.exit(0)
 
 while True:
     menuItem = splash_screen.eventLoop()
