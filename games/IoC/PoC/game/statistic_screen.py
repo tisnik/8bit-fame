@@ -101,19 +101,29 @@ class StatisticScreen(Screen):
         x = 250
         y = 105
 
-        games = self.renderString(f"Games:")
-        self._display.blit(games, (x, y))
+        self.drawString(x, y, f"Games:")
         y += 20
 
-        totalTime = self.renderString(f"Total time:")
-        self._display.blit(totalTime, (x, y))
+        self.drawString(x, y, f"Total time:")
         y += 20
 
-        scaredTime = self.renderString(f"Ghosts scared time:")
-        self._display.blit(games, (x, y))
+        self.drawString(x, y, f"Ghosts scared time:")
+
+        y = 185
+
+        self.drawString(x, y, f"Small dots eaten:")
         y += 20
 
-        y = 105
+        self.drawString(x, y, f"Big dots eaten:")
+        y += 20
+
+        self.drawString(x, y, f"Ghost eaten:")
+        y += 20
+
+    def drawString(self, x, y, string):
+        """Draw given string on [x, y] coordinates."""
+        rendered = self.renderString(string)
+        self._display.blit(rendered, (x, y))
 
     def renderString(self, string):
         """Render given string onto new surface."""
