@@ -22,8 +22,6 @@ from tile import Tile
 class Maze:
     """Representation of maze in a game."""
 
-    WALL_COLOR = (120, 120, 255)
-
     def __init__(self, display, configuration, maze_name):
         """Initialize maze by loading its topology from external text file."""
         self._display = display
@@ -45,9 +43,7 @@ class Maze:
         for row in self._tiles:
             x = 32
             for tile in row:
-                pygame.draw.rect(self._display,
-                                 Maze.WALL_COLOR,
-                                 pygame.Rect(x, y, 30, 30))
+                tile.draw(self._display, x, y)
                 x += 32
             y += 32
 
