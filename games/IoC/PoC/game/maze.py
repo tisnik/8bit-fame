@@ -19,6 +19,7 @@ import pygame
 
 from tile import Tile
 
+
 class Maze:
     """Representation of maze in a game."""
 

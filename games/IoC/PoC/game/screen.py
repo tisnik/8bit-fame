@@ -14,12 +14,13 @@
 
 """Superclass for all screens in the game."""
 
+from abc import ABC
 import pygame
 
 from colors import Colors
 
 
-class Screen:
+class Screen(ABC):
     """Superclass for all screens in the game."""
 
     # colors used on screen
