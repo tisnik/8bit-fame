@@ -56,13 +56,14 @@ class AboutScreen(Screen):
                                                         AboutScreen.BACKGROUND_COLOR)
 
         # version info texts
-        self._pygame_version = self._resources.smallFont.render(f"Pygame version: {pygame.version.ver}",
+        pygame_version = f"Pygame version: {pygame.version.ver}"
+        self._pygame_version = self._resources.smallFont.render(pygame_version,
                                                                 True,
                                                                 AboutScreen.WORK_COLOR,
                                                                 AboutScreen.BACKGROUND_COLOR)
 
-        sdlVersion = f"SDL version: {pygame.version.SDL.major}.{pygame.version.SDL.minor}.{pygame.version.SDL.patch}"
-        self._sdl_version = self._resources.smallFont.render(sdlVersion, True,
+        sdlVer = f"{pygame.version.SDL.major}.{pygame.version.SDL.minor}.{pygame.version.SDL.patch}"
+        self._sdl_version = self._resources.smallFont.render("SDL version: " + sdlVer, True,
                                                              AboutScreen.WORK_COLOR,
                                                              AboutScreen.BACKGROUND_COLOR)
 
