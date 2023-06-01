@@ -14,10 +14,11 @@
 
 """Super class for all movable objects in the game."""
 
+from abc import ABC
 from direction import Direction
 
 
-class Sprite:
+class Sprite(ABC):
     """Super class for all movable objects in the game."""
 
     def __init__(self, surface):
