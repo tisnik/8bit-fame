@@ -36,7 +36,6 @@ def drawHorizontalLine(display, x, y):
                      (x, y+17), (x+31, y+17))
 
 
-
 def drawVerticalLine(display, x, y):
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
@@ -110,7 +109,7 @@ def drawBottomLeftCorner(display, x, y):
 
 
 def drawBottomRightCorner(display, x, y):
-    c = (255,255,255)
+    c = (255, 255, 255)
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x, y+14), (x+7, y+14))
@@ -135,54 +134,53 @@ class Tile:
     WALL_COLOR = (120, 120, 255)
 
     types = {
-            "┌":TileType.TOP_LEFT_CORNER,
-            "┐":TileType.TOP_RIGHT_CORNER,
-            "└":TileType.BOTTOM_LEFT_CORNER,
-            "┘":TileType.BOTTOM_RIGHT_CORNER,
-            "─":TileType.HORIZONTAL_LINE,
-            "╴":TileType.LEFT_HALF_HORIZONTAL_LINE,
-            "╶":TileType.RIGHT_HALF_HORIZONTAL_LINE,
-            "│":TileType.VERTICAL_LINE,
-            "╵":TileType.TOP_HALF_VERTICAL_LINE,
-            "╷":TileType.BOTTOM_HALF_VERTICAL_LINE,
-            "┬":TileType.UPPER_T,
-            "├":TileType.LEFT_T,
-            "┤":TileType.RIGHT_T,
-            "*":TileType.BIG_DOT,
-            ".":TileType.SMALL_DOT,
-            " ":TileType.EMPTY,
-            "R":TileType.RED_GHOST,
-            "C":TileType.CYAN_GHOST,
-            "G":TileType.GREEN_GHOST,
-            "P":TileType.PINK_GHOST,
-            "M":TileType.PACMAN,
+            "┌": TileType.TOP_LEFT_CORNER,
+            "┐": TileType.TOP_RIGHT_CORNER,
+            "└": TileType.BOTTOM_LEFT_CORNER,
+            "┘": TileType.BOTTOM_RIGHT_CORNER,
+            "─": TileType.HORIZONTAL_LINE,
+            "╴": TileType.LEFT_HALF_HORIZONTAL_LINE,
+            "╶": TileType.RIGHT_HALF_HORIZONTAL_LINE,
+            "│": TileType.VERTICAL_LINE,
+            "╵": TileType.TOP_HALF_VERTICAL_LINE,
+            "╷": TileType.BOTTOM_HALF_VERTICAL_LINE,
+            "┬": TileType.UPPER_T,
+            "├": TileType.LEFT_T,
+            "┤": TileType.RIGHT_T,
+            "*": TileType.BIG_DOT,
+            ".": TileType.SMALL_DOT,
+            " ": TileType.EMPTY,
+            "R": TileType.RED_GHOST,
+            "C": TileType.CYAN_GHOST,
+            "G": TileType.GREEN_GHOST,
+            "P": TileType.PINK_GHOST,
+            "M": TileType.PACMAN,
             }
 
     draw_methods = {
-            TileType.TOP_LEFT_CORNER:drawTopLeftCorner,
-            TileType.TOP_RIGHT_CORNER:drawTopRightCorner,
-            TileType.BOTTOM_LEFT_CORNER:drawBottomLeftCorner,
-            TileType.BOTTOM_RIGHT_CORNER:drawBottomRightCorner,
-            TileType.HORIZONTAL_LINE:drawHorizontalLine,
-            TileType.LEFT_HALF_HORIZONTAL_LINE:drawDefault,
-            TileType.RIGHT_HALF_HORIZONTAL_LINE:drawDefault,
-            TileType.VERTICAL_LINE:drawVerticalLine,
-            TileType.TOP_HALF_VERTICAL_LINE:drawDefault,
-            TileType.BOTTOM_HALF_VERTICAL_LINE:drawDefault,
-            TileType.UPPER_T:drawDefault,
-            TileType.LEFT_T:drawDefault,
-            TileType.RIGHT_T:drawDefault,
-            TileType.BIG_DOT:drawDefault,
-            TileType.SMALL_DOT:drawDefault,
-            TileType.EMPTY:drawBlank,
-            TileType.RED_GHOST:drawDefault,
-            TileType.CYAN_GHOST:drawDefault,
-            TileType.GREEN_GHOST:drawDefault,
-            TileType.PINK_GHOST:drawDefault,
-            TileType.PACMAN:drawDefault,
+            TileType.TOP_LEFT_CORNER: drawTopLeftCorner,
+            TileType.TOP_RIGHT_CORNER: drawTopRightCorner,
+            TileType.BOTTOM_LEFT_CORNER: drawBottomLeftCorner,
+            TileType.BOTTOM_RIGHT_CORNER: drawBottomRightCorner,
+            TileType.HORIZONTAL_LINE: drawHorizontalLine,
+            TileType.LEFT_HALF_HORIZONTAL_LINE: drawDefault,
+            TileType.RIGHT_HALF_HORIZONTAL_LINE: drawDefault,
+            TileType.VERTICAL_LINE: drawVerticalLine,
+            TileType.TOP_HALF_VERTICAL_LINE: drawDefault,
+            TileType.BOTTOM_HALF_VERTICAL_LINE: drawDefault,
+            TileType.UPPER_T: drawDefault,
+            TileType.LEFT_T: drawDefault,
+            TileType.RIGHT_T: drawDefault,
+            TileType.BIG_DOT: drawDefault,
+            TileType.SMALL_DOT: drawDefault,
+            TileType.EMPTY: drawBlank,
+            TileType.RED_GHOST: drawDefault,
+            TileType.CYAN_GHOST: drawDefault,
+            TileType.GREEN_GHOST: drawDefault,
+            TileType.PINK_GHOST: drawDefault,
+            TileType.PACMAN: drawDefault,
             }
 
     def __init__(self, raw_char):
         self._type = Tile.types[raw_char]
         self.draw = self.draw_methods[self._type]
-
