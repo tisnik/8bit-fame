@@ -37,6 +37,7 @@ from maze import Maze
 
 
 def statisticScreenMode(display, resources, statistic):
+    """Game mode with statistic screen displayed."""
     statistic_screen = StatisticScreen(display, resources, statistic)
     statistic_screen.draw()
     statistic_screen.eventLoop()
