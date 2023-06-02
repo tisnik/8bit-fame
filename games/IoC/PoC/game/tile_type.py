@@ -16,6 +16,7 @@
 
 from enum import Enum
 
+
 class TileType(Enum):
     """All tile types."""
 
