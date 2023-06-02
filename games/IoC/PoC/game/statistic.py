@@ -36,19 +36,16 @@ class Statistic:
         self.pinkGhostKills = 0
         self.redGhostKills = 0
 
-
     @staticmethod
     def load():
         """Load statistic from binary file."""
         with open(STATISTIC_FILENAME, "rb") as fin:
             return pickle.load(fin)
 
-
     def save(self):
         """Save statistic into binary file."""
         with open(STATISTIC_FILENAME, "wb") as fout:
             pickle.dump(self, fout)
-
 
     def exists(self):
         """Check if file with statistic exists."""
