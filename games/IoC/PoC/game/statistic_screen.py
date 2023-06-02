@@ -45,7 +45,7 @@ class StatisticScreen(Screen):
         self._overall = self._resources.normalFont.render("Overall", True,
                                                           StatisticScreen.STATISTIC_COLOR,
                                                           StatisticScreen.BACKGROUND_COLOR)
-        
+
         self._pacman = PacMan(display, self._resources, "pacman")
         self._pacman.moveTo(100, 200)
 
