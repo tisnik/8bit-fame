@@ -39,7 +39,7 @@ class Resources:
 
     def loadImages(self, configuration):
         """Load all images from specified directory."""
-        imageList = getListOfImages(configuration)
+        imageList = get_list_of_images(configuration)
         self._images = {}
         for imageName in imageList:
             self._images[imageName[0]] = pygame.image.load(imageName[1])
@@ -65,13 +65,13 @@ class Resources:
         return self._images
 
 
-def getListOfImages(configuration):
+def get_list_of_images(configuration):
     """Retrieve list of all image files from specified directory."""
     path = configuration["paths"]["images"]
-    return [(shortFilename(fileName), join(path, fileName))
+    return [(short_filename(fileName), join(path, fileName))
             for fileName in os.listdir(path) if isfile(join(path, fileName))]
 
 
-def shortFilename(filename):
+def short_filename(filename):
     """Take just filename without extension."""
     return filename[0:filename.index(".")]

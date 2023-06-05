@@ -30,7 +30,7 @@ class Maze:
         maze_directory = configuration["paths"]["mazes"]
         filename = os.path.join(maze_directory, maze_name)
         raw_data = self.loadMaze(filename)
-        self._tiles = parseTiles(raw_data)
+        self._tiles = parse_tiles(raw_data)
 
     def loadMaze(self, filename):
         """Load maze topology from external text file."""
@@ -49,7 +49,7 @@ class Maze:
             y += 32
 
 
-def parseTiles(raw_data):
+def parse_tiles(raw_data):
     """Parse titles character by character."""
     rows = []
     for line in raw_data:
