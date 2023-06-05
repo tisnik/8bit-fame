@@ -36,7 +36,14 @@ from about_screen import AboutScreen
 from maze import Maze
 
 
-def statisticScreenMode(display, resources, statistic):
+def about_screen_mode(display, resources, statistic):
+    """Game mode with about screen displayed."""
+    about_screen = AboutScreen(display, resources)
+    about_screen.draw()
+    about_screen.eventLoop()
+
+
+def statistic_screen_mode(display, resources, statistic):
     """Game mode with statistic screen displayed."""
     statistic_screen = StatisticScreen(display, resources, statistic)
     statistic_screen.draw()
@@ -73,7 +80,11 @@ splash_screen = SplashScreen(display, resources, "splash_screen", 8, red_ghost)
 
 maze = Maze(display, configuration, "default.txt")
 
-statisticScreenMode(display, resources, statistic)
+# statistic_screen_mode(display, resources, statistic)
+# sys.exit()
+
+# about_screen_mode(display, resources, statistic)
+# sys.exit()
 
 game_screen = GameScreen(display, resources, maze)
 game_screen.draw()
