@@ -1,0 +1,22 @@
+ENTRY_POINT	EQU 8000
+BEEPER		EQU 03B5
+		ORG 8000
+Defining MACRO beep
+Params: pitch, duration
+8000:		label start
+Expanding MACRO beep
+pitch= 03C4 
+duration= 03E8 
+LD HL , pitch 
+8000:21C403	LD HL, 03C4
+LD DE , duration 
+8003:11E803	LD DE, 03E8
+CALL BEEPER 
+8006:CDB503	CALL 03B5
+ENDM 
+		ENDM
+End of MACRO beep
+8009:C9		RET
+800A:		END 8000
+Emiting TAP basic loader
+Emiting TAP from 8000 to 8009
