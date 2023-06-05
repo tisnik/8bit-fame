@@ -19,6 +19,8 @@ import pygame
 
 from screen import Screen
 from colors import Colors
+from ghost import Ghost
+from direction import Direction
 
 
 class AboutScreen(Screen):
@@ -71,6 +73,16 @@ class AboutScreen(Screen):
         self._photo1 = self._resources.images["authors1"]
         self._photo2 = self._resources.images["authors2"]
 
+        # pink ghost
+        self._pink_ghost = Ghost(display, self._resources, "ghost_pink")
+        self._pink_ghost.moveTo(600, 440)
+        self._pink_ghost.setDirection(Direction.UP)
+
+        # green ghost
+        self._green_ghost = Ghost(display, self._resources, "ghost_green")
+        self._green_ghost.moveTo(450, 600)
+        self._green_ghost.setDirection(Direction.DOWN)
+
     def draw(self):
         """Draw about screen."""
         self._display.fill(Colors.BLACK.value)
@@ -78,6 +90,12 @@ class AboutScreen(Screen):
         self.drawAuthors()
         self.drawTexts()
         self.drawVersionInfo()
+        self.drawSprites()
+
+    def drawSprites(self):
+        """Draw all sprites onto the screen."""
+        self._pink_ghost.draw()
+        self._green_ghost.draw()
 
     def drawTitle(self):
         """Draw the title onto the about screen."""
@@ -102,6 +120,60 @@ class AboutScreen(Screen):
         self._display.blit(self._pygame_version, (500, 600))
         self._display.blit(self._sdl_version, (500, 625))
 
+    def movePinkGhost(self):
+        """Move the pink ghost."""
+        STEP = 5
+        LEFT = 40
+        RIGHT = 210
+        TOP = 100
+        BOTTOM = 460
+
+        self._pink_ghost.move(STEP)
+        x, y = self._pink_ghost.getPosition()
+        if y < TOP:
+            self._pink_ghost.moveRel(0, STEP)
+            self._pink_ghost.cycleDirection()
+        elif y > BOTTOM:
+            self._pink_ghost.moveRel(0, -STEP)
+            self._pink_ghost.cycleDirection()
+        elif x < LEFT:
+            self._pink_ghost.moveRel(STEP, 0)
+            self._pink_ghost.cycleDirection()
+        elif x > RIGHT:
+            self._pink_ghost.moveRel(-STEP, 0)
+            self._pink_ghost.cycleDirection()
+
+    def moveGreenGhost(self):
+        """Move the green ghost."""
+        STEP = 5
+        LEFT = 40
+        RIGHT = 550
+        TOP = 160
+        BOTTOM = 310
+
+        self._green_ghost.move(STEP)
+        x, y = self._green_ghost.getPosition()
+        if y < TOP:
+            self._green_ghost.moveRel(0, STEP)
+            self._green_ghost.cycleDirection()
+            self._green_ghost.cycleDirection()
+            self._green_ghost.cycleDirection()
+        elif y > BOTTOM:
+            self._green_ghost.moveRel(0, -STEP)
+            self._green_ghost.cycleDirection()
+            self._green_ghost.cycleDirection()
+            self._green_ghost.cycleDirection()
+        elif x < LEFT:
+            self._green_ghost.moveRel(STEP, 0)
+            self._green_ghost.cycleDirection()
+            self._green_ghost.cycleDirection()
+            self._green_ghost.cycleDirection()
+        elif x > RIGHT:
+            self._green_ghost.moveRel(-STEP, 0)
+            self._green_ghost.cycleDirection()
+            self._green_ghost.cycleDirection()
+            self._green_ghost.cycleDirection()
+
     def eventLoop(self):
         """Event loop for About screen that just waits for keypress or window close operation."""
         while True:
@@ -115,7 +187,9 @@ class AboutScreen(Screen):
                     if event.key == pygame.locals.K_RETURN:
                         return
 
-            # all events has been processed - redraw the screen
+            # all events has been processed - update scene and redraw the screen
+            self.movePinkGhost()
+            self.moveGreenGhost()
             self.draw()
             pygame.display.update()
-            self._clock.tick(8)
+            self._clock.tick(25)
