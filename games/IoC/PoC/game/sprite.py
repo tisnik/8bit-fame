@@ -50,6 +50,10 @@ class Sprite(ABC):
         self._x = x
         self._y = y
 
+    def getPosition(self):
+        """Get sprite position."""
+        return (self._x, self._y)
+
     def move(self, step=1):
         """Move sprite in actual direction."""
         if self._direction == Direction.UP:
