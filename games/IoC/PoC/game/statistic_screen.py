@@ -29,7 +29,8 @@ class StatisticScreen(Screen):
     # colors used on statistic screen
     TITLE_COLOR = (255, 255, 255)
     STATISTIC_COLOR = (120, 120, 255)
-    VALUE_COLOR = (120, 120, 120)
+    VALUE_TITLE_COLOR = (130, 130, 130)
+    VALUE_COLOR = (255, 255, 130)
 
     def __init__(self, display, resources, statistic):
         """Initialize the statistic screen."""
@@ -50,16 +51,16 @@ class StatisticScreen(Screen):
         self._pacman.moveTo(100, 200)
 
         self._red_ghost = Ghost(display, self._resources, "ghost_red")
-        self._red_ghost.moveTo(100, 250)
+        self._red_ghost.moveTo(100, 260)
 
         self._cyan_ghost = Ghost(display, self._resources, "ghost_cyan")
-        self._cyan_ghost.moveTo(100, 300)
+        self._cyan_ghost.moveTo(100, 320)
 
         self._green_ghost = Ghost(display, self._resources, "ghost_green")
-        self._green_ghost.moveTo(100, 350)
+        self._green_ghost.moveTo(100, 380)
 
         self._pink_ghost = Ghost(display, self._resources, "ghost_pink")
-        self._pink_ghost.moveTo(100, 400)
+        self._pink_ghost.moveTo(100, 440)
 
         self._clock = pygame.time.Clock()
         self._statistic = statistic
@@ -101,34 +102,67 @@ class StatisticScreen(Screen):
         x = 250
         y = 105
 
-        self.drawString(x, y, f"Games:")
+        valueOffset = 200
+
+        self.drawValueTitle(x, y, "Games:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.games}")
         y += 20
 
-        self.drawString(x, y, f"Total time:")
+        self.drawValueTitle(x, y, "Total time:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.totalTime}")
         y += 20
 
-        self.drawString(x, y, f"Ghosts scared time:")
+        self.drawValueTitle(x, y, "Ghosts scared time:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.scaredTime}")
 
         y = 185
 
-        self.drawString(x, y, f"Small dots eaten:")
+        self.drawValueTitle(x, y, "Small dots eaten:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.smallDotsEaten}")
         y += 20
 
-        self.drawString(x, y, f"Big dots eaten:")
+        self.drawValueTitle(x, y, "Big dots eaten:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.largeDotsEaten}")
         y += 20
 
-        self.drawString(x, y, f"Ghost eaten:")
-        y += 20
+        self.drawValueTitle(x, y, "Ghost eaten:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.pacmanKills}")
+        y += 40
 
-    def drawString(self, x, y, string):
-        """Draw given string on [x, y] coordinates."""
-        rendered = self.renderString(string)
+        self.drawValueTitle(x, y, "Pacman overtakes:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.redGhostKills}")
+        y += 60
+
+        self.drawValueTitle(x, y, "Pacman overtakes:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.cyanGhostKills}")
+        y += 60
+
+        self.drawValueTitle(x, y, "Pacman overtakes:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.greenGhostKills}")
+        y += 60
+
+        self.drawValueTitle(x, y, "Pacman overtakes:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.pinkGhostKills}")
+
+    def drawValue(self, x, y, string):
+        """Draw given string with value on [x, y] coordinates."""
+        rendered = self.renderString(string, StatisticScreen.VALUE_COLOR)
         self._display.blit(rendered, (x, y))
 
-    def renderString(self, string):
+    def drawValueTitle(self, x, y, string):
+        """Draw given string with value title on [x, y] coordinates."""
+        rendered = self.renderString(string, StatisticScreen.VALUE_TITLE_COLOR)
+        self._display.blit(rendered, (x, y))
+
+    def drawString(self, x, y, string, color):
+        """Draw given string on [x, y] coordinates."""
+        rendered = self.renderString(string, color)
+        self._display.blit(rendered, (x, y))
+
+    def renderString(self, string, color):
         """Render given string onto new surface."""
         return self._resources.smallFont.render(string, True,
-                                                StatisticScreen.VALUE_COLOR,
+                                                color,
                                                 StatisticScreen.BACKGROUND_COLOR)
 
     def eventLoop(self):
