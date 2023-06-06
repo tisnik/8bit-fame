@@ -8,6 +8,9 @@
 ;
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
+;
+; Example #96:
+;    Keypress detection for all five keys in one row.
 
 ATTRIBUTE_ADR equ $5800
 ENTRY_POINT   equ $8000
