@@ -31,6 +31,8 @@ class Maze:
         filename = os.path.join(maze_directory, maze_name)
         raw_data = self.loadMaze(filename)
         self._tiles = parse_tiles(raw_data)
+        self._back_buffer = pygame.Surface(display.get_size())
+        self.drawMaze(self._back_buffer)
 
     def loadMaze(self, filename):
         """Load maze topology from external text file."""
@@ -38,15 +40,20 @@ class Maze:
             lines = fin.readlines()
         return lines
 
-    def draw(self):
-        """Draw the whole maze onto the screen."""
+    def drawMaze(self, surface):
+        """Draw the whole maze onto the surface."""
         y = 20
         for row in self._tiles:
             x = 32
             for tile in row:
-                tile.draw(self._display, x, y)
+                tile.draw(surface, x, y)
                 x += 32
             y += 32
+
+    
+    def draw(self):
+        """Draw the whole maze onto the screen."""
+        self._display.blit(self._back_buffer, dest=(0,0))
 
 
 def parse_tiles(raw_data):
