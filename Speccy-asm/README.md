@@ -42,3 +42,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Fill-in the 8x8 block of pixels by specified pattern, unoptimized variant](38-fill-block-with-pattern.asm)
 1. [Fill-in the 8x8 block of pixels by specified pattern, optimized variant](39-fill-block-optimized.asm)
 1. [Draw one selected character using own drawing routine](40-draw-char.asm)
+1. [Draw any character using own drawing routine](41-draw-any-char.asm)
+1. [Draw any character anywhere on screen using own drawing routine](42-block-anywhere.asm)
+1. [Draw any character anywhere on screen using own drawing routine (based on RRCA instruction)](43-block-anywhere-rrca.asm)
+1. [Draw any character anywhere on screen using own drawing routine (better solution)](44-better-draw-char.asm)
+1. [Draw any character anywhere on screen using own drawing routine (even better solution)](45-even-better-draw-char.asm)
