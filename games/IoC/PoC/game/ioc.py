@@ -81,7 +81,6 @@ splash_screen = SplashScreen(display, resources, "splash_screen", 8, red_ghost)
 maze = Maze(display, configuration, "default.txt")
 
 # statistic_screen_mode(display, resources, statistic)
-# sys.exit()
 
 # about_screen_mode(display, resources, statistic)
 # sys.exit()
