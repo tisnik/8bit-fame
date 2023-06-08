@@ -17,19 +17,22 @@
 import sys
 import pygame
 
-from screen import Screen
+from abstract_menu_screen import AbstractMenuScreen
 from colors import Colors
 
 
-class SettingsScreen(Screen):
+class SettingsScreen(AbstractMenuScreen):
     """Settings screen displayed in the game and selected from main menu."""
+
+    CYCLE_DIRECTION_COUNTER_START_VALUE = 3
 
     # colors used on settings screen
     TITLE_COLOR = (255, 255, 255)
+    MENU_COLOR = (120, 120, 255)
 
-    def __init__(self, display, resources):
+    def __init__(self, display, resources, ghost):
         """Initialize the settings screen."""
-        super(SettingsScreen, self).__init__(display, resources)
+        super(SettingsScreen, self).__init__(display, resources, ghost)
 
         # fonts and other required resources are taken from resources object.
 
@@ -37,33 +40,28 @@ class SettingsScreen(Screen):
         self._title = self._resources.bigFont.render("Settings", True,
                                                      SettingsScreen.TITLE_COLOR,
                                                      SettingsScreen.BACKGROUND_COLOR)
+        # pre-render all menu items onto surfaces
+        self._menu = (
+            self.renderMenuItem("Maze"),
+            self.renderMenuItem("Game rules"),
+            self.renderMenuItem("Controls"),
+            self.renderMenuItem("Return to main screen"),
+        )
+
+        # actually selected menu item
+        self._selected_menu_item = 0
+
         self._clock = pygame.time.Clock()
+
+    def renderMenuItem(self, text):
+        """Render one menu item to be displayed on settings screen."""
+        return self._resources.normalFont.render(text, True,
+                                                 SettingsScreen.MENU_COLOR,
+                                                 SettingsScreen.BACKGROUND_COLOR)
 
     def draw(self):
         """Draw settings screen."""
         self._display.fill(Colors.BLACK.value)
         self.drawTitle()
-
-    def drawTitle(self):
-        """Draw the title onto settings screen."""
-        x = self._display.get_width() / 2 - self._title.get_width() / 2
-        y = 0
-        self._display.blit(self._title, (x, y))
-
-    def eventLoop(self):
-        """Event loop for settings screen that just waits for keypress or window close action."""
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.locals.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                if event.type == pygame.locals.KEYDOWN:
-                    if event.key == pygame.locals.K_ESCAPE:
-                        return
-                    if event.key == pygame.locals.K_RETURN:
-                        return
-
-            # all events has been processed - redraw the screen
-            self.draw()
-            pygame.display.update()
-            self._clock.tick(5)
+        self.drawMenu()
+        self.drawGhost()
