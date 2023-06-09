@@ -47,3 +47,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Draw any character anywhere on screen using own drawing routine (based on RRCA instruction)](43-block-anywhere-rrca.asm)
 1. [Draw any character anywhere on screen using own drawing routine (better solution)](44-better-draw-char.asm)
 1. [Draw any character anywhere on screen using own drawing routine (even better solution)](45-even-better-draw-char.asm)
+1. [Drawing blocky pixel of 8x1 real pixels size (no mask applied)](51-plot-block.asm)
+1. [Drawing real pixel, but erasing whole 8x1 pixel block background](52-plot-pixel.asm)
+1. [Drawing real pixel, but erasing whole 8x1 pixel block background (optimized variant)](53-plot-pixel.asm)
+1. [Drawing real pixel, but erasing whole 8x1 pixel background (optimized variant)](54-plot-pixel-on-background.asm)
+1. [Drawing real pixel without erasing background](55-plot-pixel-on-background.asm)
