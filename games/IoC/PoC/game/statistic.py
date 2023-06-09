@@ -35,6 +35,11 @@ class Statistic:
         self.greenGhostKills = 0
         self.pinkGhostKills = 0
         self.redGhostKills = 0
+        self.pacmanMileage = 0
+        self.cyanGhostMileage = 0
+        self.greenGhostMileage = 0
+        self.pinkGhostMileage = 0
+        self.redGhostMileage = 0
 
     @staticmethod
     def load():
