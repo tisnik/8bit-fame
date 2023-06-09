@@ -50,6 +50,13 @@ def statistic_screen_mode(display, resources, statistic):
     statistic_screen.eventLoop()
 
 
+def settings_screen_mode(display, resources):
+    """Game mode with settings screen displayed."""
+    settings_screen = SettingsScreen(display, resources)
+    settings_screen.draw()
+    settings_screen.eventLoop()
+
+
 statistic = Statistic()
 # save default statistic into external file
 if statistic.exists():
@@ -75,20 +82,25 @@ pygame.display.set_caption("Inversion of Control")
 display.fill(Colors.BLACK.value)
 
 red_ghost = Ghost(display, resources, "ghost_red")
+cyan_ghost = Ghost(display, resources, "ghost_cyan")
 
 splash_screen = SplashScreen(display, resources, "splash_screen", 8, red_ghost)
 
 maze = Maze(display, configuration, "default.txt")
 
 # statistic_screen_mode(display, resources, statistic)
+# sys.exit()
 
 # about_screen_mode(display, resources, statistic)
 # sys.exit()
 
-game_screen = GameScreen(display, resources, maze)
-game_screen.draw()
-game_screen.eventLoop()
-sys.exit(0)
+# settings_screen_mode(display, resources)
+# sys.exit()
+
+# game_screen = GameScreen(display, resources, maze)
+# game_screen.draw()
+# game_screen.eventLoop()
+# sys.exit(0)
 
 while True:
     menuItem = splash_screen.eventLoop()
@@ -100,7 +112,7 @@ while True:
         game_screen.draw()
         game_screen.eventLoop()
     elif menuItem == MainMenu.SETTINGS.value:
-        settings_screen = SettingsScreen(display, resources)
+        settings_screen = SettingsScreen(display, resources, cyan_ghost)
         settings_screen.draw()
         settings_screen.eventLoop()
     elif menuItem == MainMenu.STATISTIC.value:
