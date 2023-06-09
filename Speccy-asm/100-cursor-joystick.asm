@@ -8,6 +8,9 @@
 ;
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
+;
+; Example #100:
+;    Move game character by cursor joystick.
 
 ATTRIBUTE_ADR equ $5800
 ENTRY_POINT   equ $8000
