@@ -51,16 +51,16 @@ class StatisticScreen(Screen):
         self._pacman.moveTo(100, 200)
 
         self._red_ghost = Ghost(display, self._resources, "ghost_red")
-        self._red_ghost.moveTo(100, 260)
+        self._red_ghost.moveTo(100, 300)
 
         self._cyan_ghost = Ghost(display, self._resources, "ghost_cyan")
-        self._cyan_ghost.moveTo(100, 320)
+        self._cyan_ghost.moveTo(100, 363)
 
         self._green_ghost = Ghost(display, self._resources, "ghost_green")
-        self._green_ghost.moveTo(100, 380)
+        self._green_ghost.moveTo(100, 426)
 
         self._pink_ghost = Ghost(display, self._resources, "ghost_pink")
-        self._pink_ghost.moveTo(100, 440)
+        self._pink_ghost.moveTo(100, 489)
 
         self._clock = pygame.time.Clock()
         self._statistic = statistic
@@ -119,30 +119,50 @@ class StatisticScreen(Screen):
 
         self.drawValueTitle(x, y, "Small dots eaten:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.smallDotsEaten}")
-        y += 20
+        y += 23
 
         self.drawValueTitle(x, y, "Big dots eaten:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.largeDotsEaten}")
-        y += 20
+        y += 23
 
-        self.drawValueTitle(x, y, "Ghost eaten:")
+        self.drawValueTitle(x, y, "Ghosts eaten:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.pacmanKills}")
+        y += 23
+
+        self.drawValueTitle(x, y, "Mileage:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.pacmanMileage}")
         y += 40
 
         self.drawValueTitle(x, y, "Pacman overtakes:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.redGhostKills}")
-        y += 60
+        y += 23
+
+        self.drawValueTitle(x, y, "Mileage:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.redGhostMileage}")
+        y += 40
 
         self.drawValueTitle(x, y, "Pacman overtakes:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.cyanGhostKills}")
-        y += 60
+        y += 23
+
+        self.drawValueTitle(x, y, "Mileage:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.cyanGhostMileage}")
+        y += 40
 
         self.drawValueTitle(x, y, "Pacman overtakes:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.greenGhostKills}")
-        y += 60
+        y += 23
+
+        self.drawValueTitle(x, y, "Mileage:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.greenGhostMileage}")
+        y += 40
 
         self.drawValueTitle(x, y, "Pacman overtakes:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.pinkGhostKills}")
+        y += 23
+
+        self.drawValueTitle(x, y, "Mileage:")
+        self.drawValue(x + valueOffset, y, f"{self._statistic.pinkGhostMileage}")
 
     def drawValue(self, x, y, string):
         """Draw given string with value on [x, y] coordinates."""
