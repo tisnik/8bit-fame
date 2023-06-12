@@ -8,11 +8,11 @@ org ENTRY_POINT
 
 start:
 	ld      d, 0                   ; výška tónu (spodní bajt)
-	ld      e, 242
+	ld      e, 251
 	call    ay_write               ; zápis hodnoty do AY
 
 	ld      d, 1                   ; výška tónu (horní bajt)
-	ld      e, 7
+	ld      e, 0
 	call    ay_write               ; zápis hodnoty do AY
 
 	ld      d, 8                   ; hlasitost kanálu A
