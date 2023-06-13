@@ -83,7 +83,7 @@ class AboutScreen(Screen):
         self._green_ghost.moveTo(450, 600)
         self._green_ghost.setDirection(Direction.DOWN)
 
-    def draw(self):
+    def draw(self) -> None:
         """Draw about screen."""
         self._display.fill(Colors.BLACK.value)
         self.drawTitle()
@@ -92,35 +92,35 @@ class AboutScreen(Screen):
         self.drawVersionInfo()
         self.drawSprites()
 
-    def drawSprites(self):
+    def drawSprites(self) -> None:
         """Draw all sprites onto the screen."""
         self._pink_ghost.draw()
         self._green_ghost.draw()
 
-    def drawTitle(self):
+    def drawTitle(self) -> None:
         """Draw the title onto the about screen."""
         x = self._display.get_width() / 2 - self._title.get_width() / 2
         y = 0
         self._display.blit(self._title, (x, y))
 
-    def drawAuthors(self):
+    def drawAuthors(self) -> None:
         """Draw authors photos onto the screen."""
         self._display.blit(self._photo2, (100, 200))
         self._display.blit(self._photo1, (100, 350))
 
-    def drawTexts(self):
+    def drawTexts(self) -> None:
         """Draw texts onto the screen."""
         self._display.blit(self._author2, (250, 190))
         self._display.blit(self._author1, (250, 340))
         self._display.blit(self._work1, (250, 380))
         self._display.blit(self._work2, (250, 230))
 
-    def drawVersionInfo(self):
+    def drawVersionInfo(self) -> None:
         """Draw info about library versions onto the screen."""
         self._display.blit(self._pygame_version, (500, 600))
         self._display.blit(self._sdl_version, (500, 625))
 
-    def movePinkGhost(self):
+    def movePinkGhost(self) -> None:
         """Move the pink ghost."""
         STEP = 5
         LEFT = 40
@@ -143,7 +143,7 @@ class AboutScreen(Screen):
             self._pink_ghost.moveRel(-STEP, 0)
             self._pink_ghost.cycleDirection()
 
-    def moveGreenGhost(self):
+    def moveGreenGhost(self) -> None:
         """Move the green ghost."""
         STEP = 5
         LEFT = 40
@@ -174,7 +174,7 @@ class AboutScreen(Screen):
             self._green_ghost.cycleDirection()
             self._green_ghost.cycleDirection()
 
-    def eventLoop(self):
+    def eventLoop(self) -> None:
         """Event loop for About screen that just waits for keypress or window close operation."""
         while True:
             for event in pygame.event.get():
