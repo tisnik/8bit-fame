@@ -29,7 +29,7 @@ class Scared(Enum):
 class Ghost(Sprite):
     """Ghost class that represents any ghost in the game."""
 
-    def __init__(self, surface, resources, filename_prefix):
+    def __init__(self, surface, resources, filename_prefix) -> None:
         """Ghost object initialization, including resource loading."""
         super(Ghost, self).__init__(surface)
 
@@ -44,11 +44,11 @@ class Ghost(Sprite):
         self._sprites[Scared.SCARED1] = resources.images["ghost_scared_1"]
         self._sprites[Scared.SCARED2] = resources.images["ghost_scared_2"]
 
-    def setScared(self, scared):
+    def setScared(self, scared) -> None:
         """Set 'scared ghost' mode."""
         self._scared = scared
 
-    def draw(self):
+    def draw(self) -> None:
         """Draw ghost onto the screen or onto surface selected during initialization."""
         if self._scared:
             if self._scared_tick == 0:
