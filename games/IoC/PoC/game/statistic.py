@@ -23,7 +23,7 @@ STATISTIC_FILENAME = "ioc.stats"
 class Statistic:
     """Games statistic."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Statistic initialization."""
         self.games = 0
         self.totalTime = 0
@@ -47,7 +47,7 @@ class Statistic:
         with open(STATISTIC_FILENAME, "rb") as fin:
             return pickle.load(fin)
 
-    def save(self):
+    def save(self) -> None:
         """Save statistic into binary file."""
         with open(STATISTIC_FILENAME, "wb") as fout:
             pickle.dump(self, fout)
