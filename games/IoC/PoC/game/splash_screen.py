@@ -63,7 +63,7 @@ class SplashScreen(AbstractMenuScreen):
             frame = self._resources.images[filename]
             self._frames.append(frame)
 
-    def draw(self):
+    def draw(self) -> None:
         """Draw splash screen."""
         self._display.fill(Colors.BLACK.value)
         self.drawAnimation()
@@ -72,7 +72,7 @@ class SplashScreen(AbstractMenuScreen):
         self.drawGhost()
         self.drawCredits()
 
-    def drawAnimation(self):
+    def drawAnimation(self) -> None:
         """Draw the welcome animation."""
         x = self._display.get_width() / 2 - self._frames[0].get_width() / 2 - 20
         y = 50
@@ -81,7 +81,7 @@ class SplashScreen(AbstractMenuScreen):
         if self._frame >= len(self._frames):
             self._frame = 0
 
-    def drawCredits(self):
+    def drawCredits(self) -> None:
         """Draw credits."""
         x = self._display.get_width() - self._credits.get_width() - 10
         y = self._display.get_height() - 30
