@@ -53,13 +53,13 @@ class SettingsScreen(AbstractMenuScreen):
 
         self._clock = pygame.time.Clock()
 
-    def renderMenuItem(self, text):
+    def renderMenuItem(self, text) -> None:
         """Render one menu item to be displayed on settings screen."""
         return self._resources.normalFont.render(text, True,
                                                  SettingsScreen.MENU_COLOR,
                                                  SettingsScreen.BACKGROUND_COLOR)
 
-    def draw(self):
+    def draw(self) -> None:
         """Draw settings screen."""
         self._display.fill(Colors.BLACK.value)
         self.drawTitle()
