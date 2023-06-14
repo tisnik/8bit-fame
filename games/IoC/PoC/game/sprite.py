@@ -33,19 +33,19 @@ class Sprite(ABC):
         # surface used to display the sprite
         self._surface = surface
 
-    def draw(self):
+    def draw(self) -> None:
         """Elementary draw method to be overwritten in derived classes."""
-        self._surface.blit(self._sprites[self._direction], (self._x, self._y))
+        pass
 
-    def setDirection(self, direction):
+    def setDirection(self, direction) -> None:
         """Set sprite direction (if applicable)."""
         self._direction = direction
 
-    def cycleDirection(self):
+    def cycleDirection(self) -> None:
         """Rotate the sprite by switching to the next possible direction."""
         self._direction = self._direction.succ()
 
-    def setPosition(self, x, y):
+    def setPosition(self, x: int, y: int):
         """Set sprite position."""
         self._x = x
         self._y = y
@@ -65,12 +65,12 @@ class Sprite(ABC):
         elif self._direction == Direction.RIGHT:
             self._x += step
 
-    def moveTo(self, x, y):
+    def moveTo(self, x: int, y: int):
         """Move sprite to absolute position."""
         self._x = x
         self._y = y
 
-    def moveRel(self, dx, dy):
+    def moveRel(self, dx: int, dy: int):
         """Move sprite to relative position."""
         self._x += dx
         self._y += dy
