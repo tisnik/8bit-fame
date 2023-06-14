@@ -14,6 +14,8 @@
 
 """Ghost class that represents any ghost in the game."""
 
+from typing import Dict, Any
+
 from direction import Direction
 from sprite import Sprite
 from enum import Enum
@@ -36,7 +38,7 @@ class Ghost(Sprite):
         self._scared = False
         self._scared_tick = 0
 
-        self._sprites = {}
+        self._sprites :Dict[Any, Any] = {}
         self._sprites[Direction.LEFT] = resources.images[filename_prefix+"_left"]
         self._sprites[Direction.RIGHT] = resources.images[filename_prefix+"_right"]
         self._sprites[Direction.UP] = resources.images[filename_prefix+"_up"]
