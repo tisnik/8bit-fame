@@ -32,7 +32,7 @@ class StatisticScreen(Screen):
     VALUE_TITLE_COLOR = (130, 130, 130)
     VALUE_COLOR = (255, 255, 130)
 
-    def __init__(self, display, resources, statistic):
+    def __init__(self, display, resources, statistic) -> None:
         """Initialize the statistic screen."""
         super(StatisticScreen, self).__init__(display, resources)
 
@@ -65,7 +65,7 @@ class StatisticScreen(Screen):
         self._clock = pygame.time.Clock()
         self._statistic = statistic
 
-    def draw(self):
+    def draw(self) -> None:
         """Draw statistic screen."""
         self._display.fill(Colors.BLACK.value)
         self.drawTitle()
@@ -73,7 +73,7 @@ class StatisticScreen(Screen):
         self.drawStatistic()
         self.nextFrame()
 
-    def nextFrame(self):
+    def nextFrame(self) -> None:
         """Compute screen content for the next frame."""
         self._pacman.tick()
         self._red_ghost.cycleDirection()
@@ -81,7 +81,7 @@ class StatisticScreen(Screen):
         self._green_ghost.cycleDirection()
         self._pink_ghost.cycleDirection()
 
-    def drawSprites(self):
+    def drawSprites(self) -> None:
         """Draw all sprites onto the screen."""
         self._pacman.draw()
         self._red_ghost.draw()
@@ -89,13 +89,13 @@ class StatisticScreen(Screen):
         self._green_ghost.draw()
         self._pink_ghost.draw()
 
-    def drawTitle(self):
+    def drawTitle(self) -> None:
         """Draw the title onto statistic screen."""
         x = self._display.get_width() / 2 - self._title.get_width() / 2
         y = 0
         self._display.blit(self._title, (x, y))
 
-    def drawStatistic(self):
+    def drawStatistic(self) -> None:
         """Draw statistic onto screen."""
         self._display.blit(self._overall, (100, 100))
 
@@ -164,17 +164,17 @@ class StatisticScreen(Screen):
         self.drawValueTitle(x, y, "Mileage:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.pinkGhostMileage}")
 
-    def drawValue(self, x, y, string):
+    def drawValue(self, x, y, string) -> None:
         """Draw given string with value on [x, y] coordinates."""
         rendered = self.renderString(string, StatisticScreen.VALUE_COLOR)
         self._display.blit(rendered, (x, y))
 
-    def drawValueTitle(self, x, y, string):
+    def drawValueTitle(self, x, y, string) -> None:
         """Draw given string with value title on [x, y] coordinates."""
         rendered = self.renderString(string, StatisticScreen.VALUE_TITLE_COLOR)
         self._display.blit(rendered, (x, y))
 
-    def drawString(self, x, y, string, color):
+    def drawString(self, x, y, string, color) -> None:
         """Draw given string on [x, y] coordinates."""
         rendered = self.renderString(string, color)
         self._display.blit(rendered, (x, y))
@@ -185,7 +185,7 @@ class StatisticScreen(Screen):
                                                 color,
                                                 StatisticScreen.BACKGROUND_COLOR)
 
-    def eventLoop(self):
+    def eventLoop(self) -> None:
         """Event loop for Statistic screen that just waits for keypress or window close action."""
         while True:
             for event in pygame.event.get():
