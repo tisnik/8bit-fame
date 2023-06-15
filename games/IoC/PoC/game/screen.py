@@ -29,7 +29,7 @@ class Screen(ABC):
     # default clock tick
     CLOCK_TICK = 5
 
-    def __init__(self, display, resources):
+    def __init__(self, display, resources) -> None:
         """Initialize the screen."""
         # primary display for blitting to screen
         self._display = display
@@ -40,12 +40,12 @@ class Screen(ABC):
         # clock to be used in event loop
         self._clock = pygame.time.Clock()
 
-    def draw(self):
+    def draw(self) -> None:
         """Draw screen."""
         # this method should be overwritten
         self._display.fill(BACKGROUND_COLOR)
 
-    def eventLoop(self):
+    def eventLoop(self) -> None:
         """Event loop."""
         # this method should be overwritten
         while True:
