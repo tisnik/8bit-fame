@@ -23,7 +23,7 @@ class Direction(Enum):
     DOWN = 3
     LEFT = 4
 
-    def succ(self) -> Direction:
+    def succ(self) -> 'Direction':
         """Rotate by switching to the next possible direction."""
         value = self.value + 1
         if value > Direction.LEFT.value:

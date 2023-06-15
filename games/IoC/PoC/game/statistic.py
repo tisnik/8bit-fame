@@ -42,7 +42,7 @@ class Statistic:
         self.redGhostMileage = 0
 
     @staticmethod
-    def load() -> Statistic:
+    def load() -> 'Statistic':
         """Load statistic from binary file."""
         with open(STATISTIC_FILENAME, "rb") as fin:
             return pickle.load(fin)

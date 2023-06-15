@@ -36,21 +36,21 @@ from about_screen import AboutScreen
 from maze import Maze
 
 
-def about_screen_mode(display, resources, statistic):
+def about_screen_mode(display: pygame.Surface, resources, statistic) -> None:
     """Game mode with about screen displayed."""
     about_screen = AboutScreen(display, resources)
     about_screen.draw()
     about_screen.eventLoop()
 
 
-def statistic_screen_mode(display, resources, statistic):
+def statistic_screen_mode(display: pygame.Surface, resources, statistic) -> None:
     """Game mode with statistic screen displayed."""
     statistic_screen = StatisticScreen(display, resources, statistic)
     statistic_screen.draw()
     statistic_screen.eventLoop()
 
 
-def settings_screen_mode(display, resources):
+def settings_screen_mode(display: pygame.Surface, resources) -> None:
     """Game mode with settings screen displayed."""
     settings_screen = SettingsScreen(display, resources)
     settings_screen.draw()
