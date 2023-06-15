@@ -16,6 +16,7 @@
 
 from abc import ABC
 import pygame
+import sys
 
 from colors import Colors
 
@@ -29,7 +30,7 @@ class Screen(ABC):
     # default clock tick
     CLOCK_TICK = 5
 
-    def __init__(self, display, resources) -> None:
+    def __init__(self, display: pygame.Surface, resources) -> None:
         """Initialize the screen."""
         # primary display for blitting to screen
         self._display = display
@@ -43,7 +44,7 @@ class Screen(ABC):
     def draw(self) -> None:
         """Draw screen."""
         # this method should be overwritten
-        self._display.fill(BACKGROUND_COLOR)
+        self._display.fill(Screen.BACKGROUND_COLOR)
 
     def eventLoop(self) -> None:
         """Event loop."""
