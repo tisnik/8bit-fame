@@ -14,6 +14,7 @@
 
 """Super class for all movable objects in the game."""
 
+import pygame
 from abc import ABC
 from direction import Direction
 
@@ -21,7 +22,7 @@ from direction import Direction
 class Sprite(ABC):
     """Super class for all movable objects in the game."""
 
-    def __init__(self, surface):
+    def __init__(self, surface: pygame.Surface) -> None:
         """Initialize the sprite."""
         # most sprites can be rotated in four directions
         self._direction = Direction.RIGHT
@@ -45,7 +46,7 @@ class Sprite(ABC):
         """Rotate the sprite by switching to the next possible direction."""
         self._direction = self._direction.succ()
 
-    def setPosition(self, x: int, y: int):
+    def setPosition(self, x: int, y: int) -> None:
         """Set sprite position."""
         self._x = x
         self._y = y
@@ -54,7 +55,7 @@ class Sprite(ABC):
         """Get sprite position."""
         return (self._x, self._y)
 
-    def move(self, step=1):
+    def move(self, step=1) -> None:
         """Move sprite in actual direction."""
         if self._direction == Direction.UP:
             self._y -= step
@@ -65,12 +66,12 @@ class Sprite(ABC):
         elif self._direction == Direction.RIGHT:
             self._x += step
 
-    def moveTo(self, x: int, y: int):
+    def moveTo(self, x: int, y: int) -> None:
         """Move sprite to absolute position."""
         self._x = x
         self._y = y
 
-    def moveRel(self, dx: int, dy: int):
+    def moveRel(self, dx: int, dy: int) -> None:
         """Move sprite to relative position."""
         self._x += dx
         self._y += dy
