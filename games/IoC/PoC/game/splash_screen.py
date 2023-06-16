@@ -19,6 +19,8 @@ import pygame
 from abstract_menu_screen import AbstractMenuScreen
 from colors import Colors
 from main_menu import MainMenu
+from resources import Resources
+from ghost import Ghost
 
 
 class SplashScreen(AbstractMenuScreen):
@@ -27,7 +29,8 @@ class SplashScreen(AbstractMenuScreen):
     # colors used on splash screen (background color is read from Screen class
     CREDITS_COLOR = (140, 140, 140)
 
-    def __init__(self, display, resources, filename_prefix, frames_count, ghost):
+    def __init__(self, display: pygame.Surface, resources: Resources,
+            filename_prefix: str, frames_count: int, ghost: Ghost) -> None:
         """Initialize the splash screen."""
         super(SplashScreen, self).__init__(display, resources, ghost)
 
