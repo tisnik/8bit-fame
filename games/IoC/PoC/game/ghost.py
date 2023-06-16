@@ -16,6 +16,9 @@
 
 from typing import Dict, Any
 
+import pygame
+
+from resources import Resources
 from direction import Direction
 from sprite import Sprite
 from enum import Enum
@@ -31,7 +34,8 @@ class Scared(Enum):
 class Ghost(Sprite):
     """Ghost class that represents any ghost in the game."""
 
-    def __init__(self, surface, resources, filename_prefix) -> None:
+    def __init__(self, surface: pygame.Surface, resources: Resources,
+            filename_prefix: str) -> None:
         """Ghost object initialization, including resource loading."""
         super(Ghost, self).__init__(surface)
 
@@ -46,7 +50,7 @@ class Ghost(Sprite):
         self._sprites[Scared.SCARED1] = resources.images["ghost_scared_1"]
         self._sprites[Scared.SCARED2] = resources.images["ghost_scared_2"]
 
-    def setScared(self, scared) -> None:
+    def setScared(self, scared: bool) -> None:
         """Set 'scared ghost' mode."""
         self._scared = scared
 
