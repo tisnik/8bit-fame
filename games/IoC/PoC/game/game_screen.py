@@ -19,6 +19,8 @@ import pygame
 
 from screen import Screen
 from colors import Colors
+from resources import Resources
+from maze import Maze
 
 
 class GameScreen(Screen):
@@ -27,7 +29,7 @@ class GameScreen(Screen):
     # colors used on game screen
     TITLE_COLOR = (255, 255, 255)
 
-    def __init__(self, display, resources, maze):
+    def __init__(self, display: pygame.Surface, resources: Resources, maze: Maze) -> None:
         """Initialize the game screen."""
         super(GameScreen, self).__init__(display, resources)
 
@@ -36,12 +38,12 @@ class GameScreen(Screen):
         self._maze = maze
         self._clock = pygame.time.Clock()
 
-    def draw(self):
+    def draw(self) -> None:
         """Draw game screen."""
         self._display.fill(Colors.BLACK.value)
         self._maze.draw()
 
-    def eventLoop(self):
+    def eventLoop(self) -> None:
         """Event loop for game screen."""
         while True:
             for event in pygame.event.get():
