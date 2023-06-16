@@ -52,3 +52,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Drawing real pixel, but erasing whole 8x1 pixel block background (optimized variant)](53-plot-pixel.asm)
 1. [Drawing real pixel, but erasing whole 8x1 pixel background (optimized variant)](54-plot-pixel-on-background.asm)
 1. [Drawing real pixel without erasing background](55-plot-pixel-on-background.asm)
+1. [Print ASCII table in inverse colors on screen](56-inverse-ascii-table.asm)
+1. [Drawing real pixel without erasing background onto screen with inverse ASCII table](57-plot-pixel-on-inverse-background.asm)
+1. [Drawing inverse pixel without erasing background onto screen with inverse ASCII table](58-plot-inverse-pixel-on-inverse-background.asm)
+1. [Print ASCII table in normal and also inverse colors on screen](59-configurable-ascii-table.asm)
+1. [Inverse pixel color (simulation of PLOT OVER statement from BASIC)](60-plot-over.asm)
