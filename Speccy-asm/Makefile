@@ -11,7 +11,7 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     81.tap 82.tap 83.tap 84.tap 85.tap 86.tap 87.tap 88.tap 80.tap 90.tap \
     91.tap 92.tap 93.tap 94.tap 95.tap 96.tap 97.tap 98.tap 99.tap 100.tap \
     101.tap 102.tap 103.tap 104.tap 105.tap 106.tap 107.tap 108.tap 109.tap \
-    110.tap
+    110.tap 111.tap 112.tap
 
 clean:
 	rm -f *.tap
@@ -348,3 +348,9 @@ clean:
 
 110.tap:	110-ay-note-a.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 110-ay-note-a.lst
+
+111.tap:	111-ay-two-notes.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 111-ay-two-notes.lst
+
+112.tap:	112-ay-noise.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 112-ay-noise.lst
