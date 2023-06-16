@@ -19,6 +19,7 @@ import pygame
 import sys
 
 from colors import Colors
+from resources import Resources
 
 
 class Screen(ABC):
@@ -30,7 +31,7 @@ class Screen(ABC):
     # default clock tick
     CLOCK_TICK = 5
 
-    def __init__(self, display: pygame.Surface, resources) -> None:
+    def __init__(self, display: pygame.Surface, resources: Resources) -> None:
         """Initialize the screen."""
         # primary display for blitting to screen
         self._display = display
