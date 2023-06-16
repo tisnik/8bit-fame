@@ -40,7 +40,7 @@ class Maze:
             lines = fin.readlines()
         return lines
 
-    def drawMaze(self, surface):
+    def drawMaze(self, surface) -> None:
         """Draw the whole maze onto the surface."""
         y = 20
         for row in self._tiles:
@@ -51,7 +51,7 @@ class Maze:
             y += 32
 
     
-    def draw(self):
+    def draw(self) -> None:
         """Draw the whole maze onto the screen."""
         self._display.blit(self._back_buffer, dest=(0,0))
 
