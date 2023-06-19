@@ -17,17 +17,17 @@ import pygame
 from tile_type import TileType
 
 
-def draw_default(display, x, y):
+def draw_default(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.rect(display,
                      Tile.WALL_COLOR,
                      pygame.Rect(x, y, 30, 30))
 
 
-def draw_blank(display, x, y):
+def draw_blank(display: pygame.Surface, x: int, y: int) -> None:
     pass
 
 
-def draw_horizontal_line(display, x, y):
+def draw_horizontal_line(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x, y+14), (x+31, y+14))
@@ -36,7 +36,7 @@ def draw_horizontal_line(display, x, y):
                      (x, y+17), (x+31, y+17))
 
 
-def draw_left_half_horizontal_line(display, x, y):
+def draw_left_half_horizontal_line(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x, y+14), (x+16, y+14))
@@ -48,7 +48,7 @@ def draw_left_half_horizontal_line(display, x, y):
                      (x+16, y+14), (x+16, y+17))
 
 
-def draw_right_half_horizontal_line(display, x, y):
+def draw_right_half_horizontal_line(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x+16, y+14), (x+31, y+14))
@@ -60,7 +60,7 @@ def draw_right_half_horizontal_line(display, x, y):
                      (x+16, y+14), (x+16, y+17))
 
 
-def draw_vertical_line(display, x, y):
+def draw_vertical_line(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x+14, y), (x+14, y+31))
@@ -69,7 +69,7 @@ def draw_vertical_line(display, x, y):
                      (x+17, y), (x+17, y+31))
 
 
-def draw_top_half_vertical_line(display, x, y):
+def draw_top_half_vertical_line(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x+14, y), (x+14, y+16))
@@ -81,7 +81,7 @@ def draw_top_half_vertical_line(display, x, y):
                      (x+14, y+16), (x+17, y+16))
 
 
-def draw_bottom_half_vertical_line(display, x, y):
+def draw_bottom_half_vertical_line(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x+14, y+16), (x+14, y+31))
@@ -93,7 +93,7 @@ def draw_bottom_half_vertical_line(display, x, y):
                      (x+14, y+16), (x+17, y+16))
 
 
-def draw_top_left_corner(display, x, y):
+def draw_top_left_corner(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x+24, y+14), (x+31, y+14))
@@ -114,7 +114,7 @@ def draw_top_left_corner(display, x, y):
                      (x+26, y+17), (x+17, y+26))
 
 
-def draw_top_right_corner(display, x, y):
+def draw_top_right_corner(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x, y+14), (x+8, y+14))
@@ -135,7 +135,7 @@ def draw_top_right_corner(display, x, y):
                      (x+7, y+17), (x+14, y+24))
 
 
-def draw_bottom_left_corner(display, x, y):
+def draw_bottom_left_corner(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x+26, y+14), (x+31, y+14))
@@ -156,7 +156,7 @@ def draw_bottom_left_corner(display, x, y):
                      (x+16, y+7), (x+25, y+14))
 
 
-def draw_upper_t(display, x, y):
+def draw_upper_t(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x, y+14), (x+31, y+14))
@@ -174,7 +174,7 @@ def draw_upper_t(display, x, y):
                      (x+17, y+17), (x+17, y+31))
 
 
-def draw_left_t(display, x, y):
+def draw_left_t(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x+14, y), (x+14, y+31))
@@ -192,7 +192,7 @@ def draw_left_t(display, x, y):
                      (x+17, y+17), (x+31, y+17))
 
 
-def draw_right_t(display, x, y):
+def draw_right_t(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x+14, y), (x+14, y+14))
@@ -210,17 +210,17 @@ def draw_right_t(display, x, y):
                      (x+17, y), (x+17, y+31))
 
 
-def draw_big_dot(display, x, y):
+def draw_big_dot(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.circle(display, Tile.DOT_COLOR,
                      (x+16, y+16), 10)
 
 
-def draw_small_dot(display, x, y):
+def draw_small_dot(display: pygame.Surface, x: int, y: int) -> None:
     pygame.draw.circle(display, Tile.DOT_COLOR,
                      (x+16, y+16), 4)
 
 
-def draw_bottom_right_corner(display, x, y):
+def draw_bottom_right_corner(display: pygame.Surface, x: int, y: int) -> None:
     c = (255, 255, 255)
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
@@ -294,6 +294,6 @@ class Tile:
             TileType.PACMAN: draw_blank,
             }
 
-    def __init__(self, raw_char):
+    def __init__(self, raw_char) -> None:
         self._type = Tile.types[raw_char]
         self.draw = self.draw_methods[self._type]
