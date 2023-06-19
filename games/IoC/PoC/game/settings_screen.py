@@ -19,6 +19,8 @@ import pygame
 
 from abstract_menu_screen import AbstractMenuScreen
 from colors import Colors
+from resources import Resources
+from ghost import Ghost
 
 
 class SettingsScreen(AbstractMenuScreen):
@@ -30,7 +32,7 @@ class SettingsScreen(AbstractMenuScreen):
     TITLE_COLOR = (255, 255, 255)
     MENU_COLOR = (120, 120, 255)
 
-    def __init__(self, display, resources, ghost):
+    def __init__(self, display: pygame.Surface, resources: Resources, ghost: Ghost) -> None:
         """Initialize the settings screen."""
         super(SettingsScreen, self).__init__(display, resources, ghost)
 
@@ -53,7 +55,7 @@ class SettingsScreen(AbstractMenuScreen):
 
         self._clock = pygame.time.Clock()
 
-    def renderMenuItem(self, text) -> None:
+    def renderMenuItem(self, text: str) -> None:
         """Render one menu item to be displayed on settings screen."""
         return self._resources.normalFont.render(text, True,
                                                  SettingsScreen.MENU_COLOR,
