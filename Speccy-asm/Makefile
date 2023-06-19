@@ -11,7 +11,7 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     81.tap 82.tap 83.tap 84.tap 85.tap 86.tap 87.tap 88.tap 80.tap 90.tap \
     91.tap 92.tap 93.tap 94.tap 95.tap 96.tap 97.tap 98.tap 99.tap 100.tap \
     101.tap 102.tap 103.tap 104.tap 105.tap 106.tap 107.tap 108.tap 109.tap \
-    110.tap 111.tap 112.tap 113.tap 114.tap
+    110.tap 111.tap 112.tap 113.tap 114.tap 115.tap 116.tap 117.tap 118.tap
 
 clean:
 	rm -f *.tap
@@ -360,3 +360,15 @@ clean:
 
 114.tap:	114-ay-high-frequency.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 114-ay-high-frequency.lst
+
+115.tap:	115-ay-low-noise.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 115-ay-low-noise.lst
+
+116.tap:	116-ay-envelope.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 116-ay-envelope.lst
+
+117.tap:	117-ay-envelope.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 117-ay-envelope.lst
+
+118.tap:	118-ay-envelope.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 118-ay-envelope.lst
