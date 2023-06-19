@@ -17,6 +17,8 @@
 import pygame
 
 from screen import Screen
+from resources import Resources
+from ghost import Ghost
 
 
 class AbstractMenuScreen(Screen):
@@ -28,7 +30,7 @@ class AbstractMenuScreen(Screen):
     TITLE_COLOR = (255, 255, 255)
     MENU_COLOR = (120, 120, 255)
 
-    def __init__(self, display, resources, ghost):
+    def __init__(self, display: pygame.Surface, resources: Resources, ghost: Ghost) -> None:
         """Initialize the splash screen."""
         super(AbstractMenuScreen, self).__init__(display, resources)
         self._ghost = ghost
@@ -38,19 +40,19 @@ class AbstractMenuScreen(Screen):
 
         self._clock = pygame.time.Clock()
 
-    def renderMenuItem(self, text):
+    def renderMenuItem(self, text: str) -> None:
         """Render one menu item to be displayed on splash screen."""
         return self._resources.normalFont.render(text, True,
                                                  AbstractMenuScreen.MENU_COLOR,
                                                  AbstractMenuScreen.BACKGROUND_COLOR)
 
-    def drawTitle(self):
+    def drawTitle(self) -> None:
         """Draw the title onto splash screen."""
         x = self._display.get_width() / 2 - self._title.get_width() / 2
         y = 0
         self._display.blit(self._title, (x, y))
 
-    def drawMenu(self):
+    def drawMenu(self) -> None:
         """Draw the main menu."""
         x = 100
         y = 300
@@ -58,7 +60,7 @@ class AbstractMenuScreen(Screen):
             self._display.blit(menuItem, (x, y))
             y += 50
 
-    def drawGhost(self):
+    def drawGhost(self) -> None:
         """Draw the ghost on left side of main menu."""
         # compute ghost vertical position based on selected menu item
         y = 310 + self._selected_menu_item * 50
@@ -66,14 +68,14 @@ class AbstractMenuScreen(Screen):
         self._ghost.draw()
         self.cycleGhostDirection()
 
-    def cycleGhostDirection(self):
+    def cycleGhostDirection(self) -> None:
         """Periodically change ghost direction to create simple animation."""
         self._cycleDirectionCounter -= 1
         if self._cycleDirectionCounter == 0:
             self._ghost.cycleDirection()
             self._cycleDirectionCounter = AbstractMenuScreen.CYCLE_DIRECTION_COUNTER_START_VALUE
 
-    def moveGhostUp(self):
+    def moveGhostUp(self) -> None:
         """Move ghost up to previous menu item."""
         # previous item
         self._selected_menu_item -= 1
@@ -85,7 +87,7 @@ class AbstractMenuScreen(Screen):
         # redraw the screen immediatelly
         self.draw()
 
-    def moveGhostDown(self):
+    def moveGhostDown(self) -> None:
         """Move ghost down to next menu item."""
         # next item
         self._selected_menu_item += 1
@@ -97,7 +99,7 @@ class AbstractMenuScreen(Screen):
         # redraw the screen immediatelly
         self.draw()
 
-    def getSelectedMenuItem(self):
+    def getSelectedMenuItem(self) -> None:
         """Retrieve actually selected menu item."""
         return self._selected_menu_item
 
