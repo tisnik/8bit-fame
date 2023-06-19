@@ -14,6 +14,8 @@
 
 """Super class for all movable objects in the game."""
 
+from typing import Tuple
+
 import pygame
 from abc import ABC
 from direction import Direction
@@ -38,7 +40,7 @@ class Sprite(ABC):
         """Elementary draw method to be overwritten in derived classes."""
         pass
 
-    def setDirection(self, direction) -> None:
+    def setDirection(self, direction: Direction) -> None:
         """Set sprite direction (if applicable)."""
         self._direction = direction
 
@@ -51,11 +53,11 @@ class Sprite(ABC):
         self._x = x
         self._y = y
 
-    def getPosition(self):
+    def getPosition(self) -> Tuple[int, int]:
         """Get sprite position."""
         return (self._x, self._y)
 
-    def move(self, step=1) -> None:
+    def move(self, step: int =1) -> None:
         """Move sprite in actual direction."""
         if self._direction == Direction.UP:
             self._y -= step
