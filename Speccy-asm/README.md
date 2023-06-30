@@ -57,3 +57,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Drawing inverse pixel without erasing background onto screen with inverse ASCII table](58-plot-inverse-pixel-on-inverse-background.asm)
 1. [Print ASCII table in normal and also inverse colors on screen](59-configurable-ascii-table.asm)
 1. [Inverse pixel color (simulation of PLOT OVER statement from BASIC)](60-plot-over.asm)
+1. [Print a number using standard ROM call](61-print-number-A.asm)
+1. [Print negative number using standard ROM call](62-print-number-B.asm)
+1. [Print largest supported number (9999) using standard ROM call](63-print-number-C.asm)
+1. [Print very large number (10000) using standard ROM call](64-print-number-D.asm)
+1. [Print sequence of numbers on screen](65-more-numbers-A.asm)
