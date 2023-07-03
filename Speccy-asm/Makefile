@@ -12,7 +12,7 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     91.tap 92.tap 93.tap 94.tap 95.tap 96.tap 97.tap 98.tap 99.tap 100.tap \
     101.tap 102.tap 103.tap 104.tap 105.tap 106.tap 107.tap 108.tap 109.tap \
     110.tap 111.tap 112.tap 113.tap 114.tap 115.tap 116.tap 117.tap 118.tap \
-    119.tap
+    119.tap 120.tap
 
 clean:
 	rm -f *.tap
@@ -376,3 +376,12 @@ clean:
 
 119.tap:	119-noise-envelope.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 119-noise-envelope.lst
+
+120.tap:	120-8x8-sprite.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 120-8x8-sprite.lst
+
+121.tap:	121-24x24-sprite.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 121-24x24-sprite.lst
+
+122.tap:	122-24x24-sprite.asm sprite.bin
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 122-24x24-sprite.lst
