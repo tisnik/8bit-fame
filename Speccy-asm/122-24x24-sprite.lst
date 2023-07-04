@@ -79,7 +79,32 @@ End of MACRO add_e
 804E:10F0	DJNZ 8040
 8050:C9		RET
 8051:		label SPRITE_ADR
-		INCBIN sprite.bin
-809A:		END 8000
+		INCLUDE sprite.asm
+8051:000000	DEFB of 3 bytes
+8054:000000	DEFB of 3 bytes
+8057:01F010	DEFB of 3 bytes
+805A:033810	DEFB of 3 bytes
+805D:05D710	DEFB of 3 bytes
+8060:05CC10	DEFB of 3 bytes
+8063:053010	DEFB of 3 bytes
+8066:04C810	DEFB of 3 bytes
+8069:073610	DEFB of 3 bytes
+806C:0CFE38	DEFB of 3 bytes
+806F:1FF800	DEFB of 3 bytes
+8072:000030	DEFB of 3 bytes
+8075:03FFB0	DEFB of 3 bytes
+8078:05FEE0	DEFB of 3 bytes
+807B:0EFDC0	DEFB of 3 bytes
+807E:18FC00	DEFB of 3 bytes
+8081:180000	DEFB of 3 bytes
+8084:01F800	DEFB of 3 bytes
+8087:03FC00	DEFB of 3 bytes
+808A:01B000	DEFB of 3 bytes
+808D:020C00	DEFB of 3 bytes
+8090:070E00	DEFB of 3 bytes
+8093:1E0780	DEFB of 3 bytes
+8096:000000	DEFB of 3 bytes
+		End of INCLUDE
+8099:		END 8000
 Emiting TAP basic loader
-Emiting TAP from 8000 to 8099
+Emiting TAP from 8000 to 8098
