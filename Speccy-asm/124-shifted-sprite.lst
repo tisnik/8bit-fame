@@ -1,0 +1,162 @@
+SCREEN_ADR	EQU 4000
+ENTRY_POINT	EQU 8000
+		ORG 8000
+Defining MACRO draw_shifted_sprite
+Params: offset
+8000:		label start
+8000:0600	LD B, 00
+8002:0E02	LD C, 02
+8004:CD5080	CALL 8050
+Expanding MACRO draw_shifted_sprite
+offset= 0000 
+LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+8007:218D80	LD HL, 808D
+CALL draw_sprite 
+800A:CD5F80	CALL 805F
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+800D:0600	LD B, 00
+800F:0E05	LD C, 05
+8011:CD5080	CALL 8050
+Expanding MACRO draw_shifted_sprite
+offset= 0001 
+LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+8014:21ED80	LD HL, 80ED
+CALL draw_sprite 
+8017:CD5F80	CALL 805F
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+801A:0600	LD B, 00
+801C:0E09	LD C, 09
+801E:CD5080	CALL 8050
+Expanding MACRO draw_shifted_sprite
+offset= 0002 
+LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+8021:214D81	LD HL, 814D
+CALL draw_sprite 
+8024:CD5F80	CALL 805F
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+8027:0600	LD B, 00
+8029:0E0C	LD C, 0C
+802B:CD5080	CALL 8050
+Expanding MACRO draw_shifted_sprite
+offset= 0003 
+LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+802E:21AD81	LD HL, 81AD
+CALL draw_sprite 
+8031:CD5F80	CALL 805F
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+8034:0600	LD B, 00
+8036:0E10	LD C, 10
+8038:CD5080	CALL 8050
+Expanding MACRO draw_shifted_sprite
+offset= 0004 
+LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+803B:210D82	LD HL, 820D
+CALL draw_sprite 
+803E:CD5F80	CALL 805F
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+8041:0600	LD B, 00
+8043:0E13	LD C, 13
+8045:CD5080	CALL 8050
+Expanding MACRO draw_shifted_sprite
+offset= 0005 
+LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+8048:216D82	LD HL, 826D
+CALL draw_sprite 
+804B:CD5F80	CALL 805F
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+804E:		label finish
+804E:18FE	JR 804E
+8050:		label calc_sprite_address
+8050:79		LD A, C
+8051:E607	AND 07
+8053:0F		RRCA
+8054:0F		RRCA
+8055:0F		RRCA
+8056:B0		OR B
+8057:5F		LD E, A
+8058:79		LD A, C
+8059:E618	AND 18
+805B:F640	OR 40
+805D:57		LD D, A
+805E:C9		RET
+Defining MACRO add_e
+Params: n
+805F:		label draw_sprite
+805F:D5		PUSH DE
+8060:CD7580	CALL 8075
+8063:D1		POP DE
+Expanding MACRO add_e
+n= 0020 
+LD A , E 
+8064:7B		LD A, E
+ADD A , n 
+8065:C620	ADD A, 20
+LD E , A 
+8067:5F		LD E, A
+ENDM 
+		ENDM
+End of MACRO add_e
+8068:D5		PUSH DE
+8069:CD7580	CALL 8075
+806C:D1		POP DE
+Expanding MACRO add_e
+n= 0020 
+LD A , E 
+806D:7B		LD A, E
+ADD A , n 
+806E:C620	ADD A, 20
+LD E , A 
+8070:5F		LD E, A
+ENDM 
+		ENDM
+End of MACRO add_e
+8071:CD7580	CALL 8075
+8074:C9		RET
+8075:		label draw_8_lines
+8075:0608	LD B, 08
+8077:		label loop
+8077:7E		LD A, (HL)
+8078:12		LD (DE), A
+8079:23		INC HL
+807A:1C		INC E
+807B:7E		LD A, (HL)
+807C:12		LD (DE), A
+807D:23		INC HL
+807E:1C		INC E
+807F:7E		LD A, (HL)
+8080:12		LD (DE), A
+8081:23		INC HL
+8082:1C		INC E
+8083:7E		LD A, (HL)
+8084:12		LD (DE), A
+8085:23		INC HL
+8086:14		INC D
+8087:1D		DEC E
+8088:1D		DEC E
+8089:1D		DEC E
+808A:10EB	DJNZ 8077
+808C:C9		RET
+808D:		label SPRITE_ADR
+		INCBIN sprites.bin0
+		INCBIN sprites.bin1
+		INCBIN sprites.bin2
+		INCBIN sprites.bin3
+		INCBIN sprites.bin4
+		INCBIN sprites.bin5
+		INCBIN sprites.bin6
+		INCBIN sprites.bin7
+838D:		END 8000
+Emiting TAP basic loader
+Emiting TAP from 8000 to 838C
