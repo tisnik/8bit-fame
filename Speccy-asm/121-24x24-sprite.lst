@@ -103,7 +103,6 @@ End of MACRO add_e
 8090:070E00	DEFB of 3 bytes
 8093:1E0780	DEFB of 3 bytes
 8096:000000	DEFB of 3 bytes
-8099:000000	DEFB of 3 bytes
-809C:		END 8000
+8099:		END 8000
 Emiting TAP basic loader
-Emiting TAP from 8000 to 809B
+Emiting TAP from 8000 to 8098

@@ -5,8 +5,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
-; Example #120:
-;    Draw 8x8 sprite.
+; Example #121:
+;    Draw 24x24 sprite.
 
 SCREEN_ADR      equ $4000
 ENTRY_POINT     equ $8000
@@ -127,7 +127,6 @@ SPRITE_ADR
 	db %00000010, %00001100, %00000000
 	db %00000111, %00001110, %00000000
 	db %00011110, %00000111, %10000000
-	db %00000000, %00000000, %00000000
 	db %00000000, %00000000, %00000000
 
 
