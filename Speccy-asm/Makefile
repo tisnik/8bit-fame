@@ -383,5 +383,11 @@ clean:
 121.tap:	121-24x24-sprite.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 121-24x24-sprite.lst
 
-122.tap:	122-24x24-sprite.asm sprite.bin
+122.tap:	122-24x24-sprite.asm sprite.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 122-24x24-sprite.lst
+
+123.tap:	123-24x24-sprite.asm sprite.bin
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 123-24x24-sprite.lst
+
+124.tap:	124-shifted-sprite.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 124-shifted-sprite.lst
