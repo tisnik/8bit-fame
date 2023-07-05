@@ -1,3 +1,15 @@
+; Example that is used in following article:
+;    Zvuky a hudba na ZX Spectru: zvukové čipy řady AY-3–8910
+;    https://www.root.cz/clanky/zvuky-a-hudba-na-zx-spectru-zvukove-cipy-rady-ay-3-8910/
+;
+; This article is part of series:
+;    "Vývoj pro slavné ZX Spectrum"
+;    https://www.root.cz/serialy/vyvoj-pro-slavne-zx-spectrum/
+;
+; Repository:
+;    https://github.com/tisnik/8bit-fame
+;
+
 ENTRY_POINT        equ $8000
 AY_SELECT_REGISTER equ $fffd
 AY_DATA_REGISTER   equ $bffd
