@@ -6,6 +6,7 @@
 ;    https://github.com/tisnik/8bit-fame
 ;
 ; Example #122:
+;    Include sprite from text (assembly) file.
 ;    Draw 24x24 sprite.
 
 SCREEN_ADR      equ $4000
