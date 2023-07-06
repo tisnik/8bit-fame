@@ -9,6 +9,10 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #108:
+;    Direct speaker control via port.
+;    Interrupt is disabled during play.
+;    Screen border is changed in sync with speaker.
 
 ENTRY_POINT   equ $8000
 BEEPER_PORT   equ $fe
