@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #105:
+;    Direct speaker control via port.
 
 ENTRY_POINT   equ $8000
 BEEPER_PORT   equ $fe
