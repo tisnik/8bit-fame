@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #104:
+;    Play music scale via beeper.
 
 ENTRY_POINT   equ $8000
 BEEPER        equ $03B5
