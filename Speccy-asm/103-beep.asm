@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #103:
+;    Beeper usage via BASIC subroutine.
 
 ENTRY_POINT   equ $8000
 BEEPER        equ $03B5
