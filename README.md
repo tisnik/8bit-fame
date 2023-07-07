@@ -28,10 +28,10 @@
 1. [Examples for good old 8bit Turbo-BASIC programming language](<Turbo-Basic XL>)
 1. [Examples fro BBC Basic](<BBC Basic>)
 1. [Player-missile graphics on 8bit Atari](<PMG>)
-1. [Simple games for 8bit Atari](games)
+1. [Simple games for 8bit Atari](<games>)
 1. [Curves in Computer Graphics](<curves>)
-1. [Various Atari-related tools](tools)
-1. [Proofs of concept](PoCs)
+1. [Various Atari-related tools](<tools>)
+1. [Proofs of concept](<PoCs>)
 
 ## Programs written for DOS BASIC Interpreters
 
