@@ -6,7 +6,8 @@
 ;    https://github.com/tisnik/8bit-fame
 ;
 ; Example #124:
-;    Draw 24x24 sprite.
+;    Load 8 shifted sprites from binary files.
+;    Draw 24x24 sprites on screen.
 
 SCREEN_ADR      equ $4000
 ENTRY_POINT     equ $8000
