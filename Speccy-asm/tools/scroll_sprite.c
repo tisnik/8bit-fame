@@ -52,6 +52,7 @@ unsigned char **allocate_sprite(int bytes_per_line, int height)
 
 }
 
+/* Read binary file with sprite data: a true bitmap. */
 int read_input_sprite_file(int bytes_per_line, int height,
                            char *input_file, unsigned char **sprite)
 {
@@ -76,6 +77,7 @@ int read_input_sprite_file(int bytes_per_line, int height,
     return OK;
 }
 
+/* Write binary file with sprite data: a true bitmap. */
 int write_output_sprite_file(int bytes_per_line, int height,
                              char *output_file, unsigned char **sprite,
                              int shift)
@@ -85,7 +87,7 @@ int write_output_sprite_file(int bytes_per_line, int height,
 
     char filename[MAX_FILENAME_LENGTH];
 
-    snprintf(filename, MAX_FILENAME_LENGTH, "%s%d", output_file, shift);
+    snprintf(filename, MAX_FILENAME_LENGTH, "%s_%d.bin", output_file, shift);
 
     fout = fopen(filename, "wb");
     for (j = 0; j < height; j++) {
@@ -104,6 +106,7 @@ int write_output_sprite_file(int bytes_per_line, int height,
     return OK;
 }
 
+/* Shift sprite right by one pixel. */
 void shift_sprite(int bytes_per_line, int height, unsigned char **sprite)
 {
     int i, j;
@@ -150,7 +153,7 @@ int main(int argc, char *argv[])
 
     /* check CLI arguments */
     if (argc != 5) {
-        printf("Usage: %s bytes_per_line height input.bin output.bin",
+        printf("Usage: %s [bytes_per_line] [height] [input.bin] [output]",
                argv[0]);
         exit(EXIT_FAILURE);
     }
