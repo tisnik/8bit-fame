@@ -137,14 +137,14 @@ loop:
 
 
 SPRITE_ADR
-	incbin "sprites.bin0"
-	incbin "sprites.bin1"
-	incbin "sprites.bin2"
-	incbin "sprites.bin3"
-	incbin "sprites.bin4"
-	incbin "sprites.bin5"
-	incbin "sprites.bin6"
-	incbin "sprites.bin7"
+	incbin "sprites_0.bin"
+	incbin "sprites_1.bin"
+	incbin "sprites_2.bin"
+	incbin "sprites_3.bin"
+	incbin "sprites_4.bin"
+	incbin "sprites_5.bin"
+	incbin "sprites_6.bin"
+	incbin "sprites_7.bin"
 
 
 end ENTRY_POINT

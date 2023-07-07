@@ -149,14 +149,14 @@ End of MACRO add_e
 808A:10EB	DJNZ 8077
 808C:C9		RET
 808D:		label SPRITE_ADR
-		INCBIN sprites.bin0
-		INCBIN sprites.bin1
-		INCBIN sprites.bin2
-		INCBIN sprites.bin3
-		INCBIN sprites.bin4
-		INCBIN sprites.bin5
-		INCBIN sprites.bin6
-		INCBIN sprites.bin7
+		INCBIN sprites_0.bin
+		INCBIN sprites_1.bin
+		INCBIN sprites_2.bin
+		INCBIN sprites_3.bin
+		INCBIN sprites_4.bin
+		INCBIN sprites_5.bin
+		INCBIN sprites_6.bin
+		INCBIN sprites_7.bin
 838D:		END 8000
 Emiting TAP basic loader
 Emiting TAP from 8000 to 838C
