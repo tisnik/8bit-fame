@@ -62,3 +62,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Print largest supported number (9999) using standard ROM call](63-print-number-C.asm)
 1. [Print very large number (10000) using standard ROM call](64-print-number-D.asm)
 1. [Print sequence of numbers on screen](65-more-numbers-A.asm)
+1. [Print sequence of numbers on screen](66-more-numbers-B.asm)
+1. [Print flags after arithmetic operation 1+2](67-print-flags-1.asm)
+1. [Print flags after arithmetic operation 0+0](68-print-flags-2.asm)
+1. [Print flags after arithmetic operation 255+1](69-print-flags-3.asm)
+1. [Print flags after arithmetic operation 254+1](70-print-flags-4.asm)
