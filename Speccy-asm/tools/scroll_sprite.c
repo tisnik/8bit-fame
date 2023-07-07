@@ -44,9 +44,7 @@ unsigned char **allocate_sprite(int bytes_per_line, int height)
 
     /* allocate rows */
     for (i = 0; i < height; i++) {
-        sprite[i] =
-            (unsigned char *) calloc(sizeof(unsigned char),
-                                     bytes_per_line + 1);
+        sprite[i] = (unsigned char *) calloc(sizeof(unsigned char), bytes_per_line + 1);
     }
     return sprite;
 
@@ -99,8 +97,34 @@ int write_output_sprite_file(int bytes_per_line, int height,
                 return ERROR;
             }
         }
-        /* last byte on row */
-        sprite[j][bytes_per_line] = 0;
+    }
+    fclose(fout);
+    return OK;
+}
+
+int write_assembly_include_file(int bytes_per_line, int height,
+                                char *output_file, unsigned char **sprite,
+                                int shift)
+{
+    FILE *fout;
+    int i, j;
+
+    char filename[MAX_FILENAME_LENGTH];
+
+    snprintf(filename, MAX_FILENAME_LENGTH, "%s_%d.asm", output_file, shift);
+
+    fout = fopen(filename, "wt");
+    fprintf(fout, "SPRITE_SHIFT_%d:\n", shift);
+
+    for (j = 0; j < height; j++) {
+        fprintf(fout, "\tdb");
+        for (i = 0; i < bytes_per_line; i++) {
+            fprintf(fout, " 0x%02x", sprite[j][i]);
+            if (i != bytes_per_line-1) {
+                fputs(", ", fout);
+            }
+        }
+        fputc('\n', fout);
     }
     fclose(fout);
     return OK;
@@ -137,9 +161,10 @@ void perform_conversion(int bytes_per_line, int height, char *input_file,
     }
 
     for (shift = 0; shift < 8; shift++) {
-        if (write_output_sprite_file
-            (bytes_per_line + 1, height, output_file, sprite,
-             shift) != OK) {
+        if (write_output_sprite_file(bytes_per_line + 1, height, output_file, sprite, shift) != OK) {
+            exit(EXIT_FAILURE);
+        }
+        if (write_assembly_include_file(bytes_per_line + 1, height, output_file, sprite, shift) != OK) {
             exit(EXIT_FAILURE);
         }
         shift_sprite(bytes_per_line + 1, height, sprite);
