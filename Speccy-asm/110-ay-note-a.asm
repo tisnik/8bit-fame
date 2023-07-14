@@ -9,6 +9,9 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #110:
+;    Play a note via AY-3-8912 chip.
+;    Version based on subroutine to set up AY control registers.
 
 ENTRY_POINT        equ $8000
 AY_SELECT_REGISTER equ $fffd
