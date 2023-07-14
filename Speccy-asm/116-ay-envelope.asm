@@ -9,6 +9,8 @@
 ; Repository:
 ;    https://github.com/tisnik/8bit-fame
 ;
+; Example #116:
+;    Play tone with non-constant envelope on AY-3-8912 chip.
 
 ENTRY_POINT        equ $8000
 AY_SELECT_REGISTER equ $fffd
