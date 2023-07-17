@@ -50,9 +50,6 @@ class SplashScreen(AbstractMenuScreen):
             self.renderMenuItem("Quit"),
         )
 
-        # actually selected menu item
-        self._selected_menu_item = 0
-
         credits = "2023 Markétka Tišnovská, Pavel Tišnovský"
         self._credits = self._resources.smallFont.render(credits,
                                                          True,
