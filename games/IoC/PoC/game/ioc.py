@@ -52,7 +52,7 @@ def statistic_screen_mode(display: pygame.Surface, resources, statistic) -> None
 
 def settings_screen_mode(display: pygame.Surface, resources) -> None:
     """Game mode with settings screen displayed."""
-    settings_screen = SettingsScreen(display, resources)
+    settings_screen = SettingsScreen(display, resources, cyan_ghost)
     settings_screen.draw()
     settings_screen.eventLoop()
 
