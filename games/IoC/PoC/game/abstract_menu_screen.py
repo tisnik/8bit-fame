@@ -40,6 +40,14 @@ class AbstractMenuScreen(Screen):
 
         self._clock = pygame.time.Clock()
 
+        # pre-render game title
+        self._title = self._resources.bigFont.render("(abstract menu)", True,
+                                                     AbstractMenuScreen.TITLE_COLOR,
+                                                     AbstractMenuScreen.BACKGROUND_COLOR)
+        # actually selected menu item
+        self._selected_menu_item = 0
+
+
     def renderMenuItem(self, text: str) -> None:
         """Render one menu item to be displayed on splash screen."""
         return self._resources.normalFont.render(text, True,
@@ -99,7 +107,7 @@ class AbstractMenuScreen(Screen):
         # redraw the screen immediatelly
         self.draw()
 
-    def getSelectedMenuItem(self) -> None:
+    def getSelectedMenuItem(self) -> int:
         """Retrieve actually selected menu item."""
         return self._selected_menu_item
 
