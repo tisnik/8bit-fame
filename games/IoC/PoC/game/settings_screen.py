@@ -50,16 +50,7 @@ class SettingsScreen(AbstractMenuScreen):
             self.renderMenuItem("Return to main screen"),
         )
 
-        # actually selected menu item
-        self._selected_menu_item = 0
-
         self._clock = pygame.time.Clock()
-
-    def renderMenuItem(self, text: str) -> None:
-        """Render one menu item to be displayed on settings screen."""
-        return self._resources.normalFont.render(text, True,
-                                                 SettingsScreen.MENU_COLOR,
-                                                 SettingsScreen.BACKGROUND_COLOR)
 
     def draw(self) -> None:
         """Draw settings screen."""
