@@ -68,6 +68,11 @@ class AboutScreen(Screen):
         self._sdl_version = self._resources.smallFont.render("SDL version: " + sdlVer, True,
                                                              AboutScreen.WORK_COLOR,
                                                              AboutScreen.BACKGROUND_COLOR)
+        pv = sys.version_info
+        pythonVersion = f"{pv.major}.{pv.minor}.{pv.micro} {pv.releaselevel}"
+        self._python_version = self._resources.smallFont.render("Python version: " + pythonVersion, True,
+                                                            AboutScreen.WORK_COLOR,
+                                                            AboutScreen.BACKGROUND_COLOR)
 
         self._clock = pygame.time.Clock()
         self._photo1 = self._resources.images["authors1"]
@@ -117,8 +122,12 @@ class AboutScreen(Screen):
 
     def drawVersionInfo(self) -> None:
         """Draw info about library versions onto the screen."""
-        self._display.blit(self._pygame_version, (500, 600))
-        self._display.blit(self._sdl_version, (500, 625))
+        x = 500
+        y = 575
+        step = 25
+        self._display.blit(self._python_version, (x, y))
+        self._display.blit(self._pygame_version, (x, y+step))
+        self._display.blit(self._sdl_version, (x, y+step*2))
 
     def movePinkGhost(self) -> None:
         """Move the pink ghost."""
