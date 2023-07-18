@@ -66,3 +66,26 @@ def parse_tiles(raw_data):
             row.append(Tile(char))
         rows.append(row)
     return rows
+
+
+def compute_ghost_positions(raw_data):
+    return {
+            "red": find_char_position_in_raw_data(raw_data, "R"),
+            "cyan": find_char_position_in_raw_data(raw_data, "C"),
+            "green": find_char_position_in_raw_data(raw_data, "G"),
+            "pink": find_char_position_in_raw_data(raw_data, "P"),
+            }
+
+
+def compute_pacman_position(raw_data):
+    return find_char_position_in_raw_data(raw_data, "M")
+
+
+def find_char_position_in_raw_data(raw_data, char):
+    y = 0
+    for line in raw_data:
+        x = line.find(char)
+        if x >= 0:
+            return (x+1, y+1)
+        y += 1
+    return None
