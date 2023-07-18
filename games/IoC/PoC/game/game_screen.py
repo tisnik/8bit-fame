@@ -21,10 +21,15 @@ from screen import Screen
 from colors import Colors
 from resources import Resources
 from maze import Maze
+from pacman import PacMan
+from ghost import Ghost
 
 
 class GameScreen(Screen):
     """Game screen displayed in the game and selected from main menu."""
+
+    # TODO move to its own file
+    GHOST_COLORS = ("red", "green", "cyan", "pink")
 
     # colors used on game screen
     TITLE_COLOR = (255, 255, 255)
@@ -34,9 +39,20 @@ class GameScreen(Screen):
         super(GameScreen, self).__init__(display, resources)
 
         # fonts and other required resources are taken from resources object.
+        self._pacman = PacMan(display, self._resources, "pacman")
+
+        # TODO: refactoring for enum with ghost names/colors?
+        self._ghosts = {
+            "red" : Ghost(display, self._resources, "ghost_red"),
+            "green" : Ghost(display, self._resources, "ghost_green"),
+            "cyan" : Ghost(display, self._resources, "ghost_cyan"),
+            "pink" : Ghost(display, self._resources, "ghost_pink"),
+        }
 
         self._maze = maze
         self._clock = pygame.time.Clock()
+        self._ghost_positions = maze.getGhostPositions()
+        self._pacman_position = maze.getPacmanPosition()
 
     def draw(self) -> None:
         """Draw game screen."""
