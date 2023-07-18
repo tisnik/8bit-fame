@@ -17,14 +17,14 @@
 import configparser
 
 
-def loadConfiguration(filename):
+def loadConfiguration(filename: str) -> configparser.ConfigParser:
     """Load configuration from provided INI file."""
     config = configparser.ConfigParser()
     config.read(filename)
     return config
 
 
-def saveConfiguration(filename):
+def saveConfiguration(filename: str) -> None:
     """Store configuration into provided INI file."""
     # TODO: add implementation there
     pass
