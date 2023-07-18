@@ -294,6 +294,6 @@ class Tile:
             TileType.PACMAN: draw_blank,
             }
 
-    def __init__(self, raw_char) -> None:
+    def __init__(self, raw_char: str) -> None:
         self._type = Tile.types[raw_char]
         self.draw = self.draw_methods[self._type]
