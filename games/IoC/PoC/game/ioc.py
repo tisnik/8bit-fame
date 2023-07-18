@@ -88,19 +88,21 @@ splash_screen = SplashScreen(display, resources, "splash_screen", 8, red_ghost)
 
 maze = Maze(display, configuration, "default.txt")
 
-# statistic_screen_mode(display, resources, statistic)
-# sys.exit()
+if len(sys.argv) > 1:
+    command = sys.argv[1]
+    # quick jump to action
+    if command == "--start":
+        game_screen = GameScreen(display, resources, maze)
+        game_screen.draw()
+        game_screen.eventLoop()
+        sys.exit()
+    elif command == "--about":
+        about_screen_mode(display, resources)
+    elif command == "--statistic":
+        statistic_screen_mode(display, resources, statistic)
+    elif command == "--settings":
+        settings_screen_mode(display, resources)
 
-# about_screen_mode(display, resources, statistic)
-# sys.exit()
-
-# settings_screen_mode(display, resources)
-# sys.exit()
-
-# game_screen = GameScreen(display, resources, maze)
-# game_screen.draw()
-# game_screen.eventLoop()
-# sys.exit(0)
 
 while True:
     menuItem = splash_screen.eventLoop()
