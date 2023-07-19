@@ -58,6 +58,25 @@ class GameScreen(Screen):
         """Draw game screen."""
         self._display.fill(Colors.BLACK.value)
         self._maze.draw()
+        self.drawGhosts()
+        self.drawPacman()
+
+    def drawGhosts(self) -> None:
+        for color in GameScreen.GHOST_COLORS:
+            x, y = self.getCoordinates(self._ghost_positions[color])
+            ghost = self._ghosts[color]
+            ghost.moveTo(x, y)
+            ghost.draw()
+
+    def drawPacman(self) -> None:
+        x, y = self.getCoordinates(self._pacman_position)
+        self._pacman.moveTo(x, y)
+        self._pacman.draw()
+
+    def getCoordinates(self, obj):
+        x = obj[0] * 32
+        y = obj[1] * 32 - 16
+        return x, y
 
     def eventLoop(self) -> None:
         """Event loop for game screen."""
