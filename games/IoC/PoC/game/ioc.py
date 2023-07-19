@@ -36,7 +36,7 @@ from about_screen import AboutScreen
 from maze import Maze
 
 
-def about_screen_mode(display: pygame.Surface, resources, statistic) -> None:
+def about_screen_mode(display: pygame.Surface, resources) -> None:
     """Game mode with about screen displayed."""
     about_screen = AboutScreen(display, resources)
     about_screen.draw()
