@@ -104,26 +104,30 @@ if len(sys.argv) > 1:
         settings_screen_mode(display, resources)
 
 
-while True:
-    menuItem = splash_screen.eventLoop()
-    if menuItem == MainMenu.QUIT.value:
-        pygame.quit()
-        sys.exit()
-    elif menuItem == MainMenu.NEW_GAME.value:
-        game_screen = GameScreen(display, resources, maze)
-        game_screen.draw()
-        game_screen.eventLoop()
-    elif menuItem == MainMenu.SETTINGS.value:
-        settings_screen = SettingsScreen(display, resources, cyan_ghost)
-        settings_screen.draw()
-        settings_screen.eventLoop()
-    elif menuItem == MainMenu.STATISTIC.value:
-        statistic_screen = StatisticScreen(display, resources, statistic)
-        statistic_screen.draw()
-        statistic_screen.eventLoop()
-    elif menuItem == MainMenu.ABOUT.value:
-        about_screen = AboutScreen(display, resources)
-        about_screen.draw()
-        about_screen.eventLoop()
+def main() -> None:
+    while True:
+        menuItem = splash_screen.eventLoop()
+        if menuItem == MainMenu.QUIT.value:
+            pygame.quit()
+            sys.exit()
+        elif menuItem == MainMenu.NEW_GAME.value:
+            game_screen = GameScreen(display, resources, maze)
+            game_screen.draw()
+            game_screen.eventLoop()
+        elif menuItem == MainMenu.SETTINGS.value:
+            settings_screen = SettingsScreen(display, resources, cyan_ghost)
+            settings_screen.draw()
+            settings_screen.eventLoop()
+        elif menuItem == MainMenu.STATISTIC.value:
+            statistic_screen = StatisticScreen(display, resources, statistic)
+            statistic_screen.draw()
+            statistic_screen.eventLoop()
+        elif menuItem == MainMenu.ABOUT.value:
+            about_screen = AboutScreen(display, resources)
+            about_screen.draw()
+            about_screen.eventLoop()
+
+
+main()
 
 # finito
