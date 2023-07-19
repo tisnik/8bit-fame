@@ -33,6 +33,14 @@ class Maze:
         self._tiles = parse_tiles(raw_data)
         self._back_buffer = pygame.Surface(display.get_size())
         self.drawMaze(self._back_buffer)
+        self._ghost_positions = compute_ghost_positions(raw_data)
+        self._pacman_position = compute_pacman_position(raw_data)
+
+    def getGhostPositions(self):
+        return self._ghost_positions
+
+    def getPacmanPosition(self):
+        return self._pacman_position
 
     def loadMaze(self, filename):
         """Load maze topology from external text file."""
