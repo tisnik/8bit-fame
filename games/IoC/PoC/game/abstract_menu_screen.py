@@ -20,6 +20,8 @@ from screen import Screen
 from resources import Resources
 from ghost import Ghost
 
+from typing import Tuple
+
 
 class AbstractMenuScreen(Screen):
     """Splash screen with title, welcome animation, and a main menu."""
@@ -47,8 +49,10 @@ class AbstractMenuScreen(Screen):
         # actually selected menu item
         self._selected_menu_item = 0
 
+        self._menu : Tuple[pygame.Surface, ...]= ()
 
-    def renderMenuItem(self, text: str) -> None:
+
+    def renderMenuItem(self, text: str) -> pygame.Surface:
         """Render one menu item to be displayed on splash screen."""
         return self._resources.normalFont.render(text, True,
                                                  AbstractMenuScreen.MENU_COLOR,
