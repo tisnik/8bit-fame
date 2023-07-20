@@ -15,6 +15,7 @@
 """Any screen with menu."""
 
 import pygame
+import sys
 
 from screen import Screen
 from resources import Resources
