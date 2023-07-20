@@ -17,6 +17,8 @@
 import sys
 import pygame
 
+from typing import Tuple, Optional
+
 from screen import Screen
 from colors import Colors
 from resources import Resources
@@ -73,10 +75,12 @@ class GameScreen(Screen):
         self._pacman.moveTo(x, y)
         self._pacman.draw()
 
-    def getCoordinates(self, obj):
-        x = obj[0] * 32
-        y = obj[1] * 32 - 16
-        return x, y
+    def getCoordinates(self, obj: Optional[Tuple[int, int]]) -> Tuple[int, int]:
+        if obj is not None:
+            x = obj[0] * 32
+            y = obj[1] * 32 - 16
+            return x, y
+        return -1, -1
 
     def eventLoop(self) -> None:
         """Event loop for game screen."""
