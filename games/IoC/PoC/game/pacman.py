@@ -17,6 +17,7 @@
 import pygame
 import pygame.transform
 
+from resources import Resources
 from direction import Direction
 from sprite import Sprite
 
@@ -24,7 +25,7 @@ from sprite import Sprite
 class PacMan(Sprite):
     """PacMan class that represents Pac man in the game."""
 
-    def __init__(self, surface: pygame.Surface, resources, filename_prefix: str):
+    def __init__(self, surface: pygame.Surface, resources: Resources, filename_prefix: str):
         """Object initialization, including resource loading."""
         super(PacMan, self).__init__(surface)
         self._tick = 0
