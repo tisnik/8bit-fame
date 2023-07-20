@@ -17,13 +17,14 @@
 import os
 import pygame
 
+from typing import Dict, List, Tuple, Optional
 from tile import Tile
 
 
 class Maze:
     """Representation of maze in a game."""
 
-    def __init__(self, display, configuration, maze_name):
+    def __init__(self, display: pygame.Surface, configuration, maze_name: str) -> None:
         """Initialize maze by loading its topology from external text file."""
         self._display = display
 
@@ -36,19 +37,19 @@ class Maze:
         self._ghost_positions = compute_ghost_positions(raw_data)
         self._pacman_position = compute_pacman_position(raw_data)
 
-    def getGhostPositions(self):
+    def getGhostPositions(self) -> Dict[str, Optional[Tuple[int, int]]]:
         return self._ghost_positions
 
-    def getPacmanPosition(self):
+    def getPacmanPosition(self) -> Optional[Tuple[int, int]]:
         return self._pacman_position
 
-    def loadMaze(self, filename):
+    def loadMaze(self, filename: str) -> List[str]:
         """Load maze topology from external text file."""
         with open(filename, "r") as fin:
             lines = fin.readlines()
         return lines
 
-    def drawMaze(self, surface) -> None:
+    def drawMaze(self, surface: pygame.Surface) -> None:
         """Draw the whole maze onto the surface."""
         y = 20
         for row in self._tiles:
@@ -64,7 +65,7 @@ class Maze:
         self._display.blit(self._back_buffer, dest=(0,0))
 
 
-def parse_tiles(raw_data):
+def parse_tiles(raw_data: List[str]) -> List[List[Tile]]:
     """Parse titles character by character."""
     rows = []
     for line in raw_data:
@@ -76,7 +77,7 @@ def parse_tiles(raw_data):
     return rows
 
 
-def compute_ghost_positions(raw_data):
+def compute_ghost_positions(raw_data: List[str])-> Dict[str, Optional[Tuple[int, int]]]:
     return {
             "red": find_char_position_in_raw_data(raw_data, "R"),
             "cyan": find_char_position_in_raw_data(raw_data, "C"),
@@ -85,11 +86,11 @@ def compute_ghost_positions(raw_data):
             }
 
 
-def compute_pacman_position(raw_data):
+def compute_pacman_position(raw_data: List[str]) -> Optional[Tuple[int, int]]:
     return find_char_position_in_raw_data(raw_data, "M")
 
 
-def find_char_position_in_raw_data(raw_data, char):
+def find_char_position_in_raw_data(raw_data: List[str], char: str) -> Optional[Tuple[int, int]]:
     y = 0
     for line in raw_data:
         x = line.find(char)
