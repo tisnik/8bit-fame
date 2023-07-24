@@ -2,15 +2,15 @@ SCREEN_ADR	EQU 4000
 ENTRY_POINT	EQU 8000
 		ORG 8000
 Defining MACRO draw_shifted_sprite
-Params: offset
+Params: index
 Defining MACRO shift_sprite
-Params: offset
+Params: index
 8000:		label start
 Expanding MACRO shift_sprite
-offset= 0000 
+index= 0000 
 LD HL , SPRITE_ADR 
 8000:212581	LD HL, 8125
-LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+LD DE , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 8003:116D81	LD DE, 816D
 LD B , 0018 
 8006:0618	LD B, 18
@@ -36,10 +36,10 @@ ENDM
 		ENDM
 End of MACRO shift_sprite
 Expanding MACRO shift_sprite
-offset= 0001 
+index= 0001 
 LD HL , SPRITE_ADR 
 8013:212581	LD HL, 8125
-LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+LD DE , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 8016:11CD81	LD DE, 81CD
 LD B , 0018 
 8019:0618	LD B, 18
@@ -65,10 +65,10 @@ ENDM
 		ENDM
 End of MACRO shift_sprite
 Expanding MACRO shift_sprite
-offset= 0002 
+index= 0002 
 LD HL , SPRITE_ADR 
 8026:212581	LD HL, 8125
-LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+LD DE , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 8029:112D82	LD DE, 822D
 LD B , 0018 
 802C:0618	LD B, 18
@@ -94,10 +94,10 @@ ENDM
 		ENDM
 End of MACRO shift_sprite
 Expanding MACRO shift_sprite
-offset= 0003 
+index= 0003 
 LD HL , SPRITE_ADR 
 8039:212581	LD HL, 8125
-LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+LD DE , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 803C:118D82	LD DE, 828D
 LD B , 0018 
 803F:0618	LD B, 18
@@ -123,10 +123,10 @@ ENDM
 		ENDM
 End of MACRO shift_sprite
 Expanding MACRO shift_sprite
-offset= 0004 
+index= 0004 
 LD HL , SPRITE_ADR 
 804C:212581	LD HL, 8125
-LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+LD DE , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 804F:11ED82	LD DE, 82ED
 LD B , 0018 
 8052:0618	LD B, 18
@@ -152,10 +152,10 @@ ENDM
 		ENDM
 End of MACRO shift_sprite
 Expanding MACRO shift_sprite
-offset= 0005 
+index= 0005 
 LD HL , SPRITE_ADR 
 805F:212581	LD HL, 8125
-LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+LD DE , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 8062:114D83	LD DE, 834D
 LD B , 0018 
 8065:0618	LD B, 18
@@ -181,10 +181,10 @@ ENDM
 		ENDM
 End of MACRO shift_sprite
 Expanding MACRO shift_sprite
-offset= 0006 
+index= 0006 
 LD HL , SPRITE_ADR 
 8072:212581	LD HL, 8125
-LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+LD DE , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 8075:11AD83	LD DE, 83AD
 LD B , 0018 
 8078:0618	LD B, 18
@@ -210,10 +210,10 @@ ENDM
 		ENDM
 End of MACRO shift_sprite
 Expanding MACRO shift_sprite
-offset= 0007 
+index= 0007 
 LD HL , SPRITE_ADR 
 8085:212581	LD HL, 8125
-LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+LD DE , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 8088:110D84	LD DE, 840D
 LD B , 0018 
 808B:0618	LD B, 18
@@ -242,8 +242,8 @@ End of MACRO shift_sprite
 809A:0E02	LD C, 02
 809C:CDE880	CALL 80E8
 Expanding MACRO draw_shifted_sprite
-offset= 0000 
-LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+index= 0000 
+LD HL , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 809F:216D81	LD HL, 816D
 CALL draw_sprite 
 80A2:CDF780	CALL 80F7
@@ -254,8 +254,8 @@ End of MACRO draw_shifted_sprite
 80A7:0E05	LD C, 05
 80A9:CDE880	CALL 80E8
 Expanding MACRO draw_shifted_sprite
-offset= 0001 
-LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+index= 0001 
+LD HL , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 80AC:21CD81	LD HL, 81CD
 CALL draw_sprite 
 80AF:CDF780	CALL 80F7
@@ -266,8 +266,8 @@ End of MACRO draw_shifted_sprite
 80B4:0E09	LD C, 09
 80B6:CDE880	CALL 80E8
 Expanding MACRO draw_shifted_sprite
-offset= 0002 
-LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+index= 0002 
+LD HL , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 80B9:212D82	LD HL, 822D
 CALL draw_sprite 
 80BC:CDF780	CALL 80F7
@@ -278,8 +278,8 @@ End of MACRO draw_shifted_sprite
 80C1:0E0C	LD C, 0C
 80C3:CDE880	CALL 80E8
 Expanding MACRO draw_shifted_sprite
-offset= 0003 
-LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+index= 0003 
+LD HL , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 80C6:218D82	LD HL, 828D
 CALL draw_sprite 
 80C9:CDF780	CALL 80F7
@@ -290,8 +290,8 @@ End of MACRO draw_shifted_sprite
 80CE:0E10	LD C, 10
 80D0:CDE880	CALL 80E8
 Expanding MACRO draw_shifted_sprite
-offset= 0004 
-LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+index= 0004 
+LD HL , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 80D3:21ED82	LD HL, 82ED
 CALL draw_sprite 
 80D6:CDF780	CALL 80F7
@@ -302,8 +302,8 @@ End of MACRO draw_shifted_sprite
 80DB:0E13	LD C, 13
 80DD:CDE880	CALL 80E8
 Expanding MACRO draw_shifted_sprite
-offset= 0005 
-LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+index= 0005 
+LD HL , SPRITE_SHIFT_0 + ( index * 0018 * 0004 ) 
 80E0:214D83	LD HL, 834D
 CALL draw_sprite 
 80E3:CDF780	CALL 80F7

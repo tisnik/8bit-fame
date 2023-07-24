@@ -13,14 +13,14 @@ ENTRY_POINT     equ $8000
 	org ENTRY_POINT
 
 
-draw_shifted_sprite MACRO offset
-	ld hl, SPRITE_SHIFT_0+(offset*24*4) ; adresa, od níž začíná maska spritu
+draw_shifted_sprite MACRO index
+	ld hl, SPRITE_SHIFT_0+(index*24*4) ; adresa, od níž začíná maska spritu
 	call draw_sprite
 endm
 
-shift_sprite MACRO offset
+shift_sprite MACRO index
 	ld hl, SPRITE_ADR                   ; zdrojová data
-	ld de, SPRITE_SHIFT_0+(offset*24*4) ; adresa, od níž začíná maska spritu
+	ld de, SPRITE_SHIFT_0+(index*24*4) ; adresa, od níž začíná maska spritu
 	ld b,  24                           ; počet opakování kopírovací smyčky
 local block                                 ; definice lokálního symbolu (pro opakovanou expanzi makra)
 block:
