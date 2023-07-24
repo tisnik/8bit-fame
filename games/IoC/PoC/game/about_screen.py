@@ -21,6 +21,7 @@ from screen import Screen
 from colors import Colors
 from ghost import Ghost
 from direction import Direction
+from resources import Resources
 
 
 class AboutScreen(Screen):
@@ -31,7 +32,7 @@ class AboutScreen(Screen):
     AUTHOR_COLOR = (120, 120, 255)
     WORK_COLOR = (120, 120, 120)
 
-    def __init__(self, display, resources):
+    def __init__(self, display: pygame.Surface, resources: Resources) -> None:
         """Initialize the about screen."""
         super(AboutScreen, self).__init__(display, resources)
 
