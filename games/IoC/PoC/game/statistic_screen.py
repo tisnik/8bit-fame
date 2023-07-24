@@ -17,10 +17,14 @@
 import sys
 import pygame
 
+from typing import Tuple
+
 from screen import Screen
 from colors import Colors
 from pacman import PacMan
 from ghost import Ghost
+from statistic import Statistic
+from resources import Resources
 
 
 class StatisticScreen(Screen):
@@ -32,7 +36,7 @@ class StatisticScreen(Screen):
     VALUE_TITLE_COLOR = (130, 130, 130)
     VALUE_COLOR = (255, 255, 130)
 
-    def __init__(self, display, resources, statistic) -> None:
+    def __init__(self, display: pygame.Surface, resources: Resources, statistic: Statistic) -> None:
         """Initialize the statistic screen."""
         super(StatisticScreen, self).__init__(display, resources)
 
@@ -164,22 +168,22 @@ class StatisticScreen(Screen):
         self.drawValueTitle(x, y, "Mileage:")
         self.drawValue(x + valueOffset, y, f"{self._statistic.pinkGhostMileage}")
 
-    def drawValue(self, x, y, string) -> None:
+    def drawValue(self, x: int, y: int, string: str) -> None:
         """Draw given string with value on [x, y] coordinates."""
         rendered = self.renderString(string, StatisticScreen.VALUE_COLOR)
         self._display.blit(rendered, (x, y))
 
-    def drawValueTitle(self, x, y, string) -> None:
+    def drawValueTitle(self, x: int, y: int, string: str) -> None:
         """Draw given string with value title on [x, y] coordinates."""
         rendered = self.renderString(string, StatisticScreen.VALUE_TITLE_COLOR)
         self._display.blit(rendered, (x, y))
 
-    def drawString(self, x, y, string, color) -> None:
+    def drawString(self, x: int, y: int, string: str, color: Tuple[int, int, int]) -> None:
         """Draw given string on [x, y] coordinates."""
         rendered = self.renderString(string, color)
         self._display.blit(rendered, (x, y))
 
-    def renderString(self, string, color):
+    def renderString(self, string: str, color: Tuple[int, int, int]) -> pygame.Surface:
         """Render given string onto new surface."""
         return self._resources.smallFont.render(string, True,
                                                 color,
