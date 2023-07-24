@@ -1,0 +1,415 @@
+SCREEN_ADR	EQU 4000
+ENTRY_POINT	EQU 8000
+		ORG 8000
+Defining MACRO draw_shifted_sprite
+Params: offset
+Defining MACRO shift_sprite
+Params: offset
+8000:		label start
+Expanding MACRO shift_sprite
+offset= 0000 
+LD HL , SPRITE_ADR 
+8000:212581	LD HL, 8125
+LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+8003:116D81	LD DE, 816D
+LD B , 0018 
+8006:0618	LD B, 18
+LOCAL block 
+		LOCAL block
+block : 
+8008:		local label block
+LDI 
+8008:EDA0	LDI
+LDI 
+800A:EDA0	LDI
+LDI 
+800C:EDA0	LDI
+XOR A 
+800E:AF		XOR A
+LD ( DE ) , A 
+800F:12		LD (DE), A
+INC DE 
+8010:13		INC DE
+DJNZ block 
+8011:10F5	DJNZ 8008
+ENDM 
+		ENDM
+End of MACRO shift_sprite
+Expanding MACRO shift_sprite
+offset= 0001 
+LD HL , SPRITE_ADR 
+8013:212581	LD HL, 8125
+LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+8016:11CD81	LD DE, 81CD
+LD B , 0018 
+8019:0618	LD B, 18
+LOCAL block 
+		LOCAL block
+block : 
+801B:		local label block
+LDI 
+801B:EDA0	LDI
+LDI 
+801D:EDA0	LDI
+LDI 
+801F:EDA0	LDI
+XOR A 
+8021:AF		XOR A
+LD ( DE ) , A 
+8022:12		LD (DE), A
+INC DE 
+8023:13		INC DE
+DJNZ block 
+8024:10F5	DJNZ 801B
+ENDM 
+		ENDM
+End of MACRO shift_sprite
+Expanding MACRO shift_sprite
+offset= 0002 
+LD HL , SPRITE_ADR 
+8026:212581	LD HL, 8125
+LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+8029:112D82	LD DE, 822D
+LD B , 0018 
+802C:0618	LD B, 18
+LOCAL block 
+		LOCAL block
+block : 
+802E:		local label block
+LDI 
+802E:EDA0	LDI
+LDI 
+8030:EDA0	LDI
+LDI 
+8032:EDA0	LDI
+XOR A 
+8034:AF		XOR A
+LD ( DE ) , A 
+8035:12		LD (DE), A
+INC DE 
+8036:13		INC DE
+DJNZ block 
+8037:10F5	DJNZ 802E
+ENDM 
+		ENDM
+End of MACRO shift_sprite
+Expanding MACRO shift_sprite
+offset= 0003 
+LD HL , SPRITE_ADR 
+8039:212581	LD HL, 8125
+LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+803C:118D82	LD DE, 828D
+LD B , 0018 
+803F:0618	LD B, 18
+LOCAL block 
+		LOCAL block
+block : 
+8041:		local label block
+LDI 
+8041:EDA0	LDI
+LDI 
+8043:EDA0	LDI
+LDI 
+8045:EDA0	LDI
+XOR A 
+8047:AF		XOR A
+LD ( DE ) , A 
+8048:12		LD (DE), A
+INC DE 
+8049:13		INC DE
+DJNZ block 
+804A:10F5	DJNZ 8041
+ENDM 
+		ENDM
+End of MACRO shift_sprite
+Expanding MACRO shift_sprite
+offset= 0004 
+LD HL , SPRITE_ADR 
+804C:212581	LD HL, 8125
+LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+804F:11ED82	LD DE, 82ED
+LD B , 0018 
+8052:0618	LD B, 18
+LOCAL block 
+		LOCAL block
+block : 
+8054:		local label block
+LDI 
+8054:EDA0	LDI
+LDI 
+8056:EDA0	LDI
+LDI 
+8058:EDA0	LDI
+XOR A 
+805A:AF		XOR A
+LD ( DE ) , A 
+805B:12		LD (DE), A
+INC DE 
+805C:13		INC DE
+DJNZ block 
+805D:10F5	DJNZ 8054
+ENDM 
+		ENDM
+End of MACRO shift_sprite
+Expanding MACRO shift_sprite
+offset= 0005 
+LD HL , SPRITE_ADR 
+805F:212581	LD HL, 8125
+LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+8062:114D83	LD DE, 834D
+LD B , 0018 
+8065:0618	LD B, 18
+LOCAL block 
+		LOCAL block
+block : 
+8067:		local label block
+LDI 
+8067:EDA0	LDI
+LDI 
+8069:EDA0	LDI
+LDI 
+806B:EDA0	LDI
+XOR A 
+806D:AF		XOR A
+LD ( DE ) , A 
+806E:12		LD (DE), A
+INC DE 
+806F:13		INC DE
+DJNZ block 
+8070:10F5	DJNZ 8067
+ENDM 
+		ENDM
+End of MACRO shift_sprite
+Expanding MACRO shift_sprite
+offset= 0006 
+LD HL , SPRITE_ADR 
+8072:212581	LD HL, 8125
+LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+8075:11AD83	LD DE, 83AD
+LD B , 0018 
+8078:0618	LD B, 18
+LOCAL block 
+		LOCAL block
+block : 
+807A:		local label block
+LDI 
+807A:EDA0	LDI
+LDI 
+807C:EDA0	LDI
+LDI 
+807E:EDA0	LDI
+XOR A 
+8080:AF		XOR A
+LD ( DE ) , A 
+8081:12		LD (DE), A
+INC DE 
+8082:13		INC DE
+DJNZ block 
+8083:10F5	DJNZ 807A
+ENDM 
+		ENDM
+End of MACRO shift_sprite
+Expanding MACRO shift_sprite
+offset= 0007 
+LD HL , SPRITE_ADR 
+8085:212581	LD HL, 8125
+LD DE , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+8088:110D84	LD DE, 840D
+LD B , 0018 
+808B:0618	LD B, 18
+LOCAL block 
+		LOCAL block
+block : 
+808D:		local label block
+LDI 
+808D:EDA0	LDI
+LDI 
+808F:EDA0	LDI
+LDI 
+8091:EDA0	LDI
+XOR A 
+8093:AF		XOR A
+LD ( DE ) , A 
+8094:12		LD (DE), A
+INC DE 
+8095:13		INC DE
+DJNZ block 
+8096:10F5	DJNZ 808D
+ENDM 
+		ENDM
+End of MACRO shift_sprite
+8098:0600	LD B, 00
+809A:0E02	LD C, 02
+809C:CDE880	CALL 80E8
+Expanding MACRO draw_shifted_sprite
+offset= 0000 
+LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+809F:216D81	LD HL, 816D
+CALL draw_sprite 
+80A2:CDF780	CALL 80F7
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+80A5:0600	LD B, 00
+80A7:0E05	LD C, 05
+80A9:CDE880	CALL 80E8
+Expanding MACRO draw_shifted_sprite
+offset= 0001 
+LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+80AC:21CD81	LD HL, 81CD
+CALL draw_sprite 
+80AF:CDF780	CALL 80F7
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+80B2:0600	LD B, 00
+80B4:0E09	LD C, 09
+80B6:CDE880	CALL 80E8
+Expanding MACRO draw_shifted_sprite
+offset= 0002 
+LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+80B9:212D82	LD HL, 822D
+CALL draw_sprite 
+80BC:CDF780	CALL 80F7
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+80BF:0600	LD B, 00
+80C1:0E0C	LD C, 0C
+80C3:CDE880	CALL 80E8
+Expanding MACRO draw_shifted_sprite
+offset= 0003 
+LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+80C6:218D82	LD HL, 828D
+CALL draw_sprite 
+80C9:CDF780	CALL 80F7
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+80CC:0600	LD B, 00
+80CE:0E10	LD C, 10
+80D0:CDE880	CALL 80E8
+Expanding MACRO draw_shifted_sprite
+offset= 0004 
+LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+80D3:21ED82	LD HL, 82ED
+CALL draw_sprite 
+80D6:CDF780	CALL 80F7
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+80D9:0600	LD B, 00
+80DB:0E13	LD C, 13
+80DD:CDE880	CALL 80E8
+Expanding MACRO draw_shifted_sprite
+offset= 0005 
+LD HL , SPRITE_SHIFT_0 + ( offset * 0018 * 0004 ) 
+80E0:214D83	LD HL, 834D
+CALL draw_sprite 
+80E3:CDF780	CALL 80F7
+ENDM 
+		ENDM
+End of MACRO draw_shifted_sprite
+80E6:		label finish
+80E6:18FE	JR 80E6
+80E8:		label calc_sprite_address
+80E8:79		LD A, C
+80E9:E607	AND 07
+80EB:0F		RRCA
+80EC:0F		RRCA
+80ED:0F		RRCA
+80EE:B0		OR B
+80EF:5F		LD E, A
+80F0:79		LD A, C
+80F1:E618	AND 18
+80F3:F640	OR 40
+80F5:57		LD D, A
+80F6:C9		RET
+Defining MACRO add_e
+Params: n
+80F7:		label draw_sprite
+80F7:D5		PUSH DE
+80F8:CD0D81	CALL 810D
+80FB:D1		POP DE
+Expanding MACRO add_e
+n= 0020 
+LD A , E 
+80FC:7B		LD A, E
+ADD A , n 
+80FD:C620	ADD A, 20
+LD E , A 
+80FF:5F		LD E, A
+ENDM 
+		ENDM
+End of MACRO add_e
+8100:D5		PUSH DE
+8101:CD0D81	CALL 810D
+8104:D1		POP DE
+Expanding MACRO add_e
+n= 0020 
+LD A , E 
+8105:7B		LD A, E
+ADD A , n 
+8106:C620	ADD A, 20
+LD E , A 
+8108:5F		LD E, A
+ENDM 
+		ENDM
+End of MACRO add_e
+8109:CD0D81	CALL 810D
+810C:C9		RET
+810D:		label draw_8_lines
+810D:0608	LD B, 08
+810F:		label loop
+810F:7E		LD A, (HL)
+8110:12		LD (DE), A
+8111:23		INC HL
+8112:1C		INC E
+8113:7E		LD A, (HL)
+8114:12		LD (DE), A
+8115:23		INC HL
+8116:1C		INC E
+8117:7E		LD A, (HL)
+8118:12		LD (DE), A
+8119:23		INC HL
+811A:1C		INC E
+811B:7E		LD A, (HL)
+811C:12		LD (DE), A
+811D:23		INC HL
+811E:14		INC D
+811F:1D		DEC E
+8120:1D		DEC E
+8121:1D		DEC E
+8122:10EB	DJNZ 810F
+8124:C9		RET
+8125:		label SPRITE_ADR
+		INCLUDE sprite.asm
+8125:000000	DEFB of 3 bytes
+8128:000000	DEFB of 3 bytes
+812B:01F010	DEFB of 3 bytes
+812E:033810	DEFB of 3 bytes
+8131:05D710	DEFB of 3 bytes
+8134:05CC10	DEFB of 3 bytes
+8137:053010	DEFB of 3 bytes
+813A:04C810	DEFB of 3 bytes
+813D:073610	DEFB of 3 bytes
+8140:0CFE38	DEFB of 3 bytes
+8143:1FF800	DEFB of 3 bytes
+8146:000030	DEFB of 3 bytes
+8149:03FFB0	DEFB of 3 bytes
+814C:05FEE0	DEFB of 3 bytes
+814F:0EFDC0	DEFB of 3 bytes
+8152:18FC00	DEFB of 3 bytes
+8155:180000	DEFB of 3 bytes
+8158:01F800	DEFB of 3 bytes
+815B:03FC00	DEFB of 3 bytes
+815E:01B000	DEFB of 3 bytes
+8161:020C00	DEFB of 3 bytes
+8164:070E00	DEFB of 3 bytes
+8167:1E0780	DEFB of 3 bytes
+816A:000000	DEFB of 3 bytes
+		End of INCLUDE
+816D:		label SPRITE_SHIFT_0
+816D:		END 8000
+Emiting TAP basic loader
+Emiting TAP from 8000 to 816C
