@@ -16,6 +16,7 @@
 
 import os
 import pygame
+import configparser
 
 from typing import Dict, List, Tuple, Optional
 from tile import Tile
@@ -24,7 +25,7 @@ from tile import Tile
 class Maze:
     """Representation of maze in a game."""
 
-    def __init__(self, display: pygame.Surface, configuration, maze_name: str) -> None:
+    def __init__(self, display: pygame.Surface, configuration: configparser.ConfigParser, maze_name: str) -> None:
         """Initialize maze by loading its topology from external text file."""
         self._display = display
 
