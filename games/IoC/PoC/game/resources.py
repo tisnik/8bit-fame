@@ -15,7 +15,7 @@
 import os
 import configparser
 
-from typing import List
+from typing import List, Tuple
 
 import pygame
 from os.path import isfile, join
@@ -68,7 +68,7 @@ class Resources:
         return self._images
 
 
-def get_list_of_images(configuration: configparser.ConfigParser) -> List[str]:
+def get_list_of_images(configuration: configparser.ConfigParser) -> List[Tuple[str, str]]:
     """Retrieve list of all image files from specified directory."""
     path = configuration["paths"]["images"]
     return [(short_filename(fileName), join(path, fileName))
