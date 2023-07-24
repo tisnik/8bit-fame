@@ -2,14 +2,14 @@ SCREEN_ADR	EQU 4000
 ENTRY_POINT	EQU 8000
 		ORG 8000
 Defining MACRO draw_shifted_sprite
-Params: offset
+Params: index
 8000:		label start
 8000:0600	LD B, 00
 8002:0E02	LD C, 02
 8004:CD5080	CALL 8050
 Expanding MACRO draw_shifted_sprite
-offset= 0000 
-LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+index= 0000 
+LD HL , SPRITE_ADR + ( index * 0018 * 0004 ) 
 8007:218D80	LD HL, 808D
 CALL draw_sprite 
 800A:CD5F80	CALL 805F
@@ -20,8 +20,8 @@ End of MACRO draw_shifted_sprite
 800F:0E05	LD C, 05
 8011:CD5080	CALL 8050
 Expanding MACRO draw_shifted_sprite
-offset= 0001 
-LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+index= 0001 
+LD HL , SPRITE_ADR + ( index * 0018 * 0004 ) 
 8014:21ED80	LD HL, 80ED
 CALL draw_sprite 
 8017:CD5F80	CALL 805F
@@ -32,8 +32,8 @@ End of MACRO draw_shifted_sprite
 801C:0E09	LD C, 09
 801E:CD5080	CALL 8050
 Expanding MACRO draw_shifted_sprite
-offset= 0002 
-LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+index= 0002 
+LD HL , SPRITE_ADR + ( index * 0018 * 0004 ) 
 8021:214D81	LD HL, 814D
 CALL draw_sprite 
 8024:CD5F80	CALL 805F
@@ -44,8 +44,8 @@ End of MACRO draw_shifted_sprite
 8029:0E0C	LD C, 0C
 802B:CD5080	CALL 8050
 Expanding MACRO draw_shifted_sprite
-offset= 0003 
-LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+index= 0003 
+LD HL , SPRITE_ADR + ( index * 0018 * 0004 ) 
 802E:21AD81	LD HL, 81AD
 CALL draw_sprite 
 8031:CD5F80	CALL 805F
@@ -56,8 +56,8 @@ End of MACRO draw_shifted_sprite
 8036:0E10	LD C, 10
 8038:CD5080	CALL 8050
 Expanding MACRO draw_shifted_sprite
-offset= 0004 
-LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+index= 0004 
+LD HL , SPRITE_ADR + ( index * 0018 * 0004 ) 
 803B:210D82	LD HL, 820D
 CALL draw_sprite 
 803E:CD5F80	CALL 805F
@@ -68,8 +68,8 @@ End of MACRO draw_shifted_sprite
 8043:0E13	LD C, 13
 8045:CD5080	CALL 8050
 Expanding MACRO draw_shifted_sprite
-offset= 0005 
-LD HL , SPRITE_ADR + ( offset * 0018 * 0004 ) 
+index= 0005 
+LD HL , SPRITE_ADR + ( index * 0018 * 0004 ) 
 8048:216D82	LD HL, 826D
 CALL draw_sprite 
 804B:CD5F80	CALL 805F
