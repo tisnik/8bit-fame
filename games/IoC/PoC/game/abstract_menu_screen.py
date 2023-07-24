@@ -20,6 +20,7 @@ import sys
 from screen import Screen
 from resources import Resources
 from ghost import Ghost
+from main_menu import MainMenu
 
 from typing import Tuple
 
@@ -116,7 +117,7 @@ class AbstractMenuScreen(Screen):
         """Retrieve actually selected menu item."""
         return self._selected_menu_item
 
-    def eventLoop(self):
+    def eventLoop(self) -> int:
         """Event loop for splash screen that just waits for keypress or window close action."""
         while True:
             for event in pygame.event.get():
