@@ -67,3 +67,8 @@ Examples for ZX Spectrum written in Pasmo assembler
 1. [Print flags after arithmetic operation 0+0](68-print-flags-2.asm)
 1. [Print flags after arithmetic operation 255+1](69-print-flags-3.asm)
 1. [Print flags after arithmetic operation 254+1](70-print-flags-4.asm)
+1. [Print flags after arithmetic operation 255+255](71-print-flags-5.asm)
+1. [Print flags after arithmetic operation 100+100](72-print-flags-6.asm)
+1. [Print flags after arithmetic operation 128+128](73-print-flags-7.asm)
+1. [Print hexadecimal number (naive implementation)](74-print-hex-number.asm)
+1. [Print hexadecimal number (naive implementation, but optimized a bit)](75-print-hex-number.asm)
