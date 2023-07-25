@@ -30,27 +30,29 @@ from splash_screen import SplashScreen
 from statistic_screen import StatisticScreen
 from statistic import Statistic
 from settings_screen import SettingsScreen
+from settings_screen_game_rules import SettingsScreenGameRules
+from settings_screen_maze import SettingsScreenMaze
 from game_screen import GameScreen
 from resources import Resources
 from about_screen import AboutScreen
 from maze import Maze
 
 
-def about_screen_mode(display: pygame.Surface, resources) -> None:
+def about_screen_mode(display: pygame.Surface, resources: Resources) -> None:
     """Game mode with about screen displayed."""
     about_screen = AboutScreen(display, resources)
     about_screen.draw()
     about_screen.eventLoop()
 
 
-def statistic_screen_mode(display: pygame.Surface, resources, statistic) -> None:
+def statistic_screen_mode(display: pygame.Surface, resources: Resources, statistic: Statistic) -> None:
     """Game mode with statistic screen displayed."""
     statistic_screen = StatisticScreen(display, resources, statistic)
     statistic_screen.draw()
     statistic_screen.eventLoop()
 
 
-def settings_screen_mode(display: pygame.Surface, resources) -> None:
+def settings_screen_mode(display: pygame.Surface, resources: Resources) -> None:
     """Game mode with settings screen displayed."""
     settings_screen = SettingsScreen(display, resources, cyan_ghost)
     settings_screen.draw()
@@ -117,7 +119,16 @@ def main() -> None:
         elif menuItem == MainMenu.SETTINGS.value:
             settings_screen = SettingsScreen(display, resources, cyan_ghost)
             settings_screen.draw()
-            settings_screen.eventLoop()
+            selected = settings_screen.eventLoop()
+            # todo - enums
+            if selected == 0:
+                maze_screen = SettingsScreenMaze(display, resources, cyan_ghost)
+                maze_screen.draw()
+                maze_screen.eventLoop()
+            if selected == 1:
+                rules_screen = SettingsScreenGameRules(display, resources, cyan_ghost)
+                rules_screen.draw()
+                rules_screen.eventLoop()
         elif menuItem == MainMenu.STATISTIC.value:
             statistic_screen = StatisticScreen(display, resources, statistic)
             statistic_screen.draw()
