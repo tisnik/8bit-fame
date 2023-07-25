@@ -51,6 +51,14 @@ class GameScreen(Screen):
             "pink" : Ghost(display, self._resources, "ghost_pink"),
         }
 
+        self._controls = {
+            "red" : (pygame.locals.K_a, pygame.locals.K_s, pygame.locals.K_d, pygame.locals.K_w),
+            "green" : (),
+            "cyan" : (),
+            "pink" : (),
+            "pacman" : (),
+        }
+
         self._maze = maze
         self._clock = pygame.time.Clock()
         self._ghost_positions = maze.getGhostPositions()
@@ -94,8 +102,14 @@ class GameScreen(Screen):
                         return
                     if event.key == pygame.locals.K_RETURN:
                         return
+                    for character, controls in self._controls.items():
+                        if event.key in controls:
+                            self.moveCharacter(character, event.key)
 
             # all events has been processed - redraw the screen
             self.draw()
             pygame.display.update()
             self._clock.tick(5)
+
+    def moveCharacter(self, character, key):
+        print(character, key)
