@@ -15,9 +15,10 @@
 import os
 import configparser
 
-from typing import List, Tuple
+from typing import Dict, List, Tuple
 
 import pygame
+from pygame.font import Font
 from os.path import isfile, join
 
 
@@ -48,22 +49,22 @@ class Resources:
             self._images[imageName[0]] = pygame.image.load(imageName[1])
 
     @property
-    def bigFont(self):
+    def bigFont(self) -> Font:
         """Big font to be used on all screens."""
         return self._big_font
 
     @property
-    def normalFont(self):
+    def normalFont(self) -> Font:
         """Middle font to be used on all screens."""
         return self._normal_font
 
     @property
-    def smallFont(self):
+    def smallFont(self) -> Font:
         """Small font to be used on all screens."""
         return self._small_font
 
     @property
-    def images(self):
+    def images(self) -> Dict[str, pygame.Surface]:
         """All images available as list."""
         return self._images
 
