@@ -32,6 +32,7 @@ from statistic import Statistic
 from settings_screen import SettingsScreen
 from settings_screen_game_rules import SettingsScreenGameRules
 from settings_screen_maze import SettingsScreenMaze
+from settings_screen_controls import SettingsScreenControls
 from game_screen import GameScreen
 from resources import Resources
 from about_screen import AboutScreen
@@ -127,6 +128,10 @@ def main() -> None:
                 maze_screen.eventLoop()
             if selected == 1:
                 rules_screen = SettingsScreenGameRules(display, resources, cyan_ghost)
+                rules_screen.draw()
+                rules_screen.eventLoop()
+            if selected == 2:
+                rules_screen = SettingsScreenControls(display, resources, cyan_ghost)
                 rules_screen.draw()
                 rules_screen.eventLoop()
         elif menuItem == MainMenu.STATISTIC.value:
