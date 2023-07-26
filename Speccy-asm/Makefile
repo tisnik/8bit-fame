@@ -12,7 +12,8 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     91.tap 92.tap 93.tap 94.tap 95.tap 96.tap 97.tap 98.tap 99.tap 100.tap \
     101.tap 102.tap 103.tap 104.tap 105.tap 106.tap 107.tap 108.tap 109.tap \
     110.tap 111.tap 112.tap 113.tap 114.tap 115.tap 116.tap 117.tap 118.tap \
-    119.tap 120.tap 121.tap 122.tap 123.tap 124.tap 125.tap 126.tap
+    119.tap 120.tap 121.tap 122.tap 123.tap 124.tap 125.tap 126.tap 127.tap \
+    128.tap 129.tap
 
 clean:
 	rm -f *.tap
@@ -395,5 +396,14 @@ clean:
 125.tap:	125-shifted-sprite.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 125-shifted-sprite.lst
 
-126.tap:	126-copy-sprite-in-sw.asm
-	$(ASSEMBLER) -v -d --tapbas $< $@ > 126-copy-sprite-in-sw.lst
+126.tap:	126-24x24-faster-sprite.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 126-24x24-faster-sprite.lst
+
+127.tap:	127-margins.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 127-margins.lst
+
+128.tap:	128-margins.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 128-margins.lst
+
+129.tap:	129-screen-addressing.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 129-screen-addressing.lst
