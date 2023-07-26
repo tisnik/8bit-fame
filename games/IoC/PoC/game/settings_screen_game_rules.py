@@ -45,6 +45,7 @@ class SettingsScreenGameRules(AbstractMenuScreen):
         # pre-render all menu items onto surfaces
         self._menu = (
             self.renderMenuItem("Return to settings screen"),
+            self.renderMenuItem("Return to main menu"),
         )
 
         self._clock = pygame.time.Clock()
