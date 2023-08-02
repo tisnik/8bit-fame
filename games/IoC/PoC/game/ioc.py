@@ -15,17 +15,14 @@
 """Entry point to initialization part + entry to the main event loop."""
 
 import sys
-import os
 
 import pygame
 import pygame.locals
 
 from main_menu import MainMenu
 from ghost import Ghost
-from pacman import PacMan
 from config import loadConfiguration
 from colors import Colors
-from direction import Direction
 from splash_screen import SplashScreen
 from statistic_screen import StatisticScreen
 from statistic import Statistic
