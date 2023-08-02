@@ -60,7 +60,6 @@ class Maze:
                 x += 32
             y += 32
 
-    
     def draw(self) -> None:
         """Draw the whole maze onto the screen."""
         self._display.blit(self._back_buffer, dest=(0,0))
