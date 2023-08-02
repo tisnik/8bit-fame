@@ -1,3 +1,6 @@
+style-check:
+	ruff .
+
 type-checks:
 	MYPYPATH=game: mypy --explicit-package-bases game
 
