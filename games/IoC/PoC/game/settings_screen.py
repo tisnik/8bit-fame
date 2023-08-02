@@ -14,7 +14,6 @@
 
 """Settings screen displayed in the game and selected from main menu."""
 
-import sys
 import pygame
 
 from abstract_menu_screen import AbstractMenuScreen
