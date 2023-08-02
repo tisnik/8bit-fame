@@ -18,7 +18,6 @@ import pygame
 
 from abstract_menu_screen import AbstractMenuScreen
 from colors import Colors
-from main_menu import MainMenu
 from resources import Resources
 from ghost import Ghost
 
