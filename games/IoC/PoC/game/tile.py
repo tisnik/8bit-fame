@@ -221,7 +221,6 @@ def draw_small_dot(display: pygame.Surface, x: int, y: int) -> None:
 
 
 def draw_bottom_right_corner(display: pygame.Surface, x: int, y: int) -> None:
-    c = (255, 255, 255)
     pygame.draw.line(display,
                      Tile.WALL_COLOR,
                      (x, y+14), (x+7, y+14))
