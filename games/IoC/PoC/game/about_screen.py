@@ -71,7 +71,8 @@ class AboutScreen(Screen):
                                                              AboutScreen.BACKGROUND_COLOR)
         pv = sys.version_info
         pythonVersion = f"{pv.major}.{pv.minor}.{pv.micro} {pv.releaselevel}"
-        self._python_version = self._resources.smallFont.render("Python version: " + pythonVersion, True,
+        self._python_version = self._resources.smallFont.render("Python version: " + pythonVersion,
+                                                            True,
                                                             AboutScreen.WORK_COLOR,
                                                             AboutScreen.BACKGROUND_COLOR)
 
