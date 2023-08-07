@@ -14,7 +14,6 @@
 
 """Game rules settings screen displayed in the game and selected from settings screen."""
 
-import sys
 import pygame
 
 from abstract_menu_screen import AbstractMenuScreen
