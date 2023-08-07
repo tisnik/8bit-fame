@@ -43,7 +43,7 @@ def about_screen_mode(display: pygame.Surface, resources: Resources) -> None:
     about_screen.eventLoop()
 
 
-def statistic_screen_mode(display: pygame.Surface, resources: Resources, statistic: Statistic) -> None:
+def statistic_screen_mode(display: pygame.Surface, resources: Resources, statistic: Statistic) -> None:  # noqa E501
     """Game mode with statistic screen displayed."""
     statistic_screen = StatisticScreen(display, resources, statistic)
     statistic_screen.draw()
