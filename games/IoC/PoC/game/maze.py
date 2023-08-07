@@ -25,7 +25,7 @@ from tile import Tile
 class Maze:
     """Representation of maze in a game."""
 
-    def __init__(self, display: pygame.Surface, configuration: configparser.ConfigParser, maze_name: str) -> None:
+    def __init__(self, display: pygame.Surface, configuration: configparser.ConfigParser, maze_name: str) -> None:  # noqa E501
         """Initialize maze by loading its topology from external text file."""
         self._display = display
 
