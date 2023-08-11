@@ -104,7 +104,7 @@ loop:
 	ld  e, a                 ; /
 	ret c                    ; návrat při přenosu (další stránka)
 	ld  a, d                 ; \
-	sub 8                    ;  > D += 8
+	sub 8                    ;  > D -= 8
 	ld  d, a                 ; /
 	ret                      ; návrat z podprogramu
 
