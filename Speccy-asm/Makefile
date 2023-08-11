@@ -13,7 +13,7 @@ all: 01.tap 02.tap 03.tap 04.tap 05.tap 06.tap 07.tap 08.tap 09.tap 10.tap \
     101.tap 102.tap 103.tap 104.tap 105.tap 106.tap 107.tap 108.tap 109.tap \
     110.tap 111.tap 112.tap 113.tap 114.tap 115.tap 116.tap 117.tap 118.tap \
     119.tap 120.tap 121.tap 122.tap 123.tap 124.tap 125.tap 126.tap 127.tap \
-    128.tap 129.tap 130.tap 131.tap
+    128.tap 129.tap 130.tap 131.tap 132.tap 133.tap
 
 clean:
 	rm -f *.tap
@@ -413,3 +413,9 @@ clean:
 
 131.tap:	131-screen-background-and-sprite.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 131-screen-background-and-sprite.lst
+
+132.tap:	132-improper-sprite-addressing.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 132-improper-sprite-addressing.lst
+
+133.tap:	133-proper-sprite-addressing.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 133-proper-sprite-addressing.lst
