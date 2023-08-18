@@ -425,3 +425,6 @@ clean:
 
 135.tap:	135-shift-sprite-in-sw.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 135-shift-sprite-in-sw.lst
+
+136.tap:	136-shift-sprite-in-sw.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 136-shift-sprite-in-sw.lst
