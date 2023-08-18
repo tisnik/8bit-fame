@@ -113,7 +113,6 @@ endm
 
 
 draw_sprite:
-	ld hl, SPRITE_ADR        ; adresa, od níž začíná maska spritu
 	call draw_8_lines        ; vykreslit prvních 8 řádků spritu + upravit DE pro následující řádek
 	call draw_8_lines        ; vykreslit druhých 8 řádků spritu + upravit DE pro následující řádek
 	call draw_8_lines        ; vykreslit třetích 8 řádků spritu + upravit DE pro následující řádek
@@ -121,16 +120,18 @@ draw_sprite:
 
 
 draw_8_lines:
-	ld  bc, 8*(256+2)        ; počitadlo zapsaných řádků
+	ld  bc, 8*(256+3)        ; počitadlo zapsaných řádků
 loop:
+	ldi                      ; přesun jednoho bajtu + úprava stavu počitadla [DE++] = [HL++]; BC--
 	ldi                      ; přesun jednoho bajtu + úprava stavu počitadla [DE++] = [HL++]; BC--
 	ldi                      ; přesun jednoho bajtu + úprava stavu počitadla [DE++] = [HL++]; BC--
 	ld  a,(hl)               ; načtení jednoho bajtu z masky
 	ld  (de),a               ; zápis hodnoty na adresu (DE)
 	inc hl                   ; posun na další bajt masky
-	                         ; nyní je vykresleno všech 24 pixelů na řádku
+	                         ; nyní je vykresleno všech 32 pixelů na řádku
 	dec e                    ; korekce (po prvním LDI)
 	dec e                    ; korekce (po druhém LDI)
+	dec e                    ; korekce (po třetím LDI)
 	inc d                    ; posun na definici dalšího obrazového řádku
 	                         ; nyní DE ukazuje správně na první bajt na dalším řádku
 	djnz loop                ; vnitřní smyčka: blok s 3x osmi zápisy
