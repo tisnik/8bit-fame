@@ -428,3 +428,6 @@ clean:
 
 136.tap:	136-shift-sprite-in-sw.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 136-shift-sprite-in-sw.lst
+
+137.tap:	137-on-background.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 137-on-background.lst
