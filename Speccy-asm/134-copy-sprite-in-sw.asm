@@ -1,12 +1,3 @@
-; This article is part of series:
-;    "Vývoj pro slavné ZX Spectrum"
-;    https://www.root.cz/serialy/vyvoj-pro-slavne-zx-spectrum/
-;
-; Repository:
-;    https://github.com/tisnik/8bit-fame
-;
-; Example #125:
-
 SCREEN_ADR      equ $4000
 ENTRY_POINT     equ $8000
 
@@ -44,34 +35,44 @@ start:
 	shift_sprite 7
 
 	ld b, 0                  ; x-ová souřadnice
-	ld c, 2                  ; y-ová souřadnice
+	ld c, 0                  ; y-ová souřadnice
 	call calc_sprite_address ; výpočet adresy spritu
 	draw_shifted_sprite 0
 
 	ld b, 0                  ; x-ová souřadnice
-	ld c, 5                  ; y-ová souřadnice
+	ld c, 3                  ; y-ová souřadnice
 	call calc_sprite_address ; výpočet adresy spritu
 	draw_shifted_sprite 1
 
 	ld b, 0                  ; x-ová souřadnice
-	ld c, 9                  ; y-ová souřadnice
+	ld c, 6                  ; y-ová souřadnice
 	call calc_sprite_address ; výpočet adresy
 	draw_shifted_sprite 2
 
 	ld b, 0                  ; x-ová souřadnice
-	ld c, 12                 ; y-ová souřadnice
+	ld c, 9                  ; y-ová souřadnice
 	call calc_sprite_address ; výpočet adresy
 	draw_shifted_sprite 3
 
 	ld b, 0                  ; x-ová souřadnice
-	ld c, 16                 ; y-ová souřadnice
+	ld c, 12                 ; y-ová souřadnice
 	call calc_sprite_address ; výpočet adresy
 	draw_shifted_sprite 4
 
 	ld b, 0                  ; x-ová souřadnice
-	ld c, 19                 ; y-ová souřadnice
+	ld c, 15                 ; y-ová souřadnice
 	call calc_sprite_address ; výpočet adresy
 	draw_shifted_sprite 5
+
+	ld b, 0                  ; x-ová souřadnice
+	ld c, 18                 ; y-ová souřadnice
+	call calc_sprite_address ; výpočet adresy
+	draw_shifted_sprite 6
+
+	ld b, 0                  ; x-ová souřadnice
+	ld c, 21                 ; y-ová souřadnice
+	call calc_sprite_address ; výpočet adresy
+	draw_shifted_sprite 7
 
 finish:
 	jr finish                ; žádný návrat do systému
@@ -112,54 +113,63 @@ endm
 
 
 draw_sprite:
-	push de
-	call draw_8_lines        ; vykreslit prvních 8 řádků spritu
-
-	pop  de
-	add_e 32                 ; zvýšit E o hodnotu 32
-	push de
-	call draw_8_lines        ; vykreslit druhých 8 řádků spritu
-
-	pop  de
-	add_e 32                 ; zvýšit E o hodnotu 32
-	call draw_8_lines        ; vykreslit třetích 8 řádků spritu
-
+	ld hl, SPRITE_ADR        ; adresa, od níž začíná maska spritu
+	call draw_8_lines        ; vykreslit prvních 8 řádků spritu + upravit DE pro následující řádek
+	call draw_8_lines        ; vykreslit druhých 8 řádků spritu + upravit DE pro následující řádek
+	call draw_8_lines        ; vykreslit třetích 8 řádků spritu + upravit DE pro následující řádek
 	ret                      ; návrat z podprogramu
 
 
 draw_8_lines:
-	ld b, 8                  ; počitadlo zapsaných řádků
-
+	ld  bc, 8*(256+2)        ; počitadlo zapsaných řádků
 loop:
+	ldi                      ; přesun jednoho bajtu + úprava stavu počitadla [DE++] = [HL++]; BC--
+	ldi                      ; přesun jednoho bajtu + úprava stavu počitadla [DE++] = [HL++]; BC--
 	ld  a,(hl)               ; načtení jednoho bajtu z masky
 	ld  (de),a               ; zápis hodnoty na adresu (DE)
 	inc hl                   ; posun na další bajt masky
-	inc e
-
-	ld  a,(hl)               ; načtení jednoho bajtu z masky
-	ld  (de),a               ; zápis hodnoty na adresu (DE)
-	inc hl                   ; posun na další bajt masky
-	inc e
-
-	ld  a,(hl)               ; načtení jednoho bajtu z masky
-	ld  (de),a               ; zápis hodnoty na adresu (DE)
-	inc hl                   ; posun na další bajt masky
-	inc e
-
-	ld  a,(hl)               ; načtení jednoho bajtu z masky
-	ld  (de),a               ; zápis hodnoty na adresu (DE)
-	inc hl                   ; posun na další bajt masky
-
+	                         ; nyní je vykresleno všech 24 pixelů na řádku
+	dec e                    ; korekce (po prvním LDI)
+	dec e                    ; korekce (po druhém LDI)
 	inc d                    ; posun na definici dalšího obrazového řádku
-	dec e                    ; korekce - posun zpět pod první osmici pixelů
-	dec e                    ; dtto
-	dec e                    ; dtto
-	djnz loop                ; vnitřní smyčka: blok s 4x osmi zápisy
+	                         ; nyní DE ukazuje správně na první bajt na dalším řádku
+	djnz loop                ; vnitřní smyčka: blok s 3x osmi zápisy
+	ld  a, e                 ; \
+	add a, 32                ;  > E += 32
+	ld  e, a                 ; /
+	ret c                    ; návrat při přenosu (další stránka)
+	ld  a, d                 ; \
+	sub 8                    ;  > D -= 8
+	ld  d, a                 ; /
 	ret                      ; návrat z podprogramu
 
 
+
 SPRITE_ADR
-	include "sprite.asm"
+	db %00000000, %00000000, %00000000
+	db %00000000, %00000000, %00000000
+	db %00000001, %11110000, %00010000
+	db %00000011, %00111000, %00010000
+	db %00000101, %11010111, %00010000
+	db %00000101, %11001100, %00010000
+	db %00000101, %00110000, %00010000
+	db %00000100, %11001000, %00010000
+	db %00000111, %00110110, %00010000
+	db %00001100, %11111110, %00111000
+	db %00011111, %11111000, %00000000
+	db %00000000, %00000000, %00110000
+	db %00000011, %11111111, %10110000
+	db %00000101, %11111110, %11100000
+	db %00001110, %11111101, %11000000
+	db %00011000, %11111100, %00000000
+	db %00011000, %00000000, %00000000
+	db %00000001, %11111000, %00000000
+	db %00000011, %11111100, %00000000
+	db %00000001, %10110000, %00000000
+	db %00000010, %00001100, %00000000
+	db %00000111, %00001110, %00000000
+	db %00011110, %00000111, %10000000
+	db %00000000, %00000000, %00000000
 SPRITE_SHIFT_0:
 
 
