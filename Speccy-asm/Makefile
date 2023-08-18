@@ -419,3 +419,6 @@ clean:
 
 133.tap:	133-proper-sprite-addressing.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 133-proper-sprite-addressing.lst
+
+134.tap:	134-copy-sprite-in-sw.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 134-copy-sprite-in-sw.lst
