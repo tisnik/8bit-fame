@@ -422,3 +422,6 @@ clean:
 
 134.tap:	134-copy-sprite-in-sw.asm
 	$(ASSEMBLER) -v -d --tapbas $< $@ > 134-copy-sprite-in-sw.lst
+
+135.tap:	135-shift-sprite-in-sw.asm
+	$(ASSEMBLER) -v -d --tapbas $< $@ > 135-shift-sprite-in-sw.lst
