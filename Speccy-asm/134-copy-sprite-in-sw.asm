@@ -88,6 +88,13 @@ calc_sprite_address:
 	;
 	; vzor adresy:
 	; 0 1 0 Y4 Y3 0 0 0 | Y2 Y1 Y0 X4 X3 X2 X1 X0
+	;
+	; popis struktury obrazové paměti:
+	; https://www.root.cz/clanky/vyvoj-her-a-dem-pro-zx-spectrum-vlastni-vykreslovaci-subrutiny/#k03
+	;
+	; postup výpočtu adresy:
+	; https://www.root.cz/clanky/vyvoj-her-a-dem-pro-zx-spectrum-vlastni-vykreslovaci-subrutiny/#k15
+	;
 	ld  a, c
 	and %00000111            ; pouze spodní tři bity y-ové souřadnice (řádky 0..7)
 	rrca
