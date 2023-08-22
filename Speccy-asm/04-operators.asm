@@ -11,6 +11,9 @@
 ;
 ; Example #4:
 ;    Operators in assembly sources
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/04-operators.asm
 
 
 
