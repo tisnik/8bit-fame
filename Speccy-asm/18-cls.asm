@@ -11,6 +11,11 @@
 ;
 ; Example #18:
 ;    Clear screen and opening I/O channel #2
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/18-cls.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
