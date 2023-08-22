@@ -11,6 +11,9 @@
 ;
 ; Example #5:
 ;    Symbolic names are usually written in uppercase
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/05-better-symbols.asm
 
 
 
