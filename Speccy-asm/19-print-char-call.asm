@@ -11,6 +11,11 @@
 ;
 ; Example #19:
 ;    Clear screen and print character to screen.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/19-print-char-call.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
