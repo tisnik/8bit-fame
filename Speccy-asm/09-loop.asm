@@ -11,6 +11,9 @@
 ;
 ; Example #9:
 ;    Counted loop to fill-in attribute memory based on JP instruction.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/09-loop.asm
 
 
 
