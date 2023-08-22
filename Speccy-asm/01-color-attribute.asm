@@ -11,6 +11,9 @@
 ;
 ; Example #1:
 ;    Changing one color attribute
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/01-color-attribute.asm
 
 
 
