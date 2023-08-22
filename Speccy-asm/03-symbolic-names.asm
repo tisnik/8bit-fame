@@ -11,6 +11,9 @@
 ;
 ; Example #3:
 ;    Symbolic names in assembly sources
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/03-symbolic-names.asm
 
 
 
