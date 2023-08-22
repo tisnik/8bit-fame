@@ -11,6 +11,9 @@
 ;
 ; Example #6:
 ;    Generating tape image with BASIC loader (incorrect version)
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/06-tapbas-v1.asm
 
 
 
