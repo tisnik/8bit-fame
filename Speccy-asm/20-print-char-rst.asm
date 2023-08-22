@@ -11,6 +11,11 @@
 ;
 ; Example #20:
 ;    Clear screen and print character, ROM subroutine called via RST instruction
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/20-print-char-rst.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
