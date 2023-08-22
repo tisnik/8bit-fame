@@ -11,6 +11,9 @@
 ;
 ; Example #15:
 ;    Counted loop with 16-bit counter (optimized variant).
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/15-loop.asm
 
 
 
