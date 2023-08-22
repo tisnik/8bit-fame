@@ -11,6 +11,9 @@
 ;
 ; Example #2:
 ;    Blinking color attribute
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/02-blinking-attribute.asm
 
 
 
