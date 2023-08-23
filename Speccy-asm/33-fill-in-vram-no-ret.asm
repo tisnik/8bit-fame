@@ -11,6 +11,11 @@
 ;
 ; Example #33:
 ;    Fill-in screen by ink color, RET optimization.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/33-fill-in-vram-no-ret.asm
+
+
 
 SCREEN_ADR    equ $4000
 ENTRY_POINT   equ $8000
