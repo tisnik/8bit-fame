@@ -11,6 +11,11 @@
 ;
 ; Example #34:
 ;    Fill-in screen by specified bit pattern.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/34-fill-in-vram-pattern.asm
+
+
 
 SCREEN_ADR    equ $4000
 ENTRY_POINT   equ $8000
