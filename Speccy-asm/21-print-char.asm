@@ -11,6 +11,11 @@
 ;
 ; Example #21:
 ;    Open channel #2 to write on screen
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/21-print-char.asm
+
+
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
