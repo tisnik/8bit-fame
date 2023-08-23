@@ -11,6 +11,11 @@
 ;
 ; Example #37:
 ;    Fill-in the 8x8 block of pixels by constant pattern.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/37-fill-block.asm
+
+
 
 SCREEN_ADR      equ $4000
 ENTRY_POINT     equ $8000
