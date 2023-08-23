@@ -11,6 +11,11 @@
 ;
 ; Example #31:
 ;    Print string using attribute changed directly in memory.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/31-attributes.asm
+
+
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
