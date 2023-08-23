@@ -11,6 +11,11 @@
 ;
 ; Example #23:
 ;    Print ASCII table on screen, optimized version
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/23-print-all-chars.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
