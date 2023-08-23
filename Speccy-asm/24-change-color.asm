@@ -11,6 +11,11 @@
 ;
 ; Example #24:
 ;    Change character colors via control characters
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/24-change-color.asm
+
+
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
