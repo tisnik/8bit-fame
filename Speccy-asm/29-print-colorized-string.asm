@@ -11,6 +11,11 @@
 ;
 ; Example #29:
 ;    Print string with changing text color
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/29-print-colorized-string.asm
+
+
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
