@@ -11,6 +11,11 @@
 ;
 ; Example #28:
 ;    Print whole string onto screen, optimized version
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/28-print-string.asm
+
+
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
