@@ -11,6 +11,11 @@
 ;
 ; Example #30:
 ;    Print string using subroutine stored in ROM
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/30-print-string-ROM.asm
+
+
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
