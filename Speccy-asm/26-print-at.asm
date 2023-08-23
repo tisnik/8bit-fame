@@ -11,6 +11,11 @@
 ;
 ; Example #26:
 ;    Change text position on screen via control characters
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/26-print-at.asm
+
+
 
 ENTRY_POINT      equ $8000
 ROM_OPEN_CHANNEL equ $1601
