@@ -11,6 +11,11 @@
 ;
 ; Example #60:
 ;    Inverse pixel color (simulation of PLOT OVER statement from BASIC).
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/60-plot-over.asm
+
+
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
