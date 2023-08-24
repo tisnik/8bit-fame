@@ -11,6 +11,11 @@
 ;
 ; Example #59:
 ;    Print ASCII table in normal and also inverse colors on screen.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/59-configurable-ascii-table.asm
+
+
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
