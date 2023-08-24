@@ -11,6 +11,11 @@
 ;
 ; Example #58:
 ;    Drawing inverse pixel without erasing background onto screen with inverse ASCII table.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/58-plot-inverse-pixel-on-inverse-background.asm
+
+
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
