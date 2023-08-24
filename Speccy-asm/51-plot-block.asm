@@ -11,6 +11,11 @@
 ;
 ; Example #51:
 ;    Drawing blocky pixel of 8x1 real pixels size (no mask applied).
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/51-plot-block.asm
+
+
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
