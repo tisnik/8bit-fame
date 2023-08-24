@@ -11,6 +11,11 @@
 ;
 ; Example #43:
 ;    Draw any character anywhere on screen using own drawing routine (based on RRCA instruction).
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/43-block-anywhere-rrca.asm
+
+
 
 SCREEN_ADR      equ $4000
 ENTRY_POINT     equ $8000
