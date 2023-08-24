@@ -11,6 +11,11 @@
 ;
 ; Example #54:
 ;    Drawing real pixel, but erasing whole 8x1 pixel background (optimized variant).
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/54-plot-pixel-on-background.asm
+
+
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
