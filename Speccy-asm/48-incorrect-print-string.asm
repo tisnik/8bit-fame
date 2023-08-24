@@ -11,6 +11,11 @@
 ;
 ; Example #48:
 ;    Print string on screen (incorrect solution).
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/48-incorrect-print-string.asm
+
+
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
