@@ -11,6 +11,11 @@
 ;
 ; Example #45:
 ;    Draw any character anywhere on screen using own drawing routine (even better solution).
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/45-even-better-draw-char.asm
+
+
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
