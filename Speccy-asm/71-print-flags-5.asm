@@ -11,6 +11,11 @@
 ;
 ; Example #71:
 ;    Print flags after arithmetic operation 255+255.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/71-print-flags-5.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
