@@ -11,6 +11,11 @@
 ;
 ; Example #77:
 ;    Add numbers and print results in hexadecimal format.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/77-add-hex-numbers.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
