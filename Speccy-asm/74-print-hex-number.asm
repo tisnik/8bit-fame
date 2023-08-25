@@ -11,6 +11,11 @@
 ;
 ; Example #74:
 ;    Print hexadecimal number (naive implementation).
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/74-print-hex-number.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
