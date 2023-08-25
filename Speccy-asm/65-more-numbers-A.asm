@@ -11,6 +11,11 @@
 ;
 ; Example #65:
 ;    Print sequence of numbers on screen.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/65-more-numbers-A.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
