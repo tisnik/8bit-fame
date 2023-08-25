@@ -11,6 +11,11 @@
 ;
 ; Example #64:
 ;    Print very large number (10000) using standard ROM call.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/64-print-number-D.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
