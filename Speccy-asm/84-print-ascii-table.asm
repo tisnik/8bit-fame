@@ -11,6 +11,11 @@
 ;
 ; Example #84:
 ;    Print ASCII table on screen.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/84-print-ascii-table.asm
+
+
 
 SCREEN_ADR      equ $4000
 CHAR_ADR        equ $3c00
