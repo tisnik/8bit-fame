@@ -11,6 +11,11 @@
 ;
 ; Example #86:
 ;    Print ASCII table on screen + copy it to second part of screen using LDIR instruction.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/86-copy-ascii-table-B.asm
+
+
 
 SCREEN_ADR          equ $4000
 SCREEN_BLOCK_SIZE   equ 32*64
