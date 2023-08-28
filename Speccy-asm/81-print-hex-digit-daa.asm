@@ -11,6 +11,11 @@
 ;
 ; Example #81:
 ;    Print hexadecimal digit, based on DAA instruction trick.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/81-print-hex-digit-daa.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
