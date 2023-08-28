@@ -11,6 +11,11 @@
 ;
 ; Example #94:
 ;    Changing one color attribute on screen.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/94-color-attribute.asm
+
+
 
 ATTRIBUTE_ADR equ $5800
 ENTRY_POINT   equ $8000
