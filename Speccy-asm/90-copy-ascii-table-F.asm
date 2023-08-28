@@ -11,6 +11,11 @@
 ;
 ; Example #90:
 ;    Print ASCII table on screen + copy it to second part of screen using stack.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/90-copy-ascii-table-F.asm
+
+
 
 SCREEN_ADR          equ $4000
 SCREEN_BLOCK_SIZE   equ 32*64
