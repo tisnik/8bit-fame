@@ -11,6 +11,11 @@
 ;
 ; Example #91:
 ;    Usage of macros supported by Pasmo.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/91-copy-ascii-table-G.asm
+
+
 
 SCREEN_ADR          equ $4000
 SCREEN_BLOCK_SIZE   equ 32*64
