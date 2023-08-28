@@ -11,6 +11,11 @@
 ;
 ; Example #93:
 ;    Repeatedly used macro based on REPT.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/93-copy-ascii-table-I.asm
+
+
 
 SCREEN_ADR          equ $4000
 SCREEN_BLOCK_SIZE   equ 32*64
