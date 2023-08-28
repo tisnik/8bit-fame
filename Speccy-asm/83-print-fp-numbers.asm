@@ -11,6 +11,11 @@
 ;
 ; Example #83:
 ;    Print floating point number on screen using standard ROM call.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/83-print-fp-numbers.asm
+
+
 
 ENTRY_POINT   equ $8000
 ROM_CLS       equ $0DAF
