@@ -11,6 +11,11 @@
 ;
 ; Example #96:
 ;    Keypress detection for all five keys in one row.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/96-keypress-row.asm
+
+
 
 ATTRIBUTE_ADR equ $5800
 ENTRY_POINT   equ $8000
