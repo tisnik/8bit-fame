@@ -11,6 +11,11 @@
 ;
 ; Example #99:
 ;    Move game character (represented as color attribute) by keyboard; updated macros usage.
+;
+; This source code is available at:
+;    https://github.com/tisnik/8bit-fame/blob/master/Speccy-asm/99-game-character-2.asm
+
+
 
 ATTRIBUTE_ADR equ $5800
 ENTRY_POINT   equ $8000
