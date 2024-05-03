@@ -46,6 +46,7 @@ IBM PC based on Intel 8088 microprocessor is 8/16 bit computer
 ## Other BASIC reincarnations
 
 1. [Small Basic](<Small Basic>)
+1. [EndBASIC](<EndBASIC>)
 
 ## C compilers for 8bit computers and game consoles
 
