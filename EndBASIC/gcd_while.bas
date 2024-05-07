@@ -1,12 +1,25 @@
-PRINT "X=";
-INPUT X
-PRINT "Y=";
-INPUT Y
+rem *****************************
+rem
+rem Výpočet největšího společného
+rem dělitele.
+rem 
+rem Úprava pro EndBASIC
+rem (využití smyčky WHILE-WEND)
+rem 
+rem *****************************
 
-WHILE X<>Y
-  IF X>Y THEN X=X-Y
-  IF X<Y THEN Y=Y-X
-WEND
 
-PRINT "GCD: ";X
-END
+
+print "x=";
+input x
+print "y=";
+input y
+
+while x<>y
+  if x>y then x=x-y
+  if x<y then y=y-x
+wend
+
+print "gcd: ";x
+
+end
