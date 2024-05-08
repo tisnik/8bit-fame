@@ -19,4 +19,5 @@ for line in lines:
             print(x.strip())
         print("</pre>\n")
     except Exception as e:
+        print(e)
         pass
