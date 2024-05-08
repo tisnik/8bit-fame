@@ -95,7 +95,7 @@ def append_slide_line(fout, line, slide_number, line_number):
         b = [ord(char)+128 for char in line]
         fout.write(f"{line_number} ? #6;\"".encode("ascii"))
         fout.write(bytes(b))
-        fout.write(f"\"\n".encode("ascii"))
+        fout.write("\"\n".encode("ascii"))
     else:
         fout.write(f"{line_number} ? #6;\"{line}\"\n".encode("ascii"))
 
