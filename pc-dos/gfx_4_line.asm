@@ -6,7 +6,7 @@
 ; nebo pouze:
 ;     nasm -o gfx_4.com gfx_4_putpixel.asm
 
- 
+
 ;-----------------------------------------------------------------------------
 
 ; ukonceni procesu a navrat do DOSu
@@ -32,16 +32,16 @@
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-        gfx_mode 4
+        gfx_mode 5
 
-        mov     ah, 0xc
+        mov     ah, 0xc   ; cislo sluzby BIOSu
         mov     al, 1     ; barva pixelu
         xor     bx, bx    ; cislo stranky
         mov     cx, 0     ; sloupec
         mov     dx, 0     ; radek
 opak:
-        int     0x10
-        inc     al
+        int     0x10      ; vykresleni pixelu pres BIOS
+        inc     al        ; zmena barvy pixelu
         inc     cx        ; x+=1
         inc     dx        ; y+=1
         cmp     cx, 200   ; kontrola, zda jsme dosahli posledni souradnice

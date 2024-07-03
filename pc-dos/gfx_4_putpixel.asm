@@ -6,7 +6,7 @@
 ; nebo pouze:
 ;     nasm -o gfx_4.com gfx_4_putpixel.asm
 
- 
+
 ;-----------------------------------------------------------------------------
 
 ; ukonceni procesu a navrat do DOSu
@@ -30,12 +30,12 @@
 
 ; vykresleni pixelu pres BIOS
 %macro put_pixel 3
-        mov     ah, 0xc
+        mov     ah, 0xc   ; cislo sluzby BIOSu
         xor     bx, bx    ; cislo stranky
         mov     cx, %1    ; sloupec (X)
         mov     dx, %2    ; radek (Y)
         mov     al, %3    ; barva pixelu
-        int     0x10
+        int     0x10      ; vykresleni pixelu pres BIOS
 %endmacro
 
 ;-----------------------------------------------------------------------------
