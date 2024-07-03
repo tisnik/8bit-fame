@@ -33,6 +33,10 @@
 1. [Various Atari-related tools](<tools>)
 1. [Proofs of concept](<PoCs>)
 
+## Various programs written in assembly for 16bit computers
+
+1. [DOS demos](<pc-dos>)
+
 ## Programs written for DOS BASIC Interpreters
 
 IBM PC based on Intel 8088 microprocessor is 8/16 bit computer
