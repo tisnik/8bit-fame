@@ -32,7 +32,7 @@
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-        gfx_mode 5
+        gfx_mode 4
 
         mov     ah, 0xc   ; cislo sluzby BIOSu
         mov     al, 1     ; barva pixelu
