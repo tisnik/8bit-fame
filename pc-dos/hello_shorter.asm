@@ -1,4 +1,5 @@
 ; Program typu "Hello, world!" urceny pro DOS a prelozitelny assemblerem NASM
+; Jednodussi ukonceni programu pomoci instrukce RET
 ;
 ; preklad pomoci:
 ;     nasm -f bin -o hello.com hello_shorter.asm
