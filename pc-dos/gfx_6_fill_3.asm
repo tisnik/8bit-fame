@@ -32,32 +32,16 @@
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-        gfx_mode 6
+        gfx_mode 6        ; nastaveni grafickeho rezimu 640x200 se 2 barvami
         wait_key
 
         mov ax, 0xb800    ; video segment
         mov es, ax        ; do segmentoveho registru ES
-        xor bx, bx        ; adresa pro zapis barev pixelu
-        mov cx, 640*200/8 ; pocitadlo smycky
-fill_loop:
-        call wait_sync
+        xor di, di        ; adresa pro zapis barev pixelu
         mov al, 255       ; zapisovana kombinace barev pixelu
-        mov [es:bx], al   ; zapis barev osmi pixelu
-        inc bx            ; na dalsi pixel
-        loop fill_loop    ; snizeni hodnoty CX, skok pri nenulovosti vysledku
+        mov cx, 640*200/8 ; pocitadlo smycky
+
+        rep stosb         ; vlastni vyplneni
 
         wait_key
         exit
-
-wait_sync:
-        mov dx, 0x3da      ; adresa stavoveho registru graficke karty CGA
-wait_sync_end:
-        in al, dx          ; precteni hodnoty stavoveho registru
-        test al, 8         ; odmaskovat priznak vertikalniho synchronizacniho pulsu
-        jnz wait_sync_end  ; probiha - cekat na konec
-wait_sync_start:
-        in al, dx          ; precteni hodnoty stavoveho registru
-        test al, 8         ; odmaskovat priznak vertikalniho synchronizacniho pulsu
-        jz wait_sync_start ; neprobiha - cekat na zacatek
-        ret                ; ok - synchronizacni kurz probiha, lze zapisovat do pameti
-
