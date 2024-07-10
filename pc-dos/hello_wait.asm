@@ -1,4 +1,5 @@
 ; Program typu "Hello, world!" urceny pro DOS a prelozitelny assemblerem NASM
+; Cekani na stisk klavesy pred ukoncenim programu
 ;
 ; preklad pomoci:
 ;     nasm -f bin -o hello.com hello_wait.asm
