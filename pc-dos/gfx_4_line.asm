@@ -32,7 +32,7 @@
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-        gfx_mode 4
+        gfx_mode 4        ; nastaveni grafickeho rezimu 320x200 se ctyrmi barvami
 
         mov     ah, 0xc   ; cislo sluzby BIOSu
         mov     al, 1     ; barva pixelu
