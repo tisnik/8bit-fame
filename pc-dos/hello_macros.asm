@@ -1,4 +1,5 @@
 ; Program typu "Hello, world!" urceny pro DOS a prelozitelny assemblerem NASM
+; Vyuziti maker pro zjednoduseni hlavni casti programu
 ;
 ; preklad pomoci:
 ;     nasm -f bin -o hello.com hello_macros.asm
