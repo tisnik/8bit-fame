@@ -42,7 +42,7 @@
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-        gfx_mode 6
+        gfx_mode 6        ; nastaveni grafickeho rezimu 640x200 se 2 barvami
         put_pixel 320, 100, 1
         wait_key
         exit
