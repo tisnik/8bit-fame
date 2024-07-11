@@ -1,10 +1,11 @@
-; Textovy rezim karty CGA s rozlisenim 80x25 znaku.
+; Textovy rezim karty CGA.
+; Zmena vyznamu nejvyssiho bitu atributu.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o gfx_text.com gfx_cga_text_mode_3.asm
+;     nasm -f bin -o gfx_text.com gfx_cga_text_mode_intensity.asm
 ;
 ; nebo pouze:
-;     nasm -o gfx_text.com gfx_cga_text_mode_3.asm
+;     nasm -o gfx_text.com gfx_cga_text_mode_intensity.asm
 
 
 ;-----------------------------------------------------------------------------
@@ -47,4 +48,17 @@ opak:
         loop opak       ; opakujeme CX-krat
 
         wait_key
+
+        mov dx, 0x3d8   ; port s rizenim graficke palety
+        mov al, 0x18    ; pozadi neblika, meni se intenzita
+        out dx, al      ; pres port 0x3d9
+
+        wait_key
+
+        mov dx, 0x3d8   ; port s rizenim graficke palety
+        mov al, 0x38    ; pozadi opet blika, nizka intenzita
+        out dx, al      ; pres port 0x3d9
+
+        wait_key
+
         exit
