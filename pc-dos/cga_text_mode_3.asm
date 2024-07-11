@@ -1,10 +1,10 @@
 ; Textovy rezim karty CGA s rozlisenim 80x25 znaku.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o gfx_text.com gfx_cga_text_mode_3.asm
+;     nasm -f bin -o gfx_text.com cga_text_mode_3.asm
 ;
 ; nebo pouze:
-;     nasm -o gfx_text.com gfx_cga_text_mode_3.asm
+;     nasm -o gfx_text.com cga_text_mode_3.asm
 
 
 ;-----------------------------------------------------------------------------

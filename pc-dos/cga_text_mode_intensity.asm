@@ -2,10 +2,10 @@
 ; Zmena vyznamu nejvyssiho bitu atributu.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o gfx_text.com gfx_cga_text_mode_intensity.asm
+;     nasm -f bin -o gfx_text.com cga_text_mode_intensity.asm
 ;
 ; nebo pouze:
-;     nasm -o gfx_text.com gfx_cga_text_mode_intensity.asm
+;     nasm -o gfx_text.com cga_text_mode_intensity.asm
 
 
 ;-----------------------------------------------------------------------------
