@@ -1,5 +1,14 @@
 ; Vykresleni usecky tou nejpomalejsi cestou - pres funkci BIOSu
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento priklad pouzit:
+; Vývoj her a grafických dem pro oslavovanou i nenáviděnou platformu PC (vražedná kombinace 8088 a CGA)
+; https://www.root.cz/clanky/vyvoj-her-a-grafickych-dem-pro-oslavovanou-i-nenavidenou-platformu-pc-vrazedna-kombinace-8088-a-cga/#k19
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o gfx_4.com gfx_4_putpixel.asm
 ;
