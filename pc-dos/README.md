@@ -24,3 +24,11 @@
 1. [LOOP instruction usage](gfx_6_fill_2.asm)
 1. [REP STOSB instruction usage](gfx_6_fill_3.asm)
 1. [VSync-based synchronization](gfx_6_fill_4.asm)
+
+#### Putpixel implementation
+
+1. [Naive variant based on 16bit multiplication](gfx_6_putpixel_1.asm)
+1. [A bit better variant based on 8bit multiplication](gfx_6_putpixel_2.asm)
+1. [Using shifts instead of multiplications](gfx_6_putpixel_3.asm)
+1. [Drawing pixels over image (incorrect variant)](gfx_6_putpixel_4.asm)
+1. [Drawing pixels over image (correct variant)](gfx_6_putpixel_5.asm)
