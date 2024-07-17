@@ -4,7 +4,7 @@
 ; Tento demonstracni priklad je pouzity v serialu o programovani
 ; grafickych dem a her na PC v DOSu.
 ;
-; Clanek, kde je tento priklad pouzit:
+; Clanek, kde je tento demonstracni priklad pouzit:
 ; Vývoj her a grafických dem pro oslavovanou i nenáviděnou platformu PC (vražedná kombinace 8088 a CGA)
 ; https://www.root.cz/clanky/vyvoj-her-a-grafickych-dem-pro-oslavovanou-i-nenavidenou-platformu-pc-vrazedna-kombinace-8088-a-cga/#k19
 ;
@@ -51,7 +51,7 @@
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-        gfx_mode 6        ; nastaveni grafickeho rezimu 640x200 se 2 barvami
-        put_pixel 320, 100, 1
-        wait_key
-        exit
+        gfx_mode 6             ; nastaveni grafickeho rezimu 640x200 se 2 barvami
+        put_pixel 320, 100, 1  ; volani makra se tremi parametry
+        wait_key               ; cekani na stisk klavesy
+        exit                   ; a navrat do DOSu
