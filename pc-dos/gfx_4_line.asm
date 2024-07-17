@@ -4,7 +4,7 @@
 ; Tento demonstracni priklad je pouzity v serialu o programovani
 ; grafickych dem a her na PC v DOSu.
 ;
-; Clanek, kde je tento priklad pouzit:
+; Clanek, kde je tento demonstracni priklad pouzit:
 ; Vývoj her a grafických dem pro oslavovanou i nenáviděnou platformu PC (vražedná kombinace 8088 a CGA)
 ; https://www.root.cz/clanky/vyvoj-her-a-grafickych-dem-pro-oslavovanou-i-nenavidenou-platformu-pc-vrazedna-kombinace-8088-a-cga/#k19
 ;
@@ -56,5 +56,5 @@ opak:
         cmp     cx, 200   ; kontrola, zda jsme dosahli posledni souradnice
         jne     opak      ; pokud ne, dalsi iterace
 
-        wait_key
-        exit
+        wait_key          ; cekani na stisk klavesy
+        exit              ; a navrat do DOSu
