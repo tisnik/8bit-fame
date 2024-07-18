@@ -1,5 +1,14 @@
 ; Vykresleni sady pixelu, vyplneni obrazovky.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Struktura obrazové paměti grafické karty CGA, blokové přenosy a základy optimalizace
+; https://www.root.cz/clanky/struktura-obrazove-pameti-graficke-karty-cga-blokove-prenosy-a-zaklady-optimalizace/
+; 
+;
 ; preklad pomoci:
 ;     nasm -f bin -o gfx_6.com gfx_6_fill_1.asm
 ;
@@ -46,5 +55,5 @@ fill_loop:
         dec cx            ; snizeni hodnoty CL
         jnz fill_loop     ; skok pri nenulovosti vysledku
 
-        wait_key
-        exit
+        wait_key          ; cekani na stisk klavesy
+        exit              ; navrat do DOSu
