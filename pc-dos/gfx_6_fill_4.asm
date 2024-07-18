@@ -1,10 +1,18 @@
 ; Vykresleni vertikalni sady pixelu.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Struktura obrazové paměti grafické karty CGA, blokové přenosy a základy optimalizace
+; https://www.root.cz/clanky/struktura-obrazove-pameti-graficke-karty-cga-blokove-prenosy-a-zaklady-optimalizace/
+; 
 ; preklad pomoci:
-;     nasm -f bin -o gfx_6.com gfx_6_ver_fill_1.asm
+;     nasm -f bin -o gfx_6.com gfx_6_ver_fill_4.asm
 ;
 ; nebo pouze:
-;     nasm -o gfx_6.com gfx_6_ver_fill_1.asm
+;     nasm -o gfx_6.com gfx_6_ver_fill_4.asm
 
 
 ;-----------------------------------------------------------------------------
@@ -46,8 +54,8 @@ fill_loop:
         inc bx            ; na dalsi pixel
         loop fill_loop    ; snizeni hodnoty CX, skok pri nenulovosti vysledku
 
-        wait_key
-        exit
+        wait_key          ; cekani na stisk klavesy
+        exit              ; navrat do DOSu
 
 wait_sync:
         mov dx, 0x3da      ; adresa stavoveho registru graficke karty CGA
