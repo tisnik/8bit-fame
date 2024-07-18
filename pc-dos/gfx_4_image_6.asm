@@ -2,6 +2,15 @@
 ; Korektni vykresleni vsech sudych i lichych radku obrazku.
 ; Nastaveni barvove palety.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Struktura obrazové paměti grafické karty CGA, blokové přenosy a základy optimalizace
+; https://www.root.cz/clanky/struktura-obrazove-pameti-graficke-karty-cga-blokove-prenosy-a-zaklady-optimalizace/
+; 
+; 
 ; preklad pomoci:
 ;     nasm -f bin -o gfx_4.com gfx_4_image.asm
 ;
