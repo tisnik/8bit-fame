@@ -1,10 +1,10 @@
-; Graficky rezim karty Hercules s rozlisenim 720x348 znaku.
+; Graficky rezim karty Hercules s rozlisenim 720x348 pixelu.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o hercules.com hercules_gfx_mode_2.asm
+;     nasm -f bin -o hercules.com hercules_putpixel.asm
 ;
 ; nebo pouze:
-;     nasm -o hercules.com hercules_gfx_mode_2.asm
+;     nasm -o hercules.com hercules_putpixel.asm
 
 
 ;-----------------------------------------------------------------------------
