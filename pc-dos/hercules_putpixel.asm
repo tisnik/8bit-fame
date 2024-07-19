@@ -60,7 +60,7 @@ start:
         mov es, ax
         mov di, 0         ; nyni ES:DI obsahuje adresu prvniho znaku ve video RAM
 
-        mov cx, 90*348    ; pocet zapisovanych bajtu
+        mov cx, 32768     ; pocet zapisovanych bajtu - cela obrazova pamet
         xor al, al        ; kod zapisovaneho bajtu
         rep stosb         ; vymazat obrazovku
 
