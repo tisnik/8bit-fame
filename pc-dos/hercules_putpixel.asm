@@ -134,11 +134,11 @@ putpixel:
         mov     al, 0x80         ; vypocet bitove masky
         shr     al, cl           ; bitova maska je nyni v AL
 
+        mov     cx, 0xb000       ; segment video RAM
+        mov     es, cx           ; do registru ES
+
         cmp     dl, 0            ; ma se vykreslit cerny pixel?
         je      black_pixel      ; pokud ano -> skok
-
-        mov     dx, 0xb000       ; segment video RAM
-        mov     es, dx           ; do registru ES
 
 white_pixel:
         or      es:[si], al      ; vykresleni bileho pixelu
