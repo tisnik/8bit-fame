@@ -1,11 +1,21 @@
 ; Vykresleni pixelu, varianta bez nasobeni. Korektni maskovani.
 ; Pixely se prekresli pres obrazek.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; 
+; Hrátky s barvovou paletou a vykreslení jednotlivých pixelů kartou CGA
+; https://www.root.cz/clanky/hratky-s-barvovou-paletou-a-vykresleni-jednotlivych-pixelu-kartou-cga/
+;
+;
 ; preklad pomoci:
-;     nasm -f bin -o gfx_6.com gfx_6_putpixel_4.asm
+;     nasm -f bin -o gfx_6.com gfx_6_putpixel_5.asm
 ;
 ; nebo pouze:
-;     nasm -o gfx_6.com gfx_6_putpixel_4.asm
+;     nasm -o gfx_6.com gfx_6_putpixel_5.asm
 
 
 ;-----------------------------------------------------------------------------
@@ -60,8 +70,9 @@ opak:
         cmp ax, 200     ; hranice obrazovky?
         jne opak        ; ne-opakujeme
 
-        wait_key
-        exit
+        wait_key        ; cekat na klavesu
+        exit            ; navrat do DOSu
+
 
 ; Vykresleni pixelu
 ; AX - x-ova souradnice
