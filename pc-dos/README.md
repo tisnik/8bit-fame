@@ -53,3 +53,20 @@
 1. [Changing characters height](cga_text_mode_char_height.asm)
 1. [Pseudographics mode 160x25 'pixels'](cga_text_gfx_1.asm)
 1. [Pseudographics mode 160x100 'pixels'](cga_text_160x100.asm)
+
+
+
+## Text and graphics on Hercules graphics card (HGC)
+
+### Text mode on HGC
+
+1. [Text mode 80x25 characters](hercules_text_mode_1.asm)
+1. [Text mode with high intensity flag enabled](hercules_text_mode_2.asm)
+1. [Turning off video signal](hercules_turn_off.asm)
+
+### Graphics mode on HGC
+
+1. [Setting graphics mode 720x348 pixels, basic variant](hercules_gfx_mode_1.asm)
+1. [Setting graphics mode 720x348 pixels, better variant](hercules_gfx_mode_2.asm)
+1. [Putpixel operation in graphics mode](hercules_putpixel.asm)
+
