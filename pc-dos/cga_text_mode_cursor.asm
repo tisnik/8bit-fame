@@ -1,6 +1,15 @@
 ; Textovy rezim karty CGA.
 ; Zmena tvaru textoveho kurzoru.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Textové režimy grafické karty CGA a řadič displeje Motorola 6845
+; https://www.root.cz/clanky/textove-rezimy-graficke-karty-cga-a-radic-displeje-motorola-6845/
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o gfx_text.com cga_text_mode_cursor.asm
 ;
