@@ -36,7 +36,7 @@ bitplane_selector equ 0x02
 %endmacro
 
 ;-----------------------------------------------------------------------------
-org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 436)
+org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
         gfx_mode 0x0d       ; nastaveni rezimu 320x200 se sestnacti barvami

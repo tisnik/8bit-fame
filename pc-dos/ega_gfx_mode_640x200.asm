@@ -29,7 +29,7 @@
 %endmacro
 
 ;-----------------------------------------------------------------------------
-org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 436)
+org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
         gfx_mode 0x0e       ; nastaveni rezimu 640x200 se sestnacti barvami
