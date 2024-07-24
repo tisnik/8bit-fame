@@ -32,7 +32,7 @@ int main(void) {
 
         /* skip endline */
         while ((c = fgetc(fin)) != '\n') {
-            /* read until hits ':' */
+            /* read until hits '\n' */
         }
     }
 
