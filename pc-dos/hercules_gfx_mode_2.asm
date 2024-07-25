@@ -1,5 +1,14 @@
 ; Graficky rezim karty Hercules s rozlisenim 720x348 pixelu.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Grafická karta Hercules: úspěšná alternativa a konkurence MDA i CGA
+; https://www.root.cz/clanky/graficka-karta-hercules-uspesna-alternativa-a-konkurence-mda-i-cga/
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o hercules.com hercules_gfx_mode_2.asm
 ;
