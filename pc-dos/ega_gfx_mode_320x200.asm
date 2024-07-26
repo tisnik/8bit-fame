@@ -1,5 +1,14 @@
 ; Graficky rezim karty EGA s rozlisenim 320x200 pixelu.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Grafická karta EGA: pouze mírný pokrok v mezích zákona
+; https://www.root.cz/clanky/graficka-karta-ega-pouze-mirny-pokrok-v-mezich-zakona/#k19
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o ega.com ega_gfx_mode_320x200.asm
 ;
