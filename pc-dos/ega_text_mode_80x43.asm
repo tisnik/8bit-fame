@@ -1,5 +1,14 @@
 ; Textovy rezim karty EGA s rozlisenim 80x43 znaku.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Grafická karta EGA: pouze mírný pokrok v mezích zákona
+; https://www.root.cz/clanky/graficka-karta-ega-pouze-mirny-pokrok-v-mezich-zakona/#k19
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o ega.com ega_text_mode_80x43.asm
 ;
