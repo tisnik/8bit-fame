@@ -70,3 +70,13 @@
 1. [Setting graphics mode 720x348 pixels, better variant](hercules_gfx_mode_2.asm)
 1. [Putpixel operation in graphics mode](hercules_putpixel.asm)
 
+
+
+## Text and graphics on EGA graphics card
+
+### Text mode on EGA
+
+1. [Text mode 80x25 characters](ega_text_mode_80x25.asm)
+1. [Text mode 80x43 characters](ega_text_mode_80x43.asm)
+1. [Setting standard font read from ROM](ega_standard_font.asm)
+1. [Setting custom font read from RAM](ega_custom_font.asm)
