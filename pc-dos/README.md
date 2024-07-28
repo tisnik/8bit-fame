@@ -80,3 +80,24 @@
 1. [Text mode 80x43 characters](ega_text_mode_80x43.asm)
 1. [Setting standard font read from ROM](ega_standard_font.asm)
 1. [Setting custom font read from RAM](ega_custom_font.asm)
+
+### EGA graphics modes
+
+1. [Graphics mode with resolution 320x200 pixels](ega_gfx_mode_320x200.asm)
+1. [Graphics mode with resolution 640x200 pixels](ega_gfx_mode_640x200.asm)
+1. [Graphics mode with resolution 640x350 pixels](ega_gfx_mode_640x350.asm)
+
+### EGA color palette
+
+1. [Color palette settings in mode with 200 scanlines](ega_palette_1.asm)
+1. [Color palette settings in mode with 350 scanlines](ega_palette_2.asm)
+1. [Settings all colors via explicit loop](ega_palette_3.asm)
+1. [Use BIOS service to set all colors in palette](ega_palette_4.asm)
+
+### Drawing on EGA card
+
+1. [Enable/disable bitplanes to write to, basic approach](ega_gfx_mode_bitplanes_1.asm)
+1. [Enable/disable bitplanes to write to, faster approach](ega_gfx_mode_bitplanes_2.asm)
+1. [Drawing pixels in graphics mode 320x200, 16 colors](ega_320x200_putpixel.asm)
+1. [Drawing pixels in graphics mode 640x350, 16 colors](ega_640x350_putpixel.asm)
+
