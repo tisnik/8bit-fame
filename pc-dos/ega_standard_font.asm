@@ -1,6 +1,15 @@
 ; Textovy rezim karty EGA s rozlisenim 80x25 znaku.
 ; Vypis vsech standardnich ASCII znaku.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Grafická karta EGA: pouze mírný pokrok v mezích zákona (2. část)
+; https://www.root.cz/clanky/graficka-karta-ega-pouze-mirny-pokrok-v-mezich-zakona-2-cast/
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o ega.com ega_standard_font.asm
 ;
