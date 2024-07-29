@@ -2,6 +2,15 @@
 ; Zmena barvovych rovin, do kterych se zapisuje.
 ; Vykresleni barevnych usecek.
 ;
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Grafická karta EGA: pouze mírný pokrok v mezích zákona (2. část)
+; https://www.root.cz/clanky/graficka-karta-ega-pouze-mirny-pokrok-v-mezich-zakona-2-cast/
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o ega.com ega_640x350_putpixel.asm
 ;
