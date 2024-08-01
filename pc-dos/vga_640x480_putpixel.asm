@@ -82,7 +82,8 @@ select_bitplane:
 
 ; Vykresleni pixelu
 ; AX - x-ova souradnice
-; BX - y-ova souradnice (staci len BL)
+; BX - y-ova souradnice
+; CL - barva
 putpixel:
         push ax
         mov al, cl         ; vyber bitove roviny nebo bitovych rovin
