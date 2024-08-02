@@ -2,6 +2,14 @@
 ; Zmena vyznamu devateho sloupce u znaku.
 ;
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu.
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Od EGA ke grafickým kartám MCGA a VGA
+; https://www.root.cz/clanky/od-ega-ke-grafickym-kartam-mcga-a-vga/#k19
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o vga.com vga_text_mode_9th_column.asm
 ;
