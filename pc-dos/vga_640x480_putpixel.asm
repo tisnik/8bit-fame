@@ -12,8 +12,8 @@
 ;-----------------------------------------------------------------------------
 
 ; registry karty EGA/VGA
-ega_controller    equ 0x3c4
-bitplane_selector equ 0x02
+EGA_CONTROLLER    equ 0x3c4
+BITPLANE_SELECTOR equ 0x02
 
 
 ; ukonceni procesu a navrat do DOSu
@@ -73,8 +73,8 @@ opak:
         exit                ; navrat do DOSu
 
 select_bitplane:
-        mov  dx, ega_controller
-        mov  ah, bitplane_selector
+        mov  dx, EGA_CONTROLLER
+        mov  ah, BITPLANE_SELECTOR
         xchg ah, al
         out  dx, ax         ; vyber registru sekvenceru
                             ; a zapis masky bitovych rovin
