@@ -1,11 +1,11 @@
 ; Graficky rezim karty VGA s rozlisenim 320x200 pixelu.
-; Vykresleni barevnych usecek.
+; Vykresleni rastroveho obrazku.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o vga.com vga_320x200_putpixel_1.asm
+;     nasm -f bin -o vga.com vga_320x200_image.asm
 ;
 ; nebo pouze:
-;     nasm -o vga.com vga_320x200_putpixel_1.asm
+;     nasm -o vga.com vga_320x200_image.asm
 
 
 ;-----------------------------------------------------------------------------
