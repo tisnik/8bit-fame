@@ -20,10 +20,10 @@
 ;-----------------------------------------------------------------------------
 
 ; registry karty Hercules
-hercules_index    equ 0x3b4
-hercules_control  equ 0x3b8
-hercules_status   equ 0x3ba
-hercules_config   equ 0x3bf
+HERCULES_INDEX    equ 0x3b4
+HERCULES_CONTROL  equ 0x3b8
+HERCULES_STATUS   equ 0x3ba
+HERCULES_CONFIG   equ 0x3bf
 
 
 ; ukonceni procesu a navrat do DOSu
@@ -41,7 +41,7 @@ hercules_config   equ 0x3bf
 
 ; nastaveni ridiciho registru
 %macro set_control 1
-        mov dx, hercules_control
+        mov dx, HERCULES_CONTROL
         mov al, %1    ; ridici registr
         out dx, al
 %endmacro
