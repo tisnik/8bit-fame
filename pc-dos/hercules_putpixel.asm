@@ -19,11 +19,11 @@
 ;-----------------------------------------------------------------------------
 
 ; registry karty Hercules
-hercules_index    equ 0x3b4
-hercules_data     equ 0x3b5
-hercules_control  equ 0x3b8
-hercules_status   equ 0x3ba
-hercules_config   equ 0x3bf
+HERCULES_INDEX    equ 0x3b4
+HERCULES_DATA     equ 0x3b5
+HERCULES_CONTROL  equ 0x3b8
+HERCULES_STATUS   equ 0x3ba
+HERCULES_CONFIG   equ 0x3bf
 
 ; ridici bity
 screen_on equ 0x08
@@ -47,14 +47,14 @@ enable    equ 0x03
 
 ; nastaveni konfiguracniho registru
 %macro set_config 1
-        mov dx, hercules_config
-        mov al, %1    ; ridici registr
+        MOV DX, HERCULES_CONFIG
+        MOV AL, %1    ; RIDICI REGISTR
         out dx, al
 %endmacro
 
 ; nastaveni ridiciho registru
 %macro set_control 1
-        mov dx, hercules_control
+        mov dx, HERCULES_CONTROL
         mov al, %1    ; ridici registr
         out dx, al
 %endmacro
@@ -99,7 +99,7 @@ init_graphics:
         ; inicializace ridicich registru cipu Motorola 6845
         mov     si, gtable               ; DS:SI obsahuje adresu tabulky s hodnotami registru
 
-        mov     dx, hercules_index       ; registr pro zapis
+        mov     dx, HERCULES_INDEX       ; registr pro zapis
         mov     cx, 12                   ; pocet nastavovanych parametru
         xor     ah, ah                   ; zaciname registrem cislo 0
 
