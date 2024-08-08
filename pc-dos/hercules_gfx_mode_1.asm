@@ -19,11 +19,11 @@
 ;-----------------------------------------------------------------------------
 
 ; registry karty Hercules
-hercules_index    equ 0x3b4
-hercules_data     equ 0x3b5
-hercules_control  equ 0x3b8
-hercules_status   equ 0x3ba
-hercules_config   equ 0x3bf
+HERCULES_INDEX    equ 0x3b4
+HERCULES_DATA     equ 0x3b5
+HERCULES_CONTROL  equ 0x3b8
+HERCULES_STATUS   equ 0x3ba
+HERCULES_CONFIG   equ 0x3bf
 
 ; ridici bity
 screen_on equ 0x08
@@ -47,14 +47,14 @@ enable    equ 0x03
 
 ; nastaveni konfiguracniho registru
 %macro set_config 1
-        mov dx, hercules_config
+        mov dx, HERCULES_CONFIG
         mov al, %1    ; ridici registr
         out dx, al
 %endmacro
 
 ; nastaveni ridiciho registru
 %macro set_control 1
-        mov dx, hercules_control
+        mov dx, HERCULES_CONTROL
         mov al, %1    ; ridici registr
         out dx, al
 %endmacro
@@ -90,11 +90,11 @@ init_graphics:
         xor     ah, ah                   ; zaciname registrem cislo 0
 
 parms: 
-        mov     dx, hercules_index       ; port pro zapis
+        mov     dx, HERCULES_INDEX       ; port pro zapis
         mov     al, ah
         out     dx, al                   ; zapis cisla registru na port
 
-        mov     dx, hercules_data        ; port pro zapis
+        mov     dx, HERCULES_DATA        ; port pro zapis
         lodsb                            ; precist hodnotu registru z tabulky
         out     dx, al                   ; zapis hodnoty registru na port
 
