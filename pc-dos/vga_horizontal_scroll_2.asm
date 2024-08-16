@@ -1,13 +1,14 @@
 ; Graficky rezim karty VGA s rozlisenim 320x400 pixelu.
 ; Vypnuti zretezeni bitovych rovin.
 ; Vykresleni rastroveho obrazku postupne do vsech bitovych rovin.
+; Nastaveni "sirokych" obrazovych radku.
 ; Horizontalni scrolling po stisku klavesy.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o vga.com vga_vertical_scroll_2.asm
+;     nasm -f bin -o vga.com vga_horizontal_scroll_2.asm
 ;
 ; nebo pouze:
-;     nasm -o vga.com vga_vertical_scroll_2.asm
+;     nasm -o vga.com vga_horizontal_scroll_2.asm
 
 
 ;-----------------------------------------------------------------------------
