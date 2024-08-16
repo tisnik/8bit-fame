@@ -5,10 +5,10 @@
 ; Vertikalni scrolling po stisku klavesy.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o vga.com vga_split_screen.asm
+;     nasm -f bin -o vga.com vga_split_screen_1.asm
 ;
 ; nebo pouze:
-;     nasm -o vga.com vga_split_screen.asm
+;     nasm -o vga.com vga_split_screen_1.asm
 
 
 ;-----------------------------------------------------------------------------
