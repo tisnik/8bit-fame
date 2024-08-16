@@ -101,6 +101,13 @@ start:
         call fill_block
 
         wait_key            ; cekani na klavesu
+
+        sub di, 320*200/8   ; posun zpet
+        select_bitplane 15  ; zapis jen vsech ctyr bitovych rovin
+        mov al, 6           ; kod barvy pixelu
+        call fill_block
+
+        wait_key            ; cekani na klavesu
         exit                ; navrat do DOSu
 
 
