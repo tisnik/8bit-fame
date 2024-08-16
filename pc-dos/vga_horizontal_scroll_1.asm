@@ -4,10 +4,10 @@
 ; Horizontalni scrolling po stisku klavesy.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o vga.com vga_vertical_scroll_2.asm
+;     nasm -f bin -o vga.com vga_horizontal_scroll_1.asm
 ;
 ; nebo pouze:
-;     nasm -o vga.com vga_vertical_scroll_2.asm
+;     nasm -o vga.com vga_horizontal_scroll_1.asm
 
 
 ;-----------------------------------------------------------------------------
