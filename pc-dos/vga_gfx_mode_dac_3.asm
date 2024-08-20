@@ -34,7 +34,7 @@
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-        gfx_mode 0x13       ; nastaveni rezimu 640x480 se sestnacti barvami
+        gfx_mode 0x13       ; nastaveni rezimu 320x200 s 256 barvami
         mov ax, 0xa000      ; video RAM v textovem rezimu
         mov es, ax
         xor di, di          ; nyni ES:DI obsahuje adresu prvniho pixelu ve video RAM
