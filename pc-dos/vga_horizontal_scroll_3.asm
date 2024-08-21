@@ -100,7 +100,7 @@ next_dac:
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-        gfx_mode 0x13       ; nastaveni rezimu 320x200 se sestnacti barvami
+        gfx_mode 0x13       ; nastaveni rezimu 320x200 s 256 barvami
         grayscale_palette   ; nastaveni palety se stupni sedi
 
                             ; mod 320x200 bez zretezeni rovin
