@@ -3,6 +3,8 @@
 ;-----------------------------------------------------------------------------
 
 
+%ifndef VGA_LIB
+
 
 ;-----------------------------------------------------------------------------
 ; symboly
@@ -98,6 +100,14 @@ V_RETRACE            equ 0x08
         ret
 %endmacro
 
+; nastaveni pocatecni adresy video RAM
+%macro set_video_ram_start 1
+        set_crtc_register START_ADDRESS_HIGH, %1h
+        set_crtc_register START_ADDRESS_LOW, %1l
+%endmacro
+
+
+
 ;-----------------------------------------------------------------------------
 ; podprogramy
 ;-----------------------------------------------------------------------------
@@ -186,3 +196,5 @@ crtc_values:
         dw 0e715h           ; Vertical Blank Start
         dw 00616h           ; Vertical Blank End
         dw 0e317h           ; Mode Control
+
+%endif
