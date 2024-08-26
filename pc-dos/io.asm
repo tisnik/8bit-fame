@@ -2,11 +2,14 @@
 ; Symboly, makra a subrutiny pro zjednoduseni I/O operaci
 ;-----------------------------------------------------------------------------
 
+%ifndef IO_LIB
+%define IO_LIB
 
 
 ;-----------------------------------------------------------------------------
 ; makra
 ;-----------------------------------------------------------------------------
+
 
 ; ukonceni procesu a navrat do DOSu
 %macro exit 0
@@ -20,3 +23,4 @@
         int     0x16
 %endmacro
 
+%endif
