@@ -3,6 +3,7 @@
 ; Vypnuti zretezeni bitovych rovin.
 ; Vykresleni rastroveho obrazku postupne do vsech bitovych rovin.
 ; Odskrolovani obrazku.
+; Pouziti knihovnich funkci.
 ;
 ; preklad pomoci:
 ;     nasm -f bin -o vga.com vga_320x240_lib.asm
@@ -56,8 +57,7 @@ opak:
         add bx, 80          ; prechod na dalsi adresu, od ktere se bude vykreslovat
         call wait_sync      ; cekani na sync.
                             ; zmena adresy
-        set_crtc_register START_ADDRESS_HIGH, bh
-        set_crtc_register START_ADDRESS_LOW, bl
+        set_video_ram_start b
         loop opak
 
         wait_key            ; cekani na klavesu
