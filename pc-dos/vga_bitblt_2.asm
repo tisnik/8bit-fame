@@ -2,12 +2,13 @@
 ; Zmena barvovych rovin, do kterych se zapisuje.
 ; Vykresleni barevnych usecek.
 ; Prenos casti obrazu operaci typu BitBLT.
+; Vyber bitovych rovin pro zapis.
 ;
 ; preklad pomoci:
-;     nasm -f bin -o vga.com vga_bitblt_1.asm
+;     nasm -f bin -o vga.com vga_bitblt_2.asm
 ;
 ; nebo pouze:
-;     nasm -o vga.com vga_bitblt_1.asm
+;     nasm -o vga.com vga_bitblt_2.asm
 
 
 ;-----------------------------------------------------------------------------
