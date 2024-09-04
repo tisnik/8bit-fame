@@ -19,6 +19,12 @@
 
 ;-----------------------------------------------------------------------------
 
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
+
+;-----------------------------------------------------------------------------
+
 ; ukonceni procesu a navrat do DOSu
 %macro exit 0
         mov     ah, 0x4c
