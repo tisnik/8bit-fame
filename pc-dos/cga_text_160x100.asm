@@ -17,6 +17,12 @@
 ;     nasm -o gfx_text.com gfx_cga_text_mode_1.asm
 
 
+
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 ;-----------------------------------------------------------------------------
 
 ; ukonceni procesu a navrat do DOSu
