@@ -17,6 +17,11 @@
 ; nebo pouze:
 ;     nasm -o gfx_text.com cga_text_mode_intensity.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 
 ;-----------------------------------------------------------------------------
 
