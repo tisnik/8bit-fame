@@ -17,6 +17,11 @@
 ; nebo pouze:
 ;     nasm -o ega.com ega_custom_font.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 
 ;-----------------------------------------------------------------------------
 
