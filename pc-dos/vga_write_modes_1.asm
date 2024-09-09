@@ -55,7 +55,7 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 start:
         gfx_mode 0x12         ; nastaveni rezimu 640x480 se sestnacti barvami
         call draw_color_lines
-        wait_key            ; cekani na klavesu
+        wait_key              ; cekani na klavesu
 
         mov ax, 0xa000        ; video RAM v textovem rezimu
         mov es, ax
