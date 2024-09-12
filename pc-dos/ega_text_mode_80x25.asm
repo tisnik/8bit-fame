@@ -16,6 +16,11 @@
 ; nebo pouze:
 ;     nasm -o ega.com ega_text_mode_80x25.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 
 ;-----------------------------------------------------------------------------
 
