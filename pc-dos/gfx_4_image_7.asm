@@ -19,6 +19,11 @@
 ; nebo pouze:
 ;     nasm -o gfx_4.com gfx_4_image.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 
 ;-----------------------------------------------------------------------------
 
