@@ -15,6 +15,11 @@
 ; nebo pouze:
 ;     nasm -o gfx_6.com gfx_6_putpixel.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 
 ;-----------------------------------------------------------------------------
 
