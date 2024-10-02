@@ -57,7 +57,7 @@ start:
 
         mov ax, cs
         mov ds, ax
-        mov si, image       ; nyni DS:SI obsahuje adresu prvniho bajtu v obrazku
+        xor si, si          ; nyni DS:SI obsahuje adresu prvniho bajtu v kodovem segmentu
 
         mov ax, 0xa000      ; video RAM v textovem rezimu
         mov es, ax
