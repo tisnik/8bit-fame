@@ -12,6 +12,11 @@
 
 ;-----------------------------------------------------------------------------
 
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
+;-----------------------------------------------------------------------------
+
 ; registry karty VGA
 SEQUENCER_INDEX      equ 0x3c4
 SEQUENCER_DATA       equ 0x3c5
