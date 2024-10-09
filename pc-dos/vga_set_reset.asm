@@ -12,6 +12,11 @@
 
 ;-----------------------------------------------------------------------------
 
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
+;-----------------------------------------------------------------------------
+
 ; I/O porty karty EGA/VGA
 GRAPHICS_REGISTER    equ 0x3ce
 SEQUENCER_INDEX      equ 0x3c4
