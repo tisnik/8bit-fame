@@ -9,6 +9,12 @@
 ;     nasm -o vga.com vga_640x480_putpixel.asm
 
 
+
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 ;-----------------------------------------------------------------------------
 
 ; registry karty EGA/VGA
