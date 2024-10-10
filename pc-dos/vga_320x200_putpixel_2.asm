@@ -9,6 +9,12 @@
 ;     nasm -o vga.com vga_320x200_putpixel_2.asm
 
 
+
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 ;-----------------------------------------------------------------------------
 
 ; ukonceni procesu a navrat do DOSu
