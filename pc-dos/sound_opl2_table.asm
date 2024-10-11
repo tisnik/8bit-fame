@@ -67,7 +67,7 @@ tone1:  ; tabulka s tonem pro prvni kanal
         db 0x80, 0x77    ; urovne sustain a release pro modulator
         db 0xA0, 0x41    ; frekvence zvuku (komorni A = 440 Hz)
         db 0x23, 0x01    ; nastaveni nosne: nasobeni frekvence jednickou
-        db 0x43, 0x00    ; nastavni urovne vystupu nosne na 47 dB
+        db 0x43, 0x00    ; nastaveni urovne vystupu nosne na 47 dB
         db 0x63, 0xF0    ; nosna: rychly nastup + pomale doznivani
         db 0x83, 0x77    ; urovne sustain a release pro nosnou
         db 0xB0, 0x32    ; zapnuti/povoleni zvuku + nastaveni oktavy a vyssich bitu frekvence
