@@ -44,7 +44,7 @@ start:
         write_opl_register 0x80, 0x77    ; urovne sustain a release pro modulator
         write_opl_register 0xA0, 0x41    ; frekvence zvuku (komorni A = 440 Hz)
         write_opl_register 0x23, 0x01    ; nastaveni nosne: nasobeni frekvence jednickou
-        write_opl_register 0x43, 0x00    ; nastavni urovne vystupu nosne na 47 dB
+        write_opl_register 0x43, 0x00    ; nastaveni urovne vystupu nosne na 47 dB
         write_opl_register 0x63, 0xF0    ; nosna: rychly nastup + pomale doznivani
         write_opl_register 0x83, 0x77    ; urovne sustain a release pro nosnou
         write_opl_register 0xB0, 0x32    ; zapnuti/povoleni zvuku + nastaveni oktavy a vyssich bitu frekvence
