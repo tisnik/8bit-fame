@@ -12,6 +12,11 @@
 
 ;-----------------------------------------------------------------------------
 
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
+;-----------------------------------------------------------------------------
+
 ; registry karty EGA/VGA
 EGA_CONTROLLER    equ 0x3c4
 BITPLANE_SELECTOR equ 0x02
