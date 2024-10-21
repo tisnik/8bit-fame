@@ -13,6 +13,11 @@
  
 ;-----------------------------------------------------------------------------
 
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
+;-----------------------------------------------------------------------------
+
 ; registry karet s cipem OPL2
 OPL_ADDRESS equ 0x388
 OPL_DATA    equ 0x389
