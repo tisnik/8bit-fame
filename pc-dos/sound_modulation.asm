@@ -11,6 +11,11 @@
 ; nebo pouze:
 ;     nasm -o sound_modulation.com sound_modulation.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
  
 ;-----------------------------------------------------------------------------
 
