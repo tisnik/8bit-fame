@@ -15,6 +15,11 @@
 ; nebo pouze:
 ;     nasm -o hercules.com hercules_text_mode_1.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
 
 ;-----------------------------------------------------------------------------
 
