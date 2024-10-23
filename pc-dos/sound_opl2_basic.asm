@@ -7,6 +7,11 @@
 ; nebo pouze:
 ;     nasm -o sound_opl2_basic.com sound_opl2_basic.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
  
 ;-----------------------------------------------------------------------------
 
