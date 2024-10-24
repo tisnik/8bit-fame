@@ -7,6 +7,11 @@
 ; nebo pouze:
 ;     nasm -o sound_play_pitch.com sound_play_pitch.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
  
 ;-----------------------------------------------------------------------------
 
