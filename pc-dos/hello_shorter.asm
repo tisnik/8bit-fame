@@ -16,6 +16,11 @@
 ; nebo pouze:
 ;     nasm -o hello.com hello_shorter.asm
 
+;-----------------------------------------------------------------------------
+
+BITS 16         ; 16bitovy vystup pro DOS
+CPU 8086        ; specifikace pouziteho instrukcniho souboru
+
  
 ;-----------------------------------------------------------------------------
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
