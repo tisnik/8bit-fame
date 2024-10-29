@@ -1,4 +1,5 @@
-; Prehrani zakladniho tonu na kartach s cipem OPL2.
+; Klavesami 1-8 lze prehrat noty z jedne oktavy (i soucasne).
+; Delsi varianta s rozvetvenim kodu dle stlacene klavesy.
 ; Pojmenovani registru OPL2.
 ;
 ;
