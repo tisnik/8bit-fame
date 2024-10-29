@@ -124,11 +124,11 @@ tone1:  ; tabulka s tonem pro prvni kanal
         db CHANNEL_1_OPERATOR_1 + OPL_LEVEL,           0x10  ; uroven vystupu 40 dB
         db CHANNEL_1_OPERATOR_1 + OPL_ATTACK_DECAY,    0xF0  ; modulator: rychly nastup zvuku + pomale doznivani
         db CHANNEL_1_OPERATOR_1 + OPL_SUSTAIN_RELEASE, 0x77  ; urovne sustain a release pro modulator
-        db CHANNEL_1_OPERATOR_1 + OPL_FREQUENCY_LOW,   0x41  ; frekvence zvuku (komorni A = 440 Hz)
         db CHANNEL_1_OPERATOR_2 + OPL_AMP_VIBRATO_EG,  0x01  ; nastaveni nosne: nasobeni frekvence jednickou
         db CHANNEL_1_OPERATOR_2 + OPL_LEVEL,           0x00  ; nastaveni urovne vystupu nosne na 47 dB
         db CHANNEL_1_OPERATOR_2 + OPL_ATTACK_DECAY,    0xF0  ; nosna: rychly nastup + pomale doznivani
         db CHANNEL_1_OPERATOR_2 + OPL_SUSTAIN_RELEASE, 0x77  ; urovne sustain a release pro nosnou
+        db CHANNEL_1 + OPL_FREQUENCY_LOW,              0x41  ; frekvence zvuku (komorni A = 440 Hz)
         db CHANNEL_1 + OPL_KEY_ON,                     0x32  ; zapnuti/povoleni zvuku + nastaveni oktavy a vyssich bitu frekvence
         db 0, 0                                              ; zarazka
 
