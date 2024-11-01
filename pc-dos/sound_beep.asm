@@ -1,6 +1,11 @@
 ; Zakladni vystup zvuku na PC Speaker s vyuzitim casovace 8253
 ;
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o sound_beep.com sound_beep.asm
 ;
