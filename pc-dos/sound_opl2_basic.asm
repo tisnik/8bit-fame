@@ -1,6 +1,11 @@
 ; Prehrani zakladniho tonu na kartach s cipem OPL2.
 ;
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o sound_opl2_basic.com sound_opl2_basic.asm
 ;
