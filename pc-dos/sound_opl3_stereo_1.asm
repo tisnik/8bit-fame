@@ -3,6 +3,11 @@
 ; Pojmenovani registru OPL3.
 ;
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
+;
 ; preklad pomoci:
 ;     nasm -f bin -o sound_opl2_stereo1.com sound_opl3_stereo_1.asm
 ;
