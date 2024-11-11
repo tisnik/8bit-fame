@@ -186,6 +186,7 @@ tone1:  ; tabulka s tonem pro prvni kanal
         db CHANNEL_1_OPERATOR_1 + OPL_WAVE_SELECT,     0x00  ; standardni sinus
         db CHANNEL_1 + OPL_FREQUENCY_LOW,              0x41  ; frekvence zvuku (komorni A = 440 Hz)
         db CHANNEL_1 + OPL_KEY_ON,                     0x12  ; zapnuti/povoleni zvuku + nastaveni oktavy a vyssich bitu frekvence
+        db CHANNEL_1 + OPL_FEEDBACK,                   0b00110001  ; volba AM-FM
         db 0, 0                                              ; zarazka
 
 
