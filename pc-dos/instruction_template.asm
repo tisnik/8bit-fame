@@ -1,3 +1,8 @@
+; Instrukcni soubor mikroprocesoru Intel 8088 a Intel 8086
+;
+; Sablona se zakladnimi makry, ktere se pouzivaji i v dalsich prikladech.
+;-----------------------------------------------------------------------------
+
 BITS 16         ; 16bitovy vystup pro DOS
 CPU 8086        ; specifikace pouziteho instrukcniho souboru
 
