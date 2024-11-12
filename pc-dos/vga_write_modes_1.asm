@@ -3,6 +3,10 @@
 ; Vykresleni barevnych usecek.
 ; Prekresleni s vyuzitim bezneho "MOV" rezimu.
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
 ; preklad pomoci:
 ;     nasm -f bin -o vga.com vga_write_mode_1.asm
 ;
