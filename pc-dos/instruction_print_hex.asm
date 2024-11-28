@@ -1,5 +1,9 @@
 ; Instrukcni soubor mikroprocesoru Intel 8088 a Intel 8086
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
 ;-----------------------------------------------------------------------------
 
 BITS 16         ; 16bitovy vystup pro DOS
