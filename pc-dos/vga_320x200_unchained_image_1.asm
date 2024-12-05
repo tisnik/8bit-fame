@@ -2,6 +2,10 @@
 ; Vypnuti zretezeni bitovych rovin.
 ; Vykresleni rastroveho obrazku do vsech bitovych rovin.
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
 ; preklad pomoci:
 ;     nasm -f bin -o vga.com vga_320x200_unchained_image_1.asm
 ;
