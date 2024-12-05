@@ -1,6 +1,10 @@
 ; Graficky rezim karty VGA s rozlisenim 320x200 pixelu.
 ; Vykresleni rastroveho obrazku: prenos po bajtech prekryvajici se oblasti.
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
 ; preklad pomoci:
 ;     nasm -f bin -o vga.com vga_320x200_image_movsb_backward_2.asm
 ;
