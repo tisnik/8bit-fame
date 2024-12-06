@@ -4,6 +4,10 @@
 ; Prenos casti obrazu operaci typu BitBLT.
 ; Vyber bitovych rovin pro zapis.
 ;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
 ; preklad pomoci:
 ;     nasm -f bin -o vga.com vga_bitblt_2.asm
 ;
