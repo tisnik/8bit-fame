@@ -55,13 +55,13 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
         mov  ah, 0x88  ; cislo sluzby -> pocet volnych bloku
-	int  0x15      ; zavolani sluzby XMS
+        int  0x15      ; zavolani sluzby XMS
 
         push ax
-	mov  al, ah    ; zobrazit obsah vyssiho bajtu
+        mov  al, ah    ; zobrazit obsah vyssiho bajtu
         print_hex al   ; pocet bloku (vyssi bajt)
 
-	pop  ax        ; obnovit (mj.) i AL
+        pop  ax        ; obnovit (mj.) i AL
         print_hex al   ; pocet bloku (nizsi bajt)
 
         wait_key
