@@ -120,7 +120,7 @@ start:
         mov  si, tones                   ; zacatek tabulky
         call write_table_to_opl2         ; zapis obsahu tabulky do OPL2
 
-    	in  al, PPI_PORT_B               ; port B s rizenim zarizeni
+        in  al, PPI_PORT_B               ; port B s rizenim zarizeni
         or  al, 0b1000000                ; nastaveni bitu cislo 7 na jednicku
         out PPI_PORT_B, al               ; zapis zpet na port B
 
