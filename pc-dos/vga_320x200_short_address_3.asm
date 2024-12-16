@@ -70,6 +70,7 @@ start:
         xor di, di          ; nyni ES:DI obsahuje adresu Video RAM-32kB
 
         mov cx, 320*200/2      ; pocet zapisovanych 16bitovych slov (=dvojic pixelu)
+
 move_loop:                     ; prenos celeho obrazku po 16bitovych slovech
 	mov ax, ds:[si]        ; nacteni dvou bajtu
 	mov es:[di+0x8000], ax ; ulozeni dvou bajtu, ovsem musime se posunouto 32kB nahoru
