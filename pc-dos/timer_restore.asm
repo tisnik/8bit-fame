@@ -45,7 +45,7 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 start:
         print_char '>'          ; oznameni uzivateli, ze jsme pripraveni
 
-    	xor  ax, ax
+        xor  ax, ax
         mov  es, ax
         mov  si, IRQ_0_VECTOR   ; ES:SI obsahuje adresu, na ktere je adresa obsluhy preruseni 0x08
 
@@ -57,24 +57,24 @@ start:
 
         mov  di, IRQ_0_VECTOR   ; ES:DI obsahuje adresu, na ktere je adresa obsluhy preruseni 0x08
         cli                     ; zakaz preruseni
-	lea  ax, int8_handler   ; zmena offsetove casti adresy
-	mov  es:[di], ax
+        lea  ax, int8_handler   ; zmena offsetove casti adresy
+        mov  es:[di], ax
 
-	mov  ax, cs             ; zmena segmentove casti adresy
-	mov  es:[di+2], ax
+        mov  ax, cs             ; zmena segmentove casti adresy
+        mov  es:[di+2], ax
         sti                     ; povoleni preruseni
 
         wait_key                ; cekani na stisk klavesy
         print_char '.'          ; oznameni uzivateli, ze ukoncujeme proces
 
-    	xor  ax, ax
+        xor  ax, ax
         mov  es, ax
         cli                     ; zakaz preruseni
-	lea  si, original_handler
+        lea  si, original_handler
         mov  di, IRQ_0_VECTOR
-	mov  ax, cs:[si]        ; obnoveni puvodniho handleru
+        mov  ax, cs:[si]        ; obnoveni puvodniho handleru
         mov  es:[di], ax
-	mov  ax, cs:[si+2]
+        mov  ax, cs:[si+2]
         mov  es:[di+2], ax
         sti                     ; povoleni preruseni
 
@@ -85,8 +85,8 @@ int8_handler:                   ; nova obsluha preruseni
         pusha                   ; ulozit vsechny registry
         print_char 't'          ; t=tick
 
-    	mov al, 0x20
-	out 0x20, al            ; oznameni, ze preruseni je u konce radici preruseni 
+        mov al, 0x20
+        out 0x20, al            ; oznameni, ze preruseni je u konce radici preruseni 
 
         popa                    ; obnovit vsechny registry
         sti                     ; povoleni maskovatelnych preruseni
