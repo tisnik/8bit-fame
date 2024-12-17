@@ -36,21 +36,21 @@ INT_4_VECTOR equ 4*4 ; adresa vektoru preruseni
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-    	xor  ax, ax
+        xor  ax, ax
         mov  es, ax
         mov  di, INT_4_VECTOR   ; ES:DI obsahuje adresu, na ktere je adresa obsluhy preruseni 4
 
         cli                     ; zakaz preruseni
-	lea  ax, int4_handler   ; zmena offsetove casti adresy
-	mov  es:[di], ax
+        lea  ax, int4_handler   ; zmena offsetove casti adresy
+        mov  es:[di], ax
 
-	mov  ax, cs             ; zmena segmentove casti adresy
-	mov  es:[di+2], ax
+        mov  ax, cs             ; zmena segmentove casti adresy
+        mov  es:[di+2], ax
         sti                     ; povoleni preruseni
 
         mov  al, 10
-	add  al, al             ; soucet dvou hodnot
-	into                    ; test na preteceni -> vyvolani preruseni
+        add  al, al             ; soucet dvou hodnot
+        into                    ; test na preteceni -> vyvolani preruseni
 
         print done_msg          ; vypis zpravy, ze koncime
 
@@ -59,7 +59,7 @@ start:
 
 int4_handler:                   ; obsluha preruseni cislo 4
         pusha                   ; ulozit vsechny registry
-    	print overflow_msg
+        print overflow_msg
         popa                    ; obnovit vsechny registry
         sti                     ; povoleni maskovatelnych preruseni
         iret                    ; navrat z preruseni
