@@ -41,7 +41,7 @@ IRQ_0_VECTOR equ 0x0020  ; adresa vektoru preruseni pro IRQ 0
 
 ; ulozeni puvodniho vektoru preruseni
 %macro store_original_vector 2
-    	xor  ax, ax
+        xor  ax, ax
         mov  es, ax
         mov  si, %1             ; ES:SI obsahuje adresu, na ktere je adresa obsluhy preruseni 0x08
         lea  di, %2
@@ -53,14 +53,14 @@ IRQ_0_VECTOR equ 0x0020  ; adresa vektoru preruseni pro IRQ 0
 
 ; obnoveni puvodniho vektoru preruseni
 %macro restore_original_vector 2
-    	xor  ax, ax
+        xor  ax, ax
         mov  es, ax
         cli                     ; zakaz preruseni
-	lea  si, %2             ; uloziste
+        lea  si, %2             ; uloziste
         mov  di, %1             ; adresa vektoru
-	mov  ax, cs:[si]        ; obnoveni puvodniho handleru
+        mov  ax, cs:[si]        ; obnoveni puvodniho handleru
         mov  es:[di], ax
-	mov  ax, cs:[si+2]
+        mov  ax, cs:[si+2]
         mov  es:[di+2], ax
         sti                     ; povoleni preruseni
 %endmacro
@@ -69,18 +69,18 @@ IRQ_0_VECTOR equ 0x0020  ; adresa vektoru preruseni pro IRQ 0
 %macro set_irq_handler 2
         mov  di, %1             ; ES:DI obsahuje adresu, na ktere je adresa obsluhy preruseni 0x08
         cli                     ; zakaz preruseni
-	lea  ax, %2             ; zmena offsetove casti adresy
-	mov  es:[di], ax
+        lea  ax, %2             ; zmena offsetove casti adresy
+        mov  es:[di], ax
 
-	mov  ax, cs             ; zmena segmentove casti adresy
-	mov  es:[di+2], ax
+        mov  ax, cs             ; zmena segmentove casti adresy
+        mov  es:[di+2], ax
         sti                     ; povoleni preruseni
 %endmacro
 
 ; oznameni, ze preruseni je u konce radici preruseni 
 %macro end_interrupt 0
-    	mov al, 0x20
-	out 0x20, al
+        mov al, 0x20
+        out 0x20, al
 %endmacro
 
 ;-----------------------------------------------------------------------------
