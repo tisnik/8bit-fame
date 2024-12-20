@@ -14,7 +14,7 @@
     14                                  org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
     15                                  
     16                                  start:
-    17 00000000 98                      	cbw
-    18 00000001 99                      	cwd
-    19 00000002 6698                    	cwde
-    20 00000004 6699                    	cdq
+    17 00000000 98                              cbw
+    18 00000001 99                              cwd
+    19 00000002 6698                            cwde
+    20 00000004 6699                            cdq
