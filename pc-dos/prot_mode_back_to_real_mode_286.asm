@@ -42,6 +42,9 @@ not_prot_mode:                 ; nenulovy bit? -> jsme v chranenem rezimu
     or   al, 1                 ; nastaveni priznaku chraneneho rezimu
     lmsw ax
 
+    jmp .flush_cache_1         ; vymazani instrukcni cache
+.flush_cache_1:
+
     ; nyni jsme v chranenem rezimu, ale bez nastavene tabulky deskriptoru
     ; prakticky jakykoli zapis zpusobi zamrznuti systemu!!!
 
@@ -49,7 +52,10 @@ not_prot_mode:                 ; nenulovy bit? -> jsme v chranenem rezimu
     ; toto nelze provest tak jednoduse, jak to vypada
     smsw ax
     and  al, ~1                ; zruseni priznaku chraneneho rezimu
+
     lmsw ax
+    jmp .flush_cache_2         ; vymazani instrukcni cache
+.flush_cache_2:
 
     sti
 
