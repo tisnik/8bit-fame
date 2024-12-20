@@ -37,6 +37,7 @@ start:
     jmp end
 not_prot_mode:                 ; nenulovy bit? -> jsme v chranenem rezimu
     print entering_protected_mode_msg
+    cli                        ; zakazat preruseni
 
     smsw ax
     or   al, 1                 ; nastaveni priznaku chraneneho rezimu
@@ -45,7 +46,7 @@ not_prot_mode:                 ; nenulovy bit? -> jsme v chranenem rezimu
     ; nyni jsme v chranenem rezimu, ale bez nastavene tabulky deskriptoru
     ; prakticky jakykoli zapis zpusobi zamrznuti systemu!!!
 
-    sti
+    sti                        ; povolit preruseni
 end:
     wait_key                   ; cekani na stisk klavesy
     exit                       ; navrat do DOSu

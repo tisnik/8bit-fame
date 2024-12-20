@@ -37,6 +37,7 @@ start:
     jmp end
 not_prot_mode:                 ; nenulovy bit? -> jsme v chranenem rezimu
     print entering_protected_mode_msg
+    cli                        ; zakazat preruseni
 
     mov eax, cr0
     or  al, 1                  ; nastaveni priznaku chraneneho rezimu
@@ -55,7 +56,7 @@ not_prot_mode:                 ; nenulovy bit? -> jsme v chranenem rezimu
     jmp .flush_cache_2         ; vymazani instrukcni cache
 .flush_cache_2:
 
-    sti
+    sti                        ; povolit preruseni
 
     print back_in_real_mode_msg
 end:
