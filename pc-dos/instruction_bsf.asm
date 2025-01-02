@@ -56,7 +56,7 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
         mov  ebx, 0x00030000 ; nastavení bitu
-	bsf  eax, ebx        ; vyhledání prvního nenulového bitu
+        bsf  eax, ebx        ; vyhledání prvního nenulového bitu
         print_hex al         ; výsledek je v EAX, ovšem nám stačí jen AL
 
         wait_key
