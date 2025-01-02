@@ -26,15 +26,15 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 start:
         mov  al, 1
         mov  ah, 1
-	add  ah, al
+        add  ah, al
 
         mov  ax, 1
         mov  bx, 1
-	add  ax, bx
+        add  ax, bx
 
         mov  eax, 1
         mov  ebx, 1
-	add  eax, ebx
+        add  eax, ebx
 
         wait_key
         exit
