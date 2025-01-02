@@ -36,16 +36,16 @@ INT_5_VECTOR equ 5*4 ; adresa vektoru preruseni
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-    	xor  ax, ax
+        xor  ax, ax
         mov  es, ax
         mov  di, INT_5_VECTOR   ; ES:DI obsahuje adresu, na ktere je adresa obsluhy preruseni 5
 
         cli                     ; zakaz preruseni
-	lea  ax, int5_handler   ; zmena offsetove casti adresy
-	mov  es:[di], ax
+        lea  ax, int5_handler   ; zmena offsetove casti adresy
+        mov  es:[di], ax
 
-	mov  ax, cs             ; zmena segmentove casti adresy
-	mov  es:[di+2], ax
+        mov  ax, cs             ; zmena segmentove casti adresy
+        mov  es:[di+2], ax
         sti                     ; povoleni preruseni
 
         mov  ax, 99             ; nacteni indexu
@@ -64,7 +64,7 @@ start:
 
 int5_handler:                   ; obsluha preruseni cislo 5
         pusha                   ; ulozit vsechny registry
-    	print index_out_of_bounds_msg
+        print index_out_of_bounds_msg
         popa                    ; obnovit vsechny registry
         pop ax
         add ax, 4               ; preskocit samotnou instrukci BOUND
