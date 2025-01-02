@@ -26,15 +26,15 @@
     26                                  start:
     27 00000000 B001                            mov  al, 1
     28 00000002 B401                            mov  ah, 1
-    29 00000004 00C4                    	add  ah, al
+    29 00000004 00C4                            add  ah, al
     30                                  
     31 00000006 B80100                          mov  ax, 1
     32 00000009 BB0100                          mov  bx, 1
-    33 0000000C 01D8                    	add  ax, bx
+    33 0000000C 01D8                            add  ax, bx
     34                                  
     35 0000000E 66B801000000                    mov  eax, 1
     36 00000014 66BB01000000                    mov  ebx, 1
-    37 0000001A 6601D8                  	add  eax, ebx
+    37 0000001A 6601D8                          add  eax, ebx
     38                                  
     39                                          wait_key
     19 0000001D 31C0                <1>  xor ax, ax
