@@ -55,7 +55,7 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
         mov  ah, 0x40  ; cislo sluzby -> stav EMS
-	int  0x67      ; zavolani sluzby EMS
+        int  0x67      ; zavolani sluzby EMS
 
         mov  al, ah    ; stav sluzby
         print_hex al
