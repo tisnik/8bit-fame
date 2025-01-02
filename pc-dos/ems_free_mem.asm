@@ -55,19 +55,19 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
         mov  ah, 0x42  ; cislo sluzby -> pocet stranek pameti
-	int  0x67      ; zavolani sluzby EMS
+        int  0x67      ; zavolani sluzby EMS
 
         push bx
-	mov  al, ah
+        mov  al, ah
         print_hex al   ; stav EMS
 
-	pop  bx
+        pop  bx
         push bx
-	mov  al, dh    ; volnych stranek (vyssi bajt)
+        mov  al, dh    ; volnych stranek (vyssi bajt)
         print_hex al
 
-	pop  bx
-	mov  al, dl    ; volnych stranek (nizsi bajt)
+        pop  bx
+        mov  al, dl    ; volnych stranek (nizsi bajt)
         print_hex al
 
         wait_key
