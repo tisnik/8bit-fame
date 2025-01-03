@@ -25,20 +25,20 @@ CPU 386         ; specifikace pouziteho instrukcniho souboru
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-	mov  ax, ds
-	mov  ax, es
-	mov  ax, fs
-	mov  ax, gs
-	mov  ax, ss
-	mov  ax, cs
+        mov  ax, ds
+        mov  ax, es
+        mov  ax, fs
+        mov  ax, gs
+        mov  ax, ss
+        mov  ax, cs
 
-	xor  ax, ax
-	mov  ds, ax
-	mov  es, ax
-	mov  fs, ax
-	mov  gs, ax
-	mov  ss, ax
-	mov  cs, ax  ; toto neni dobry napad!!!
+        xor  ax, ax
+        mov  ds, ax
+        mov  es, ax
+        mov  fs, ax
+        mov  gs, ax
+        mov  ss, ax
+        mov  cs, ax  ; toto neni dobry napad!!!
 
         wait_key
         exit
