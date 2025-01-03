@@ -24,14 +24,14 @@ CPU 386         ; specifikace pouziteho instrukcniho souboru
 org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
-	xor  al, al
-	inc  al
+        xor  al, al
+        inc  al
 
         xor  ax, ax
-	inc  ax
+        inc  ax
 
-	xor  eax, eax
-	inc  eax
+        xor  eax, eax
+        inc  eax
 
         wait_key
         exit
