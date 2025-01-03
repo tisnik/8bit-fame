@@ -56,7 +56,7 @@
     56                                  
     57                                  start:
     58 00000000 66BB00000300                    mov  ebx, 0x00030000 ; nastavení bitu
-    59 00000006 660FBDC3                	bsr  eax, ebx        ; vyhledání prvního nenulového bitu
+    59 00000006 660FBDC3                        bsr  eax, ebx        ; vyhledání prvního nenulového bitu
     60                                          print_hex al         ; výsledek je v EAX, ovšem nám stačí jen AL
     33 0000000A BB[3800]            <1>  mov bx, hex_digits
     34 0000000D 88C1                <1>  mov cl, %1
