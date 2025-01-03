@@ -24,14 +24,14 @@
     24                                  org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
     25                                  
     26                                  start:
-    27 00000000 30C0                    	xor  al, al
-    28 00000002 FEC0                    	inc  al
+    27 00000000 30C0                            xor  al, al
+    28 00000002 FEC0                            inc  al
     29                                  
     30 00000004 6631C0                          xor  ax, ax
-    31 00000007 6640                    	inc  ax
+    31 00000007 6640                            inc  ax
     32                                  
-    33 00000009 31C0                    	xor  eax, eax
-    34 0000000B 40                      	inc  eax
+    33 00000009 31C0                            xor  eax, eax
+    34 0000000B 40                              inc  eax
     35                                  
     36                                          wait_key
     19 0000000C 6631C0              <1>  xor ax, ax
