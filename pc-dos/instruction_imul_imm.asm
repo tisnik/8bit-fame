@@ -56,7 +56,7 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
         xor  ax, ax        ; výsledný registr
-	mov  bx, 0x03      ; první operand
+        mov  bx, 0x03      ; první operand
         imul ax, bx, 2     ; násobení konstantou
         print_hex al       ; výsledek je v AX
 
