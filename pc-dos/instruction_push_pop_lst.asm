@@ -25,13 +25,13 @@
     25                                  
     26                                  start:
     27 00000000 0E                              push cs
-    28 00000001 1E                      	push ds
-    29 00000002 16                      	push ss
-    30 00000003 06                      	push es
+    28 00000001 1E                              push ds
+    29 00000002 16                              push ss
+    30 00000003 06                              push es
     31                                  
-    32 00000004 07                      	pop  es
-    33 00000005 17                      	pop  ss
-    34 00000006 1F                      	pop  ds
+    32 00000004 07                              pop  es
+    33 00000005 17                              pop  ss
+    34 00000006 1F                              pop  ds
     35 00000007 0F                              pop  cs
     35          ******************       warning: instruction obsolete and removed from the target CPU [-w+obsolete-removed]
     36                                  
