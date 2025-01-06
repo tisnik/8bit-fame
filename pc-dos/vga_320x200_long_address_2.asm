@@ -66,17 +66,17 @@ start:
         mov esi, image      ; nyni dvojice DS:ESI obsahuje adresu prvniho bajtu v obrazku
 
         mov ax, 0xa000      ; (lze i PUSH 0xa000 + POP ES)
-	mov es, ax
+        mov es, ax
         xor edi, edi        ; nyni dvojice ES:EDI obsahuje adresu prvniho pixelu ve video RAM   
 
         mov cx, 320*200/4   ; pocet zapisovanych 32bitovych slov (=ctveric pixelu)
 
 move_loop:                  ; prenos celeho obrazku po 32bitovych slovech
-	mov eax, ds:[esi]   ; nacteni ctyr bajtu
-	mov es:[edi], eax   ; ulozeni ctyr bajtu
-	add esi, 4          ; posun offsetu
-	add edi, 4
-	loop move_loop      ; opakujeme
+        mov eax, ds:[esi]   ; nacteni ctyr bajtu
+        mov es:[edi], eax   ; ulozeni ctyr bajtu
+        add esi, 4          ; posun offsetu
+        add edi, 4
+        loop move_loop      ; opakujeme
 
         wait_key            ; cekani na klavesu
         exit                ; navrat do DOSu
