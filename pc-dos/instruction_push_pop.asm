@@ -25,13 +25,13 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
         push cs
-	push ds
-	push ss
-	push es
+        push ds
+        push ss
+        push es
 
-	pop  es
-	pop  ss
-	pop  ds
+        pop  es
+        pop  ss
+        pop  ds
         pop  cs
 
         wait_key
