@@ -30,9 +30,7 @@ CPU  386        ; specifikace pouziteho instrukcniho souboru
 %endmacro
 
 ;-----------------------------------------------------------------------------
-
-bits 16
-org 0x100
+org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 start:
     smsw ax                    ; prenos MSW do registru AX
@@ -44,7 +42,7 @@ start:
 
 not_prot_mode:                 ; nenulovy bit? -> jsme v chranenem rezimu
     print entering_protected_mode_msg
-    cli
+    cli                        ; zakazat preruseni
 
     ; nastaveni globalni tabulky deskriptoru
     mov eax, ds                ; adresa ulozena v DS (nasobime sestnacti)
@@ -83,7 +81,7 @@ not_prot_mode:                 ; nenulovy bit? -> jsme v chranenem rezimu
     mov ss, cx                 ; obnoveni segmentovych registru
     mov ds, cx
 
-    sti
+    sti                        ; povolit preruseni
 
     print back_in_real_mode_msg
 
