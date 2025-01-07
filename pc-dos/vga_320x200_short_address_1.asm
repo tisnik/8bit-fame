@@ -66,11 +66,11 @@ start:
         mov si, image       ; nyni dvojice DS:SI obsahuje adresu prvniho bajtu v obrazku
 
         mov ax, 0xa000      ; (lze i PUSH 0xa000 + POP ES)
-	mov es, ax
+        mov es, ax
         xor di, di          ; nyni dvojice ES:DI obsahuje adresu prvniho pixelu ve video RAM   
 
         mov cx, 320*200/2   ; pocet zapisovanych 16bitovych slov (=dvojic pixelu)
-	rep movsw           ; prenos celeho obrazku po 16bitovych slovech 
+        rep movsw           ; prenos celeho obrazku po 16bitovych slovech 
 
         wait_key            ; cekani na stisk klavesy
         exit                ; navrat do DOSu
