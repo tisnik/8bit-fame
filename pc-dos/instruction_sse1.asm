@@ -60,10 +60,10 @@ start:
         exit
 
 mem:
-	dd 0.00
-	dd -0.00
-	dd 1.0
-	dd 2.0
+        dd 0.00
+        dd -0.00
+        dd 1.0
+        dd 2.0
 
         ; retezec ukonceny znakem $
         ; (tato data jsou soucasti vysledneho souboru typu COM)
