@@ -15,10 +15,10 @@ start:
 %include "print.asm"         ; nacist symboly, makra a podprogramy
 
 main:
-	fldz                 ; nacteni FP konstanty 0.0
-	fldz                 ; nacteni FP konstanty 0.0
-	fdivp                ; vypocet podilu
-	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+        fldz                 ; nacteni FP konstanty 0.0
+        fldz                 ; nacteni FP konstanty 0.0
+        fdivp                ; vypocet podilu
+        print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
 
         wait_key             ; cekani na klavesu
         exit                 ; navrat do DOSu
