@@ -16,13 +16,13 @@ start:
 
 main:
         fldz                 ; nacteni FP konstanty 0.0
-	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+        print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
 
         fld1                 ; nacteni FP konstanty 1.0
-	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+        print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
 
         fldpi                ; nacteni FP konstanty Pi
-	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+        print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
 
         wait_key             ; cekani na klavesu
         exit                 ; navrat do DOSu
