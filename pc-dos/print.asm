@@ -41,16 +41,16 @@
 ; makro pro vypis obsahu FP hodnoty z vrcholu zasobniku ve forme hexadecimalniho cisla
 %macro print_float32_as_hex 0
         fstp dword [float32] ; ulozeni do pameti (4 bajty)
-	mov  eax, [float32]  ; nacteni FP hodnoty do celociselneho registru
+        mov  eax, [float32]  ; nacteni FP hodnoty do celociselneho registru
         print_hex eax        ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
 %endmacro
 
 ; makro pro vypis obsahu FP hodnoty z vrcholu zasobniku ve forme hexadecimalniho cisla
 %macro print_float64_as_hex 0
         fstp qword [float64] ; ulozeni do pameti (8 bajtu)
-	mov  eax, [float64+4]; nacteni FP hodnoty do celociselneho registru
+        mov  eax, [float64+4]; nacteni FP hodnoty do celociselneho registru
         print_hex eax        ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
-	mov  eax, [float64]  ; nacteni FP hodnoty do celociselneho registru
+        mov  eax, [float64]  ; nacteni FP hodnoty do celociselneho registru
         print_hex eax        ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
 %endmacro
 
