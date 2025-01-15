@@ -1,4 +1,5 @@
 ;-----------------------------------------------------------------------------
+; Zakladni aritmeticke operace provadene matematickym koprocesorem.
 ;
 ; Tento demonstracni priklad je pouzity v serialu o programovani
 ; grafickych dem a her na PC v DOSu:
