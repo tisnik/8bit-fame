@@ -1,4 +1,9 @@
 ; Precteni stavoveho slova matematickeho koprocesoru
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Matematické koprocesory na platformě 80×86 prakticky
+; https://www.root.cz/clanky/matematicke-koprocesory-na-platforme-80x86-prakticky/
+;
 ;-----------------------------------------------------------------------------
 
 BITS 16         ; 16bitovy vystup pro DOS
