@@ -1,4 +1,5 @@
 ;-----------------------------------------------------------------------------
+; Nacteni zakladnich FP konstant typu single do zasobniku matematickeho koprocesoru.
 ;
 ; Tento demonstracni priklad je pouzity v serialu o programovani
 ; grafickych dem a her na PC v DOSu:
