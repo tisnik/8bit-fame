@@ -21,9 +21,9 @@ start:
 
 main:
         fld1                 ; nacteni FP konstanty 1.0
-	fchs                 ; zmena znamenka
-	fsqrt                ; vypocet druhe odmocniny
-	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+        fchs                 ; zmena znamenka
+        fsqrt                ; vypocet druhe odmocniny
+        print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
 
         wait_key             ; cekani na klavesu
         exit                 ; navrat do DOSu
