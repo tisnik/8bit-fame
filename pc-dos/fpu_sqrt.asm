@@ -21,18 +21,18 @@ start:
 
 main:
         fldz                 ; nacteni FP konstanty 0.0
-	fsqrt                ; vypocet druhe odmocniny
-	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+        fsqrt                ; vypocet druhe odmocniny
+        print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
 
         fld1                 ; nacteni FP konstanty 1.0
-	fsqrt                ; vypocet druhe odmocniny
-	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+        fsqrt                ; vypocet druhe odmocniny
+        print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
 
         fld1                 ; nacteni FP konstanty 1.0
         fld1                 ; nacteni FP konstanty 1.0
-	faddp                ; soucet -> na zasobnik se ulozi hodnota 2.0
-	fsqrt                ; vypocet druhe odmocniny
-	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+        faddp                ; soucet -> na zasobnik se ulozi hodnota 2.0
+        fsqrt                ; vypocet druhe odmocniny
+        print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
 
         wait_key             ; cekani na klavesu
         exit                 ; navrat do DOSu
