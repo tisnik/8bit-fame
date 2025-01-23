@@ -165,8 +165,8 @@
     12                                  
     13                                  main:
     14 0000005E D9EE                            fldz                 ; nacteni FP konstanty 0.0
-    15 00000060 D9FA                    	fsqrt                ; vypocet druhe odmocniny
-    16                                  	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+    15 00000060 D9FA                            fsqrt                ; vypocet druhe odmocniny
+    16                                          print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
     43 00000062 D91E[5200]          <1>  fstp dword [float32]
     44 00000066 66A1[5200]          <1>  mov eax, [float32]
     45                              <1>  print_hex eax
@@ -181,8 +181,8 @@
     28 0000007E 61                  <2>  popa
     17                                  
     18 0000007F D9E8                            fld1                 ; nacteni FP konstanty 1.0
-    19 00000081 D9FA                    	fsqrt                ; vypocet druhe odmocniny
-    20                                  	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+    19 00000081 D9FA                            fsqrt                ; vypocet druhe odmocniny
+    20                                          print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
     43 00000083 D91E[5200]          <1>  fstp dword [float32]
     44 00000087 66A1[5200]          <1>  mov eax, [float32]
     45                              <1>  print_hex eax
@@ -198,9 +198,9 @@
     21                                  
     22 000000A0 D9E8                            fld1                 ; nacteni FP konstanty 1.0
     23 000000A2 D9E8                            fld1                 ; nacteni FP konstanty 1.0
-    24 000000A4 DEC1                    	faddp                ; soucet -> na zasobnik se ulozi hodnota 2.0
-    25 000000A6 D9FA                    	fsqrt                ; vypocet druhe odmocniny
-    26                                  	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+    24 000000A4 DEC1                            faddp                ; soucet -> na zasobnik se ulozi hodnota 2.0
+    25 000000A6 D9FA                            fsqrt                ; vypocet druhe odmocniny
+    26                                          print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
     43 000000A8 D91E[5200]          <1>  fstp dword [float32]
     44 000000AC 66A1[5200]          <1>  mov eax, [float32]
     45                              <1>  print_hex eax
