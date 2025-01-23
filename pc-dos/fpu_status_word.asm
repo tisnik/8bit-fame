@@ -21,8 +21,8 @@ start:
 main:
         fninit                     ; inicializace koprocesoru
         fnstsw word [test_word]    ; ulozeni stavoveho slova
-	mov ax, word [test_word]
-	print_hex_16 ax            ; tisk stavoveho slova v hexadecimalnim formatu
+        mov ax, word [test_word]
+        print_hex_16 ax            ; tisk stavoveho slova v hexadecimalnim formatu
 
         wait_key                   ; cekani na klavesu
         exit                       ; navrat do DOSu
