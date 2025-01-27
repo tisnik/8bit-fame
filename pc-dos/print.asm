@@ -17,6 +17,17 @@
         int     0x21
 %endmacro
 
+; makro pro tisk 16bitove hexadecimalni hodnoty
+; na standardni vystup
+%macro print_hex_16 1
+        pusha                         ; uchovat vsechny registry
+        mov     dx, %1                ; zapamatovat si hodnotu pro tisk
+        mov     ebx, hex_message      ; buffer, ktery se zaplni hexa cislicemi
+        call    hex2string            ; zavolani prislusne subrutiny
+        print_string 4+hex_message    ; tisk hexadecimalni hodnoty
+        popa                          ; obnovit vsechny registry
+%endmacro
+
 ; makro pro tisk 32bitove hexadecimalni hodnoty
 ; na standardni vystup
 %macro print_hex 1
