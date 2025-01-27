@@ -165,10 +165,10 @@
     12                                  
     13                                  main:
     14 0000005E D9E8                            fld1                 ; nacteni FP konstanty 1.0
-    15 00000060 D9EE                    	fldz                 ; nacteni FP konstanty 0.0
-    16 00000062 D9E0                    	fchs                 ; zmena znamenka
-    17 00000064 DEF9                    	fdivp                ; vypocet podilu
-    18                                  	print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
+    15 00000060 D9EE                            fldz                 ; nacteni FP konstanty 0.0
+    16 00000062 D9E0                            fchs                 ; zmena znamenka
+    17 00000064 DEF9                            fdivp                ; vypocet podilu
+    18                                          print_float32_as_hex ; zobrazeni FP hodnoty v hexadecimalnim tvaru
     43 00000066 D91E[5200]          <1>  fstp dword [float32]
     44 0000006A 66A1[5200]          <1>  mov eax, [float32]
     45                              <1>  print_hex eax
