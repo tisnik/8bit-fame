@@ -1,5 +1,15 @@
+;-----------------------------------------------------------------------------
 ; Precteni stavoveho slova matematickeho koprocesoru
 ; Zapis do registru FLAGS.
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; Matematické koprocesory na platformě x86: vše se komplikuje
+; https://www.root.cz/clanky/matematicke-koprocesory-na-platforme-x86-vse-se-komplikuje/
+;
 ;-----------------------------------------------------------------------------
 
 BITS 16         ; 16bitovy vystup pro DOS
