@@ -1,3 +1,13 @@
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; SIMD instrukce na platformě 80×86: nepřímý důsledek platnosti Mooreova zákona
+; https://www.root.cz/clanky/simd-instrukce-na-platforme-80x86-neprimy-dusledek-platnosti-mooreova-zakona/
+;
+
 [bits 32]
  
 %include "linux_macros.asm"
