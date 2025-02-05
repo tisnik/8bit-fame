@@ -1,4 +1,9 @@
+;-----------------------------------------------------------------------------
 ; Precteni stavoveho slova matematickeho koprocesoru
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
 ;
 ; Clanek, kde je tento demonstracni priklad pouzit:
 ; Matematické koprocesory na platformě 80×86 prakticky
