@@ -1,7 +1,7 @@
 ASM=nasm
 LINKER=ld
 
-execs := mmx_support mmx_init mmx_paddb_1 mmx_paddb_2 mmx_paddw mmx_paddd mmx_paddq mmx_paddusb mmx_paddx
+execs := mmx_support mmx_init mmx_paddb_1 mmx_paddb_2 mmx_paddw mmx_paddd mmx_paddq mmx_paddusb mmx_paddx mmx_paddx_saturation
 
 all:	$(execs)
 
@@ -35,6 +35,9 @@ mmx_paddq:	mmx_paddq.o
 	ld -melf_i386 $< -o $@
 
 mmx_paddx:	mmx_paddx.o
+	ld -melf_i386 $< -o $@
+
+mmx_paddx_saturation:	mmx_paddx_saturation.o
 	ld -melf_i386 $< -o $@
 
 mmx_paddusb:	mmx_paddusb.o
