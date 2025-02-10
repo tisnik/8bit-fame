@@ -17,8 +17,8 @@ hex2string:
 
 .store_digit:     add al, '0'
                   mov [ebx], al             ; ulozeni cifry do retezce
-		  inc ebx                   ; dalsi cifra
-		  loop .print_one_digit     ; a opakovani smycky, dokud se nedosahlo nuly
+                  inc ebx                   ; dalsi cifra
+                  loop .print_one_digit     ; a opakovani smycky, dokud se nedosahlo nuly
 
                   ret                       ; navrat ze subrutiny
 
