@@ -52,10 +52,10 @@ section .text
         global _start                ; tento symbol ma byt dostupny i linkeru
 
 _start:
-	perform_maddwd mmx_val_1, mmx_val_2
-	perform_maddwd mmx_val_3, mmx_val_4
-	perform_maddwd mmx_val_5, mmx_val_6
-	perform_maddwd mmx_val_7, mmx_val_8
+        perform_maddwd mmx_val_1, mmx_val_2
+        perform_maddwd mmx_val_3, mmx_val_4
+        perform_maddwd mmx_val_5, mmx_val_6
+        perform_maddwd mmx_val_7, mmx_val_8
 
         exit                         ; ukonceni procesu
 
