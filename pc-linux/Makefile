@@ -3,7 +3,7 @@ LINKER=ld
 
 execs := mmx_support mmx_init \
 	 mmx_paddb_1 mmx_paddb_2 mmx_paddw mmx_paddd mmx_paddq mmx_paddusb mmx_paddx mmx_paddx_saturation \
-	 mmx_psubx mmx_pmullw_1 mmx_pmullw_2 mmx_pmulhw
+	 mmx_psubx mmx_pmullw_1 mmx_pmullw_2 mmx_pmulhw mmx_pmaddwd mmx_logical
 
 all:	$(execs)
 
@@ -55,4 +55,10 @@ mmx_pmullw_2:	mmx_pmullw_2.o
 	ld -melf_i386 $< -o $@
 
 mmx_pmulhw:	mmx_pmulhw.o
+	ld -melf_i386 $< -o $@
+
+mmx_pmaddwd:	mmx_pmaddwd.o
+	ld -melf_i386 $< -o $@
+
+mmx_logical:	mmx_logical.o
 	ld -melf_i386 $< -o $@
