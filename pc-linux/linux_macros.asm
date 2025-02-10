@@ -22,10 +22,10 @@ sys_write equ 4
         push ebx                    ; uschovat EBX pro dalsi pouziti
         mov     edx, %1             ; zapamatovat si hodnotu pro tisk
         mov     ebx, hex_message    ; buffer, ktery se zaplni hexa cislicemi
-	mov     byte [ebx+8], %2    ; oddelovac, konec radku, atd.
+        mov     byte [ebx+8], %2    ; oddelovac, konec radku, atd.
         call    hex2string          ; zavolani prislusne subrutiny
         print_string   hex_message, hex_message_length    ; tisk hexadecimalni hodnoty
-	pop ebx                     ; obnovit EBX
+        pop ebx                     ; obnovit EBX
 %endmacro
 
 
