@@ -3,6 +3,11 @@
 ; grafickych dem a her na PC v DOSu:
 ; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
 ;
+; Clanek, kde je tento demonstracni priklad pouzit:
+; SIMD instrukce na platformě 80×86: instrukční sada MMX
+; https://www.root.cz/clanky/simd-instrukce-na-platforme-80x86-instrukcni-sada-mmx/
+;
+
 [bits 32]
  
 %include "linux_macros.asm"
