@@ -3,7 +3,11 @@ LINKER=ld
 
 execs := mmx_support mmx_init \
 	 mmx_paddb_1 mmx_paddb_2 mmx_paddw mmx_paddd mmx_paddq mmx_paddusb mmx_paddx mmx_paddx_saturation \
-	 mmx_psubx mmx_pmullw_1 mmx_pmullw_2 mmx_pmulhw mmx_pmaddwd mmx_logical
+	 mmx_psubx mmx_pmullw_1 mmx_pmullw_2 mmx_pmulhw mmx_pmaddwd mmx_logical \
+	 mmx_shift_left mmx_shift_right mmx_arithmetic_right \
+	 mmx_cmpeq mmx_cmpgt \
+	 mmx_unpack_bytes mmx_unpack_words mmx_unpack_dwords \
+	 mmx_pack_into_bytes_1 mmx_pack_into_bytes_2
 
 all:	$(execs)
 
@@ -62,3 +66,34 @@ mmx_pmaddwd:	mmx_pmaddwd.o
 
 mmx_logical:	mmx_logical.o
 	ld -melf_i386 $< -o $@
+
+mmx_shift_left:	mmx_shift_left.o
+	ld -melf_i386 $< -o $@
+
+mmx_shift_right:	mmx_shift_right.o
+	ld -melf_i386 $< -o $@
+
+mmx_arithmetic_right:	mmx_arithmetic_right.o
+	ld -melf_i386 $< -o $@
+
+mmx_cmpeq:	mmx_cmpeq.o
+	ld -melf_i386 $< -o $@
+
+mmx_cmpgt:	mmx_cmpgt.o
+	ld -melf_i386 $< -o $@
+
+mmx_unpack_bytes:	mmx_unpack_bytes.o
+	ld -melf_i386 $< -o $@
+
+mmx_unpack_words:	mmx_unpack_words.o
+	ld -melf_i386 $< -o $@
+
+mmx_unpack_dwords:	mmx_unpack_dwords.o
+	ld -melf_i386 $< -o $@
+
+mmx_pack_into_bytes_1:	mmx_pack_into_bytes_1.o
+	ld -melf_i386 $< -o $@
+
+mmx_pack_into_bytes_2:	mmx_pack_into_bytes_2.o
+	ld -melf_i386 $< -o $@
+
