@@ -39,6 +39,20 @@ sys_write equ 4
         print_hex eax, 0x0a         ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
 %endmacro
  
+; makro pro vypis obsahu SSE vektoru
+%macro print_sse_reg_as_hex 1
+        mov  ebx, sse_tmp           ; adresa bufferu
+        movups [ebx], %1            ; ulozeni do pameti (16 bajtu)
+        mov  eax, [ebx+12]          ; nacteni casti SSE vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx+8]           ; nacteni casti SSE vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx+4]           ; nacteni casti SSE vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx]             ; nacteni casti SSE vektoru do celociselneho registru
+        print_hex eax, 0x0a         ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+%endmacro
+ 
 
 ; makro pro ukonceni procesu 
 %macro exit 0
