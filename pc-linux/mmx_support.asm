@@ -17,8 +17,8 @@ section .data
 
 hex_message:
          times 8 db '?'
-	 db ' '
-	 hex_message_length equ $ - hex_message
+         db ' '
+         hex_message_length equ $ - hex_message
 
 
 ;-----------------------------------------------------------------------------
@@ -33,26 +33,26 @@ section .text
 
 _start:
         ; ziskani indexu nejvyssi volatelne funkce CPUID
-	xor eax, eax                 ; nulta kategorie
-	cpuid
-	mov     edx, eax             ; hodnota, ktera se ma vytisknout
+        xor eax, eax                 ; nulta kategorie
+        cpuid
+        mov     edx, eax             ; hodnota, ktera se ma vytisknout
         mov     ebx, hex_message     ; buffer, ktery se zaplni hexa cislicemi
         call    hex2string           ; zavolani prislusne subrutiny
         print_string   hex_message, hex_message_length    ; tisk hexadecimalni hodnoty
 
         ; test podpory MMX
-	mov eax, 1                   ; prvni kategorie
-	cpuid
+        mov eax, 1                   ; prvni kategorie
+        cpuid
         mov     ebx, hex_message     ; buffer, ktery se zaplni hexa cislicemi
         call    hex2string           ; zavolani prislusne subrutiny
         print_string   hex_message, hex_message_length    ; tisk hexadecimalni hodnoty
 
         ; vypis CPU ID
-	xor eax, eax                 ; nulta kategorie
-	cpuid
-	mov [id_string], ebx         ; prvni ctyri znaky ID
-	mov [id_string+4], edx       ; dalsi ctyri znaky ID
-	mov [id_string+8], ecx       ; posledni ctyri znaky ID
+        xor eax, eax                 ; nulta kategorie
+        cpuid
+        mov [id_string], ebx         ; prvni ctyri znaky ID
+        mov [id_string+4], edx       ; dalsi ctyri znaky ID
+        mov [id_string+8], ecx       ; posledni ctyri znaky ID
         print_string id_string, 12   ; tisk 12 znaku CPU ID
 
         exit                         ; ukonceni procesu
