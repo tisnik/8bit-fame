@@ -16,20 +16,20 @@ section .data
 
 hex_message:
          times 8 db '?'
-	 db ' '
-	 hex_message_length equ $ - hex_message
+         db ' '
+         hex_message_length equ $ - hex_message
  
 psllw_message:
          db 0x0a, "psllw:", 0x0a
-	 psllw_message_length equ $ - psllw_message
+         psllw_message_length equ $ - psllw_message
  
 pslld_message:
          db 0x0a, "pslld:", 0x0a
-	 pslld_message_length equ $ - pslld_message
+         pslld_message_length equ $ - pslld_message
  
 psllq_message:
          db 0x0a, "psllq:", 0x0a
-	 psllq_message_length equ $ - psllq_message
+         psllq_message_length equ $ - psllq_message
  
  
 mmx_val db 0, 1, 2, 0xff, 0x00, 0xff, 0xff, 0x00
@@ -44,26 +44,26 @@ section .text
         global _start                ; tento symbol ma byt dostupny i linkeru
 
 _start:
-	emms                         ; inicializace MMX
-	mov ebx, mmx_val
-	movq mm1, [ebx]              ; nacteni prvni hodnoty do registru MM1
-	print_mmx_reg_as_hex mm1     ; tisk hodnoty registru MM1
+        emms                         ; inicializace MMX
+        mov ebx, mmx_val
+        movq mm1, [ebx]              ; nacteni prvni hodnoty do registru MM1
+        print_mmx_reg_as_hex mm1     ; tisk hodnoty registru MM1
 
         movq mm2, mm1                ; zapamatovat si hodnotu pro další použití
 
-	psllw mm1, 1                 ; logicky posun doleva o jeden bit
+        psllw mm1, 1                 ; logicky posun doleva o jeden bit
         print_string psllw_message, psllw_message_length
-	print_mmx_reg_as_hex mm1     ; tisk hodnoty registru MM1
+        print_mmx_reg_as_hex mm1     ; tisk hodnoty registru MM1
 
         movq mm1, mm2                ; obnovit hodnotu registru mm1
-	pslld mm1, 1                 ; logicky posun doleva o jeden bit
+        pslld mm1, 1                 ; logicky posun doleva o jeden bit
         print_string pslld_message, pslld_message_length
-	print_mmx_reg_as_hex mm1     ; tisk hodnoty registru MM1
+        print_mmx_reg_as_hex mm1     ; tisk hodnoty registru MM1
 
         movq mm1, mm2                ; obnovit hodnotu registru mm1
-	psllq mm1, 1                 ; logicky posun doleva o jeden bit
+        psllq mm1, 1                 ; logicky posun doleva o jeden bit
         print_string psllq_message, psllq_message_length
-	print_mmx_reg_as_hex mm1     ; tisk hodnoty registru MM1
+        print_mmx_reg_as_hex mm1     ; tisk hodnoty registru MM1
 
         exit                         ; ukonceni procesu
 
