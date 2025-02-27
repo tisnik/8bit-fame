@@ -12,5 +12,18 @@
  
 ;-----------------------------------------------------------------------------
 section .text
-        movaps xmm0, [ebx]           ; nacteni prvni hodnoty do registru XMM0
-        addps xmm0, xmm1             ; soucet vektoru
+        movups xmm0, [ebx]           ; nacteni hodnoty do registru XMM0
+        movaps xmm0, [ebx]           ; nacteni hodnoty do registru XMM0
+	movups xmm0, xmm1            ; prenosy mezi registry
+        addps xmm0, xmm1             ; soucet prvku vektoru
+        addss xmm0, xmm1             ; skalarni soucet
+        subps xmm0, xmm1             ; rozdil prvku vektoru
+        subss xmm0, xmm1             ; rozdil skalaru
+        mulps xmm0, xmm1             ; soucin prvku vektoru
+        mulss xmm0, xmm1             ; soucin skalaru
+        divps xmm0, xmm1             ; podil prvku vektoru
+        divss xmm0, xmm1             ; podil skalaru
+        maxps xmm0, xmm1             ; vyber vetsich prvku
+        maxss xmm0, xmm1             ; vyber vetsich skalaru
+        minps xmm0, xmm1             ; vyber mensich prvku
+        maxss xmm0, xmm1             ; vyber mensich skalaru
