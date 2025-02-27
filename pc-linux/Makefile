@@ -7,7 +7,8 @@ execs := mmx_support mmx_init \
 	 mmx_shift_left mmx_shift_right mmx_arithmetic_right \
 	 mmx_cmpeq mmx_cmpgt \
 	 mmx_unpack_bytes mmx_unpack_words mmx_unpack_dwords \
-	 mmx_pack_into_bytes_1 mmx_pack_into_bytes_2
+	 mmx_pack_into_bytes_1 mmx_pack_into_bytes_2 \
+	 sse_support sse_value_unaligned_1 sse_value_unaligned_2 sse_value_aligned sse_addps sse_addss
 
 all:	$(execs)
 
@@ -97,3 +98,20 @@ mmx_pack_into_bytes_1:	mmx_pack_into_bytes_1.o
 mmx_pack_into_bytes_2:	mmx_pack_into_bytes_2.o
 	ld -melf_i386 $< -o $@
 
+sse_support:	sse_support.o
+	ld -melf_i386 $< -o $@
+
+sse_value_unaligned_1:	sse_value_unaligned_1.o
+	ld -melf_i386 $< -o $@
+
+sse_value_unaligned_2:	sse_value_unaligned_2.o
+	ld -melf_i386 $< -o $@
+
+sse_value_aligned:	sse_value_aligned.o
+	ld -melf_i386 $< -o $@
+
+sse_addps:	sse_addps.o
+	ld -melf_i386 $< -o $@
+
+sse_addss:	sse_addss.o
+	ld -melf_i386 $< -o $@
