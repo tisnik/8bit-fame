@@ -14,7 +14,7 @@
 section .text
         movups xmm0, [ebx]           ; nacteni hodnoty do registru XMM0
         movaps xmm0, [ebx]           ; nacteni hodnoty do registru XMM0
-	movups xmm0, xmm1            ; prenosy mezi registry
+        movups xmm0, xmm1            ; prenosy mezi registry
 
         addps xmm0, xmm1             ; soucet prvku vektoru
         subps xmm0, xmm1             ; rozdil prvku vektoru
@@ -32,11 +32,11 @@ section .text
         maxss xmm0, xmm1             ; vyber vetsich skalaru
         maxss xmm0, xmm1             ; vyber mensich skalaru
 
-	cmpeqps xmm0, xmm1           ; porovnani prvku vektoru
-	cmpltps xmm0, xmm1           ; porovnani prvku vektoru
-	cmpleps xmm0, xmm1           ; porovnani prvku vektoru
-	cmpunordps xmm0, xmm1        ; porovnani prvku vektoru
-	cmpneqps xmm0, xmm1          ; porovnani prvku vektoru
-	cmpnltps xmm0, xmm1          ; porovnani prvku vektoru
-	cmpnleps xmm0, xmm1          ; porovnani prvku vektoru
-	cmpordps xmm0, xmm1          ; porovnani prvku vektoru
+        cmpeqps xmm0, xmm1           ; porovnani prvku vektoru
+        cmpltps xmm0, xmm1           ; porovnani prvku vektoru
+        cmpleps xmm0, xmm1           ; porovnani prvku vektoru
+        cmpunordps xmm0, xmm1        ; porovnani prvku vektoru
+        cmpneqps xmm0, xmm1          ; porovnani prvku vektoru
+        cmpnltps xmm0, xmm1          ; porovnani prvku vektoru
+        cmpnleps xmm0, xmm1          ; porovnani prvku vektoru
+        cmpordps xmm0, xmm1          ; porovnani prvku vektoru
