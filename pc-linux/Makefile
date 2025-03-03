@@ -8,7 +8,9 @@ execs := mmx_support mmx_init \
 	 mmx_cmpeq mmx_cmpgt \
 	 mmx_unpack_bytes mmx_unpack_words mmx_unpack_dwords \
 	 mmx_pack_into_bytes_1 mmx_pack_into_bytes_2 \
-	 sse_support sse_value_unaligned_1 sse_value_unaligned_2 sse_value_aligned sse_addps sse_addss
+	 sse_support sse_value_unaligned_1 sse_value_unaligned_2 sse_value_aligned \
+	 sse_addps sse_addss sse_subss sse_subps sse_mulps sse_divps sse_maxmin sse_reciprocal sse_sqrt \
+	 sse_cmpeqps sse_cmpltps sse_ordered sse_inf_nan
 
 all:	$(execs)
 
@@ -114,4 +116,37 @@ sse_addps:	sse_addps.o
 	ld -melf_i386 $< -o $@
 
 sse_addss:	sse_addss.o
+	ld -melf_i386 $< -o $@
+
+sse_subps:	sse_subps.o
+	ld -melf_i386 $< -o $@
+
+sse_subss:	sse_subss.o
+	ld -melf_i386 $< -o $@
+
+sse_mulps:	sse_mulps.o
+	ld -melf_i386 $< -o $@
+
+sse_divps:	sse_divps.o
+	ld -melf_i386 $< -o $@
+
+sse_maxmin:	sse_maxmin.o
+	ld -melf_i386 $< -o $@
+
+sse_reciprocal:	sse_reciprocal.o
+	ld -melf_i386 $< -o $@
+
+sse_sqrt:	sse_sqrt.o
+	ld -melf_i386 $< -o $@
+
+sse_cmpeqps:	sse_cmpeqps.o
+	ld -melf_i386 $< -o $@
+
+sse_cmpltps:	sse_cmpltps.o
+	ld -melf_i386 $< -o $@
+
+sse_ordered:	sse_ordered.o
+	ld -melf_i386 $< -o $@
+
+sse_inf_nan:	sse_inf_nan.o
 	ld -melf_i386 $< -o $@
