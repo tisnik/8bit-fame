@@ -4,7 +4,9 @@
 ; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
 ;
 ; Clanek, kde je tento demonstracni priklad pouzit:
-; 
+;
+; SIMD instrukce v rozšíření SSE (2. část)
+; https://www.root.cz/clanky/simd-instrukce-v-rozsireni-sse-2-cast/
 
 [bits 32]
  
