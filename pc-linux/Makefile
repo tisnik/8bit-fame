@@ -10,7 +10,9 @@ execs := mmx_support mmx_init \
 	 mmx_pack_into_bytes_1 mmx_pack_into_bytes_2 \
 	 sse_support sse_value_unaligned_1 sse_value_unaligned_2 sse_value_aligned \
 	 sse_addps sse_addss sse_subss sse_subps sse_mulps sse_divps sse_maxmin sse_reciprocal sse_sqrt \
-	 sse_cmpeqps sse_cmpltps sse_ordered sse_inf_nan
+	 sse_cmpeqps sse_cmpltps sse_ordered sse_inf_nan \
+	 sse_shufps sse_unpckhps sse_unpcklps sse_cvtsi2ss sse_cvtss2si sse_cvtss2si_fract sse_cvtss2si_special \
+	 sse_ldmxcsr sse_stmxcsr
 
 all:	$(execs)
 
@@ -149,4 +151,31 @@ sse_ordered:	sse_ordered.o
 	ld -melf_i386 $< -o $@
 
 sse_inf_nan:	sse_inf_nan.o
+	ld -melf_i386 $< -o $@
+
+sse_shufps:	sse_shufps.o
+	ld -melf_i386 $< -o $@
+
+sse_unpckhps:	sse_unpckhps.o
+	ld -melf_i386 $< -o $@
+
+sse_unpcklps:	sse_unpcklps.o
+	ld -melf_i386 $< -o $@
+
+sse_cvtsi2ss:	sse_cvtsi2ss.o
+	ld -melf_i386 $< -o $@
+
+sse_cvtss2si:	sse_cvtss2si.o
+	ld -melf_i386 $< -o $@
+
+sse_cvtss2si_fract:	sse_cvtss2si_fract.o
+	ld -melf_i386 $< -o $@
+
+sse_cvtss2si_special:	sse_cvtss2si_special.o
+	ld -melf_i386 $< -o $@
+
+sse_ldmxcsr:	sse_ldmxcsr.o
+	ld -melf_i386 $< -o $@
+
+sse_stmxcsr:	sse_stmxcsr.o
 	ld -melf_i386 $< -o $@
