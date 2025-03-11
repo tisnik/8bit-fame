@@ -4,6 +4,9 @@
 ; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
 ;
 ; Clanek, kde je tento demonstracni priklad pouzit:
+;
+; Pokročilejší SSE operace: přeskupení, promíchání a rozbalování prvků vektorů
+; https://www.root.cz/clanky/pokrocilejsi-sse-operace-preskupeni-promichani-a-rozbalovani-prvku-vektoru/
 ; 
 
 [bits 32]
