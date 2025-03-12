@@ -12,7 +12,8 @@ execs := mmx_support mmx_init \
 	 sse_addps sse_addss sse_subss sse_subps sse_mulps sse_divps sse_maxmin sse_reciprocal sse_sqrt \
 	 sse_cmpeqps sse_cmpltps sse_ordered sse_inf_nan \
 	 sse_shufps sse_unpckhps sse_unpcklps sse_cvtsi2ss sse_cvtss2si sse_cvtss2si_fract sse_cvtss2si_special \
-	 sse_ldmxcsr sse_stmxcsr
+	 sse_ldmxcsr sse_stmxcsr \
+	 sse2_support sse2_paddb sse2_paddw sse2_paddusb
 
 all:	$(execs)
 
@@ -178,4 +179,19 @@ sse_ldmxcsr:	sse_ldmxcsr.o
 	ld -melf_i386 $< -o $@
 
 sse_stmxcsr:	sse_stmxcsr.o
+	ld -melf_i386 $< -o $@
+
+sse2_support:	sse2_support.o
+	ld -melf_i386 $< -o $@
+
+sse2_paddb:	sse2_paddb.o
+	ld -melf_i386 $< -o $@
+
+sse2_paddw:	sse2_paddw.o
+	ld -melf_i386 $< -o $@
+
+sse2_paddusb:	sse2_paddusb.o
+	ld -melf_i386 $< -o $@
+
+sse2_paddsb:	sse2_paddsb.o
 	ld -melf_i386 $< -o $@
