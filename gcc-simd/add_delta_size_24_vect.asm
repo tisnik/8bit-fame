@@ -11,36 +11,19 @@
 add_delta:
 .LFB0:
 	.cfi_startproc
-	lea	rdx, [rsi+4]	# _15,
-	mov	rax, rdi	# _9, a
-	sub	rax, rdx	# _9, _15
-	cmp	rax, 8	# _9,
-# add_delta_size_24.c:1: void add_delta(float *a, float *b) {
-	mov	eax, 0	# ivtmp.22,
-	jbe	.L2	#,
+	lea	rax, [rdi+96]	# _5,
+	shufps	xmm0, xmm0, 0	# vect_cst__21
 	.p2align 5
 	.p2align 4
 	.p2align 3
-.L3:
-# add_delta_size_24.c:5:         a[i] += b[i];
-	movups	xmm0, XMMWORD PTR [rdi+rax]	# vect__7.10_43, MEM <vector(4) float> [(float *)a_11(D) + ivtmp.27_1 * 1]
-	movups	xmm1, XMMWORD PTR [rsi+rax]	# tmp123, MEM <vector(4) float> [(float *)b_12(D) + ivtmp.27_1 * 1]
-	addps	xmm0, xmm1	# vect__7.10_43, tmp123
-	movups	XMMWORD PTR [rdi+rax], xmm0	# MEM <vector(4) float> [(float *)a_11(D) + ivtmp.27_1 * 1], vect__7.10_43
-	add	rax, 16	# ivtmp.27,
-	cmp	rax, 96	# ivtmp.27,
-	jne	.L3	#,
-	ret	
-	.p2align 5
-	.p2align 4,,10
-	.p2align 3
 .L2:
-	movss	xmm0, DWORD PTR [rdi+rax]	# MEM[(float *)a_11(D) + ivtmp.22_17 * 1], MEM[(float *)a_11(D) + ivtmp.22_17 * 1]
-	addss	xmm0, DWORD PTR [rsi+rax]	# _32, MEM[(float *)b_12(D) + ivtmp.22_17 * 1]
-	movss	DWORD PTR [rdi+rax], xmm0	# MEM[(float *)a_11(D) + ivtmp.22_17 * 1], _32
-# add_delta_size_24.c:4:     for (i=0; i<SIZE; i++) {
-	add	rax, 4	# ivtmp.22,
-	cmp	rax, 96	# ivtmp.22,
+# add_delta_size_24.c:5:         a[i] += delta;
+	movups	xmm1, XMMWORD PTR [rdi]	# vect__4.6_20, MEM <vector(4) float> [(float *)_2]
+	add	rdi, 16	# ivtmp.13,
+# add_delta_size_24.c:5:         a[i] += delta;
+	addps	xmm1, xmm0	# vect__5.7_22, vect_cst__21
+	movups	XMMWORD PTR [rdi-16], xmm1	# MEM <vector(4) float> [(float *)_2], vect__5.7_22
+	cmp	rax, rdi	# _5, ivtmp.13
 	jne	.L2	#,
 # add_delta_size_24.c:7: }
 	ret	
