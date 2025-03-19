@@ -13,7 +13,8 @@ execs := mmx_support mmx_init \
 	 sse_cmpeqps sse_cmpltps sse_ordered sse_inf_nan \
 	 sse_shufps sse_unpckhps sse_unpcklps sse_cvtsi2ss sse_cvtss2si sse_cvtss2si_fract sse_cvtss2si_special \
 	 sse_ldmxcsr sse_stmxcsr \
-	 sse2_support sse2_paddb sse2_paddw sse2_paddusb
+	 sse2_support sse2_paddb sse2_paddw sse2_paddusb \
+	 sse_sum sse_dot_product
 
 all:	$(execs)
 
@@ -194,4 +195,10 @@ sse2_paddusb:	sse2_paddusb.o
 	ld -melf_i386 $< -o $@
 
 sse2_paddsb:	sse2_paddsb.o
+	ld -melf_i386 $< -o $@
+
+sse_sum:	sse_sum.o
+	ld -melf_i386 $< -o $@
+
+sse_dot_product:	sse_dot_product.o
 	ld -melf_i386 $< -o $@
