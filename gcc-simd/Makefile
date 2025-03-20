@@ -23,7 +23,10 @@ outputs := array_clear_size_8_no_sse.asm array_clear_size_8_non_vect.asm array_c
 	   add_arrays_restrict_size_17_non_vect.asm add_arrays_restrict_size_17_vect.asm \
 	   array_sum_4_non_vect.asm array_sum_4_vect.asm array_sum_4_no_fast_math.asm \
 	   array_sum_8_non_vect.asm array_sum_8_vect.asm array_sum_8_no_fast_math.asm \
-	   array_sum_100_non_vect.asm array_sum_100_vect.asm array_sum_100_no_fast_math.asm
+	   array_sum_100_non_vect.asm array_sum_100_vect.asm array_sum_100_no_fast_math.asm \
+	   find_max_4_non_vect.asm find_max_4_vect.asm \
+	   find_max_8_non_vect.asm find_max_8_vect.asm \
+	   find_max_100_non_vect.asm find_max_100_vect.asm
 
 all:	$(outputs)
 
@@ -162,3 +165,20 @@ array_sum_100_vect.asm:	array_sum_100.c
 array_sum_100_no_fast_math.asm:	array_sum_100.c
 	gcc ${SSE_OPTS_NO_FAST_MATH} ${VECTORIZE} $< -o $@
 
+find_max_4_non_vect.asm:	find_max_4.c
+	gcc ${SSE_OPTS} ${NO_VECTORIZE} $< -o $@
+
+find_max_4_vect.asm:	find_max_4.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+find_max_8_non_vect.asm:	find_max_8.c
+	gcc ${SSE_OPTS} ${NO_VECTORIZE} $< -o $@
+
+find_max_8_vect.asm:	find_max_8.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+find_max_100_non_vect.asm:	find_max_100.c
+	gcc ${SSE_OPTS} ${NO_VECTORIZE} $< -o $@
+
+find_max_100_vect.asm:	find_max_100.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
