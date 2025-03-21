@@ -17,16 +17,22 @@ outputs := array_clear_size_8_no_sse.asm array_clear_size_8_non_vect.asm array_c
 	   dot_product_100_non_vect.asm dot_product_100_vect.asm \
 	   add_arrays_size_4_non_vect.asm add_arrays_size_4_vect.asm \
 	   add_arrays_size_16_non_vect.asm add_arrays_size_16_vect.asm \
+	   add_arrays_size_16_backward.asm \
 	   add_arrays_size_17_non_vect.asm add_arrays_size_17_vect.asm \
 	   add_arrays_restrict_size_4_non_vect.asm add_arrays_restrict_size_4_vect.asm \
 	   add_arrays_restrict_size_16_non_vect.asm add_arrays_restrict_size_16_vect.asm \
+	   add_arrays_restrict_size_16_backward.asm \
 	   add_arrays_restrict_size_17_non_vect.asm add_arrays_restrict_size_17_vect.asm \
 	   array_sum_4_non_vect.asm array_sum_4_vect.asm array_sum_4_no_fast_math.asm \
 	   array_sum_8_non_vect.asm array_sum_8_vect.asm array_sum_8_no_fast_math.asm \
 	   array_sum_100_non_vect.asm array_sum_100_vect.asm array_sum_100_no_fast_math.asm \
 	   find_max_4_non_vect.asm find_max_4_vect.asm \
 	   find_max_8_non_vect.asm find_max_8_vect.asm \
-	   find_max_100_non_vect.asm find_max_100_vect.asm
+	   find_max_100_non_vect.asm find_max_100_vect.asm \
+	   array_clear_32_bytes.asm array_clear_8_doubles.asm \
+	   add_arrays_16_bytes.asm add_arrays_16_bytes_restrict.asm \
+	   add_arrays_32_bytes.asm add_arrays_32_bytes_restrict.asm \
+	   add_delta_16_bytes.asm add_delta_8_doubles.asm get_color_component.asm
 
 all:	$(outputs)
 
@@ -132,6 +138,12 @@ add_arrays_restrict_size_16_non_vect.asm:	add_arrays_restrict_size_16.c
 add_arrays_restrict_size_16_vect.asm:	add_arrays_restrict_size_16.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
 
+add_arrays_size_16_backward.asm:	add_arrays_size_16_backward.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+add_arrays_restrict_size_16_backward.asm:	add_arrays_restrict_size_16_backward.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
 add_arrays_restrict_size_17_non_vect.asm:	add_arrays_restrict_size_17.c
 	gcc ${SSE_OPTS} ${NO_VECTORIZE} $< -o $@
 
@@ -181,4 +193,34 @@ find_max_100_non_vect.asm:	find_max_100.c
 	gcc ${SSE_OPTS} ${NO_VECTORIZE} $< -o $@
 
 find_max_100_vect.asm:	find_max_100.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+array_clear_32_bytes.asm:	array_clear_32_bytes.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+array_clear_8_doubles.asm:	array_clear_8_doubles.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+add_arrays_16_bytes.asm:	add_arrays_16_bytes.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+add_arrays_16_bytes_restrict.asm:	add_arrays_16_bytes_restrict.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+add_arrays_32_bytes.asm:	add_arrays_32_bytes.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+add_arrays_32_bytes_restrict.asm:	add_arrays_32_bytes_restrict.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+add_delta_8_doubles.asm:	add_delta_8_doubles.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+add_delta_16_bytes.asm:	add_delta_16_bytes.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+array_clear_size_8_backward.asm:	array_clear_size_8_backward.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+get_color_component.asm:	get_color_component.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
