@@ -29,10 +29,12 @@ outputs := array_clear_size_8_no_sse.asm array_clear_size_8_non_vect.asm array_c
 	   find_max_4_non_vect.asm find_max_4_vect.asm \
 	   find_max_8_non_vect.asm find_max_8_vect.asm \
 	   find_max_100_non_vect.asm find_max_100_vect.asm \
-	   array_clear_32_bytes.asm array_clear_8_doubles.asm \
+	   array_clear_32_bytes.asm array_clear_64_bytes.asm array_clear_128_bytes.asm \
+	   array_clear_8_doubles.asm array_clear_16_doubles.asm \
 	   add_arrays_16_bytes.asm add_arrays_16_bytes_restrict.asm \
 	   add_arrays_32_bytes.asm add_arrays_32_bytes_restrict.asm \
-	   add_delta_16_bytes.asm add_delta_8_doubles.asm get_color_component.asm
+	   add_delta_16_bytes.asm add_delta_32_bytes.asm add_delta_64_bytes.asm \
+	   add_delta_4_doubles.asm add_delta_8_doubles.asm get_color_component.asm set_color_component.asm
 
 all:	$(outputs)
 
@@ -198,7 +200,16 @@ find_max_100_vect.asm:	find_max_100.c
 array_clear_32_bytes.asm:	array_clear_32_bytes.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
 
+array_clear_64_bytes.asm:	array_clear_64_bytes.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+array_clear_128_bytes.asm:	array_clear_128_bytes.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
 array_clear_8_doubles.asm:	array_clear_8_doubles.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+array_clear_16_doubles.asm:	array_clear_16_doubles.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
 
 add_arrays_16_bytes.asm:	add_arrays_16_bytes.c
@@ -213,14 +224,26 @@ add_arrays_32_bytes.asm:	add_arrays_32_bytes.c
 add_arrays_32_bytes_restrict.asm:	add_arrays_32_bytes_restrict.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
 
+add_delta_4_doubles.asm:	add_delta_4_doubles.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
 add_delta_8_doubles.asm:	add_delta_8_doubles.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
 
 add_delta_16_bytes.asm:	add_delta_16_bytes.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
 
+add_delta_32_bytes.asm:	add_delta_32_bytes.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+add_delta_64_bytes.asm:	add_delta_64_bytes.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
 array_clear_size_8_backward.asm:	array_clear_size_8_backward.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
 
 get_color_component.asm:	get_color_component.c
+	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
+
+set_color_component.asm:	set_color_component.c
 	gcc ${SSE_OPTS} ${VECTORIZE} $< -o $@
