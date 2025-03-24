@@ -6,12 +6,12 @@
 # options passed: -msse -mfpmath=sse -masm=intel -mtune=generic -march=x86-64 -O2 -ffast-math -ftree-vectorize
 	.text
 	.p2align 4
-	.globl	add_delta
-	.type	add_delta, @function
-add_delta:
+	.globl	add_arrays
+	.type	add_arrays, @function
+add_arrays:
 .LFB0:
 	.cfi_startproc
-# add_arrays_restrict_size_16_backward.c:1: void add_delta(float *restrict a, float *restrict b) {
+# add_arrays_restrict_size_16_backward.c:1: void add_arrays(float *restrict a, float *restrict b) {
 	mov	eax, 48	# ivtmp.27,
 .L2:
 # add_arrays_restrict_size_16_backward.c:5:         a[i] += b[i];
@@ -33,6 +33,6 @@ add_delta:
 	ret	
 	.cfi_endproc
 .LFE0:
-	.size	add_delta, .-add_delta
+	.size	add_arrays, .-add_arrays
 	.ident	"GCC: (GNU) 14.2.1 20240912 (Red Hat 14.2.1-3)"
 	.section	.note.GNU-stack,"",@progbits
