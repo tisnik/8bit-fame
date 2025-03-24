@@ -6,9 +6,9 @@
 # options passed: -msse -mfpmath=sse -masm=intel -mtune=generic -march=x86-64 -O2 -ffast-math -ftree-vectorize
 	.text
 	.p2align 4
-	.globl	add_delta
-	.type	add_delta, @function
-add_delta:
+	.globl	add_arrays
+	.type	add_arrays, @function
+add_arrays:
 .LFB0:
 	.cfi_startproc
 	mov	rax, rdi	# _16, a
@@ -16,7 +16,7 @@ add_delta:
 	add	rax, 12	# _8,
 	cmp	rax, 8	# _8,
 	jbe	.L5	#,
-# add_arrays_size_16_backward.c:1: void add_delta(float *a, float *b) {
+# add_arrays_size_16_backward.c:1: void add_arrays(float *a, float *b) {
 	mov	eax, 48	# ivtmp.41,
 .L3:
 # add_arrays_size_16_backward.c:5:         a[i] += b[i];
@@ -38,7 +38,7 @@ add_delta:
 	.p2align 4,,10
 	.p2align 3
 .L5:
-# add_arrays_size_16_backward.c:1: void add_delta(float *a, float *b) {
+# add_arrays_size_16_backward.c:1: void add_arrays(float *a, float *b) {
 	mov	eax, 60	# ivtmp.29,
 	.p2align 5
 	.p2align 4
@@ -56,6 +56,6 @@ add_delta:
 	ret	
 	.cfi_endproc
 .LFE0:
-	.size	add_delta, .-add_delta
+	.size	add_arrays, .-add_arrays
 	.ident	"GCC: (GNU) 14.2.1 20240912 (Red Hat 14.2.1-3)"
 	.section	.note.GNU-stack,"",@progbits
