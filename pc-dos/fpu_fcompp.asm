@@ -25,44 +25,44 @@ start:
 
 main:
         fninit                     ; inicializace koprocesoru
-	fldz                       ; uložení konstanty 0 na zásobník
-	fldz                       ; uložení konstanty 0 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_status_word     ; tisk stavového slova
+        fldz                       ; uložení konstanty 0 na zásobník
+        fldz                       ; uložení konstanty 0 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_status_word     ; tisk stavového slova
 
         fninit                     ; inicializace koprocesoru
-	fld1                       ; uložení konstanty 1 na zásobník
-	fld1                       ; uložení konstanty 1 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_status_word     ; tisk stavového slova
+        fld1                       ; uložení konstanty 1 na zásobník
+        fld1                       ; uložení konstanty 1 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_status_word     ; tisk stavového slova
 
         fninit                     ; inicializace koprocesoru
-	fld1                       ; uložení konstanty 1 na zásobník
-	fldz                       ; uložení konstanty 0 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_status_word     ; tisk stavového slova
+        fld1                       ; uložení konstanty 1 na zásobník
+        fldz                       ; uložení konstanty 0 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_status_word     ; tisk stavového slova
 
         fninit                     ; inicializace koprocesoru
-	fldz                       ; uložení konstanty 0 na zásobník
-	fld1                       ; uložení konstanty 1 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_status_word     ; tisk stavového slova
+        fldz                       ; uložení konstanty 0 na zásobník
+        fld1                       ; uložení konstanty 1 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_status_word     ; tisk stavového slova
 
         fninit                     ; inicializace koprocesoru
-	fld1                       ; uložení konstanty 1 na zásobník
-	fldz                       ; uložení konstanty 0 na zásobník
-	fdivp                      ; na zásobník se uloží nekonečno
-	fld1                       ; uložení konstanty 1 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_status_word     ; tisk stavového slova
+        fld1                       ; uložení konstanty 1 na zásobník
+        fldz                       ; uložení konstanty 0 na zásobník
+        fdivp                      ; na zásobník se uloží nekonečno
+        fld1                       ; uložení konstanty 1 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_status_word     ; tisk stavového slova
 
         fninit                     ; inicializace koprocesoru
-	fld1
-	fchs                       ; změna znaménka
-	fsqrt                      ; odmocnina z -1
-	fldz                       ; uložení konstanty 0 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_status_word     ; tisk stavového slova
+        fld1
+        fchs                       ; změna znaménka
+        fsqrt                      ; odmocnina z -1
+        fldz                       ; uložení konstanty 0 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_status_word     ; tisk stavového slova
 
         wait_key                   ; cekani na klavesu
         exit                       ; navrat do DOSu
@@ -71,9 +71,9 @@ main:
 
 print_status_word:
         fnstsw word [test_word]    ; ulozeni stavoveho slova
-	mov ax, word [test_word]
-	print_hex_16 ax            ; tisk stavoveho slova v hexadecimalnim formatu
-	ret
+        mov ax, word [test_word]
+        print_hex_16 ax            ; tisk stavoveho slova v hexadecimalnim formatu
+        ret
 
 ; datova cast
 test_word: dw 0
