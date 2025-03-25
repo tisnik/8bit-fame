@@ -26,16 +26,16 @@ start:
 main:
         fninit                     ; inicializace koprocesoru
 
-	fld1                       ; uložení konstanty 0 na zásobník
-	fld1                       ; uložení konstanty 0 na zásobník
-	faddp                      ; nyní je na zásobníku uložena hodnota 2
+        fld1                       ; uložení konstanty 0 na zásobník
+        fld1                       ; uložení konstanty 0 na zásobník
+        faddp                      ; nyní je na zásobníku uložena hodnota 2
 
-	mov cx, 20                 ; počet opakování smyčky
+        mov cx, 20                 ; počet opakování smyčky
 smycka1:
         fld st0                    ; duplikace hodnoty na vrcholu zásobníku
-	fmulp                      ; výpočet druhé mocniny
-	call print_status_word     ; tisk stavového slova
-	loop smycka1
+        fmulp                      ; výpočet druhé mocniny
+        call print_status_word     ; tisk stavového slova
+        loop smycka1
 
         wait_key                   ; cekani na klavesu
         exit                       ; navrat do DOSu
@@ -44,10 +44,10 @@ smycka1:
 
 print_status_word:
         fnstsw word [test_word]    ; ulozeni stavoveho slova
-	mov ax, word [test_word]
-	and ax, 0xff               ; vymaskovat bity, které neobsahují příznaky chyb
-	print_hex_16 ax            ; tisk stavoveho slova v hexadecimalnim formatu
-	ret
+        mov ax, word [test_word]
+        and ax, 0xff               ; vymaskovat bity, které neobsahují příznaky chyb
+        print_hex_16 ax            ; tisk stavoveho slova v hexadecimalnim formatu
+        ret
 
 ; datova cast
 test_word: dw 0
