@@ -28,44 +28,44 @@ start:
 
 main:
         fninit                     ; inicializace koprocesoru
-	fldz                       ; uložení konstanty 0 na zásobník
-	fldz                       ; uložení konstanty 0 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_comparison_results     ; tisk výsledku porovnání
+        fldz                       ; uložení konstanty 0 na zásobník
+        fldz                       ; uložení konstanty 0 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_comparison_results     ; tisk výsledku porovnání
 
         fninit                     ; inicializace koprocesoru
-	fld1                       ; uložení konstanty 1 na zásobník
-	fld1                       ; uložení konstanty 1 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_comparison_results     ; tisk výsledku porovnání
+        fld1                       ; uložení konstanty 1 na zásobník
+        fld1                       ; uložení konstanty 1 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_comparison_results     ; tisk výsledku porovnání
 
         fninit                     ; inicializace koprocesoru
-	fld1                       ; uložení konstanty 1 na zásobník
-	fldz                       ; uložení konstanty 0 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_comparison_results     ; tisk výsledku porovnání
+        fld1                       ; uložení konstanty 1 na zásobník
+        fldz                       ; uložení konstanty 0 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_comparison_results     ; tisk výsledku porovnání
 
         fninit                     ; inicializace koprocesoru
-	fldz                       ; uložení konstanty 0 na zásobník
-	fld1                       ; uložení konstanty 1 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_comparison_results     ; tisk výsledku porovnání
+        fldz                       ; uložení konstanty 0 na zásobník
+        fld1                       ; uložení konstanty 1 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_comparison_results     ; tisk výsledku porovnání
 
         fninit                     ; inicializace koprocesoru
-	fld1                       ; uložení konstanty 1 na zásobník
-	fldz                       ; uložení konstanty 0 na zásobník
-	fdivp                      ; na zásobník se uloží nekonečno
-	fld1                       ; uložení konstanty 1 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_comparison_results     ; tisk výsledku porovnání
+        fld1                       ; uložení konstanty 1 na zásobník
+        fldz                       ; uložení konstanty 0 na zásobník
+        fdivp                      ; na zásobník se uloží nekonečno
+        fld1                       ; uložení konstanty 1 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_comparison_results     ; tisk výsledku porovnání
 
         fninit                     ; inicializace koprocesoru
-	fld1
-	fchs                       ; změna znaménka
-	fsqrt                      ; odmocnina z -1
-	fldz                       ; uložení konstanty 0 na zásobník
-	fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
-	call print_comparison_results     ; tisk výsledku porovnání
+        fld1
+        fchs                       ; změna znaménka
+        fsqrt                      ; odmocnina z -1
+        fldz                       ; uložení konstanty 0 na zásobník
+        fcompp                     ; porovnání dvou hodnot s jejich odstraněním ze zásobníku
+        call print_comparison_results     ; tisk výsledku porovnání
 
         wait_key                   ; cekani na klavesu
         exit                       ; navrat do DOSu
@@ -74,23 +74,23 @@ main:
 
 print_comparison_results:
         fnstsw word [test_word]    ; ulozeni stavoveho slova
-	mov ax, word [test_word]
-	sahf                       ; uložení do příznakového registru
+        mov ax, word [test_word]
+        sahf                       ; uložení do příznakového registru
 
-	jnp not_unordered
-	print_string msg_unordered
-	ret
+        jnp not_unordered
+        print_string msg_unordered
+        ret
 not_unordered:
-	jnz not_equal
-	print_string msg_equal_values
-	ret
+        jnz not_equal
+        print_string msg_equal_values
+        ret
 not_equal:
-	jnc greater_than
-	print_string msg_less_than
-	ret
+        jnc greater_than
+        print_string msg_less_than
+        ret
 greater_than:
-	print_string msg_greater_than
-	ret
+        print_string msg_greater_than
+        ret
 
 ; datova cast
 msg_greater_than: db "Greater than", 0x0d, 0x0a, "$"
