@@ -28,7 +28,7 @@ section .text
 
 _start:
         mov ebx, csr_reset           ; adresa s obsahem registru MXCSR
-	ldmxcsr [ebx]                ; načtení nové hodnoty
+        ldmxcsr [ebx]                ; načtení nové hodnoty
 
         exit                         ; ukonceni procesu
 
