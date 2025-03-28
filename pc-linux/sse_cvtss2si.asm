@@ -39,15 +39,15 @@ _start:
         movaps xmm0, [ebx]           ; nacteni prvni hodnoty do registru XMM0
         print_sse_reg_as_hex xmm0    ; tisk hodnoty registru XMM0
 
-	cvtss2si eax, xmm0           ; konverze jednoho prvku
-	print_hex eax, 10
+        cvtss2si eax, xmm0           ; konverze jednoho prvku
+        print_hex eax, 10
 
         mov ebx, sse_val_2
         movaps xmm0, [ebx]           ; nacteni prvni hodnoty do registru XMM0
         print_sse_reg_as_hex xmm0    ; tisk hodnoty registru XMM0
 
-	cvtss2si eax, xmm0           ; konverze jednoho prvku
-	print_hex eax, 10
+        cvtss2si eax, xmm0           ; konverze jednoho prvku
+        print_hex eax, 10
 
         exit                         ; ukonceni procesu
 
