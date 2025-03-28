@@ -37,8 +37,8 @@ _start:
         movdqu xmm1, [ebx]           ; nacteni puvodniho vektoru do registru XMM0
         print_sse_reg_as_hex xmm1    ; tisk hodnoty registru XMM0
 
-	mov esi, 1                   ; konstanta, kterou budeme pricitat
-	movd xmm0, esi               ; nacteni konstanty do druheho vektoru
+        mov esi, 1                   ; konstanta, kterou budeme pricitat
+        movd xmm0, esi               ; nacteni konstanty do druheho vektoru
         print_sse_reg_as_hex xmm0    ; tisk hodnoty registru XMM0
 
         punpcklbw xmm0, xmm0         ; prolozeni hodnot, zdrojem je jediny registr
