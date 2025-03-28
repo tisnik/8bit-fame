@@ -32,10 +32,10 @@ section .text
 
 _start:
         mov ebx, csr_value           ; adresa s místem pro uložení obsahu registru MXCSR
-	stmxcsr [ebx]                ; uložení hodnoty MXCSR
+        stmxcsr [ebx]                ; uložení hodnoty MXCSR
 
         mov eax, [ebx]
-	print_hex eax, 10
+        print_hex eax, 10
 
         exit                         ; ukonceni procesu
 
