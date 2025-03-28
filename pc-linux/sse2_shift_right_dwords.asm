@@ -39,20 +39,20 @@ _start:
         movdqu xmm0, [ebx]           ; nacteni puvodniho vektoru do registru XMM0
         print_sse_reg_as_hex xmm0    ; tisk hodnoty registru XMM0
 
-	mov esi, 1                   ; konstanta, kterou budeme pricitat
-	movd xmm1, esi               ; nacteni konstanty do druheho vektoru
+        mov esi, 1                   ; konstanta, kterou budeme pricitat
+        movd xmm1, esi               ; nacteni konstanty do druheho vektoru
         print_sse_reg_as_hex xmm1    ; tisk hodnoty registru XMM0
 
         mov eax, 16
 next_shift:
         psrld xmm0, xmm1             ; logicky posun doprava
 
-	push eax
+        push eax
         print_sse_reg_as_hex xmm0    ; tisk hodnoty registru XMM1
-	pop eax
+        pop eax
 
         dec eax                      ; snizit pocitadlo
-	jnz next_shift               ; a opakovat smycku
+        jnz next_shift               ; a opakovat smycku
 
         exit                         ; ukonceni procesu
 
