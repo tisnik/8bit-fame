@@ -43,12 +43,12 @@ _start:
 next_shift:
         psrldq xmm0, 1               ; logicky posun doprava
 
-	push eax
+        push eax
         print_sse_reg_as_hex xmm0    ; tisk hodnoty registru XMM1
-	pop eax
+        pop eax
 
         dec eax                      ; snizit pocitadlo
-	jnz next_shift               ; a opakovat smycku
+        jnz next_shift               ; a opakovat smycku
 
         exit                         ; ukonceni procesu
 
