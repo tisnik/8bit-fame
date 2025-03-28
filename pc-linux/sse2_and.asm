@@ -41,17 +41,17 @@ _start:
         mov ebx, sse_val_2
         movdqu xmm1, [ebx]           ; nacteni puvodniho vektoru do registru XMM0
         print_sse_reg_as_hex xmm1    ; tisk hodnoty registru XMM1
-	
-	movdqu xmm2, xmm0
-	pand xmm2, xmm1              ; prvni varianta bitoveho soucinu
+        
+        movdqu xmm2, xmm0
+        pand xmm2, xmm1              ; prvni varianta bitoveho soucinu
         print_sse_reg_as_hex xmm2    ; tisk hodnoty registru XMM2
 
-	movdqu xmm2, xmm0
-	andps xmm2, xmm1             ; druha varianta bitoveho soucinu
+        movdqu xmm2, xmm0
+        andps xmm2, xmm1             ; druha varianta bitoveho soucinu
         print_sse_reg_as_hex xmm2    ; tisk hodnoty registru XMM2
 
-	movdqu xmm2, xmm0
-	andpd xmm2, xmm1             ; treti varianta bitoveho soucinu
+        movdqu xmm2, xmm0
+        andpd xmm2, xmm1             ; treti varianta bitoveho soucinu
         print_sse_reg_as_hex xmm2    ; tisk hodnoty registru XMM2
 
         exit                         ; ukonceni procesu
