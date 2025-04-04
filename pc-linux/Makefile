@@ -14,7 +14,12 @@ execs := mmx_support mmx_init \
 	 sse_shufps sse_unpckhps sse_unpcklps sse_cvtsi2ss sse_cvtss2si sse_cvtss2si_fract sse_cvtss2si_special \
 	 sse_ldmxcsr sse_stmxcsr \
 	 sse2_support sse2_paddb sse2_paddw sse2_paddusb \
-	 sse_sum sse_dot_product
+	 sse_sum sse_dot_product sse2_add_delta \
+	 sse2_sqrtpd sse2_sqrtpd_negative sse2_sqrtpd_special \
+	 sse2_shift_right_words, sse2_shift_right_dwords, sse2_shift_right_qwords, sse2_shift_right_dqwords \
+	 sse2_and sse2_and_not sse2_cvtps2dq sse2_cvtps2dq_neg sse2_cvtps2dq_special \
+	 sse2_cvtps2pd sse2_cvtpd2ps sse2_cvtps2dq_special sse2_unpckhpd sse2_unpcklpd sse2_punpckhbw sse2_punpcklbw \
+	 sse2_pmovmskb sse2_pshufd
 
 all:	$(execs)
 
@@ -202,3 +207,70 @@ sse_sum:	sse_sum.o
 
 sse_dot_product:	sse_dot_product.o
 	ld -melf_i386 $< -o $@
+
+sse2_add_delta:	sse2_add_delta.o
+	ld -melf_i386 $< -o $@
+
+sse2_sqrtpd:	sse2_sqrtpd.o
+	ld -melf_i386 $< -o $@
+
+sse2_sqrtpd_negative:	sse2_sqrtpd_negative.o
+	ld -melf_i386 $< -o $@
+
+sse2_sqrtpd_special:	sse2_sqrtpd_special.o
+	ld -melf_i386 $< -o $@
+
+sse2_shift_right_words:	sse2_shift_right_words.o
+	ld -melf_i386 $< -o $@
+
+sse2_shift_right_dwords:	sse2_shift_right_dwords.o
+	ld -melf_i386 $< -o $@
+
+sse2_shift_right_qwords:	sse2_shift_right_qwords.o
+	ld -melf_i386 $< -o $@
+
+sse2_shift_right_dqwords:	sse2_shift_right_dqwords.o
+	ld -melf_i386 $< -o $@
+
+sse2_and:	sse2_and.o
+	ld -melf_i386 $< -o $@
+
+sse2_and_not:	sse2_and_not.o
+	ld -melf_i386 $< -o $@
+
+sse2_cvtps2dq:	sse2_cvtps2dq.o
+	ld -melf_i386 $< -o $@
+
+sse2_cvtps2dq_neg:	sse2_cvtps2dq_neg.o
+	ld -melf_i386 $< -o $@
+
+sse2_cvtps2dq_special:	sse2_cvtps2dq_special.o
+	ld -melf_i386 $< -o $@
+
+sse2_cvtps2pd:	sse2_cvtps2pd.o
+	ld -melf_i386 $< -o $@
+
+sse2_cvtpd2ps:	sse2_cvtpd2ps.o
+	ld -melf_i386 $< -o $@
+
+sse2_cvtpd2ps_special:	sse2_cvtpd2ps_special.o
+	ld -melf_i386 $< -o $@
+
+sse2_unpckhpd:	sse2_unpckhpd.o
+	ld -melf_i386 $< -o $@
+
+sse2_unpcklpd:	sse2_unpcklpd.o
+	ld -melf_i386 $< -o $@
+
+sse2_punpckhbw:	sse2_punpckhbw.o
+	ld -melf_i386 $< -o $@
+
+sse2_punpcklbw:	sse2_punpcklbw.o
+	ld -melf_i386 $< -o $@
+
+sse2_pmovmskb:	sse2_pmovmskb.o
+	ld -melf_i386 $< -o $@
+
+sse2_pshufd:	sse2_pshufd.o
+	ld -melf_i386 $< -o $@
+
