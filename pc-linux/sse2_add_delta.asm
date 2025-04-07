@@ -33,9 +33,9 @@ section .text
         global _start                ; tento symbol ma byt dostupny i linkeru
 
 _start:
-        mov ebx, sse_val_1
+        mov ebx, sse_val_1           ; adresa vektoru
         movdqu xmm1, [ebx]           ; nacteni puvodniho vektoru do registru XMM0
-        print_sse_reg_as_hex xmm1    ; tisk hodnoty registru XMM0
+        print_sse_reg_as_hex xmm1    ; tisk hodnoty registru XMM1
 
         mov esi, 1                   ; konstanta, kterou budeme pricitat
         movd xmm0, esi               ; nacteni konstanty do druheho vektoru
