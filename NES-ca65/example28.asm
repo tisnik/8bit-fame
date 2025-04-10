@@ -120,9 +120,9 @@ mirroring = 1
 ; Obslužná rutina pro NMI (nemaskovatelné přerušení, vertical blank)
 
 .proc nmi
-	lda #0
-	sta SCROLL        ; zákaz scrollingu
-	sta SCROLL
+        lda #0
+        sta SCROLL        ; zákaz scrollingu
+        sta SCROLL
         lda #$02          ; horní bajt adresy pro přenos + zahájení přenosu
         sta OAM_DMA
         rti               ; návrat z přerušení
@@ -275,13 +275,13 @@ game_loop:
         lda #<ATTRIB_TABLE_0 ; spodní bajt adresy $23c0
         sta PPUADDR
 
-	ldx #0               ; počitadlo 64 bajtů
+        ldx #0               ; počitadlo 64 bajtů
 
 :
         lda attributedata,X  ; načtení čtyř atributů
         sta PPUDATA          ; zápis indexu
         inx                  ; snížení hodnoty počitadla
-	cpx #64
+        cpx #64
         bne :-               ; opakování smyčky
 
         rts                  ; návrat ze subrutiny
