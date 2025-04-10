@@ -80,12 +80,12 @@ Current file: example21.asm
 000000r 1               :
 000000r 1                       inc address, x     ; zvýšit pozici spritu o jedničku
 000000r 1               
-000000r 1               	txa                ; přesun offsetu do akumulátoru
-000000r 1               	clc
-000000r 1               	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-000000r 1               	tax                ; přesun nového offsetu zpět do registru X
+000000r 1                       txa                ; přesun offsetu do akumulátoru
+000000r 1                       clc
+000000r 1                       adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+000000r 1                       tax                ; přesun nového offsetu zpět do registru X
 000000r 1               
-000000r 1               	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+000000r 1                       cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 000000r 1               
 000000r 1                       bne :-             ; pokud ne, skok na začátek smyčky
 000000r 1               .endmacro
@@ -95,12 +95,12 @@ Current file: example21.asm
 000000r 1               :
 000000r 1                       dec address, x     ; zvýšit pozici spritu o jedničku
 000000r 1               
-000000r 1               	txa                ; přesun offsetu do akumulátoru
-000000r 1               	clc
-000000r 1               	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-000000r 1               	tax                ; přesun nového offsetu zpět do registru X
+000000r 1                       txa                ; přesun offsetu do akumulátoru
+000000r 1                       clc
+000000r 1                       adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+000000r 1                       tax                ; přesun nového offsetu zpět do registru X
 000000r 1               
-000000r 1               	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+000000r 1                       cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 000000r 1               
 000000r 1                       bne :-             ; pokud ne, skok na začátek smyčky
 000000r 1               .endmacro
