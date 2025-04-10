@@ -32,9 +32,9 @@ yellow_color  equ %110
 white_color   equ %111
 
 
-	org entry_point
+        org entry_point
 
 start:
-	ld a,blink_bit | intensity_bit | (blue_color << 3) | white_color
-	ld (attribute_adr),a
-	ret
+        ld a,blink_bit | intensity_bit | (blue_color << 3) | white_color
+        ld (attribute_adr),a
+        ret
