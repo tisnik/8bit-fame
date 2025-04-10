@@ -121,9 +121,9 @@ Current file: example28.asm
 000000r 1               ; Obslužná rutina pro NMI (nemaskovatelné přerušení, vertical blank)
 000000r 1               
 000000r 1               .proc nmi
-000000r 1  A9 00        	lda #0
-000002r 1  8D 05 20     	sta SCROLL        ; zákaz scrollingu
-000005r 1  8D 05 20     	sta SCROLL
+000000r 1  A9 00                lda #0
+000002r 1  8D 05 20             sta SCROLL        ; zákaz scrollingu
+000005r 1  8D 05 20             sta SCROLL
 000008r 1  A9 02                lda #$02          ; horní bajt adresy pro přenos + zahájení přenosu
 00000Ar 1  8D 14 40             sta OAM_DMA
 00000Dr 1  40                   rti               ; návrat z přerušení
@@ -289,13 +289,13 @@ Current file: example28.asm
 0000DDr 1  A9 C0                lda #<ATTRIB_TABLE_0 ; spodní bajt adresy $23c0
 0000DFr 1  8D 06 20             sta PPUADDR
 0000E2r 1               
-0000E2r 1  A2 00        	ldx #0               ; počitadlo 64 bajtů
+0000E2r 1  A2 00                ldx #0               ; počitadlo 64 bajtů
 0000E4r 1               
 0000E4r 1               :
 0000E4r 1  BD rr rr             lda attributedata,X  ; načtení čtyř atributů
 0000E7r 1  8D 07 20             sta PPUDATA          ; zápis indexu
 0000EAr 1  E8                   inx                  ; snížení hodnoty počitadla
-0000EBr 1  E0 40        	cpx #64
+0000EBr 1  E0 40                cpx #64
 0000EDr 1  D0 F5                bne :-               ; opakování smyčky
 0000EFr 1               
 0000EFr 1  60                   rts                  ; návrat ze subrutiny
