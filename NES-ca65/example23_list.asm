@@ -83,12 +83,12 @@ Current file: example23.asm
 000000r 1               :
 000000r 1                       inc address, x     ; zvýšit pozici spritu o jedničku
 000000r 1               
-000000r 1               	txa                ; přesun offsetu do akumulátoru
-000000r 1               	clc
-000000r 1               	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-000000r 1               	tax                ; přesun nového offsetu zpět do registru X
+000000r 1                       txa                ; přesun offsetu do akumulátoru
+000000r 1                       clc
+000000r 1                       adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+000000r 1                       tax                ; přesun nového offsetu zpět do registru X
 000000r 1               
-000000r 1               	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+000000r 1                       cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 000000r 1               
 000000r 1                       bne :-             ; pokud ne, skok na začátek smyčky
 000000r 1               .endmacro
@@ -98,12 +98,12 @@ Current file: example23.asm
 000000r 1               :
 000000r 1                       dec address, x     ; zvýšit pozici spritu o jedničku
 000000r 1               
-000000r 1               	txa                ; přesun offsetu do akumulátoru
-000000r 1               	clc
-000000r 1               	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-000000r 1               	tax                ; přesun nového offsetu zpět do registru X
+000000r 1                       txa                ; přesun offsetu do akumulátoru
+000000r 1                       clc
+000000r 1                       adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+000000r 1                       tax                ; přesun nového offsetu zpět do registru X
 000000r 1               
-000000r 1               	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+000000r 1                       cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 000000r 1               
 000000r 1                       bne :-             ; pokud ne, skok na začátek smyčky
 000000r 1               .endmacro
@@ -113,16 +113,16 @@ Current file: example23.asm
 000000r 1               :
 000000r 1                       inc address, x     ; zvýšit pozici spritu o jedničku
 000000r 1               
-000000r 1               	lda address, x     ; maskování hodnoty
-000000r 1               	and #mask
-000000r 1               	sta address, x
+000000r 1                       lda address, x     ; maskování hodnoty
+000000r 1                       and #mask
+000000r 1                       sta address, x
 000000r 1               
-000000r 1               	txa                ; přesun offsetu do akumulátoru
-000000r 1               	clc
-000000r 1               	adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
-000000r 1               	tax                ; přesun nového offsetu zpět do registru X
+000000r 1                       txa                ; přesun offsetu do akumulátoru
+000000r 1                       clc
+000000r 1                       adc #gap           ; zvýšení o hodnotu gap (4, další sprite)
+000000r 1                       tax                ; přesun nového offsetu zpět do registru X
 000000r 1               
-000000r 1               	cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
+000000r 1                       cmp #count*gap     ; porovnání, zda jsme již dosáhli posledního spritu
 000000r 1               
 000000r 1                       bne :-             ; pokud ne, skok na začátek smyčky
 000000r 1               .endmacro
@@ -201,17 +201,17 @@ Current file: example23.asm
 00000Fr 1               
 00000Fr 1                       XPOS = $0203       ; adresa buňky paměti s x-ovou souřadnicí spritu
 00000Fr 1                       YPOS = $0200       ; adresa buňky paměti y x-ovou souřadnicí spritu
-00000Fr 1               	ATTRS = $0202      ; adresa buňky paměti s atributy spritu
+00000Fr 1                       ATTRS = $0202      ; adresa buňky paměti s atributy spritu
 00000Fr 1               
 00000Fr 1  AD 16 40 29          read_button        ; stisk tlačítka A bude sloužit pro přepínání barvy spritů
 000013r 1  01           
 000014r 1  F0 1E                beq button_a_not_pressed ; není stisknuto? => skok
 000016r 1               
-000016r 1  C6 FF        	dec COUNTER
-000018r 1  D0 1A        	bne button_a_not_pressed
+000016r 1  C6 FF                dec COUNTER
+000018r 1  D0 1A                bne button_a_not_pressed
 00001Ar 1               
-00001Ar 1  A9 0A        	lda #10
-00001Cr 1  85 FF        	sta COUNTER
+00001Ar 1  A9 0A                lda #10
+00001Cr 1  85 FF                sta COUNTER
 00001Er 1               
 00001Er 1  A2 00 FE 02          increment_block_mask ATTRS, 8, 4, 3
 000022r 1  02 BD 02 02  
@@ -328,8 +328,8 @@ Current file: example23.asm
 0000DCr 1                       ; nastavení spritů
 0000DCr 1  20 rr rr             jsr load_sprites  ; zavolání subrutiny
 0000DFr 1               
-0000DFr 1  A9 0A        	lda #10           ; inicializace čítače
-0000E1r 1  85 FF        	sta COUNTER
+0000DFr 1  A9 0A                lda #10           ; inicializace čítače
+0000E1r 1  85 FF                sta COUNTER
 0000E3r 1               
 0000E3r 1                       ; vlastní herní smyčka je prozatím prázdná
 0000E3r 1               game_loop:
