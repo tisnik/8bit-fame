@@ -31,11 +31,11 @@ CYAN_COLOR    equ %101
 YELLOW_COLOR  equ %110
 WHITE_COLOR   equ %111
 
-	org ENTRY_POINT
+        org ENTRY_POINT
 
 start:
-	ld a,BLINK_BIT | INTENSITY_BIT | (BLUE_COLOR << 3) | WHITE_COLOR
-	ld (ATTRIBUTE_ADR),a
-	ret
+        ld a,BLINK_BIT | INTENSITY_BIT | (BLUE_COLOR << 3) | WHITE_COLOR
+        ld (ATTRIBUTE_ADR),a
+        ret
 
 end ENTRY_POINT
