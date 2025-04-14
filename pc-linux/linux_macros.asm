@@ -53,6 +53,28 @@ sys_write equ 4
         print_hex eax, 0x0a         ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
 %endmacro
  
+ 
+; makro pro vypis obsahu AVX vektoru
+%macro print_avx_reg_as_hex 1
+        mov  ebx, avx_tmp           ; adresa bufferu
+        vmovdqu [ebx], %1           ; ulozeni do pameti (32 bajtu)
+        mov  eax, [ebx+28]          ; nacteni casti AVX vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx+24]          ; nacteni casti AVX vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx+20]          ; nacteni casti AVX vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx+16]          ; nacteni casti AVX vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx+12]          ; nacteni casti AVX vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx+8]           ; nacteni casti AVX vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx+4]           ; nacteni casti AVX vektoru do celociselneho registru
+        print_hex eax, ' '          ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+        mov  eax, [ebx]             ; nacteni casti AVX vektoru do celociselneho registru
+        print_hex eax, 0x0a         ; zobrazeni obsahu tohoto registru v hexadecimalnim tvaru
+%endmacro
 
 ; makro pro ukonceni procesu 
 %macro exit 0
