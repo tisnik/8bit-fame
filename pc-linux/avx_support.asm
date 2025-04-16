@@ -4,6 +4,9 @@
 ; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
 ;
 ; Clanek, kde je tento demonstracni priklad pouzit:
+; 
+; Rozšíření instrukční sady AVX a programy v assembleru
+; https://www.root.cz/clanky/rozsireni-instrukcni-sady-avx-a-programy-v-assembleru/
 
 [bits 32]
  
