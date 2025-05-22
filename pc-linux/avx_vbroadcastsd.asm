@@ -29,16 +29,16 @@ section .text
 
 _start:
         mov eax, [double_val]        ; precteni poloviny 64bitove hodnoty typu double
-	print_hex eax, SPACE         ; tisk teto 32bitove hodnoty
+        print_hex eax, SPACE         ; tisk teto 32bitove hodnoty
         mov eax, [double_val+4]      ; precteni poloviny 64bitove hodnoty typu double
-	print_hex eax, EOL           ; tisk teto 32bitove hodnoty
+        print_hex eax, EOL           ; tisk teto 32bitove hodnoty
 
         mov ebx, avx_val_1           ; adresa vektoru
         vmovdqu ymm0, [ebx]          ; nacteni puvodniho vektoru do registru YMM0
         print_avx_reg_as_hex ymm0    ; tisk hodnoty registru YMM0
 
         mov ebx, double_val          ; adresa 64bitove hodnoty typu double
-	vbroadcastsd ymm0, [ebx]     ; broadcasting do vsech prvku vektoru YMM0
+        vbroadcastsd ymm0, [ebx]     ; broadcasting do vsech prvku vektoru YMM0
         print_avx_reg_as_hex ymm0    ; tisk hodnoty registru YMM0
 
         exit                         ; ukonceni procesu
