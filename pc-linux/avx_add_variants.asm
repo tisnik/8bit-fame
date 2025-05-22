@@ -48,16 +48,16 @@ _start:
         vmovdqu ymm1, [ebx]          ; nacteni puvodniho vektoru do registru YMM1
         print_avx_reg_as_hex ymm1    ; tisk hodnoty registru YMM1
 
-	vpaddb ymm2, ymm0, ymm1      ; ymm2 = ymm0 + ymm1 (po bajtech)
+        vpaddb ymm2, ymm0, ymm1      ; ymm2 = ymm0 + ymm1 (po bajtech)
         print_avx_reg_as_hex ymm2    ; tisk hodnoty registru YMM2
 
-	vpaddw ymm2, ymm0, ymm1      ; ymm2 = ymm0 + ymm1 (po slovech)
+        vpaddw ymm2, ymm0, ymm1      ; ymm2 = ymm0 + ymm1 (po slovech)
         print_avx_reg_as_hex ymm2    ; tisk hodnoty registru YMM2
 
-	vpaddd ymm2, ymm0, ymm1      ; ymm2 = ymm0 + ymm1 (po dvojslovech)
+        vpaddd ymm2, ymm0, ymm1      ; ymm2 = ymm0 + ymm1 (po dvojslovech)
         print_avx_reg_as_hex ymm2    ; tisk hodnoty registru YMM2
 
-	vpaddq ymm2, ymm0, ymm1      ; ymm2 = ymm0 + ymm1 (po ctyrslovech)
+        vpaddq ymm2, ymm0, ymm1      ; ymm2 = ymm0 + ymm1 (po ctyrslovech)
         print_avx_reg_as_hex ymm2    ; tisk hodnoty registru YMM2
 
         exit                         ; ukonceni procesu
