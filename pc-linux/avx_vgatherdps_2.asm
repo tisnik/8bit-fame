@@ -44,7 +44,7 @@ _start:
         print_avx_reg_as_hex ymm2    ; tisk hodnoty registru YMM2
 
         mov ebx, avx_val_1           ; adresa vektoru
-	vgatherdps ymm1, [ebx+ymm2*4], ymm3
+        vgatherdps ymm1, [ebx+ymm2*4], ymm3
         print_avx_reg_as_hex ymm1    ; tisk hodnoty registru YMM1
 
         exit                         ; ukonceni procesu
