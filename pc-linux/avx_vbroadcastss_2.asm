@@ -28,14 +28,14 @@ section .text
 
 _start:
         mov eax, [float_val]         ; precteni 32bitove hodnoty typu float
-	print_hex eax, EOL           ; tisk teto 32bitove hodnoty
+        print_hex eax, EOL           ; tisk teto 32bitove hodnoty
 
         mov ebx, avx_val_1           ; adresa vektoru
         vmovdqu ymm0, [ebx]          ; nacteni puvodniho vektoru do registru YMM0
         print_avx_reg_as_hex ymm0    ; tisk hodnoty registru YMM0
 
         mov ebx, float_val           ; adresa 32bitove hodnoty typu float
-	vbroadcastss xmm0, [ebx]     ; broadcasting do vsech prvku vektoru XMM0
+        vbroadcastss xmm0, [ebx]     ; broadcasting do vsech prvku vektoru XMM0
         print_avx_reg_as_hex ymm0    ; tisk hodnoty registru YMM0
 
         exit                         ; ukonceni procesu
