@@ -18,25 +18,25 @@ BEEPER_PORT   equ $fe
 
 
 
-	org ENTRY_POINT
+        org ENTRY_POINT
 
 
 start:
-	ld   A, %00000111              ; původní hodnota zapisovaná na port
-	di                             ; zakázat přerušení
+        ld   A, %00000111              ; původní hodnota zapisovaná na port
+        di                             ; zakázat přerušení
 loop:
-	xor  %00010000                 ; negace čtvrtého bitu
-	out  (BEEPER_PORT), A          ; zápis na port
-	call short_delay               ; počkat
-	jr   loop                      ; a opakovat celé znovu
+        xor  %00010000                 ; negace čtvrtého bitu
+        out  (BEEPER_PORT), A          ; zápis na port
+        call short_delay               ; počkat
+        jr   loop                      ; a opakovat celé znovu
 
 
 short_delay:
-	; zpožďovací rutina
-	; mění B (což nám nevadí)
+        ; zpožďovací rutina
+        ; mění B (což nám nevadí)
         ld   b, 100                    ; počitadlo zpožďovací smyčky
 delay_loop:
-	djnz delay_loop                ; opakovat smyčku s počitadlem v B
-	ret                            ; návrat z podprogramu
+        djnz delay_loop                ; opakovat smyčku s počitadlem v B
+        ret                            ; návrat z podprogramu
 
 end ENTRY_POINT
