@@ -41,6 +41,9 @@ main:
 success:
         print_string success_msg
 
+        mov ax, [XResolution]
+        print_dec_16
+
         mov ax, [YResolution]
         print_dec_16
 
