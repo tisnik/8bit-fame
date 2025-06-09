@@ -31,7 +31,7 @@ success:
         print_hex eax
 
         mov ax, [CountOf64KBlocks] ; pocet 64kB bloku video RAM
-        print_dec_16 eax
+        print_dec_16
 
         mov es, [OEMNamePtr+2]     ; dlouhy ukazatel na retezec
         mov bx, [OEMNamePtr]       ; ukonceny nulou
