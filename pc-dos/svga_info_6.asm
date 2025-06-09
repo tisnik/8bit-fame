@@ -46,10 +46,14 @@ success:
         mov al, [WinAAttributes]
         print_hex eax
 
-        mov ax, [WinBAttributes]
+        xor eax, eax
+
+        mov al, [WinBAttributes]
         print_hex eax
 
-        mov al, [WinGranularity]
+        xor eax, eax
+
+        mov ax, [WinGranularity]
         print_dec_8
 
         jmp     finish
