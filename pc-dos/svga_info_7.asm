@@ -1,3 +1,8 @@
+;
+; Tento demonstracni priklad je pouzity v serialu o programovani
+; grafickych dem a her na PC v DOSu:
+; https://www.root.cz/serialy/vyvoj-her-a-grafickych-dem-pro-platformu-pc/
+;
 ;-----------------------------------------------------------------------------
 ; MODE    RESOLUTION  BITS PER PIXEL  MAXIMUM COLORS
 ; 0x0100  640x400     8               256
