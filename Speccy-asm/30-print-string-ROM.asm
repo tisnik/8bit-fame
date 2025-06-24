@@ -37,19 +37,19 @@ YELLOW_COLOR     equ %110
 WHITE_COLOR      equ %111
 
 
-	org ENTRY_POINT
+        org ENTRY_POINT
 
 start:
-	ld   A,2              ; číslo kanálu
-	call ROM_OPEN_CHANNEL ; otevření kanálu číslo 2 (screen)
+        ld   A,2              ; číslo kanálu
+        call ROM_OPEN_CHANNEL ; otevření kanálu číslo 2 (screen)
 
-	ld   DE, TEXT         ; adresa prvního znaku v řetězci
-	ld   BC, TEXT_LENGTH  ; délka textu
-	call ROM_PRINT        ; volání subrutiny v ROM
-	ret                   ; ukončit program
+        ld   DE, TEXT         ; adresa prvního znaku v řetězci
+        ld   BC, TEXT_LENGTH  ; délka textu
+        call ROM_PRINT        ; volání subrutiny v ROM
+        ret                   ; ukončit program
 
 ; řetězec
-TEXT:	db PAPER, RED_COLOR, "Hello", INK, WHITE_COLOR, "Speccy", FLASH, 1, "!"
+TEXT:   db PAPER, RED_COLOR, "Hello", INK, WHITE_COLOR, "Speccy", FLASH, 1, "!"
 
 TEXT_LENGTH: equ $ - TEXT
 
