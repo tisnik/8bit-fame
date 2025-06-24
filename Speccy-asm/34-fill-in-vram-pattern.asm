@@ -24,20 +24,20 @@ PIXELS        equ 256*192
 PATTERN       equ %10101010
 
 
-	org ENTRY_POINT
+        org ENTRY_POINT
 
 start:
-	ld hl, SCREEN_ADR     ; adresa pro zápis
-	ld a, PIXELS/8/256    ; počet opakování bloku s 256 zápisy
-	ld b, 0               ; počitadlo vnitřní smyčky
+        ld hl, SCREEN_ADR     ; adresa pro zápis
+        ld a, PIXELS/8/256    ; počet opakování bloku s 256 zápisy
+        ld b, 0               ; počitadlo vnitřní smyčky
 
 loop:
-	ld (hl), PATTERN      ; zápis hodnoty na adresu (HL)
-	inc hl                ; zvýšení adresy
-	djnz loop             ; vnitřní smyčka: blok s 256 zápisy
-	dec a                 ; počitadlo vnější smyčky
-	jp NZ, loop           ; skok pokud se ještě nedosáhlo nuly
+        ld (hl), PATTERN      ; zápis hodnoty na adresu (HL)
+        inc hl                ; zvýšení adresy
+        djnz loop             ; vnitřní smyčka: blok s 256 zápisy
+        dec a                 ; počitadlo vnější smyčky
+        jp NZ, loop           ; skok pokud se ještě nedosáhlo nuly
 finish:
-	jr finish             ; nevrátíme se do systému
+        jr finish             ; nevrátíme se do systému
 
 end ENTRY_POINT
