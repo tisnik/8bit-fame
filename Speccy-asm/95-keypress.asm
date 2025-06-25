@@ -36,19 +36,19 @@ KB_ROW_0_PORT equ $fefe
 SHIFT_KEY_MASK equ %00000001
 
 
-	org ENTRY_POINT
+        org ENTRY_POINT
 
 start:
-	ld  bc, KB_ROW_0_PORT          ; adresa portu, ze kterého budeme číst údaje
-	in  a, (c)                     ; vlastní čtení z portu (5 bitů)
-	and SHIFT_KEY_MASK             ; test, zda je stisknuta klávesa SHIFT
-	jr  z, shift_pressed           ; pokud je stlačena, skok
-	ld  a, WHITE_COLOR << 3        ; "neviditelný" atribut
-	ld  (ATTRIBUTE_ADR+32*3+2), a  ; zápis atributu do atributové paměti
-	jp  start                      ; opětovný test stisku klávesy
+        ld  bc, KB_ROW_0_PORT          ; adresa portu, ze kterého budeme číst údaje
+        in  a, (c)                     ; vlastní čtení z portu (5 bitů)
+        and SHIFT_KEY_MASK             ; test, zda je stisknuta klávesa SHIFT
+        jr  z, shift_pressed           ; pokud je stlačena, skok
+        ld  a, WHITE_COLOR << 3        ; "neviditelný" atribut
+        ld  (ATTRIBUTE_ADR+32*3+2), a  ; zápis atributu do atributové paměti
+        jp  start                      ; opětovný test stisku klávesy
 shift_pressed:
-	ld  a, INTENSITY_BIT | (RED_COLOR << 3)
-	ld  (ATTRIBUTE_ADR+32*3+2), a  ; zápis atributu do atributové paměti
-	jp  start                      ; opětovný test stisku klávesy
+        ld  a, INTENSITY_BIT | (RED_COLOR << 3)
+        ld  (ATTRIBUTE_ADR+32*3+2), a  ; zápis atributu do atributové paměti
+        jp  start                      ; opětovný test stisku klávesy
 
 end ENTRY_POINT
