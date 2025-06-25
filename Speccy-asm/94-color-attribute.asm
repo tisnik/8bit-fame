@@ -31,11 +31,11 @@ CYAN_COLOR    equ %101
 YELLOW_COLOR  equ %110
 WHITE_COLOR   equ %111
 
-	org ENTRY_POINT
+        org ENTRY_POINT
 
 start:
-	ld a, INTENSITY_BIT | (BLUE_COLOR << 3) | RED_COLOR
-	ld (ATTRIBUTE_ADR+32*3+2), a  ; zápis atributu do atributové paměti
-	ret                           ; návrat do BASICu
+        ld a, INTENSITY_BIT | (BLUE_COLOR << 3) | RED_COLOR
+        ld (ATTRIBUTE_ADR+32*3+2), a  ; zápis atributu do atributové paměti
+        ret                           ; návrat do BASICu
 
 end ENTRY_POINT
