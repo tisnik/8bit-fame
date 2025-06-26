@@ -33,31 +33,26 @@
 
 bits 16
 
-P       equ     65536           ;poloha desetinne tecky v X-pointu
-K       equ     4*P/256         ;vzdalenost mezi dvema body (krok smycky)
-K1      equ     4*P/192
-MIN     equ     -2*P            ;minimalni a maximalni hodnota konstant fraktalu
-                                ;v komplexni rovine
-
+P       equ     65536           ; poloha desetinne tecky v X-pointu
+K       equ     4*P/256         ; vzdalenost mezi dvema body (krok smycky)
+L       equ     4*P/192
+MIN     equ     -2*P            ; minimalni a maximalni hodnota konstant fraktalu
+                                ; v komplexni rovine
 
 
 ;-----------------------------------------------------------------------------
 section .data
 
-nadpis  db "  Pavel Tisnovsky  <tisnik@centrum.cz>$"
-
-zy1     dd MIN                  ;poloha v komplexni rovine rovine
-
-
+zy1     dd MIN                  ; poloha v komplexni rovine rovine
 
 ;-----------------------------------------------------------------------------
 section .bss
 
 zx1     resd 1                  ;
 zx2     resd 1                  ;
-zy2     resd 1                  ;aktualni poloha v komplexni rovine
-zx3     resd 1                  ;zx3=zx2^2 (aby se to nemuselo pocitat 2x)
-zy3     resd 1                  ;zy3=zy2^2
+zy2     resd 1                  ; aktualni poloha v komplexni rovine
+zx3     resd 1                  ; zx3=zx2^2 (aby se to nemuselo pocitat 2x)
+zy3     resd 1                  ; zy3=zy2^2
 
 
 
@@ -66,80 +61,76 @@ org     0x100
 section .text
 
 start:
-        mov     ax,13h          ;gr.mod 13h
+        mov     ax,13h          ; gr.mod 13h
         int     10h
-
-        lea     dx,[nadpis]
-        mov     ah,9h
-        int     21h             ;tisk nadpisu
 
 ;:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ;: MANDELBROTOVA MNOZINA                                                    ::
 ;:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
         mov     AX,0a000h       ;
-        mov     ES,AX           ;do ES zacatek obrazove pameti VGA
-        mov     DI,320*8+32     ;zacatek vykreslovani na obrazovce
-        mov     BP,192          ;BP==[x] fraktal bude velikosti 256x192
-mforx:  mov     dword [zx1],MIN       ;od -2 (imaginarni osa)
-        mov     SI,256          ;SI==[y]
-mfory:  mov     CL,40           ;pocet iteraci
+        mov     ES,AX           ; do ES zacatek obrazove pameti VGA
+        mov     DI,320*8+32     ; zacatek vykreslovani na obrazovce
+        mov     BP,192          ; BP==[x] fraktal bude velikosti 256x192
+mforx:  mov     dword [zx1],MIN       ; od -2 (imaginarni osa)
+        mov     SI,256          ; SI==[y]
+mfory:  mov     CL,40           ; pocet iteraci
         xor     EAX,EAX         ;
-        mov     dword [zx2],EAX ;nastaveni real.casti zacatku
-        mov     dword [zy2],EAX ;nastaveni imag.casti zacatku
+        mov     dword [zx2],EAX ; nastaveni real.casti zacatku
+        mov     dword [zy2],EAX ; nastaveni imag.casti zacatku
 mrep_:                          ;*** iteracni smycka ***
         mov     EAX, dword [zx2];
         sar     EAX,8           ; 
-        imul    EAX             ;ZX3:=ZX2^2 (v X-pointu)
+        imul    EAX             ; ZX3:=ZX2^2 (v X-pointu)
         mov     dword [zx3],EAX ;
         mov     EAX,dword [zy2] ;
         sar     EAX,8           ; 
-        imul    EAX             ;ZY3:=ZY2^2 (v X-pointu)
+        imul    EAX             ; ZY3:=ZY2^2 (v X-pointu)
         mov     dword [zy3],EAX ;
 
         mov     EAX,[zx2]       ;
-        sar     EAX,8           ;ZX2 div 256 (pro mul v X-pointu)
+        sar     EAX,8           ; ZX2 div 256 (pro mul v X-pointu)
         mov     EBX,[zy2]       ;
-        sar     EBX,7           ;ZY2 div 256 * 2 (pro mul v X-pointu)
-        imul    EBX             ;ZY2:=2*ZX2*ZY2
-        add     EAX,[zy1]       ;ZY2:=2*ZX2*ZY2+CY (u Mandelbrota poc.iter.)
-        mov     [zy2],EAX       ;ulozit
+        sar     EBX,7           ; ZY2 div 256 * 2 (pro mul v X-pointu)
+        imul    EBX             ; ZY2:=2*ZX2*ZY2
+        add     EAX,[zy1]       ; ZY2:=2*ZX2*ZY2+CY (u Mandelbrota poc.iter.)
+        mov     [zy2],EAX       ; ulozit
 
         mov     EAX,[zx3]       ;
-        sub     EAX,[zy3]       ;ZX3:=ZX3-ZY3=ZX2^2-ZY2^2
+        sub     EAX,[zy3]       ; ZX3:=ZX3-ZY3=ZX2^2-ZY2^2
         add     EAX,[zx1]       ;
-        mov     [zx2],EAX       ;ZX2:=ZX2^2-ZY2^2+CX
-        dec     CL              ;pocitadlo iteraci
-        jz      short mpokrac   ;konec iteraci ?
+        mov     [zx2],EAX       ; ZX2:=ZX2^2-ZY2^2+CX
+        dec     CL              ; pocitadlo iteraci
+        jz      short mpokrac   ; konec iteraci ?
         mov     EAX,[zx3]       ;
         add     EAX,[zy3]       ;==ZX2^2+ZY2^2
-        cmp     EAX,4*P         ;kontrola na bailout (abs[Z]<4)
-        jc      short mrep_     ;abs[Z]<4 =>dalsi iterace
+        cmp     EAX,4*P         ; kontrola na bailout (abs[Z]<4)
+        jc      short mrep_     ; abs[Z]<4 =>dalsi iterace
 mpokrac:
-        mov     AL,CL           ;pocet iteraci
-        add     AL,32           ;posun na vhodne barvy v palete
-        stosb                   ;vykreslit bod+posun na dalsi
-        add     dword [zx1],K   ;ZY1:=ZY1+K
+        mov     AL,CL           ; pocet iteraci
+        add     AL,32           ; posun na vhodne barvy v palete
+        stosb                   ; vykreslit bod+posun na dalsi
+        add     dword [zx1],K   ; ZY1:=ZY1+K
         dec     si
-        jnz     mfory           ;Y!=0 ->dalsi radek
-        add     DI,320-256      ;dalsi radek na obrazovce
-        add     dword [zy1],K1  ;ZX1:=ZX1+K
-        dec     BP              ;x=x-1
-        jnz     mforx           ;X!=0 ->dalsi radek
+        jnz     mfory           ; Y!=0 ->dalsi radek
+        add     DI,320-256      ; dalsi radek na obrazovce
+        add     dword [zy1],L   ; ZX1:=ZX1+K
+        dec     BP              ; x=x-1
+        jnz     mforx           ; X!=0 ->dalsi radek
 
-opak01: mov     AH,1            ;sluzba BIOSu-cteni stavu bufferu klavesnice
+opak01: mov     AH,1            ; sluzba BIOSu-cteni stavu bufferu klavesnice
         int     16h
-        jz      short konec01   ;zadna klavesa v bufferu->konec
-        xor     AH,AH           ;sluzba BIOSu-cteni klavesy z bufferu
+        jz      short konec01   ; zadna klavesa v bufferu->konec
+        xor     AH,AH           ; sluzba BIOSu-cteni klavesy z bufferu
         int     16h
-        jmp     short opak01    ;dalsi klavesa
+        jmp     short opak01    ; dalsi klavesa
 konec01:
         xor     AH,AH
-        int     16h             ;cekani na klavesu
-        mov     AX,3            ;gr.mod 3
+        int     16h             ; cekani na klavesu
+        mov     AX,3            ; gr.mod 3
         int     10h
-        mov     AX,4c00h        ;navratovy kod=0
-        int     21h             ;finito
+        mov     AX,4c00h        ; navratovy kod=0
+        int     21h             ; finito
 
 ; finito
 
