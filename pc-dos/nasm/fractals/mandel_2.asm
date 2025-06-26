@@ -1,7 +1,7 @@
 ; asmsyntax=nasm
 ;
 ; Simple Mandelbrot set renderer
-; 2nd version (a bit shorter & without title)
+; 2nd version (a bit shorter)
 ;
 ; .com size = 180 bytes
 
@@ -9,7 +9,7 @@ bits 16
 
 P       equ     4096            ;poloha desetinne tecky v X-pointu
 K       equ     4*P/256         ;vzdalenost mezi dvema body (krok smycky)
-K1      equ     4*P/192
+L       equ     4*P/192
 MIN     equ     -2*P            ;minimalni a maximalni hodnota konstant fraktalu
                                 ;v komplexni rovine
 
@@ -18,8 +18,6 @@ MIN     equ     -2*P            ;minimalni a maximalni hodnota konstant fraktalu
 section .data
 
 zy1     dd MIN                  ;poloha v komplexni rovine rovine
-
-
 
 ;-----------------------------------------------------------------------------
 section .bss
@@ -90,7 +88,7 @@ mpokrac:
         dec     si
         jnz     short mfory     ;Y!=0 ->dalsi radek
 
-        add     dword [zy1],K1  ;ZX1:=ZX1+K
+        add     dword [zy1],L   ;ZX1:=ZX1+K
         cmp     di,64000        ;konec obrazku ?
         jne     mforx
 
