@@ -3,8 +3,8 @@ org  0x100        ; zacatek kodu pro programy typu COM (vzdy se zacina na 256)
 
 ; konstanty
 P       equ     4096               ; poloha desetinne tecky v X-pointu
-K       equ     3*P/320            ; vzdalenost mezi dvema body (krok smycky)
-L       equ     3*P/240
+K       equ     4*P/256            ; vzdalenost mezi dvema body (krok smycky)
+L       equ     4*P/192
 MIN     equ     -2*P               ; minimalni a maximalni hodnota konstant fraktalu
                                    ; v komplexni rovine
 MAXITER equ     40                 ; maximalni pocet iteraci
@@ -33,50 +33,50 @@ main:
         xor     DI, DI             ; zacatek vykreslovani na obrazovce
         mov     CL, 6              ; posun pro FX format
 
-mforx:  mov     word [zx1], MIN    ; od -2 (imaginarni osa)
+mforx:  mov     word [cx_], MIN    ; od -2 (imaginarni osa)
         mov     SI, SLOUPCU        ; x
 mfory:  mov     CH, MAXITER        ; pocet iteraci
         xor     AX, AX             ;
         mov     BP, AX             ; nastaveni real.casti zacatku
-        mov     word [zy2],AX      ; nastaveni imag.casti zacatku
+        mov     word [zy1], AX     ; nastaveni imag.casti zacatku
 iter_loop:                         ; *** iteracni smycka ***
-        mov     AX,BP              ;
+        mov     AX, BP             ;
+        sar     AX, CL             ;
+        imul    AX                 ; zx2:=zx1^2 (v X-pointu)
+        mov     word [zx2], AX     ;
+        mov     AX, [zy1]          ;
         sar     AX,CL              ;
-        imul    AX                 ; ZX3:=ZX2^2 (v X-pointu)
-        mov     word [zx3],AX      ;
-        mov     AX, [zy2]          ;
-        sar     AX,CL              ;
-        imul    AX                 ; ZY3:=ZY2^2 (v X-pointu)
-        mov     word [zy3],AX      ;
+        imul    AX                 ; zy2:=zy1^2 (v X-pointu)
+        mov     word [zy2], AX     ;
 
         mov     AX, BP             ;
-        sar     AX,CL              ; ZX2 div 256 (pro mul v X-pointu)
-        mov     BX, [zy2]          ;
-        sar     BX,5               ; ZY2 div 256 * 2 (pro mul v X-pointu)
-        imul    BX                 ; ZY2:=2*ZX2*ZY2
-        add     AX, [zy1]          ; ZY2:=2*ZX2*ZY2+CY (u Mandelbrota poc.iter.)
-        mov     [zy2], AX          ; ulozit
+        sar     AX,CL              ; zx1 div 256 (pro mul v X-pointu)
+        mov     BX, [zy1]          ;
+        sar     BX,5               ; zy1 div 256 * 2 (pro mul v X-pointu)
+        imul    BX                 ; zy1:=2*zx1*zy1
+        add     AX, [cy_]          ; zy1:=2*zx1*zy1+CY (u Mandelbrota poc.iter.)
+        mov     [zy1], AX          ; ulozit
 
-        mov     AX, [zx3]          ;
-        sub     AX, [zy3]          ; ZX3:=ZX3-ZY3=ZX2^2-ZY2^2
-        add     AX, [zx1]          ;
-        mov     BP, AX             ; ZX2:=ZX2^2-ZY2^2+CX
+        mov     AX, [zx2]          ;
+        sub     AX, [zy2]          ; zx2:=zx2-zy2=zx1^2-zy1^2
+        add     AX, [cx_]          ;
+        mov     BP, AX             ; zx1:=zx1^2-zy1^2+CX
         dec     CH                 ; pocitadlo iteraci
         jz      short mpokrac      ; konec iteraci ?
-        mov     AX, [zx3]          ;
-        add     AX, [zy3]          ; ==ZX2^2+ZY2^2
+        mov     AX, [zx2]          ;
+        add     AX, [zy2]          ; ==zx1^2+zy1^2
         cmp     AX, BAILOUT*P      ; kontrola na bailout (abs[Z]<4)
         jc      short iter_loop    ; abs[Z]<4 =>dalsi iterace
 mpokrac:
         mov     AL, CH             ; pocet iteraci
         add     AL, 32             ; posun na vhodne barvy v palete
         stosb                      ; vykreslit pixel+posun na dalsi pixel
-        add     word [zx1], K      ; ZY1:=ZY1+K
+        add     word [cx_], K      ; cy_:=cy_+K
         dec     si
         jnz     short mfory        ; Y!=0 ->dalsi radek
 
-        add     word [zy1],L       ; ZX1:=ZX1+L
-        cmp     di,64000           ; konec obrazku ?
+        add     word [cy_], L      ; cx_:=cx_+L
+        cmp     di, 64000          ; konec obrazku ?
         jne     short mforx
 
 finish:
@@ -86,14 +86,14 @@ finish:
 
 section .data
 
-zy1     dw -1*P-1000               ; poloha v komplexni rovine rovine
+cy_     dw MIN                     ; poloha v komplexni rovine rovine
 
 section .bss
 
-zx1     resw 1                     ;
-zy2     resw 1                     ; aktualni poloha v komplexni rovine
-zx3     resw 1                     ; zx3=zx2^2 (aby se to nemuselo pocitat 2x)
-zy3     resw 1                     ; zy3=zy2^2
+cx_     resw 1                     ;
+zy1     resw 1                     ; aktualni poloha v komplexni rovine
+zx2     resw 1                     ; zx2=zx1^2 (aby se to nemuselo pocitat 2x)
+zy2     resw 1                     ; zy2=zy1^2
 
 
 
