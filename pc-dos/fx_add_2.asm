@@ -21,6 +21,7 @@ main:
         mov  eax, 1 * P            ; konstanta v FX-pointu: 1.0
         mov  ebx, 2 * P            ; konstanta v FX-pointu: 2.0
         fx_add eax, ebx            ; scitani v FX-pointu
+        print_hex eax
 
         mov  eax, 1 * P / 2        ; konstanta v FX-pointu: 0.5
         mov  ebx, 3 * P / 2        ; konstanta v FX-pointu: 1.5
