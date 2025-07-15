@@ -42,19 +42,19 @@ main:
 success:
         call grayscale_palette     ; nastaveni palety se stupni sedi
 
-	call fill_video_segment
+        call fill_video_segment
 
-	mov  dx, 2
-	call set_video_window
-	call fill_video_segment
+        mov  dx, 2
+        call set_video_window
+        call fill_video_segment
 
-	mov  dx, 4
-	call set_video_window
-	call fill_video_segment
+        mov  dx, 4
+        call set_video_window
+        call fill_video_segment
 
-	mov  dx, 6
-	call set_video_window
-	call fill_video_segment
+        mov  dx, 6
+        call set_video_window
+        call fill_video_segment
 
 
         jmp     finish
@@ -77,14 +77,14 @@ opak:
         stosb                      ; zapis barvy pixelu
         inc al                     ; dalsi pixel
         loop opak                  ; opakujeme CX-krat
-	ret                        ; navrat ze subrutiny
+        ret                        ; navrat ze subrutiny
 
 set_video_window:
         ; ocekava se, ze DL je nastaven korektne!
-	mov ax, 0x4f05             ; nastaveni okna
-	mov bx, 0x0000             ; okno A
-	int     0x10               ; volani VBE
-	ret                        ; navrat ze subrutiny
+        mov ax, 0x4f05             ; nastaveni okna
+        mov bx, 0x0000             ; okno A
+        int     0x10               ; volani VBE
+        ret                        ; navrat ze subrutiny
 
 ; paleta ve stupnich sedi
 grayscale_palette:
@@ -99,7 +99,7 @@ next_dac:
         int 0x10                   ; modifikace mapovani v DAC
         inc bl                     ; zvysit index v DAC
         jnz next_dac               ; nastavit dalsi barvu, dokud nedosahneme hodnoty 256
-	ret                        ; navrat ze subrutiny
+        ret                        ; navrat ze subrutiny
 
 
 ; datova cast
