@@ -56,12 +56,12 @@ end_str:
 next_mode:
         xor eax, eax
         mov ax, es:[bx]            ; nacteni cisla rezimu
-	cmp ax, -1                 ; jde o posledni zaznam?
-	je  last_mode              ; ano -> koncime
-	print_dec eax              ; tisk cisla rezimu
-	inc bx                     ; offset pro dalsi rezim
-	inc bx
-	jmp next_mode              ; pokracujeme
+        cmp ax, -1                 ; jde o posledni zaznam?
+        je  last_mode              ; ano -> koncime
+        print_dec eax              ; tisk cisla rezimu
+        inc bx                     ; offset pro dalsi rezim
+        inc bx
+        jmp next_mode              ; pokracujeme
 last_mode:
 
         jmp     finish
