@@ -14,14 +14,13 @@
 
 """Ghost class that represents any ghost in the game."""
 
-from typing import Dict, Any
+from enum import Enum
+from typing import Any, Dict
 
 import pygame
-
-from resources import Resources
 from direction import Direction
+from resources import Resources
 from sprite import Sprite
-from enum import Enum
 
 
 class Scared(Enum):
