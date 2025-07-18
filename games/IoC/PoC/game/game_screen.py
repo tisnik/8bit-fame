@@ -15,16 +15,15 @@
 """Game screen displayed in the game and selected from main menu."""
 
 import sys
+from typing import Optional, Tuple
+
 import pygame
-
-from typing import Tuple, Optional
-
-from screen import Screen
 from colors import Colors
-from resources import Resources
+from ghost import Ghost
 from maze import Maze
 from pacman import PacMan
-from ghost import Ghost
+from resources import Resources
+from screen import Screen
 
 
 class GameScreen(Screen):
