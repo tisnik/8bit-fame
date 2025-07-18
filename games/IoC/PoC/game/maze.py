@@ -14,11 +14,11 @@
 
 """Representation of maze in a game."""
 
-import os
-import pygame
 import configparser
+import os
+from typing import Dict, List, Optional, Tuple
 
-from typing import Dict, List, Tuple, Optional
+import pygame
 from tile import Tile
 
 
