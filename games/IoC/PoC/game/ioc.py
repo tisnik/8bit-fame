@@ -18,22 +18,21 @@ import sys
 
 import pygame
 import pygame.locals
-
-from main_menu import MainMenu
-from ghost import Ghost
-from config import loadConfiguration
+from about_screen import AboutScreen
 from colors import Colors
-from splash_screen import SplashScreen
-from statistic_screen import StatisticScreen
-from statistic import Statistic
+from config import loadConfiguration
+from game_screen import GameScreen
+from ghost import Ghost
+from main_menu import MainMenu
+from maze import Maze
+from resources import Resources
 from settings_screen import SettingsScreen
+from settings_screen_controls import SettingsScreenControls
 from settings_screen_game_rules import SettingsScreenGameRules
 from settings_screen_maze import SettingsScreenMaze
-from settings_screen_controls import SettingsScreenControls
-from game_screen import GameScreen
-from resources import Resources
-from about_screen import AboutScreen
-from maze import Maze
+from splash_screen import SplashScreen
+from statistic import Statistic
+from statistic_screen import StatisticScreen
 
 
 def about_screen_mode(display: pygame.Surface, resources: Resources) -> None:
