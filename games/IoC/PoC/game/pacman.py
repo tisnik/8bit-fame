@@ -16,9 +16,8 @@
 
 import pygame
 import pygame.transform
-
-from resources import Resources
 from direction import Direction
+from resources import Resources
 from sprite import Sprite
 
 
