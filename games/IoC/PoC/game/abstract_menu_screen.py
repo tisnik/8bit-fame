@@ -14,15 +14,14 @@
 
 """Any screen with menu."""
 
-import pygame
 import sys
+from typing import Tuple
 
-from screen import Screen
-from resources import Resources
+import pygame
 from ghost import Ghost
 from main_menu import MainMenu
-
-from typing import Tuple
+from resources import Resources
+from screen import Screen
 
 
 class AbstractMenuScreen(Screen):
