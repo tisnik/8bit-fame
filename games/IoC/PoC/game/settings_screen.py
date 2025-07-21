@@ -15,11 +15,10 @@
 """Settings screen displayed in the game and selected from main menu."""
 
 import pygame
-
 from abstract_menu_screen import AbstractMenuScreen
 from colors import Colors
-from resources import Resources
 from ghost import Ghost
+from resources import Resources
 
 
 class SettingsScreen(AbstractMenuScreen):
