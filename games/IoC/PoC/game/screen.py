@@ -14,10 +14,10 @@
 
 """Superclass for all screens in the game."""
 
-from abc import ABC
-import pygame
 import sys
+from abc import ABC
 
+import pygame
 from colors import Colors
 from resources import Resources
 
