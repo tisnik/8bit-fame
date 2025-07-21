@@ -12,14 +12,13 @@
 
 """Resources used within the game."""
 
-import os
 import configparser
-
+import os
+from os.path import isfile, join
 from typing import Dict, List, Tuple
 
 import pygame
 from pygame.font import Font
-from os.path import isfile, join
 
 
 class Resources:
