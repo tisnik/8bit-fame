@@ -15,16 +15,15 @@
 """Statistic screen displayed in the game and selected from main menu."""
 
 import sys
-import pygame
-
 from typing import Tuple
 
-from screen import Screen
+import pygame
 from colors import Colors
-from pacman import PacMan
 from ghost import Ghost
-from statistic import Statistic
+from pacman import PacMan
 from resources import Resources
+from screen import Screen
+from statistic import Statistic
 
 
 class StatisticScreen(Screen):
