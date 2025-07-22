@@ -14,8 +14,8 @@
 
 """Games statistic."""
 
-from os.path import exists
 import pickle
+from os.path import exists
 
 STATISTIC_FILENAME = "ioc.stats"
 
