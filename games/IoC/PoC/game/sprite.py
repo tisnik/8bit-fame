@@ -14,10 +14,10 @@
 
 """Super class for all movable objects in the game."""
 
+from abc import ABC
 from typing import Tuple
 
 import pygame
-from abc import ABC
 from direction import Direction
 
 
