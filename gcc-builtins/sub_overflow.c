@@ -47,4 +47,3 @@ bool sub_overflow_unsigned_long(unsigned long x, unsigned long y) {
     bool overflow = __builtin_sub_overflow(x, y, &z);
     return overflow;
 }
-
