@@ -50,7 +50,7 @@ _larger_value	proc	far
 	cmp	ax,word ptr es:[bx]
 	jbe	short @1@86
    ;	
-   ;	        return x;
+   ;		return x;
    ;	
 	mov	dx,word ptr [bp+8]
 	mov	ax,word ptr [bp+6]
@@ -59,7 +59,7 @@ _larger_value	proc	far
 @1@86:
    ;	
    ;	    } else {
-   ;	        return y;
+   ;		return y;
    ;	
 	mov	dx,word ptr [bp+12]
 	mov	ax,word ptr [bp+10]
@@ -158,4 +158,3 @@ LARGER_TEXT	ends
 	extrn	_printf:far
 _s@	equ	s@
 	end
-
