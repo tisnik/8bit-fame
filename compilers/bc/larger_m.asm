@@ -52,7 +52,7 @@ _larger_value	proc	far
 	cmp	ax,word ptr [di]
 	jbe	short @1@86
    ;	
-   ;	        return x;
+   ;		return x;
    ;	
 	mov	ax,si
 	pop	di
@@ -62,7 +62,7 @@ _larger_value	proc	far
 @1@86:
    ;	
    ;	    } else {
-   ;	        return y;
+   ;		return y;
    ;	
 	mov	ax,di
    ;	
@@ -154,4 +154,3 @@ LARGER_TEXT	ends
 	extrn	_printf:far
 _s@	equ	s@
 	end
-
