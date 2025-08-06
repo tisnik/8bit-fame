@@ -52,7 +52,7 @@ _larger_value	proc	near
 	cmp	ax,word ptr [di]
 	jbe	short @1@86
    ;	
-   ;	        return x;
+   ;		return x;
    ;	
 	mov	ax,si
 	pop	di
@@ -62,7 +62,7 @@ _larger_value	proc	near
 @1@86:
    ;	
    ;	    } else {
-   ;	        return y;
+   ;		return y;
    ;	
 	mov	ax,di
    ;	
@@ -152,4 +152,3 @@ _TEXT	ends
 	extrn	_printf:near
 _s@	equ	s@
 	end
-
