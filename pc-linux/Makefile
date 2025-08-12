@@ -14,12 +14,16 @@ execs := mmx_support mmx_init \
 	 sse_shufps sse_unpckhps sse_unpcklps sse_cvtsi2ss sse_cvtss2si sse_cvtss2si_fract sse_cvtss2si_special \
 	 sse_ldmxcsr sse_stmxcsr \
 	 sse2_support sse2_paddb sse2_paddw sse2_paddusb \
-	 sse_sum sse_dot_product sse2_add_delta \
+	 sse_sum sse_dot_product sse2_add_delta sse2_add_delta_32bytes \
 	 sse2_sqrtpd sse2_sqrtpd_negative sse2_sqrtpd_special \
 	 sse2_shift_right_words, sse2_shift_right_dwords, sse2_shift_right_qwords, sse2_shift_right_dqwords \
 	 sse2_and sse2_and_not sse2_cvtps2dq sse2_cvtps2dq_neg sse2_cvtps2dq_special \
 	 sse2_cvtps2pd sse2_cvtpd2ps sse2_cvtps2dq_special sse2_unpckhpd sse2_unpcklpd sse2_punpckhbw sse2_punpcklbw \
-	 sse2_pmovmskb sse2_pshufd
+	 sse2_pmovmskb sse2_pshufd sse2_dot_product_16bytes \
+	 avx_support avx_print_register avx_vpaddb avx_add_variants avx_instr_formats \
+	 avx_vbroadcastss_1 avx_vbroadcastss_2 avx_vbroadcastsd avx_vzeroall avx_vzeroupper \
+	 avx_vgatherdps_1 avx_vgatherdps_2 avx_vgatherdps_3 \
+	 rdrand_support rdrand_read rdrand_read_loop
 
 all:	$(execs)
 
@@ -211,6 +215,9 @@ sse_dot_product:	sse_dot_product.o
 sse2_add_delta:	sse2_add_delta.o
 	ld -melf_i386 $< -o $@
 
+sse2_add_delta_32bytes:	sse2_add_delta_32bytes.o
+	ld -melf_i386 $< -o $@
+
 sse2_sqrtpd:	sse2_sqrtpd.o
 	ld -melf_i386 $< -o $@
 
@@ -274,3 +281,50 @@ sse2_pmovmskb:	sse2_pmovmskb.o
 sse2_pshufd:	sse2_pshufd.o
 	ld -melf_i386 $< -o $@
 
+sse2_dot_product_16bytes:	sse2_dot_product_16bytes.o
+	ld -melf_i386 $< -o $@
+
+avx_support:	avx_support.o
+	ld -melf_i386 $< -o $@
+
+avx_print_register:	avx_print_register.o
+	ld -melf_i386 $< -o $@
+
+avx_vpaddb:	avx_vpaddb.o
+	ld -melf_i386 $< -o $@
+
+avx_add_variants:	avx_add_variants.o
+	ld -melf_i386 $< -o $@
+
+avx_instr_formats:	avx_instr_formats.o
+	ld -melf_i386 $< -o $@
+
+avx_vbroadcastss_2:	avx_vbroadcastss_2.o
+	ld -melf_i386 $< -o $@
+
+avx_vbroadcastsd:	avx_vbroadcastsd.o
+	ld -melf_i386 $< -o $@
+
+avx_vzeroall:	avx_vzeroall.o
+	ld -melf_i386 $< -o $@
+
+avx_vzeroupper:	avx_vzeroupper.o
+	ld -melf_i386 $< -o $@
+
+avx_vgatherdps_1:	avx_vgatherdps_1.o
+	ld -melf_i386 $< -o $@
+
+avx_vgatherdps_2:	avx_vgatherdps_2.o
+	ld -melf_i386 $< -o $@
+
+avx_vgatherdps_3:	avx_vgatherdps_3.o
+	ld -melf_i386 $< -o $@
+
+rdrand_support:	rdrand_support.o
+	ld -melf_i386 $< -o $@
+
+rdrand_read:	rdrand_read.o
+	ld -melf_i386 $< -o $@
+
+rdrand_read_loop:	rdrand_read_loop.o
+	ld -melf_i386 $< -o $@
