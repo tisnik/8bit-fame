@@ -42,23 +42,23 @@ main:
         jne     failed
 
 success:
-	mov  di, 0                 ; posun v ramci segmentu A000
-	call fill_video_segment
+        mov  di, 0                 ; posun v ramci segmentu A000
+        call fill_video_segment
 
-	mov  dx, 2
-	call set_video_window
-	mov  di, 1                 ; posun v ramci segmentu A000
-	call fill_video_segment
+        mov  dx, 2
+        call set_video_window
+        mov  di, 1                 ; posun v ramci segmentu A000
+        call fill_video_segment
 
-	mov  dx, 4
-	call set_video_window
-	mov  di, 2                 ; posun v ramci segmentu A000
-	call fill_video_segment
+        mov  dx, 4
+        call set_video_window
+        mov  di, 2                 ; posun v ramci segmentu A000
+        call fill_video_segment
 
-	mov  dx, 6
-	call set_video_window
-	mov  di, 3                 ; posun v ramci segmentu A000
-	call fill_video_segment
+        mov  dx, 6
+        call set_video_window
+        mov  di, 3                 ; posun v ramci segmentu A000
+        call fill_video_segment
 
 
         jmp     finish
@@ -79,17 +79,17 @@ fill_video_segment:
         mov al, 0                  ; kod pixelu
 opak:
         stosb                      ; zapis barvove slozky
-	add di, 3
+        add di, 3
         inc al                     ; dalsi barva (intenzita)
         loop opak                  ; opakujeme CX-krat
-	ret                        ; navrat ze subrutiny
+        ret                        ; navrat ze subrutiny
 
 set_video_window:
         ; ocekava se, ze DL je nastaven korektne!
-	mov ax, 0x4f05             ; nastaveni okna
-	mov bx, 0x0000             ; okno A
-	int     0x10               ; volani VBE
-	ret                        ; navrat ze subrutiny
+        mov ax, 0x4f05             ; nastaveni okna
+        mov bx, 0x0000             ; okno A
+        int     0x10               ; volani VBE
+        ret                        ; navrat ze subrutiny
 
 
 ; datova cast
