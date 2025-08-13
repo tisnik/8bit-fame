@@ -36,7 +36,7 @@ _start:
         vmovdqu ymm1, [ebx]          ; nacteni puvodniho vektoru do registru YMM1
         print_avx_reg_as_hex ymm1    ; tisk hodnoty registru YMM1
 
-	vzeroall                     ; vynulování všech prvků registrů
+        vzeroall                     ; vynulování všech prvků registrů
         print_avx_reg_as_hex ymm0    ; tisk hodnoty registru YMM0
         print_avx_reg_as_hex ymm1    ; tisk hodnoty registru YMM1
 
