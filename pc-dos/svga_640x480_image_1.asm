@@ -65,10 +65,10 @@ finish:
 
 set_video_window:
         ; ocekava se, ze DL je nastaven korektne!
-	mov ax, 0x4f05             ; nastaveni okna
-	mov bx, 0x0000             ; okno A
-	int     0x10               ; volani VBE
-	ret                        ; navrat ze subrutiny
+        mov ax, 0x4f05             ; nastaveni okna
+        mov bx, 0x0000             ; okno A
+        int     0x10               ; volani VBE
+        ret                        ; navrat ze subrutiny
 
 ; paleta ve stupnich sedi
 grayscale_palette:
@@ -83,7 +83,7 @@ next_dac:
         int 0x10                   ; modifikace mapovani v DAC
         inc bl                     ; zvysit index v DAC
         jnz next_dac               ; nastavit dalsi barvu, dokud nedosahneme hodnoty 256
-	ret                        ; navrat ze subrutiny
+        ret                        ; navrat ze subrutiny
 
 
 ; datova cast
