@@ -42,7 +42,7 @@
 ; makro pro vypis osmibitove desitkove hodnoty na standardni vystup
 %macro print_dec_8 0
         pusha                         ; uschovat vsechny registry na zasobnik
-	and     eax, 0x000000ff
+        and     eax, 0x000000ff
         mov     ebx, dec_message      ; buffer, ktery se zaplni desitkovymi cisticemi
         call    decimal2string        ; zavolani prislusne subrutiny pro prevod na string
         print_string   dec_message    ; tisk hexadecimalni hodnoty
@@ -52,7 +52,7 @@
 ; makro pro vypis 16bitove desitkove hodnoty na standardni vystup
 %macro print_dec_16 0
         pusha                         ; uschovat vsechny registry na zasobnik
-	and     eax, 0x0000ffff
+        and     eax, 0x0000ffff
         mov     ebx, dec_message      ; buffer, ktery se zaplni desitkovymi cisticemi
         call    decimal2string        ; zavolani prislusne subrutiny pro prevod na string
         print_string   dec_message    ; tisk hexadecimalni hodnoty
