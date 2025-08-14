@@ -86,7 +86,7 @@ org 100h
             mov ax,3
             int 10h
             mov ax,4c00h
-	    INT 21h
+            INT 21h
 
 iterate:
             fld dword [a]
