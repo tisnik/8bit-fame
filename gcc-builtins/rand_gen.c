@@ -1,20 +1,16 @@
 #include <stdio.h>
 #include <stdint.h>
 
-uint32_t lfsr_rand(void)
-{
-    uint16_t start_state = 0xACE1u;
-    uint16_t lfsr = start_state;
-    uint16_t bit;
-    uint32_t period = 0;
 
-    do {
-        bit = ((lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5)) & 1u;
-        lfsr = (lfsr >> 1) | (bit << 15);
-        ++period;
-    } while (lfsr != start_state);
+uint32_t xorshift32(void) {
+    const uint32_t start_state = 0xACE1u;
+    static uint32_t state = start_state;
 
-    return period;
+    uint32_t x = state;
+    x ^= x << 13;
+    x ^= x >> 17;
+    x ^= x <<  5;
+    return state = x;
 }
 
 int main(void) {
@@ -30,7 +26,7 @@ int main(void) {
     }
 
     for (i=0; i<1000000; i++) {
-        random_value = lfsr_rand();
+        random_value = xorshift32();
         fwrite(&random_value, sizeof(uint32_t), 1, fout);
         if (ferror(fout)) {
             perror("fwrite");
