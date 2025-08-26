@@ -10,7 +10,7 @@ rotate_left_8bit:
         movzx   eax, al
         and     eax, 7
         mov     ecx, eax
-        ror     dl, cl
+        rol     dl, cl
         mov     eax, edx
         mov     BYTE PTR [rbp-1], al
         movzx   eax, BYTE PTR [rbp-1]
@@ -29,7 +29,7 @@ rotate_left_16bit:
         movzx   eax, ax
         and     eax, 15
         mov     ecx, eax
-        ror     dx, cl
+        rol     dx, cl
         mov     eax, edx
         mov     WORD PTR [rbp-2], ax
         movzx   eax, WORD PTR [rbp-2]
@@ -45,7 +45,7 @@ rotate_left_32bit:
         mov     eax, DWORD PTR [rbp-24]
         and     eax, 31
         mov     ecx, eax
-        ror     edx, cl
+        rol     edx, cl
         mov     eax, edx
         mov     DWORD PTR [rbp-4], eax
         mov     eax, DWORD PTR [rbp-4]
@@ -61,7 +61,7 @@ rotate_left_64bit:
         mov     rax, QWORD PTR [rbp-32]
         and     eax, 63
         mov     ecx, eax
-        ror     rdx, cl
+        rol     rdx, cl
         mov     rax, rdx
         mov     QWORD PTR [rbp-8], rax
         mov     rax, QWORD PTR [rbp-8]
