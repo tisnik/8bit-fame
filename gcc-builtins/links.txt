@@ -1,0 +1,42 @@
+rotate left
+
+x86-64
+https://godbolt.org/z/7cnnj63Yx
+
+x86-64
+https://godbolt.org/z/aYc34feqd
+
+ARM32
+https://godbolt.org/z/6oGW1vaWo
+
+ARM64
+https://godbolt.org/z/bfxh93YnG
+
+
+rotate right
+x86-64
+https://godbolt.org/z/6n3rj8hKj
+
+x86-64
+https://godbolt.org/z/an8enWGTW
+
+ARM32
+https://godbolt.org/z/5sGPhbMd9
+
+ARM64
+https://godbolt.org/z/Yd7KrdcGT
+
+
+parity unsigned
+
+x86-64
+https://godbolt.org/z/YdY5sz1Wo
+
+x86-64
+https://godbolt.org/z/Pfh8jfer7
+
+ARM32
+https://godbolt.org/z/3Kj3rMnTs
+
+ARM64
+https://godbolt.org/z/4sq7ocGo5
