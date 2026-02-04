@@ -3,7 +3,8 @@ CC=clang
 outputs := noop.ll noop_no_opt.ll noop_wasm.ll noop_aarch64.ll \
 	   add_unsigned.ll add_unsigned_no_opt.ll \
 	   add_signed.ll numeric_types.ll \
-	   arith_operators.ll comparison_operators.ll \
+	   arith_operators.ll arith_operators_float.ll \
+	   comparison_operators.ll comparison_operators_float.ll \
 	   branching_1.ll branching_2.ll pointers_1.ll pointers_2.ll \
 	   add_arrays_1.ll add_arrays_2.ll \
 	   fibonacci.ll \
