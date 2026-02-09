@@ -6,11 +6,12 @@ all:	stb_image_write.h ceval.h vec.h hashmap.h \
 	vector_usage_1 vector_usage_2 vector_usage_3 \
 	simple_image_1 simple_image_2 simple_image_3 simple_image_4 \
 	hashmap_usage_1 hashmap_usage_2 hashmap_usage_3 \
-	perlin_noise
+	perlin_noise perlin_noise_2
 
 clean:
 	rm -f ceval.h
 	rm -f stb_image_write.h
+	rm -f stb_perlin.h
 	rm -f vec.h
 	rm -f hashmap.h
 	rm -f evaluation_1 evaluation_2 evaluation_3 evaluation_4 evaluation_5
@@ -18,7 +19,7 @@ clean:
 	rm -f vector_usage_1 vector_usage_2 vector_usage_3
 	rm -f simple_image_1 simple_image_2 simple_image_3 simple_image_4
 	rm -f hashmap_usage_1 hashmap_usage_2 hashmap_usage_3
-	rm -f perlin_noise
+	rm -f perlin_noise perlin_noise_2
 
 evaluation_1:	evaluation_1.c ceval.h
 	$(CC) -lm -O0 $< -o $@
@@ -74,7 +75,10 @@ simple_image_3:	simple_image_3.c stb_image_write.h
 simple_image_4:	simple_image_4.c stb_image_write.h
 	$(CC) -O0 $< -o $@
 
-perlin_noise:	perlin_noise.c
+perlin_noise:	perlin_noise.c stb_image_write.h stb_perlin.h
+	$(CC) -O0 $< -o $@
+
+perlin_noise_2:	perlin_noise_2.c stb_image_write.h stb_perlin.h
 	$(CC) -O0 $< -o $@
 
 stb_image_write.h:
@@ -88,3 +92,6 @@ vec.h:
 
 hashmap.h:
 	wget https://raw.githubusercontent.com/sheredom/hashmap.h/refs/heads/master/hashmap.h
+
+stb_perlin.h:
+	wget https://raw.githubusercontent.com/nothings/stb/refs/heads/master/stb_perlin.h
