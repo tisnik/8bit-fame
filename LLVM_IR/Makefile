@@ -9,7 +9,10 @@ outputs := noop.ll noop_no_opt.ll noop_wasm.ll noop_aarch64.ll \
 	   add_arrays_1.ll add_arrays_2.ll \
 	   fibonacci.ll \
 	   numeric_conversions_1.ll numeric_conversions_2.ll numeric_conversions_3.ll \
-	   switch_1.ll switch_2.ll switch_3.ll switch_4.ll switch_5.ll switch_6.ll
+	   switch_1.ll switch_2.ll switch_3.ll switch_4.ll switch_5.ll switch_6.ll \
+	   array_set_int_1.ll array_set_int_2.ll array_get_int.ll \
+	   array_sum_int_1.ll array_sum_int_2.ll \
+	   goto.ll stack.ll select.ll fp16_add.ll
 
 all:	$(outputs)
 
@@ -33,3 +36,15 @@ noop_wasm.ll:	noop.c
 
 noop_aarch64.ll:	noop.c
 	$(CC) -Os -S -emit-llvm --target=aarch64 $< -o $@
+
+array_set_int_1.ll:	array_set_int_1.c
+	$(CC) -Os -S -mno-sse -emit-llvm $< -o $@
+
+array_set_int_2.ll:	array_set_int_2.c
+	$(CC) -Os -S -mno-sse -emit-llvm $< -o $@
+
+array_sum_int_1.ll:	array_sum_int_1.c
+	$(CC) -Os -S -mno-sse -emit-llvm $< -o $@
+
+array_sum_int_2.ll:	array_sum_int_2.c
+	$(CC) -Os -S -mno-sse -emit-llvm $< -o $@
