@@ -34,7 +34,7 @@ void createTables(void) {
 
 // výpočet velikosti vektoru pomocí algoritmu CORDIC
 double mag_cordic(double y, double x) {
-    int i;
+    int    i;
     double x0 = x; // nastavení počátečních podmínek
     double y0 = y;
     double xn;
@@ -51,16 +51,16 @@ double mag_cordic(double y, double x) {
         }
         x0 = xn;
     }
-    return x0 * K;      // délka vektoru
+    return x0 * K; // délka vektoru
 }
 
 int main(void) {
     double x, y;
     createTables();
-    printf("%f\n", mag_cordic(3, 4));       // výpočet Pythagorova trojúhelníka
-    for (y=0.0; y<=10.0; y+=1.0) {          // tabulka velikostí různých vektorů
-        for (x=0.0; x<=10.0; x+=1.0) {
-            printf("%5.2f ", mag_cordic(x,y));
+    printf("%f\n", mag_cordic(3, 4));    // výpočet Pythagorova trojúhelníka
+    for (y = 0.0; y <= 10.0; y += 1.0) { // tabulka velikostí různých vektorů
+        for (x = 0.0; x <= 10.0; x += 1.0) {
+            printf("%5.2f ", mag_cordic(x, y));
         }
         putchar('\n');
     }
