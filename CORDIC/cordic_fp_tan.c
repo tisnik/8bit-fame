@@ -34,12 +34,12 @@ void createTables(void) {
 
 // výpočet funkce tan() pro zadaný úhel delta
 double tan_cordic(double delta) {
-    int i;
+    int    i;
     double x0 = 1.0; // nastavení počátečních podmínek
     double y0 = 0.0;
     double xn;
     if (delta == 0) {
-        return 0.0;                  // ošetření nulového úhlu
+        return 0.0; // ošetření nulového úhlu
     }
     for (i = 0; i < MAX_ITER; i++) { // iterační smyčka
         if (delta < 0) {             // úhel je záporný => rotace doleva
@@ -56,12 +56,10 @@ double tan_cordic(double delta) {
     if (x0 == 0) { // ošetření tangenty pravého úhlu
         if (y0 > 0) {
             return INFINITY;
-        }
-        else {
+        } else {
             return -INFINITY;
         }
-    }
-    else {
+    } else {
         return y0 / x0;
     }
 }
@@ -69,11 +67,11 @@ double tan_cordic(double delta) {
 int main(void) {
     int i;
     createTables();
-    for (i = 0; i <= 90; i++) {   // výpočetní smyčka
-        double delta;             // úhel, ze kterého se počítá sin a cos
-        double tan_value;         // vypočtené hodnoty
-        double tan_error;         // absolutní chyby
-        delta = i * M_PI / 180.0; // převod úhlu na radiány
+    for (i = 0; i <= 90; i++) {                   // výpočetní smyčka
+        double delta;                             // úhel, ze kterého se počítá sin a cos
+        double tan_value;                         // vypočtené hodnoty
+        double tan_error;                         // absolutní chyby
+        delta = i * M_PI / 180.0;                 // převod úhlu na radiány
         tan_value = tan_cordic(delta);            // výpočet funkce tan
         tan_error = fabs(tan_value - tan(delta)); // výpočet absolutních chyb
         // tisk výsledků
