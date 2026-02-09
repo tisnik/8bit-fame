@@ -34,7 +34,7 @@ void createTables(void) {
 
 // výpočet funkce atan() pro zadané souřadnice x, y
 double atan_cordic(double y, double x) {
-    int i;
+    int    i;
     double x0 = x; // nastavení počátečních podmínek
     double y0 = y;
     double xn;
@@ -65,7 +65,7 @@ int main(void) {
         atan_value = atan_cordic((double)i, 1.0) * 180.0 / M_PI; // výpočet funkce atan
         atan_float = atan(i) * 180.0 / M_PI;
         atan_error = fabs(atan_value - atan_float); // výpočet absolutní chyby
-                                             // tisk výsledků
+                                                    // tisk výsledků
         printf("%3.2f\t%14.10f\t%14.10f\t%12.10f\t%8.3f%%\n",
                i,
                atan_value,
