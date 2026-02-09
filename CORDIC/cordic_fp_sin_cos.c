@@ -34,7 +34,7 @@ void createTables(void) {
 
 // výpočet funkcí sin() a cos() pro zadaný úhel delta
 void sincos(double delta, double *sin_value, double *cos_value) {
-    int i;
+    int    i;
     double x0 = 1.0; // nastavení počátečních podmínek
     double y0 = 0.0;
     double xn;
@@ -59,11 +59,11 @@ int main(void) {
     createTables();
     for (i = 0; i <= 90; i++) { // výpočetní smyčka
         double delta;           // úhel, ze kterého se počítá sin a cos
-        double sin_value;          // vypočtené hodnoty
+        double sin_value;       // vypočtené hodnoty
         double cos_value;
         double sin_error; // absolutní chyby
         double cos_error;
-        delta = i * M_PI / 180.0;           // převod úhlu na radiány
+        delta = i * M_PI / 180.0;                 // převod úhlu na radiány
         sincos(delta, &sin_value, &cos_value);    // výpočet sinu a kosinu
         sin_error = fabs(sin_value - sin(delta)); // výpočet absolutních chyb
         cos_error = fabs(cos_value - cos(delta));
