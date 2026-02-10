@@ -1,6 +1,7 @@
 #include <stdint.h>
 
-#define CONVERT(type1, type2) type2 convert_##type1##_to_##type2(type1 x) {return (type2)x;}
+#define CONVERT(type1, type2)                                                  \
+  type2 convert_##type1##_to_##type2(type1 x) { return (type2)x; }
 
 CONVERT(int8_t, int8_t)
 CONVERT(int8_t, int16_t)
