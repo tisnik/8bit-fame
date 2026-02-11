@@ -1,7 +1,7 @@
 #include <stdint.h>
 
-#define ADD(type)                                                              \
-  type add_##type(type x, type y) { return x + y; }
+#define ADD(type) \
+    type add_##type(type x, type y) { return x + y; }
 
 ADD(int8_t)
 ADD(int16_t)
