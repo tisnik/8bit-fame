@@ -1,16 +1,9 @@
-int return_constant() { return 42; }
-
-int x(int);
-
-int call_x(int a) { return x(a); }
-
-int first(int a, int b) { return a; }
-
-int second(int a, int b) { return b; }
-
-int try_return(int a) {
-  if (a < 0) {
-    return 42;
-  }
-  return 9999;
+unsigned int ackermann(unsigned int m, unsigned int n) {
+    if (m == 0) {
+        return n + 1;
+    } else if (n == 0) {
+        return ackermann(m - 1, 1);
+    } else {
+        return ackermann(m - 1, ackermann(m, n - 1));
+    }
 }
