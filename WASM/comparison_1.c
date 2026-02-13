@@ -21,4 +21,3 @@ int gt(int a, int b) {
 int ge(int a, int b) {
     return a >= b;
 }
-
