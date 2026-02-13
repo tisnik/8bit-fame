@@ -5,4 +5,3 @@ void loop(void) {
         foo();
     }
 }
-
