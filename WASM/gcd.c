@@ -6,4 +6,3 @@ int gcd(int u, int v) {
     }
     return u;
 }
-
