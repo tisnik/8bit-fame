@@ -21,4 +21,3 @@ int gt(float a, float b) {
 int ge(float a, float b) {
     return a >= b;
 }
-
