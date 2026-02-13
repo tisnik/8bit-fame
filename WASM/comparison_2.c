@@ -21,4 +21,3 @@ unsigned int gt(unsigned int a, unsigned int b) {
 unsigned int ge(unsigned int a, unsigned int b) {
     return a >= b;
 }
-
