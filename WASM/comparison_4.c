@@ -21,4 +21,3 @@ int gt(unsigned long long a, unsigned long long b) {
 int ge(unsigned long long a, unsigned long long b) {
     return a >= b;
 }
-
