@@ -5,4 +5,3 @@ double from_float(float x) {
 float to_float(double x) {
     return x;
 }
-
