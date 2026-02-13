@@ -3,7 +3,7 @@ void negative_case(void);
 void finish(void);
 
 void bar(int i) {
-    if (i>0) {
+    if (i > 0) {
         goto positive;
     }
     positive_case();
@@ -13,4 +13,3 @@ positive:
 end:
     finish();
 }
-
