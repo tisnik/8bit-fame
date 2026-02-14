@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <arm_neon.h>
+#include <stdio.h>
 
 float16x8_t complex_add_rot90(float16x8_t a, float16x8_t b) {
     return vcaddq_rot90_f16(a, b);
@@ -26,4 +26,3 @@ int main(void) {
     printf("d: %2.0f + %2.0fi   %2.0f + %2.0fi   ", d[0], d[1], d[2], d[3]);
     printf("%2.0f + %2.0fi   %2.0f + %2.0fi\n", d[4], d[5], d[6], d[7]);
 }
-
