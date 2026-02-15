@@ -23,4 +23,3 @@ uint64_t rotate_right_64bit(uint64_t x, uint64_t y) {
     z = __builtin_stdc_rotate_right(x, y);
     return z;
 }
-
