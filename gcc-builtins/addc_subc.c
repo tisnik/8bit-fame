@@ -37,4 +37,3 @@ int main(void) {
     sub_with_carry(2, 2, 0);
     sub_with_carry(2, 2, 1);
 }
-
