@@ -15,4 +15,3 @@ int bit_floor_32bit(uint32_t x) {
 int bit_floor_64bit(uint64_t x) {
     return __builtin_stdc_bit_floor(x);
 }
-
