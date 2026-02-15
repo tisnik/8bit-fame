@@ -15,4 +15,3 @@ int bit_width_32bit(int32_t x) {
 int bit_width_64bit(int64_t x) {
     return __builtin_stdc_bit_width(x);
 }
-
