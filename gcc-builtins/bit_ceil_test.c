@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdint.h>
+#include <stdio.h>
 
 uint8_t bit_ceil_8bit(uint8_t x) {
     uint8_t z;
@@ -24,7 +24,7 @@ void test_bit_ceil(uint8_t x) {
 int main(void) {
     uint8_t i;
 
-    for (i=0; i<=17; i++) {
+    for (i = 0; i <= 17; i++) {
         test_bit_ceil(i);
     }
 
