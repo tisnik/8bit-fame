@@ -15,4 +15,3 @@ int bit_ceil_32bit(uint32_t x) {
 int bit_ceil_64bit(uint64_t x) {
     return __builtin_stdc_bit_ceil(x);
 }
-
