@@ -1,12 +1,12 @@
-#include <stdio.h>
 #include <stdint.h>
+#include <stdio.h>
 
 int main(void) {
     FILE *fout;
 
-    int success;
+    int      success;
     uint32_t random_value;
-    int i;
+    int      i;
 
     fout = fopen("random.bin", "wb");
     if (fout == NULL) {
@@ -14,7 +14,7 @@ int main(void) {
         return 1;
     }
 
-    for (i=0; i<10; i++) {
+    for (i = 0; i < 10; i++) {
         success = __builtin_ia32_rdrand32_step(&random_value);
         if (success != 1) {
             perror("rdrand32");
@@ -31,4 +31,3 @@ int main(void) {
 
     return 0;
 }
-
