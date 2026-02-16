@@ -5,18 +5,17 @@ void bzz(void);
 
 void numeric_value(int x) {
     switch (x) {
-        case 0:
-            foo();
-            break;
-        case 1:
-            bar();
-            break;
-        case 2:
-            baz();
-            break;
-        case 3:
-            bzz();
-            break;
+    case 0:
+        foo();
+        break;
+    case 1:
+        bar();
+        break;
+    case 2:
+        baz();
+        break;
+    case 3:
+        bzz();
+        break;
     }
 }
-
