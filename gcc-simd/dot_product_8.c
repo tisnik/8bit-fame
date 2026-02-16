@@ -1,8 +1,8 @@
 float dot_product_4(float *a, float *b) {
-    #define SIZE 8
-    int i;
+#define SIZE 8
+    int   i;
     float result = 0.0;
-    for (i=0; i<SIZE; i++) {
+    for (i = 0; i < SIZE; i++) {
         result += a[i] * b[i];
     }
     return result;
