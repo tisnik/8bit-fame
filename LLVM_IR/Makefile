@@ -13,7 +13,10 @@ outputs := noop.ll noop_no_opt.ll noop_wasm.ll noop_aarch64.ll \
 	   array_set_int_1.ll array_set_int_2.ll array_get_int.ll \
 	   array_sum_int_1.ll array_sum_int_2.ll \
 	   bitwise_operators.ll remainder.ll \
-	   goto.ll stack.ll select.ll
+	   goto.ll stack.ll select.ll \
+	   simd_add_float.ll simd_add_i8x16.ll simd_add_i8x32.ll simd_add_integers.ll \
+	   simd_dot_product.ll simd_dot_product_int.ll simd_int_arithmetic.ll simd_sqrt.ll \
+	   simd_operators_arith.ll simd_operators_comparison.ll simd_add_vector_sizes.ll
 
 all:	$(outputs)
 
