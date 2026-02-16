@@ -45,13 +45,13 @@ evaluation_7:	evaluation_7.c ceval.h
 evaluation_8:	evaluation_8.c ceval.h
 	$(CC) -lm -O0 $< -o $@
 
-hashmap_usage_1:	hashmap_usage_1.c vec.h
+hashmap_usage_1:	hashmap_usage_1.c hashmap.h
 	$(CC) -O0 $< -o $@
 
-hashmap_usage_2:	hashmap_usage_2.c vec.h
+hashmap_usage_2:	hashmap_usage_2.c hashmap.h
 	$(CC) -O0 $< -o $@
 
-hashmap_usage_3:	hashmap_usage_3.c vec.h
+hashmap_usage_3:	hashmap_usage_3.c hashmap.h
 	$(CC) -O0 $< -o $@
 
 vector_usage_1:	vector_usage_1.c vec.h
