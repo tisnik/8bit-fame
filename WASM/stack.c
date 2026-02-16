@@ -17,7 +17,7 @@ int second(int a, int b) {
 }
 
 int try_return(int a) {
-    if (a<0) {
+    if (a < 0) {
         return 42;
     }
     return 9999;
