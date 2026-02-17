@@ -1,7 +1,7 @@
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <errno.h>
 
 #define OK 0
 #define ERROR 1
@@ -11,9 +11,8 @@
 
 #define MAX_FILENAME_LENGTH 200
 
-int parse_int_parameter(char *input)
-{
-    int output;
+int parse_int_parameter(char *input) {
+    int   output;
     char *end;
 
     errno = 0;
@@ -34,28 +33,25 @@ int parse_int_parameter(char *input)
     return output;
 }
 
-unsigned char **allocate_sprite(int bytes_per_line, int height)
-{
+unsigned char **allocate_sprite(int bytes_per_line, int height) {
     int i;
 
     /* allocate row pointers */
     unsigned char **sprite =
-        (unsigned char **) calloc(sizeof(unsigned char *), height);
+        (unsigned char **)calloc(sizeof(unsigned char *), height);
 
     /* allocate rows */
     for (i = 0; i < height; i++) {
-        sprite[i] = (unsigned char *) calloc(sizeof(unsigned char), bytes_per_line + 1);
+        sprite[i] = (unsigned char *)calloc(sizeof(unsigned char), bytes_per_line + 1);
     }
     return sprite;
-
 }
 
 /* Read binary file with sprite data: a true bitmap. */
 int read_input_sprite_file(int bytes_per_line, int height,
-                           char *input_file, unsigned char **sprite)
-{
+                           char *input_file, unsigned char **sprite) {
     FILE *fin;
-    int i, j;
+    int   i, j;
 
     fin = fopen(input_file, "rb");
     for (j = 0; j < height; j++) {
@@ -78,10 +74,9 @@ int read_input_sprite_file(int bytes_per_line, int height,
 /* Write binary file with sprite data: a true bitmap. */
 int write_output_sprite_file(int bytes_per_line, int height,
                              char *output_file, unsigned char **sprite,
-                             int shift)
-{
+                             int shift) {
     FILE *fout;
-    int i, j;
+    int   i, j;
 
     char filename[MAX_FILENAME_LENGTH];
 
@@ -104,10 +99,9 @@ int write_output_sprite_file(int bytes_per_line, int height,
 
 int write_assembly_include_file(int bytes_per_line, int height,
                                 char *output_file, unsigned char **sprite,
-                                int shift)
-{
+                                int shift) {
     FILE *fout;
-    int i, j;
+    int   i, j;
 
     char filename[MAX_FILENAME_LENGTH];
 
@@ -120,7 +114,7 @@ int write_assembly_include_file(int bytes_per_line, int height,
         fprintf(fout, "\tdb");
         for (i = 0; i < bytes_per_line; i++) {
             fprintf(fout, " 0x%02x", sprite[j][i]);
-            if (i != bytes_per_line-1) {
+            if (i != bytes_per_line - 1) {
                 fputs(", ", fout);
             }
         }
@@ -131,16 +125,15 @@ int write_assembly_include_file(int bytes_per_line, int height,
 }
 
 /* Shift sprite right by one pixel. */
-void shift_sprite(int bytes_per_line, int height, unsigned char **sprite)
-{
+void shift_sprite(int bytes_per_line, int height, unsigned char **sprite) {
     int i, j;
     for (j = 0; j < height; j++) {
-        for (i = bytes_per_line-1; i >= 0; i--) {
+        for (i = bytes_per_line - 1; i >= 0; i--) {
             unsigned char byte = sprite[j][i];
             byte >>= 1;
             if (i != 0) {
                 /* check lowest bit of previous byte */
-                if ((sprite[j][i-1] & 0x01) == 0x01) {
+                if ((sprite[j][i - 1] & 0x01) == 0x01) {
                     byte |= 0x80;
                 }
             }
@@ -150,13 +143,11 @@ void shift_sprite(int bytes_per_line, int height, unsigned char **sprite)
 }
 
 void perform_conversion(int bytes_per_line, int height, char *input_file,
-                        char *output_file)
-{
+                        char *output_file) {
     unsigned char **sprite = allocate_sprite(bytes_per_line, height);
-    int shift;
+    int             shift;
 
-    if (read_input_sprite_file(bytes_per_line, height, input_file, sprite)
-        != OK) {
+    if (read_input_sprite_file(bytes_per_line, height, input_file, sprite) != OK) {
         exit(EXIT_FAILURE);
     }
 
@@ -171,8 +162,7 @@ void perform_conversion(int bytes_per_line, int height, char *input_file,
     }
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     int bytes_per_line;
     int height;
 
