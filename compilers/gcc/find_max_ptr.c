@@ -2,12 +2,12 @@
 
 typedef unsigned int uint;
 
-uint* find_max_ptr(uint *array, uint length) {
+uint *find_max_ptr(uint *array, uint length) {
     uint *max_ptr = array;
     uint *item = array;
-    uint i;
+    uint  i;
 
-    for (i=0; i<length; i++) {
+    for (i = 0; i < length; i++) {
         if (*max_ptr < *item) {
             max_ptr = item;
         }
@@ -37,4 +37,3 @@ int main(void) {
 
     return 0;
 }
-
