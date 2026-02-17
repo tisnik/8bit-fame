@@ -2,7 +2,7 @@
 
 typedef unsigned int uint;
 
-uint* larger_value(uint *x, uint *y) {
+uint *larger_value(uint *x, uint *y) {
     if (*x > *y) {
         return x;
     } else {
@@ -19,4 +19,3 @@ int main(void) {
 
     return 0;
 }
-
