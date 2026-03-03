@@ -1,17 +1,16 @@
-objs := print_a.o
-exec := print_a.xex
+execs := print_a.xex background_color_1.xex background_color_2.xex
 
-all: $(exec)
+all: $(execs)
 
 clean:
-	rm -f $(objs) $(exec)
+	rm -f *.o
+	rm -f *.xex
 
 .PHONY: all clean
 
 %.o: %.asm
 	ca65 $< -t atari -o $@ -l $(basename $<)_list.asm --list-bytes 100
 
-print_a.o: print_a.asm
+%.xex: %.o
+	ld65 -C linker.cfg $< -o $@
 
-print_a.xex: linker.cfg print_a.o
-	ld65 -C linker.cfg print_a.o -o $@
