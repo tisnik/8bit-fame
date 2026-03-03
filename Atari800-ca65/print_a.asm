@@ -13,12 +13,14 @@ end:
                 
 
 .segment "EXEHDR"
-.word   $ffff
-.word   main
-.word   main::end - 1
+.word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
+.word   main                    ; zacatek kodoveho segmentu
+.word   main::end - 1           ; konec kodoveho segmentu
 
 
-.segment "AUTOSTRT"
-.word   RUNAD                   ; definováno v atari.h
+.segment "AUTOSTRT"             ; segment s pocatecni adresou
+.word   RUNAD                   ; naplni se pouze adresy RUNAD a RUNAD+1
 .word   RUNAD+1
-.word   main
+.word   main                    ; adresa vstupniho bodu do programu
+
+; finito
