@@ -14,8 +14,11 @@ outputs := noop.ll noop_no_opt.ll noop_wasm.ll noop_aarch64.ll \
 	   array_sum_int_1.ll array_sum_int_2.ll \
 	   bitwise_operators.ll remainder.ll \
 	   goto.ll stack.ll select.ll \
-	   simd_add_float.ll simd_add_i8x16.ll simd_add_i8x32.ll simd_add_integers.ll \
-	   simd_dot_product.ll simd_dot_product_int.ll simd_int_arithmetic.ll simd_sqrt.ll \
+	   simd_add_float.ll simd_add_float_2.ll simd_add_i8x16.ll simd_add_i8x32.ll simd_add_integers.ll \
+	   simd_dot_product.ll simd_dot_product_avx.ll simd_dot_product_avx512.ll \
+	   simd_dot_product_2.ll simd_dot_product_2_avx.ll simd_dot_product_2_avx512.ll \
+	   simd_dot_product_int.ll simd_dot_product_int_avx.ll simd_dot_product_int_avx512.ll  \
+	   simd_int_arithmetic.ll simd_sqrt.ll \
 	   simd_operators_arith.ll simd_operators_comparison.ll \
 	   simd_add_vector_sizes.ll simd_add_vector_sizes_avx.ll simd_add_vector_sizes_avx512.ll
 
@@ -58,5 +61,23 @@ simd_add_vector_sizes_avx.ll:	simd_add_vector_sizes.c
 	$(CC) -Os -S -mavx -emit-llvm $< -o $@
 
 simd_add_vector_sizes_avx512.ll:	simd_add_vector_sizes.c
+	$(CC) -Os -S -mavx512f -emit-llvm $< -o $@
+
+simd_dot_product_avx.ll:	simd_dot_product.c
+	$(CC) -Os -S -mavx -emit-llvm $< -o $@
+
+simd_dot_product_avx512.ll:	simd_dot_product.c
+	$(CC) -Os -S -mavx512f -emit-llvm $< -o $@
+
+simd_dot_product_2_avx.ll:	simd_dot_product_2.c
+	$(CC) -Os -S -mavx -emit-llvm $< -o $@
+
+simd_dot_product_2_avx512.ll:	simd_dot_product_2.c
+	$(CC) -Os -S -mavx512f -emit-llvm $< -o $@
+
+simd_dot_product_int_avx.ll:	simd_dot_product_int.c
+	$(CC) -Os -S -mavx -emit-llvm $< -o $@
+
+simd_dot_product_int_avx512.ll:	simd_dot_product_int.c
 	$(CC) -Os -S -mavx512f -emit-llvm $< -o $@
 
