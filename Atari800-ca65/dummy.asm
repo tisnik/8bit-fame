@@ -4,7 +4,7 @@
 loop:   jmp loop
 end:
 .endproc
-                
+
 
 .segment "EXEHDR"
 .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
