@@ -1,5 +1,6 @@
 .CODE
 
+
 .proc main
         lda #0                  ; kod barvy
         sta 710                 ; ulozit do registru COLOR2
