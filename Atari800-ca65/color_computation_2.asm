@@ -19,13 +19,14 @@ HUE_COLOR_ORANGE_2    = $F
 
 .CODE
 
+
 .proc main
         lda #HUE_COLOR_MAGENTA  ; kod odstinu barvy
         clc                     ; vymazat priznak prenosu
-	asl A                   ; provest 4x aritmeticky posun doprava
-	asl A
-	asl A
-	asl A
+        asl A                   ; provest 4x aritmeticky posun doprava
+        asl A
+        asl A
+        asl A
         adc #6                  ; svetlost v rozsahu 0..14 s krokem 2
         sta COLOR2              ; ulozit do registru COLOR2
 loop:   jmp loop
