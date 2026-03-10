@@ -2,18 +2,21 @@
 
 .CODE
 
+
 .proc main
         lda #9                  ; cislo, ktere se bude tisknout
-	jsr hex_digit
+        jsr hex_digit
 loop:   jmp loop
 .endproc
 
+
 .proc hex_digit
+        clc                     ; vymazat priznak prenosu
         adc #16                 ; prevod hodnoty na interni kod (ne ATASCII!)
         ldy #0                  ; vynulovat registr Y
         sta (88), y             ; tisk znaku na první místo na obrazovce
                                 ; (adresa Video RAM je na adresách 88 a 89)
-	rts                     ; navrat z podprogramu
+        rts                     ; navrat z podprogramu
 .endproc
 
 end:                            ; potrebujeme znat adresu konce kodoveho segmentu
