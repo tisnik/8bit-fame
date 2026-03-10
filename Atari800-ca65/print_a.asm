@@ -2,6 +2,7 @@
 
 .CODE
 
+
 .proc main
         lda #33                 ; ATASCII hodnota znaku "A"
         ldy #0                  ; vynulovat registr Y
