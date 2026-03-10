@@ -2,6 +2,7 @@
 
 .CODE
 
+
 .proc main
         lda #0                  ; kod barvy
         sta COLOR2              ; ulozit do registru COLOR2
