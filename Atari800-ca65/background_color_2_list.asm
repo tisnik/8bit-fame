@@ -1436,6 +1436,7 @@ Current file: background_color_2.asm
 000000r 1               
 000000r 1               .CODE
 000000r 1               
+000000r 1               
 000000r 1               .proc main
 000000r 1  A9 00                lda #0                  ; kod barvy
 000002r 1  8D C6 02             sta COLOR2              ; ulozit do registru COLOR2
