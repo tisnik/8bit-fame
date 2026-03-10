@@ -19,6 +19,7 @@ HUE_COLOR_ORANGE_2    = 16 * $F
 
 .CODE
 
+
 .proc main
         lda #HUE_COLOR_MAGENTA  ; kod odstinu barvy
         clc                     ; vymazat priznak prenosu
