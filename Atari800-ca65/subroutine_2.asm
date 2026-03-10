@@ -2,17 +2,20 @@
 
 .CODE
 
+
 .proc main
         lda #10                ; kod znaku, ktery se bude tisknout
         jsr print_char
 loop:   jmp loop
 .endproc
 
+
 .proc print_char
         ldy #0                  ; vynulovat registr Y
         sta (88), y             ; tisk znaku na první místo na obrazovce
         rts
 .endproc
+
 
 end:                            ; potrebujeme znat adresu konce kodoveho segmentu
 
