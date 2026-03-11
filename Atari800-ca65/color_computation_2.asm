@@ -23,7 +23,7 @@ HUE_COLOR_ORANGE_2    = $F
 .proc main
         lda #HUE_COLOR_MAGENTA  ; kod odstinu barvy
         clc                     ; vymazat priznak prenosu
-        asl A                   ; provest 4x aritmeticky posun doprava
+        asl A                   ; provest 4x aritmeticky posun doleva
         asl A
         asl A
         asl A
