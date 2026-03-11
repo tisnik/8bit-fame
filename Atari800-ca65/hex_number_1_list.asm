@@ -1436,24 +1436,27 @@ Current file: hex_number_1.asm
 000000r 1               
 000000r 1               .CODE
 000000r 1               
+000000r 1               
 000000r 1               .proc main
-000000r 1  A9 0A                lda #10                  ; cislo, ktere se bude tisknout
-000002r 1  20 rr rr     	jsr hex_digit
+000000r 1  A9 09                lda #9                  ; cislo, ktere se bude tisknout
+000002r 1  20 rr rr             jsr hex_digit
 000005r 1  4C rr rr     loop:   jmp loop
 000008r 1               .endproc
 000008r 1               
+000008r 1               
 000008r 1               .proc hex_digit
-000008r 1  69 10                adc #16                 ; prevod hodnoty na interni kod (ne ATASCII!)
-00000Ar 1  A0 00                ldy #0                  ; vynulovat registr Y
-00000Cr 1  91 58                sta (88), y             ; tisk znaku na první místo na obrazovce
-00000Er 1                                               ; (adresa Video RAM je na adresách 88 a 89)
-00000Er 1  60           	rts                     ; navrat z podprogramu
-00000Fr 1               .endproc
-00000Fr 1               
-00000Fr 1               end:                            ; potrebujeme znat adresu konce kodoveho segmentu
-00000Fr 1               
-00000Fr 1               
-00000Fr 1               .segment "EXEHDR"
+000008r 1  18                   clc                     ; vymazat priznak prenosu
+000009r 1  69 10                adc #16                 ; prevod hodnoty na interni kod (ne ATASCII!)
+00000Br 1  A0 00                ldy #0                  ; vynulovat registr Y
+00000Dr 1  91 58                sta (88), y             ; tisk znaku na první místo na obrazovce
+00000Fr 1                                               ; (adresa Video RAM je na adresách 88 a 89)
+00000Fr 1  60                   rts                     ; navrat z podprogramu
+000010r 1               .endproc
+000010r 1               
+000010r 1               end:                            ; potrebujeme znat adresu konce kodoveho segmentu
+000010r 1               
+000010r 1               
+000010r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   end - 1                 ; konec kodoveho segmentu
