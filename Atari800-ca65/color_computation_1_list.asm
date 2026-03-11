@@ -1453,6 +1453,7 @@ Current file: color_computation_1.asm
 000000r 1               
 000000r 1               .CODE
 000000r 1               
+000000r 1               
 000000r 1               .proc main
 000000r 1  A9 40                lda #HUE_COLOR_MAGENTA  ; kod odstinu barvy
 000002r 1  18                   clc                     ; vymazat priznak prenosu
