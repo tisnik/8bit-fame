@@ -1436,22 +1436,24 @@ Current file: hex_number_2.asm
 000000r 1               
 000000r 1               .CODE
 000000r 1               
+000000r 1               
 000000r 1               .proc main
-000000r 1  A9 0A                lda #10                  ; cislo, ktere se bude tisknout
-000002r 1  20 rr rr     	jsr hex_digit
+000000r 1  A9 09                lda #9                  ; cislo, ktere se bude tisknout
+000002r 1  20 rr rr             jsr hex_digit
 000005r 1  4C rr rr     loop:   jmp loop
 000008r 1               .endproc
 000008r 1               
+000008r 1               
 000008r 1               .proc hex_digit
-000008r 1  C9 0A        	cmp #$0a                ; test na hodnotu 0-9 nebo 10-15
-00000Ar 1  90 02        	bcc skip_add            ; je to hodnota 0-9
+000008r 1  C9 0A                cmp #$0a                ; test na hodnotu 0-9 nebo 10-15
+00000Ar 1  90 02                bcc skip_add            ; je to hodnota 0-9
 00000Cr 1  69 06                adc #6                  ; pricist sedmicku
 00000Er 1               skip_add:
 00000Er 1  69 10                adc #16                 ; prevod hodnoty na interni kod (ne ATASCII!)
 000010r 1  A0 00                ldy #0                  ; vynulovat registr Y
 000012r 1  91 58                sta (88), y             ; tisk znaku na první místo na obrazovce
 000014r 1                                               ; (adresa Video RAM je na adresách 88 a 89)
-000014r 1  60           	rts                     ; navrat z podprogramu
+000014r 1  60                   rts                     ; navrat z podprogramu
 000015r 1               .endproc
 000015r 1               
 000015r 1               end:                            ; potrebujeme znat adresu konce kodoveho segmentu
