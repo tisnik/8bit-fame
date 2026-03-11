@@ -1436,6 +1436,7 @@ Current file: print_a.asm
 000000r 1               
 000000r 1               .CODE
 000000r 1               
+000000r 1               
 000000r 1               .proc main
 000000r 1  A9 21                lda #33                 ; ATASCII hodnota znaku "A"
 000002r 1  A0 00                ldy #0                  ; vynulovat registr Y
