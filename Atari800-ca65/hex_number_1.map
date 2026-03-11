@@ -1,7 +1,7 @@
 Modules list:
 -------------
 hex_number_1.o:
-    CODE              Offs=000000  Size=00000F  Align=00001  Fill=0000
+    CODE              Offs=000000  Size=000010  Align=00001  Fill=0000
     EXEHDR            Offs=000000  Size=000006  Align=00001  Fill=0000
     AUTOSTRT          Offs=000000  Size=000006  Align=00001  Fill=0000
 
@@ -12,7 +12,7 @@ Name                   Start     End    Size  Align
 ----------------------------------------------------
 AUTOSTRT              000000  000005  000006  00001
 EXEHDR                000000  000005  000006  00001
-CODE                  002000  00200E  00000F  00001
+CODE                  002000  00200F  000010  00001
 
 
 Exports list by name:
