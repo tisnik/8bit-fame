@@ -14,7 +14,7 @@ loop:   jmp loop
 .proc hex_digit
         cmp #$0a                ; test na hodnotu 0-9 nebo 10-15
         bcc skip_add            ; je to hodnota 0-9
-        adc #6                  ; pricist sedmicku
+        adc #6                  ; pricist sedmicku (6+carry)
 skip_add:
         adc #16                 ; prevod hodnoty na interni kod (ne ATASCII!)
         rts                     ; navrat z podprogramu
