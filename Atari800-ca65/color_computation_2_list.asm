@@ -1453,13 +1453,14 @@ Current file: color_computation_2.asm
 000000r 1               
 000000r 1               .CODE
 000000r 1               
+000000r 1               
 000000r 1               .proc main
 000000r 1  A9 04                lda #HUE_COLOR_MAGENTA  ; kod odstinu barvy
 000002r 1  18                   clc                     ; vymazat priznak prenosu
-000003r 1  0A           	asl A                   ; provest 4x aritmeticky posun doprava
-000004r 1  0A           	asl A
-000005r 1  0A           	asl A
-000006r 1  0A           	asl A
+000003r 1  0A                   asl A                   ; provest 4x aritmeticky posun doleva
+000004r 1  0A                   asl A
+000005r 1  0A                   asl A
+000006r 1  0A                   asl A
 000007r 1  69 06                adc #6                  ; svetlost v rozsahu 0..14 s krokem 2
 000009r 1  8D C6 02             sta COLOR2              ; ulozit do registru COLOR2
 00000Cr 1  4C rr rr     loop:   jmp loop
