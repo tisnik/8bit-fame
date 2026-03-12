@@ -1436,17 +1436,20 @@ Current file: subroutine_2.asm
 000000r 1               
 000000r 1               .CODE
 000000r 1               
+000000r 1               
 000000r 1               .proc main
 000000r 1  A9 0A                lda #10                ; kod znaku, ktery se bude tisknout
 000002r 1  20 rr rr             jsr print_char
 000005r 1  4C rr rr     loop:   jmp loop
 000008r 1               .endproc
 000008r 1               
+000008r 1               
 000008r 1               .proc print_char
 000008r 1  A0 00                ldy #0                  ; vynulovat registr Y
 00000Ar 1  91 58                sta (88), y             ; tisk znaku na první místo na obrazovce
 00000Cr 1  60                   rts
 00000Dr 1               .endproc
+00000Dr 1               
 00000Dr 1               
 00000Dr 1               end:                            ; potrebujeme znat adresu konce kodoveho segmentu
 00000Dr 1               
