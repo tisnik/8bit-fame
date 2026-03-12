@@ -1,2 +1,4 @@
 *.o
 *.xex
+atari.inc
+chkxex.py
