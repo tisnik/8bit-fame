@@ -5,7 +5,7 @@ outputs := noop.ll noop_no_opt.ll noop_wasm.ll noop_aarch64.ll \
 	   add_signed.ll numeric_types.ll \
 	   arith_operators.ll arith_operators_float.ll arith_operators_fp16.ll \
 	   comparison_operators.ll comparison_operators_float.ll comparison_operators_fp16.ll \
-	   branching_1.ll branching_2.ll pointers_1.ll pointers_2.ll \
+	   branching_1.ll branching_2.ll branching_3.ll pointers_1.ll pointers_2.ll \
 	   add_arrays_1.ll add_arrays_2.ll \
 	   fibonacci.ll \
 	   numeric_conversions_1.ll numeric_conversions_2.ll numeric_conversions_3.ll \
