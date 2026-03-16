@@ -1,5 +1,4 @@
-void main(void)
-{
+void main(void) {
     register unsigned char a;
     register unsigned char b;
     register unsigned char c;
