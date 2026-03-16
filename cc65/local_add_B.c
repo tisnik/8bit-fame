@@ -1,5 +1,4 @@
-void main(void)
-{
+void main(void) {
     register signed char a;
     register signed char b;
     register signed char c;
