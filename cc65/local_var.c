@@ -1,4 +1,3 @@
-void main(void)
-{
+void main(void) {
     unsigned char x = 42;
 }
