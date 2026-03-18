@@ -8,7 +8,7 @@ typedef signed long long int   i64x2 __attribute__((vector_size(16)));
 typedef unsigned long long int u64x2 __attribute__((vector_size(16)));
 typedef float                  f32x4 __attribute__((vector_size(16)));
 typedef double                 f64x2 __attribute__((vector_size(16)));
-typedef __fp16                 f16x8 __attribute__((vector_size(16)));
+typedef __fp16 f16x8 __attribute__((vector_size(16)));
 
 #define NEG(type) \
     type neg_##type(type x) { return -x; }
@@ -32,10 +32,10 @@ typedef __fp16                 f16x8 __attribute__((vector_size(16)));
     REM(type)
 
 #define ALL_BUT_REM(type) \
-    NEG(type)     \
-    ADD(type)     \
-    SUB(type)     \
-    MUL(type)     \
+    NEG(type)             \
+    ADD(type)             \
+    SUB(type)             \
+    MUL(type)             \
     DIV(type)
 
 ALL(i8x16)
