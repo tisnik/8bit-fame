@@ -5,7 +5,8 @@ execs := dummy.xex print_a.xex \
 	 hex_number_1.xex        hex_number_2.xex \
 	 hex_number_3.xex        hex_number_4.xex \
 	 hex_number_5.xex        hex_number_6.xex \
-	 hex_number_7.xex        hex_number_8.xex
+	 hex_number_7.xex        hex_number_8.xex \
+	 hex_number_9.xex
 
 all: $(execs)
 
