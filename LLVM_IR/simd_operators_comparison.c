@@ -8,7 +8,7 @@ typedef signed long long int   i64x2 __attribute__((vector_size(16)));
 typedef unsigned long long int u64x2 __attribute__((vector_size(16)));
 typedef float                  f32x4 __attribute__((vector_size(16)));
 typedef double                 f64x2 __attribute__((vector_size(16)));
-typedef __fp16                 f16x8 __attribute__((vector_size(16)));
+typedef __fp16 f16x8 __attribute__((vector_size(16)));
 
 #define EQ(type) \
     type eq_##type(type x, type y) { return x == y; }
