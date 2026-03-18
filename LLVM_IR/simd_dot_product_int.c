@@ -7,7 +7,7 @@ typedef unsigned int       u32x4 __attribute__((vector_size(16)));
 typedef signed long int    i64x2 __attribute__((vector_size(16)));
 typedef unsigned long int  u64x2 __attribute__((vector_size(16)));
 
-float dot_i18x16(i8x16 x , i8x16 y) {
+float dot_i18x16(i8x16 x, i8x16 y) {
     return x[0] * y[0] + x[1] * y[1] + x[2] * y[2] + x[3] * y[3] +
            x[4] * y[4] + x[5] * y[5] + x[6] * y[6] + x[7] * y[7];
 }
@@ -24,7 +24,7 @@ double dot_i64x2(i64x2 x, i64x2 y) {
     return x[0] * y[0];
 }
 
-float dot_u18x16(u8x16 x , u8x16 y) {
+float dot_u18x16(u8x16 x, u8x16 y) {
     return x[0] * y[0] + x[1] * y[1] + x[2] * y[2] + x[3] * y[3] +
            x[4] * y[4] + x[5] * y[5] + x[6] * y[6] + x[7] * y[7];
 }
