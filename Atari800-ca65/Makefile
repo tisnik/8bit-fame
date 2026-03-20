@@ -8,7 +8,8 @@ execs := dummy.xex print_a.xex \
 	 hex_number_7.xex        hex_number_8.xex \
 	 hex_number_9.xex \
 	 fill_block_1.xex        fill_block_2.xex \
-	 fill_block_3.xex        fill_block_4.xex
+	 fill_block_3.xex        fill_block_4.xex \
+	 fill_block_5.xex
 
 all: $(execs)
 
