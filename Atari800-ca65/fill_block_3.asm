@@ -1,3 +1,12 @@
+; ---------------------------------------------------------------------
+; Vyplnění bloku konstantou, korektní varianta s jedním index registrem
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Programování pro osmibitová Atari: blokové výplně a přesuny dat, grafický subsystém
+; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-blokove-vyplne-a-presuny-dat-graficky-subsystem/
+; ---------------------------------------------------------------------
+
 .include "atari.inc"
 
 .CODE
