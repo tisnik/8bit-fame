@@ -1,3 +1,12 @@
+; ---------------------------------------------------------------------
+; Vyplnění bloku většího než 256 bajtů konstantou.
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Programování pro osmibitová Atari: blokové výplně a přesuny dat, grafický subsystém
+; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-blokove-vyplne-a-presuny-dat-graficky-subsystem/
+; ---------------------------------------------------------------------
+
 .include "atari.inc"
 
 .CODE
@@ -34,9 +43,6 @@ loop:   jmp loop
 ; data
 sizeh:    .byte  >800           ; vyšší bajt velikosti
 sizel:    .byte  <800           ; nižší bajt velikosti
-address:
-addressl: .byte $00             ; nižší bajt adresy
-addressh: .byte $00             ; vyšší bajt adresy
 
 end:
 .endproc
