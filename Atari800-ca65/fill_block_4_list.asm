@@ -2,6 +2,15 @@ ca65 V2.18 - Fedora 2.19-12.fc42
 Main file   : fill_block_4.asm
 Current file: fill_block_4.asm
 
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Vyplnění bloku většího než 256 bajtů konstantou.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Programování pro osmibitová Atari: blokové výplně a přesuny dat, grafický subsystém
+000000r 1               ; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-blokove-vyplne-a-presuny-dat-graficky-subsystem/
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               
 000000r 1               .include "atari.inc"
 000000r 2               ;-------------------------------------------------------------------------
 000000r 2               ; Atari System Equates
@@ -1468,15 +1477,12 @@ Current file: fill_block_4.asm
 000029r 1               ; data
 000029r 1  03           sizeh:    .byte  >800           ; vyšší bajt velikosti
 00002Ar 1  20           sizel:    .byte  <800           ; nižší bajt velikosti
-00002Br 1               address:
-00002Br 1  00           addressl: .byte $00             ; nižší bajt adresy
-00002Cr 1  00           addressh: .byte $00             ; vyšší bajt adresy
-00002Dr 1               
-00002Dr 1               end:
-00002Dr 1               .endproc
-00002Dr 1               
-00002Dr 1               
-00002Dr 1               .segment "EXEHDR"
+00002Br 1               
+00002Br 1               end:
+00002Br 1               .endproc
+00002Br 1               
+00002Br 1               
+00002Br 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   main::end - 1           ; konec kodoveho segmentu
