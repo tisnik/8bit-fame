@@ -2,6 +2,15 @@ ca65 V2.18 - Fedora 2.19-12.fc42
 Main file   : background_color_1.asm
 Current file: background_color_1.asm
 
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Nastavení barvy pozadí ve výchozím textovém režimu GR.0
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Kouzlo minimalismu potřetí: vývoj her a dem pro osmibitová Atari
+000000r 1               ; https://www.root.cz/clanky/kouzlo-minimalismu-potreti-vyvoj-her-a-dem-pro-osmibitova-atari/
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               
 000000r 1               .CODE
 000000r 1               
 000000r 1               
