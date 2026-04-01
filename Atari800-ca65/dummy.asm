@@ -1,3 +1,12 @@
+; ---------------------------------------------------------------------
+; Kostra programu vytvořeného v assembleru CA65 pro osmibitová Atari
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Kouzlo minimalismu potřetí: vývoj her a dem pro osmibitová Atari
+; https://www.root.cz/clanky/kouzlo-minimalismu-potreti-vyvoj-her-a-dem-pro-osmibitova-atari/
+; ---------------------------------------------------------------------
+
 .CODE
 
 .proc main
