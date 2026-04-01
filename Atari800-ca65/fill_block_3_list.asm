@@ -2,6 +2,15 @@ ca65 V2.18 - Fedora 2.19-12.fc42
 Main file   : fill_block_3.asm
 Current file: fill_block_3.asm
 
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Vyplnění bloku konstantou, korektní varianta s jedním index registrem
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Programování pro osmibitová Atari: blokové výplně a přesuny dat, grafický subsystém
+000000r 1               ; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-blokove-vyplne-a-presuny-dat-graficky-subsystem/
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               
 000000r 1               .include "atari.inc"
 000000r 2               ;-------------------------------------------------------------------------
 000000r 2               ; Atari System Equates
