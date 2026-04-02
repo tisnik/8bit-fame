@@ -1,3 +1,12 @@
+; ---------------------------------------------------------------------
+; Tisk znaku "A" ve standardním textovém režimu GR.0
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Kouzlo minimalismu potřetí: vývoj her a dem pro osmibitová Atari
+; https://www.root.cz/clanky/kouzlo-minimalismu-potreti-vyvoj-her-a-dem-pro-osmibitova-atari/
+; ---------------------------------------------------------------------
+
 .include "atari.inc"
 
 .CODE
