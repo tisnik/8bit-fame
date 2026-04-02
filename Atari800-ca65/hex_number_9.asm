@@ -1,3 +1,12 @@
+; ---------------------------------------------------------------------
+; Tisk hexadecimálních hodnot, čekání na stisk klávesy mezi tisky.
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Programování pro osmibitová Atari: makra asm CA65, trik s instrukcí RTS
+; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-makra-asm-ca65-trik-s-instrukci-rts/
+; ---------------------------------------------------------------------
+
 .include "atari.inc"
 
 ; ---------------------------------------------------------------------
