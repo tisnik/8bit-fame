@@ -2,6 +2,15 @@ ca65 V2.18 - Fedora 2.19-12.fc42
 Main file   : hex_number_2.asm
 Current file: hex_number_2.asm
 
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Tisk jedné hexadecimální číslice, varianta s korektním převodem na znak.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Programování pro osmibitová Atari: volání instrukcí procesoru MOS 6502
+000000r 1               ; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-volani-instrukci-procesoru-mos-6502/
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               
 000000r 1               .include "atari.inc"
 000000r 2               ;-------------------------------------------------------------------------
 000000r 2               ; Atari System Equates
@@ -1447,7 +1456,7 @@ Current file: hex_number_2.asm
 000008r 1               .proc hex_digit
 000008r 1  C9 0A                cmp #$0a                ; test na hodnotu 0-9 nebo 10-15
 00000Ar 1  90 02                bcc skip_add            ; je to hodnota 0-9
-00000Cr 1  69 06                adc #6                  ; pricist sedmicku
+00000Cr 1  69 06                adc #6                  ; pricist sedmicku (6+carry)
 00000Er 1               skip_add:
 00000Er 1  69 10                adc #16                 ; prevod hodnoty na interni kod (ne ATASCII!)
 000010r 1  A0 00                ldy #0                  ; vynulovat registr Y
