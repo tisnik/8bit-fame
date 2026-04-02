@@ -1,3 +1,12 @@
+; ---------------------------------------------------------------------
+; Tisk jedné hexadecimální číslice, varianta, která není korektní.
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Programování pro osmibitová Atari: volání instrukcí procesoru MOS 6502
+; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-volani-instrukci-procesoru-mos-6502/
+; ---------------------------------------------------------------------
+
 .include "atari.inc"
 
 .CODE
