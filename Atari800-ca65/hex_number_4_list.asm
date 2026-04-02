@@ -2,6 +2,15 @@ ca65 V2.18 - Fedora 2.19-12.fc42
 Main file   : hex_number_4.asm
 Current file: hex_number_4.asm
 
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Tisk jedné hexadecimální číslice, varianta postavená na makrech.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Programování pro osmibitová Atari: makra asm CA65, trik s instrukcí RTS
+000000r 1               ; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-makra-asm-ca65-trik-s-instrukci-rts/
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               
 000000r 1               .include "atari.inc"
 000000r 2               ;-------------------------------------------------------------------------
 000000r 2               ; Atari System Equates
