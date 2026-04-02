@@ -1,3 +1,12 @@
+; ---------------------------------------------------------------------
+; Příprava pro tisk dvouciferné hexadecimální hodnoty (kostra programu)
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Programování pro osmibitová Atari: makra asm CA65, trik s instrukcí RTS
+; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-makra-asm-ca65-trik-s-instrukci-rts/
+; ---------------------------------------------------------------------
+
 .include "atari.inc"
 
 .CODE
@@ -5,7 +14,7 @@
 
 .proc main
         lda #99                 ; cislo, ktere se bude tisknout
-	jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
+        jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
 loop:   jmp loop
 .endproc
 
@@ -13,12 +22,12 @@ loop:   jmp loop
 .proc print_2_hex_digits
         ; TODO: ziskat jen vyssi cislici
         jsr nibble_to_hex_char  ; prevod na interni kod cislice
-	; TODO: urceni relativniho mista na obrazovce
+        ; TODO: urceni relativniho mista na obrazovce
         jsr print_char          ; tisk cislice/znaku
 
         ; TODO: ziskat jen nizsi cislici
         jsr nibble_to_hex_char  ; prevod na interni kod cislice
-	; TODO: urceni relativniho mista na obrazovce
+        ; TODO: urceni relativniho mista na obrazovce
         jsr print_char          ; tisk cislice/znaku
 .endproc
 
