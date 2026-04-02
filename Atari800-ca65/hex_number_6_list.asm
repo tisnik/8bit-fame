@@ -2,6 +2,15 @@ ca65 V2.18 - Fedora 2.19-12.fc42
 Main file   : hex_number_6.asm
 Current file: hex_number_6.asm
 
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Příprava pro tisk dvouciferné hexadecimální hodnoty (kostra programu)
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Programování pro osmibitová Atari: makra asm CA65, trik s instrukcí RTS
+000000r 1               ; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-makra-asm-ca65-trik-s-instrukci-rts/
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               
 000000r 1               .include "atari.inc"
 000000r 2               ;-------------------------------------------------------------------------
 000000r 2               ; Atari System Equates
@@ -1439,7 +1448,7 @@ Current file: hex_number_6.asm
 000000r 1               
 000000r 1               .proc main
 000000r 1  A9 63                lda #99                 ; cislo, ktere se bude tisknout
-000002r 1  20 rr rr     	jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
+000002r 1  20 rr rr             jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
 000005r 1  4C rr rr     loop:   jmp loop
 000008r 1               .endproc
 000008r 1               
@@ -1447,12 +1456,12 @@ Current file: hex_number_6.asm
 000008r 1               .proc print_2_hex_digits
 000008r 1                       ; TODO: ziskat jen vyssi cislici
 000008r 1  20 rr rr             jsr nibble_to_hex_char  ; prevod na interni kod cislice
-00000Br 1               	; TODO: urceni relativniho mista na obrazovce
+00000Br 1                       ; TODO: urceni relativniho mista na obrazovce
 00000Br 1  20 rr rr             jsr print_char          ; tisk cislice/znaku
 00000Er 1               
 00000Er 1                       ; TODO: ziskat jen nizsi cislici
 00000Er 1  20 rr rr             jsr nibble_to_hex_char  ; prevod na interni kod cislice
-000011r 1               	; TODO: urceni relativniho mista na obrazovce
+000011r 1                       ; TODO: urceni relativniho mista na obrazovce
 000011r 1  20 rr rr             jsr print_char          ; tisk cislice/znaku
 000014r 1               .endproc
 000014r 1               
