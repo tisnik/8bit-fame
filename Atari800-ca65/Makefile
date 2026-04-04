@@ -9,7 +9,18 @@ execs := dummy.xex print_a.xex \
 	 hex_number_9.xex \
 	 fill_block_1.xex        fill_block_2.xex \
 	 fill_block_3.xex        fill_block_4.xex \
-	 fill_block_5.xex
+	 fill_block_5.xex \
+	 pmg_01.xex              pmg_02.xex \
+	 pmg_03.xex              pmg_04.xex \
+	 pmg_05.xex              pmg_06.xex \
+	 pmg_07.xex              pmg_08.xex \
+	 pmg_09.xex              pmg_10.xex \
+	 pmg_11.xex              pmg_12.xex \
+	 pmg_13.xex              pmg_14.xex \
+	 pmg_15.xex \
+	 pmg_stick_1.xex         pmg_stick_2.xex \
+	 pmg_stick_3.xex         pmg_stick_4.xex \
+	 pmg_stick_5.xex         pmg_stick_6.xex
 
 all: $(execs)
 
