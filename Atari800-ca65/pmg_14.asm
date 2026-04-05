@@ -1,5 +1,5 @@
 ; ---------------------------------------------------------------------
-; Vertikální posun spritu nahoru.
+; Vertikální posun spritu směrem dolů (korektní verze).
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
