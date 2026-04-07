@@ -8,8 +8,8 @@ Current file: pmg_06.asm
 000000r 1               ;
 000000r 1               ; Tento zdrojový kód byl použit v článku:
 000000r 1               ;
-000000r 1               ;
-000000r 1               ;
+000000r 1               ; Programování pro osmibitová Atari: čip GTIA a práce se sprity
+000000r 1               ; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-cip-gtia-a-prace-se-sprity/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
