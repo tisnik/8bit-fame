@@ -3,8 +3,8 @@
 ;
 ; Tento zdrojový kód byl použit v článku:
 ;
-; 
-; 
+; Programování pro osmibitová Atari: čip GTIA a práce se sprity  
+; https://www.root.cz/clanky/programovani-pro-osmibitova-atari-cip-gtia-a-prace-se-sprity/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
