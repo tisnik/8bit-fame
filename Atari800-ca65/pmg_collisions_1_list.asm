@@ -3,7 +3,7 @@ Main file   : pmg_collisions_1.asm
 Current file: pmg_collisions_1.asm
 
 000000r 1               ; ---------------------------------------------------------------------
-000000r 1               ; Ovládání PMG joystickem.
+000000r 1               ; Ovládání PMG joystickem. Detekce kolize prvního hráče s dalšími hráči.
 000000r 1               ;
 000000r 1               ; Tento zdrojový kód byl použit v článku:
 000000r 1               ;
