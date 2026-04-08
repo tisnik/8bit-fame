@@ -20,7 +20,9 @@ execs := dummy.xex print_a.xex \
 	 pmg_15.xex \
 	 pmg_stick_1.xex         pmg_stick_2.xex \
 	 pmg_stick_3.xex         pmg_stick_4.xex \
-	 pmg_stick_5.xex         pmg_stick_6.xex
+	 pmg_stick_5.xex         pmg_stick_6.xex \
+	 pmg_collisions_1.xex    pmg_collisions_2.xex \
+	 pmg_collisions_3.xex    pmg_collisions_4.xex
 
 all: $(execs)
 
