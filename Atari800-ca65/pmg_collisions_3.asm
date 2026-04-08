@@ -1,5 +1,6 @@
 ; ---------------------------------------------------------------------
-; Ovládání PMG joystickem.
+; Ovládání PMG joystickem. Detekce kolize prvního hráče s dalšími hráči.
+; Detekce kolize první střely s hráči.
 ;
 ; Tento zdrojový kód byl použit v článku:
 ;
