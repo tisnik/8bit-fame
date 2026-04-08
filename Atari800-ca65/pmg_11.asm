@@ -1,6 +1,5 @@
 ; ---------------------------------------------------------------------
-; Initializace PMG, povolení PMG, nastavení pozice, bitmapy a barvy všech
-; objektů.
+; Automatický horizontální pohyb prvního hráče, realizace zpožďovací smyčky.
 ;
 ; Tento zdrojový kód byl použit v článku:
 ;
