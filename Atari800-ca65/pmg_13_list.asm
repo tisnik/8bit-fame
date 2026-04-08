@@ -3,7 +3,7 @@ Main file   : pmg_13.asm
 Current file: pmg_13.asm
 
 000000r 1               ; ---------------------------------------------------------------------
-000000r 1               ; Vertikální posun spritu nahoru.
+000000r 1               ; Vertikální posun spritu směrem dolů (nekorektní varianta).
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
