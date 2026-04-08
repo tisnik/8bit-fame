@@ -3,8 +3,7 @@ Main file   : pmg_11.asm
 Current file: pmg_11.asm
 
 000000r 1               ; ---------------------------------------------------------------------
-000000r 1               ; Initializace PMG, povolení PMG, nastavení pozice, bitmapy a barvy všech
-000000r 1               ; objektů.
+000000r 1               ; Automatický horizontální pohyb prvního hráče, realizace zpožďovací smyčky.
 000000r 1               ;
 000000r 1               ; Tento zdrojový kód byl použit v článku:
 000000r 1               ;
