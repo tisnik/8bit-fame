@@ -1,5 +1,5 @@
 ; ---------------------------------------------------------------------
-; Ovládání PMG joystickem.
+; Ovládání PMG joystickem v horizontální směru, zobrazení pátého hráče.
 ;
 ; Tento zdrojový kód byl použit v článku:
 ;
