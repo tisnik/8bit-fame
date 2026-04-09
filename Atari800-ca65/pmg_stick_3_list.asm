@@ -3,7 +3,8 @@ Main file   : pmg_stick_3.asm
 Current file: pmg_stick_3.asm
 
 000000r 1               ; ---------------------------------------------------------------------
-000000r 1               ; Ovládání PMG joystickem.
+000000r 1               ; Ovládání PMG joystickem v horizontálním směru, čtyři střely simulující
+000000r 1               ; pátého hráče.
 000000r 1               ;
 000000r 1               ; Tento zdrojový kód byl použit v článku:
 000000r 1               ;
