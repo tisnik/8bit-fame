@@ -7,7 +7,8 @@ Current file: pmg_collisions_2.asm
 000000r 1               ;
 000000r 1               ; Tento zdrojový kód byl použit v článku:
 000000r 1               ;
-000000r 1               ;
+000000r 1               ; Dokončení popisu čipu GTIA: horizontální posun spritů a detekce kolizí
+000000r 1               ; https://www.root.cz/clanky/dokonceni-popisu-cipu-gtia-horizontalni-posun-spritu-a-detekce-kolizi/
 000000r 1               ;
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
