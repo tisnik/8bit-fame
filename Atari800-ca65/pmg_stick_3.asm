@@ -1,5 +1,6 @@
 ; ---------------------------------------------------------------------
-; Ovládání PMG joystickem.
+; Ovládání PMG joystickem v horizontálním směru, čtyři střely simulující
+; pátého hráče.
 ;
 ; Tento zdrojový kód byl použit v článku:
 ;
