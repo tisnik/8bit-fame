@@ -4,7 +4,8 @@
 ;
 ; Tento zdrojový kód byl použit v článku:
 ;
-; 
+; Dokončení popisu čipu GTIA: horizontální posun spritů a detekce kolizí
+; https://www.root.cz/clanky/dokonceni-popisu-cipu-gtia-horizontalni-posun-spritu-a-detekce-kolizi/
 ; 
 ; ---------------------------------------------------------------------
 
