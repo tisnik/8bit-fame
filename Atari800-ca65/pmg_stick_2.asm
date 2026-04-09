@@ -1,5 +1,5 @@
 ; ---------------------------------------------------------------------
-; Ovládání PMG joystickem.
+; Ovládání PMG joystickem v horizontálním směru, zobrazení čtyř střel.
 ;
 ; Tento zdrojový kód byl použit v článku:
 ;
