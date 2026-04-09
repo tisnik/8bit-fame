@@ -1,5 +1,6 @@
 ; ---------------------------------------------------------------------
-; Ovládání PMG joystickem.
+; Ovládání PMG joystickem v horizontálním směru, změna barvy hráče stiskem
+; tlačítka joysticku.
 ;
 ; Tento zdrojový kód byl použit v článku:
 ;
