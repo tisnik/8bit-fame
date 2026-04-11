@@ -7,8 +7,8 @@ Current file: pmg_stick_2.asm
 000000r 1               ;
 000000r 1               ; Tento zdrojový kód byl použit v článku:
 000000r 1               ;
-000000r 1               ;
-000000r 1               ;
+000000r 1               ; Další tipy a triky při práci s čipem GTIA a využití joysticku
+000000r 1               ; https://www.root.cz/clanky/dalsi-tipy-a-triky-pri-praci-s-cipem-gtia-a-vyuziti-joysticku/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
