@@ -1,5 +1,10 @@
 ; ---------------------------------------------------------------------
 ; Vertikální posun spritu směrem dolů (nekorektní varianta).
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Další tipy a triky při práci s čipem GTIA a využití joysticku 
+; https://www.root.cz/clanky/dalsi-tipy-a-triky-pri-praci-s-cipem-gtia-a-vyuziti-joysticku/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
