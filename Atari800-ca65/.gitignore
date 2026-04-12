@@ -1,5 +1,6 @@
 *.o
 *.xex
 atari.inc
+atari_antic.inc
 atari_gtia.inc
 chkxex.py
