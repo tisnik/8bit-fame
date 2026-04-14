@@ -17,13 +17,14 @@ execs := dummy.xex print_a.xex \
 	 pmg_09.xex              pmg_10.xex \
 	 pmg_11.xex              pmg_12.xex \
 	 pmg_13.xex              pmg_14.xex \
-	 pmg_15.xex \
+	 pmg_15.xex              pong.xex \
 	 pmg_stick_1.xex         pmg_stick_2.xex \
 	 pmg_stick_3.xex         pmg_stick_4.xex \
 	 pmg_stick_5.xex         pmg_stick_6.xex \
 	 pmg_collisions_1.xex    pmg_collisions_2.xex \
 	 pmg_collisions_3.xex    pmg_collisions_4.xex \
-	 antic_1.xex             antic_2.xex
+	 antic_1.xex             antic_2.xex \
+	 antic_3.xex
 
 all: $(execs)
 
