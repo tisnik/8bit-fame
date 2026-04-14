@@ -19,8 +19,8 @@ clear:
         clc
         adc #1
         iny                     ; zvětšit hodnotu počitadla a offsetu
-        cpy #40*6               ; test na koncovou hodnotu počitadla
-        bne clear               ; skok, pokud Y>40*6
+        cpy #20*12              ; test na koncovou hodnotu počitadla
+        bne clear               ; skok, pokud Y>20x12
 
 loop:   jmp loop
 .endproc
