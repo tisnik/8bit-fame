@@ -1453,8 +1453,8 @@ Current file: antic_2.asm
 000011r 1  18                   clc
 000012r 1  69 01                adc #1
 000014r 1  C8                   iny                     ; zvětšit hodnotu počitadla a offsetu
-000015r 1  C0 F0                cpy #40*6               ; test na koncovou hodnotu počitadla
-000017r 1  D0 F5                bne clear               ; skok, pokud Y>40*6
+000015r 1  C0 F0                cpy #20*12              ; test na koncovou hodnotu počitadla
+000017r 1  D0 F5                bne clear               ; skok, pokud Y>20x12
 000019r 1               
 000019r 1  4C rr rr     loop:   jmp loop
 00001Cr 1               .endproc
