@@ -1,4 +1,11 @@
 ; ---------------------------------------------------------------------
+; Nastavení display listu odpovídajícího textovému režimu GRAPHICS 2.
+; Čitelnější varianta.
+; 
+; Tento zdrojový kód byl použit v článku:
+;
+; Grafika na osmibitových Atari: grafický koprocesor ANTIC
+; https://www.root.cz/clanky/grafika-na-osmibitovych-atari-graficky-koprocesor-antic/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
