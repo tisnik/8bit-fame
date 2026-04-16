@@ -3,6 +3,12 @@ Main file   : antic_3.asm
 Current file: antic_3.asm
 
 000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Nastavení display listu s několika různými textovými i grafickými režimy.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Grafika na osmibitových Atari: grafický koprocesor ANTIC
+000000r 1               ; https://www.root.cz/clanky/grafika-na-osmibitovych-atari-graficky-koprocesor-antic/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
