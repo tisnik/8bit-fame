@@ -4,6 +4,11 @@ Current file: pong.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Zobrazení obrazovky ze hry Pong.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Grafika na osmibitových Atari: grafický koprocesor ANTIC
+000000r 1               ; https://www.root.cz/clanky/grafika-na-osmibitovych-atari-graficky-koprocesor-antic/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
