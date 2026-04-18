@@ -1513,7 +1513,7 @@ Current file: pmg_collisions_2.asm
 000061r 1  CA                   dex                     ; snížit offset + nastavit příznaky
 000062r 1  D0 EE                bne next_line           ; další byte spritu
 000064r 1               
-000064r 1  A9 55        	lda #$55                ; bitmapy střel
+000064r 1  A9 55                lda #$55                ; bitmapy střel
 000066r 1  8D B7 99             sta addr+MISSILES_OFFSET+55  ; uložit byte - střely
 000069r 1               
 000069r 1  A9 2E                lda #46                 ; povolení PMG DMA
@@ -1548,16 +1548,16 @@ Current file: pmg_collisions_2.asm
 000098r 1  20 rr rr             jsr draw_at_y           ; překreslení spritu
 00009Br 1               not_down:
 00009Br 1  8E 00 D0             stx HPOSP0              ; změna pozice prvního hráče
-00009Er 1  AD 0C D0     	lda P0PL                ; načíst informace o kolizích prvního hráče
-0000A1r 1  0A           	asl                     ; posun na pozice informace o odstínu
-0000A2r 1  0A           	asl
-0000A3r 1  0A           	asl
-0000A4r 1  0A           	asl
-0000A5r 1  18           	clc
-0000A6r 1  69 0C        	adc #12                 ; přidat světlost barvy
+00009Er 1  AD 0C D0             lda P0PL                ; načíst informace o kolizích prvního hráče
+0000A1r 1  0A                   asl                     ; posun na pozice informace o odstínu
+0000A2r 1  0A                   asl
+0000A3r 1  0A                   asl
+0000A4r 1  0A                   asl
+0000A5r 1  18                   clc
+0000A6r 1  69 0C                adc #12                 ; přidat světlost barvy
 0000A8r 1               
-0000A8r 1  8D C0 02     	sta PCOLR0              ; změnit barvu prvního hráče
-0000ABr 1  8D 1E D0     	sta HITCLR              ; vymazat informace o kolizích
+0000A8r 1  8D C0 02             sta PCOLR0              ; změnit barvu prvního hráče
+0000ABr 1  8D 1E D0             sta HITCLR              ; vymazat informace o kolizích
 0000AEr 1               
 0000AEr 1  4C rr rr             jmp loop
 0000B1r 1               
