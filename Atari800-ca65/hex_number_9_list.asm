@@ -1449,8 +1449,8 @@ Current file: hex_number_9.asm
 000000r 1               
 000000r 1               .macro lsr_ shift_count
 000000r 1                       .repeat shift_count
-000000r 1               	lsr
-000000r 1               	.endrep
+000000r 1                       lsr
+000000r 1                       .endrep
 000000r 1               .endmacro
 000000r 1               
 000000r 1               
@@ -1461,34 +1461,34 @@ Current file: hex_number_9.asm
 000000r 1               
 000000r 1               .proc main
 000000r 1  A9 42                lda #$42                ; cislo, ktere se bude tisknout
-000002r 1  20 rr rr     	jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
-000005r 1  20 rr rr     	jsr get_key
+000002r 1  20 rr rr             jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
+000005r 1  20 rr rr             jsr get_key
 000008r 1  A9 FF                lda #$ff                ; cislo, ktere se bude tisknout
-00000Ar 1  20 rr rr     	jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
+00000Ar 1  20 rr rr             jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
 00000Dr 1  4C rr rr     loop:   jmp loop
 000010r 1               .endproc
 000010r 1               
 000010r 1               .proc get_key
-000010r 1  AD 25 E4     	lda KBHANDLER+1         ; cteni horni casti adresy ulozene v ROM
-000013r 1  48           	pha                     ; ulozeni na zasobnik
-000014r 1  AD 24 E4     	lda KBHANDLER           ; cteni dolni casti adresy ulozene v ROM
-000017r 1  48           	pha                     ; ulozeni na zasobnik
-000018r 1  60           	rts                     ; vyber adresy ze zasobniku + skok
-000019r 1               	                        ; zde neni nutne mit RTS
+000010r 1  AD 25 E4             lda KBHANDLER+1         ; cteni horni casti adresy ulozene v ROM
+000013r 1  48                   pha                     ; ulozeni na zasobnik
+000014r 1  AD 24 E4             lda KBHANDLER           ; cteni dolni casti adresy ulozene v ROM
+000017r 1  48                   pha                     ; ulozeni na zasobnik
+000018r 1  60                   rts                     ; vyber adresy ze zasobniku + skok
+000019r 1                                               ; zde neni nutne mit RTS
 000019r 1               .endproc
 000019r 1               
 000019r 1               .proc print_2_hex_digits
 000019r 1                       ; TODO: ziskat jen vyssi cislici
-000019r 1  48           	pha                     ; ulozit akumulator na zasobnik
-00001Ar 1  4A 4A 4A 4A  	lsr_ 4                  ; posun 4 nejvyssich bitu do bitu nejnizsich
+000019r 1  48                   pha                     ; ulozit akumulator na zasobnik
+00001Ar 1  4A 4A 4A 4A          lsr_ 4                  ; posun 4 nejvyssich bitu do bitu nejnizsich
 00001Er 1  20 rr rr             jsr nibble_to_hex_char  ; prevod na interni kod cislice
-000021r 1  A0 00        	ldy #0                  ; pozice na obrazovce
+000021r 1  A0 00                ldy #0                  ; pozice na obrazovce
 000023r 1  20 rr rr             jsr print_char_at_y     ; tisk cislice/znaku
 000026r 1               
 000026r 1  68                   pla
-000027r 1  29 0F        	and #$0f                ; ziskat jen nizsi nibble
+000027r 1  29 0F                and #$0f                ; ziskat jen nizsi nibble
 000029r 1  20 rr rr             jsr nibble_to_hex_char  ; prevod na interni kod cislice
-00002Cr 1  A0 01        	ldy #1                  ; pozice na obrazovce
+00002Cr 1  A0 01                ldy #1                  ; pozice na obrazovce
 00002Er 1  20 rr rr             jsr print_char_at_y     ; tisk cislice/znaku
 000031r 1               .endproc
 000031r 1               
