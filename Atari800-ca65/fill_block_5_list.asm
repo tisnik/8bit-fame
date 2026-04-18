@@ -1453,7 +1453,7 @@ Current file: fill_block_5.asm
 000004r 1  91 58                sta (88), y             ; tisk znaku "A" na zvolené místo na obrazovce
 000006r 1                                               ; (adresa Video RAM je na adresách 88 a 89)
 000006r 1  C8                   iny                     ; zvětšit hodnotu počitadla a offsetu
-000007r 1  C0 C8        	cpy #40*5               ; test na koncovou hodnotu počitadla
+000007r 1  C0 C8                cpy #40*5               ; test na koncovou hodnotu počitadla
 000009r 1  D0 F9                bne clear               ; skok, pokud Y>40*5
 00000Br 1               
 00000Br 1  4C rr rr     loop:   jmp loop
