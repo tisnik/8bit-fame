@@ -1449,8 +1449,8 @@ Current file: hex_number_8.asm
 000000r 1               
 000000r 1               .macro lsr_ shift_count
 000000r 1                       .repeat shift_count
-000000r 1               	lsr
-000000r 1               	.endrep
+000000r 1                       lsr
+000000r 1                       .endrep
 000000r 1               .endmacro
 000000r 1               
 000000r 1               
@@ -1460,23 +1460,23 @@ Current file: hex_number_8.asm
 000000r 1               
 000000r 1               .proc main
 000000r 1  A9 42                lda #$42                ; cislo, ktere se bude tisknout
-000002r 1  20 rr rr     	jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
+000002r 1  20 rr rr             jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
 000005r 1  4C rr rr     loop:   jmp loop
 000008r 1               .endproc
 000008r 1               
 000008r 1               
 000008r 1               .proc print_2_hex_digits
 000008r 1                       ; TODO: ziskat jen vyssi cislici
-000008r 1  48           	pha                     ; ulozit akumulator na zasobnik
-000009r 1  4A 4A 4A 4A  	lsr_ 4                  ; posun 4 nejvyssich bitu do bitu nejnizsich
+000008r 1  48                   pha                     ; ulozit akumulator na zasobnik
+000009r 1  4A 4A 4A 4A          lsr_ 4                  ; posun 4 nejvyssich bitu do bitu nejnizsich
 00000Dr 1  20 rr rr             jsr nibble_to_hex_char  ; prevod na interni kod cislice
-000010r 1  A0 00        	ldy #0                  ; pozice na obrazovce
+000010r 1  A0 00                ldy #0                  ; pozice na obrazovce
 000012r 1  20 rr rr             jsr print_char_at_y     ; tisk cislice/znaku
 000015r 1               
 000015r 1  68                   pla
-000016r 1  29 0F        	and #$0f                ; ziskat jen nizsi nibble
+000016r 1  29 0F                and #$0f                ; ziskat jen nizsi nibble
 000018r 1  20 rr rr             jsr nibble_to_hex_char  ; prevod na interni kod cislice
-00001Br 1  A0 01        	ldy #1                  ; pozice na obrazovce
+00001Br 1  A0 01                ldy #1                  ; pozice na obrazovce
 00001Dr 1  20 rr rr             jsr print_char_at_y     ; tisk cislice/znaku
 000020r 1               .endproc
 000020r 1               
