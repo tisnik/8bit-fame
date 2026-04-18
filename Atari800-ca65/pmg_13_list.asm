@@ -1498,7 +1498,7 @@ Current file: pmg_13.asm
 000048r 1  A9 2E                lda #46                 ; povolení PMG DMA
 00004Ar 1  8D 2F 02             sta SDMCTL
 00004Dr 1               
-00004Dr 1  A0 00        	ldy #0                  ; počáteční vertikální pozice spritu
+00004Dr 1  A0 00                ldy #0                  ; počáteční vertikální pozice spritu
 00004Fr 1               
 00004Fr 1               loop:
 00004Fr 1  20 rr rr             jsr _wait_vsync         ; čekat na překreslení snímku
@@ -1506,7 +1506,7 @@ Current file: pmg_13.asm
 000055r 1  20 rr rr             jsr _wait_vsync         ; dtto
 000058r 1               
 000058r 1  20 rr rr             jsr draw_at_y
-00005Br 1  C8           	iny                     ; vertikální posun
+00005Br 1  C8                   iny                     ; vertikální posun
 00005Cr 1  4C rr rr             jmp loop
 00005Fr 1               
 00005Fr 1               .endproc
@@ -1515,18 +1515,18 @@ Current file: pmg_13.asm
 00005Fr 1               .proc  draw_at_y
 00005Fr 1                       addr = 152*256          ; adresa první stránky se sprity
 00005Fr 1  98                   tya
-000060r 1  48           	pha                     ; uložit Y na zásobník
+000060r 1  48                   pha                     ; uložit Y na zásobník
 000061r 1               
 000061r 1  A2 08                ldx #8                  ; začneme na hodnotě o 1 vyšší
 000063r 1               next_line:
 000063r 1  BD rr rr             lda sprite-1, x         ; načíst
 000066r 1  99 00 9A             sta addr+PLAYER_0_OFFSET, y  ; uložit byte - první hráč
-000069r 1  88           	dey
+000069r 1  88                   dey
 00006Ar 1  CA                   dex                     ; snížit offset + nastavit příznaky
 00006Br 1  D0 F6                bne next_line           ; další byte spritu
 00006Dr 1               
 00006Dr 1  68                   pla
-00006Er 1  A8           	tay                     ; obnovit Y ze zásobníku
+00006Er 1  A8                   tay                     ; obnovit Y ze zásobníku
 00006Fr 1  60                   rts                     ; návrat z podprogramu
 000070r 1               .endproc
 000070r 1               
