@@ -79,7 +79,7 @@ next_line:
         dex                     ; snížit offset + nastavit příznaky
         bne next_line           ; další byte spritu
 
-	lda #$55                ; bitmapy střel
+        lda #$55                ; bitmapy střel
         sta addr+MISSILES_OFFSET+55  ; uložit byte - střely
 
         lda #46                 ; povolení PMG DMA
@@ -114,15 +114,15 @@ not_up:
         jsr draw_at_y           ; překreslení spritu
 not_down:
         stx HPOSP0              ; změna pozice prvního hráče
-	lda P0PL                ; načíst informace o kolizích prvního hráče
-	asl                     ; posun na pozice informace o odstínu
-	asl
-	asl
-	asl
-	clc
-	adc #12                 ; přidat světlost barvy
+        lda P0PL                ; načíst informace o kolizích prvního hráče
+        asl                     ; posun na pozice informace o odstínu
+        asl
+        asl
+        asl
+        clc
+        adc #12                 ; přidat světlost barvy
 
-	sta PCOLR0              ; změnit barvu prvního hráče
+        sta PCOLR0              ; změnit barvu prvního hráče
 
         jmp loop
 .endproc
