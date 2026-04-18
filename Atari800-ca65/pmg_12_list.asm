@@ -1511,7 +1511,7 @@ Current file: pmg_12.asm
 000063r 1  20 rr rr             jsr _wait_vsync
 000066r 1  20 rr rr             jsr _wait_vsync
 000069r 1               
-000069r 1  38           	sec
+000069r 1  38                   sec
 00006Ar 1  69 00                adc #0
 00006Cr 1  8D 00 D0             sta HPOSP0              ; změna pozice prvního hráče
 00006Fr 1  4C rr rr             jmp loop
