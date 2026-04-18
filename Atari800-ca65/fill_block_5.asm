@@ -19,7 +19,7 @@ clear:
         sta (88), y             ; tisk znaku "A" na zvolené místo na obrazovce
                                 ; (adresa Video RAM je na adresách 88 a 89)
         iny                     ; zvětšit hodnotu počitadla a offsetu
-	cpy #40*5               ; test na koncovou hodnotu počitadla
+        cpy #40*5               ; test na koncovou hodnotu počitadla
         bne clear               ; skok, pokud Y>40*5
 
 loop:   jmp loop
