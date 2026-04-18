@@ -15,8 +15,8 @@
 
 .macro lsr_ shift_count
         .repeat shift_count
-	lsr
-	.endrep
+        lsr
+        .endrep
 .endmacro
 
 
@@ -26,23 +26,23 @@
 
 .proc main
         lda #$42                ; cislo, ktere se bude tisknout
-	jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
+        jsr print_2_hex_digits  ; tisk dvouciferne hexadecimalni hodnoty
 loop:   jmp loop
 .endproc
 
 
 .proc print_2_hex_digits
         ; TODO: ziskat jen vyssi cislici
-	pha                     ; ulozit akumulator na zasobnik
-	lsr_ 4                  ; posun 4 nejvyssich bitu do bitu nejnizsich
+        pha                     ; ulozit akumulator na zasobnik
+        lsr_ 4                  ; posun 4 nejvyssich bitu do bitu nejnizsich
         jsr nibble_to_hex_char  ; prevod na interni kod cislice
-	ldy #0                  ; pozice na obrazovce
+        ldy #0                  ; pozice na obrazovce
         jsr print_char_at_y     ; tisk cislice/znaku
 
         pla
-	and #$0f                ; ziskat jen nizsi nibble
+        and #$0f                ; ziskat jen nizsi nibble
         jsr nibble_to_hex_char  ; prevod na interni kod cislice
-	ldy #1                  ; pozice na obrazovce
+        ldy #1                  ; pozice na obrazovce
         jsr print_char_at_y     ; tisk cislice/znaku
 .endproc
 
