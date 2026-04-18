@@ -77,7 +77,7 @@ loop:
         jsr _wait_vsync
         jsr _wait_vsync
 
-	sec
+        sec
         adc #0
         sta HPOSP0              ; změna pozice prvního hráče
         jmp loop
