@@ -64,7 +64,7 @@ next_line:
         lda #46                 ; povolení PMG DMA
         sta SDMCTL
 
-	ldy #0                  ; počáteční vertikální pozice spritu
+        ldy #0                  ; počáteční vertikální pozice spritu
 
 loop:
         jsr _wait_vsync         ; čekat na překreslení snímku
@@ -72,7 +72,7 @@ loop:
         jsr _wait_vsync         ; dtto
 
         jsr draw_at_y
-	iny                     ; vertikální posun
+        iny                     ; vertikální posun
         jmp loop
 
 .endproc
@@ -81,18 +81,18 @@ loop:
 .proc  draw_at_y
         addr = 152*256          ; adresa první stránky se sprity
         tya
-	pha                     ; uložit Y na zásobník
+        pha                     ; uložit Y na zásobník
 
         ldx #8                  ; začneme na hodnotě o 1 vyšší
 next_line:
         lda sprite-1, x         ; načíst
         sta addr+PLAYER_0_OFFSET, y  ; uložit byte - první hráč
-	dey
+        dey
         dex                     ; snížit offset + nastavit příznaky
         bne next_line           ; další byte spritu
 
         pla
-	tay                     ; obnovit Y ze zásobníku
+        tay                     ; obnovit Y ze zásobníku
         rts                     ; návrat z podprogramu
 .endproc
 
