@@ -24,7 +24,11 @@ execs := dummy.xex print_a.xex \
 	 pmg_collisions_1.xex    pmg_collisions_2.xex \
 	 pmg_collisions_3.xex    pmg_collisions_4.xex \
 	 antic_1.xex             antic_2.xex \
-	 antic_3.xex             antic_4.xex
+	 antic_3.xex             antic_4.xex \
+	 antic_5.xex             antic_6.xex \
+	 antic_7.xex             antic_8.xex \
+	 antic_9.xex             antic_A.xex \
+	 antic_B.xex
 
 all: $(execs)
 
