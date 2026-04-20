@@ -1441,7 +1441,7 @@ Current file: antic_6.asm
 000000r 1               
 000000r 1               
 000000r 1               .proc main
-000000r 1  A9 D4                lda #$d000/256+4        ; adresa se stránkou znakové sady
+000000r 1  A9 D0                lda #$d000/256          ; adresa se stránkou znakové sady
 000002r 1  8D F4 02             sta CHBAS               ; uložit do řídicího registru ANTICu
 000005r 1  A9 rr                lda #<dlist             ; nižší byte adresy display listu
 000007r 1  8D 30 02             sta SDLSTL
