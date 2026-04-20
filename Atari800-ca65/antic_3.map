@@ -14,7 +14,7 @@ Name                   Start     End    Size  Align
 AUTOSTRT              000000  000005  000006  00001
 EXEHDR                000000  000005  000006  00001
 CODE                  002000  002030  000031  00001
-BSS                   002031  002210  0001E0  00001
+BSS                   002400  0025DF  0001E0  00001
 
 
 Exports list by name:
