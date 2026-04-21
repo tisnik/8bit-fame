@@ -1,4 +1,10 @@
 ; ---------------------------------------------------------------------
+; Výpis 256 kódů znaků v režimu GR.12. 
+; 
+; Tento zdrojový kód byl použit v článku:
+;
+; Praktické použití textových režimů nabízených čipem ANTIC
+; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
