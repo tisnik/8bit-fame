@@ -1,4 +1,11 @@
 ; ---------------------------------------------------------------------
+; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
+; Mezinárodní znaková sada.
+; 
+; Tento zdrojový kód byl použit v článku:
+;
+; Praktické použití textových režimů nabízených čipem ANTIC
+; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
