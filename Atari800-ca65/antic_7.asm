@@ -1,4 +1,10 @@
 ; ---------------------------------------------------------------------
+; Výpis všech 64 znaků ve čtyřech barvách v režimu GR.1.
+; 
+; Tento zdrojový kód byl použit v článku:
+;
+; Praktické použití textových režimů nabízených čipem ANTIC
+; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
