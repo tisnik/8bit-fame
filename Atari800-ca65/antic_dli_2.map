@@ -1,0 +1,32 @@
+Modules list:
+-------------
+antic_dli_2.o:
+    CODE              Offs=000000  Size=000070  Align=00001  Fill=0000
+    BSS               Offs=000000  Size=0003C0  Align=00001  Fill=0000
+    EXEHDR            Offs=000000  Size=000006  Align=00001  Fill=0000
+    AUTOSTRT          Offs=000000  Size=000006  Align=00001  Fill=0000
+
+
+Segment list:
+-------------
+Name                   Start     End    Size  Align
+----------------------------------------------------
+AUTOSTRT              000000  000005  000006  00001
+EXEHDR                000000  000005  000006  00001
+CODE                  002000  00206F  000070  00001
+BSS                   002400  0027BF  0003C0  00001
+
+
+Exports list by name:
+---------------------
+
+
+
+Exports list by value:
+----------------------
+
+
+
+Imports list:
+-------------
+
