@@ -1,4 +1,10 @@
 ; ---------------------------------------------------------------------
+; Grafický režim 80x48 se dvěma barvami.
+; 
+; Tento zdrojový kód byl použit v článku:
+;
+; Praktické použití textových režimů nabízených čipem ANTIC
+; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
@@ -55,7 +61,7 @@ dlist:
 end:
 
 .BSS
-screen: .res 20*24
+screen: .res 10*48
 
 
 
