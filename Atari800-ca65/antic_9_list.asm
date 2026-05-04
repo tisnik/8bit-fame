@@ -3,6 +3,12 @@ Main file   : antic_9.asm
 Current file: antic_9.asm
 
 000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Výpis 256 kódů znaků v režimu GR.12.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Praktické použití textových režimů nabízených čipem ANTIC
+000000r 1               ; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
