@@ -3,6 +3,12 @@ Main file   : antic_B.asm
 Current file: antic_B.asm
 
 000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Grafický režim 80x48 se dvěma barvami.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Praktické použití textových režimů nabízených čipem ANTIC
+000000r 1               ; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
@@ -1489,7 +1495,7 @@ Current file: antic_B.asm
 000037r 1               end:
 000037r 1               
 000037r 1               .BSS
-000000r 1  xx xx xx xx  screen: .res 20*24
+000000r 1  xx xx xx xx  screen: .res 10*48
 000004r 1  xx xx xx xx  
 000008r 1  xx xx xx xx  
 00000Cr 1  xx xx xx xx  
