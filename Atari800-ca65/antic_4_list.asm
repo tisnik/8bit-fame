@@ -3,6 +3,12 @@ Main file   : antic_4.asm
 Current file: antic_4.asm
 
 000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Praktické použití textových režimů nabízených čipem ANTIC
+000000r 1               ; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
