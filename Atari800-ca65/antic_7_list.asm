@@ -3,6 +3,12 @@ Main file   : antic_7.asm
 Current file: antic_7.asm
 
 000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Výpis všech 64 znaků ve čtyřech barvách v režimu GR.1.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Praktické použití textových režimů nabízených čipem ANTIC
+000000r 1               ; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
