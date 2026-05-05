@@ -1,5 +1,6 @@
 ; ---------------------------------------------------------------------
 ; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
+; Dočasná modifikace barvy pozadí provedená v DLI (dvanáctý textový řádek)
 ; 
 ; ---------------------------------------------------------------------
 
