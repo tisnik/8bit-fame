@@ -1,5 +1,6 @@
 ; ---------------------------------------------------------------------
 ; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
+; Opakované čekání na synchronizační pulz v DLI, výběr odlišné barvy pozadí
 ; 
 ; ---------------------------------------------------------------------
 
