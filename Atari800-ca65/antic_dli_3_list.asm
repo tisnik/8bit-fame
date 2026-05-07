@@ -4,6 +4,7 @@ Current file: antic_dli_3.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
+000000r 1               ; Opakované čekání na synchronizační pulz v DLI, výběr odlišné barvy pozadí
 000000r 1               ;
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
@@ -1471,11 +1472,15 @@ Current file: antic_dli_3.asm
 000025r 1  4C rr rr     loop:   jmp loop
 000028r 1               .endproc
 000028r 1               
+000028r 1               
+000028r 1               ; ---------------------------------------------------------------------
+000028r 1               ; obsluha DLI
+000028r 1               ; ---------------------------------------------------------------------
 000028r 1               dli:
 000028r 1  48                   pha                     ; uschovat akumulátor
 000029r 1  A9 C4                lda #$c4                ; barva pozadí
 00002Br 1  8D 18 D0             sta COLPF2              ; přímo nastavit zápisem do HW registru
-00002Er 1  8D 0A D4             sta WSYNC
+00002Er 1  8D 0A D4             sta WSYNC               ; čekat na WSYNC
 000031r 1  8D 0A D4             sta WSYNC
 000034r 1  8D 0A D4             sta WSYNC
 000037r 1  8D 0A D4             sta WSYNC
@@ -1488,6 +1493,7 @@ Current file: antic_dli_3.asm
 00004Br 1  8D 18 D0             sta COLPF2              ; přímo nastavit zápisem do HW registru
 00004Er 1  68                   pla                     ; obnovit akumulátor
 00004Fr 1  40                   rti                     ; návrat z DLI
+000050r 1               
 000050r 1               
 000050r 1               dlist:
 000050r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
