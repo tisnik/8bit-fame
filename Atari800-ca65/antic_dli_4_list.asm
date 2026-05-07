@@ -4,6 +4,7 @@ Current file: antic_dli_4.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
+000000r 1               ; Display list obsahující několik instrukcí DLI, opakovaná změna barvy pozadí
 000000r 1               ;
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
@@ -1472,38 +1473,43 @@ Current file: antic_dli_4.asm
 000028r 1  4C rr rr     loop:   jmp loop
 00002Br 1               .endproc
 00002Br 1               
+00002Br 1               
+00002Br 1               ; ---------------------------------------------------------------------
+00002Br 1               ; obsluha DLI
+00002Br 1               ; ---------------------------------------------------------------------
 00002Br 1               dli:
 00002Br 1  48                   pha                     ; uschovat akumulátor
 00002Cr 1  AD rr rr             lda color               ; barva pozadí
 00002Fr 1  8D 18 D0             sta COLPF2              ; přímo nastavit zápisem do HW registru
 000032r 1  C9 C4                cmp #$c4                ; prohazujeme barvy $c4 a $44
 000034r 1  D0 07                bne skip_set
-000036r 1  A9 44                lda #$44
+000036r 1  A9 44                lda #$44                ; přechod $c4 -> $44
 000038r 1  8D rr rr             sta color
 00003Br 1  68                   pla                     ; obnovit akumulátor
 00003Cr 1  40                   rti                     ; návrat z DLI
 00003Dr 1               skip_set:
-00003Dr 1  A9 C4                lda #$c4
+00003Dr 1  A9 C4                lda #$c4                ; přechod $44 -> $44
 00003Fr 1  8D rr rr             sta color
 000042r 1  68                   pla                     ; obnovit akumulátor
 000043r 1  40                   rti                     ; návrat z DLI
+000044r 1               
 000044r 1               
 000044r 1               dlist:
 000044r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 000047r 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
 000048r 1  rr rr        .byte <screen, >screen          ; počáteční adresa obrazové paměti
-00004Ar 1  02 02 02 02  .res 6, DL_CHR40x8x1           ; opakovat řádky textového režimu 2 (GR.0)
+00004Ar 1  02 02 02 02  .res 6, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
 00004Er 1  02 02        
 000050r 1  82           .byte DL_DLI+DL_CHR40x8x1       ; GR.0 ovšem navíc s povolením DLI
-000051r 1  02 02 02 02  .res 7, DL_CHR40x8x1           ; opakovat řádky textového režimu 2 (GR.0)
+000051r 1  02 02 02 02  .res 7, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
 000055r 1  02 02 02     
 000058r 1  82           .byte DL_DLI+DL_CHR40x8x1       ; GR.0 ovšem navíc s povolením DLI
-000059r 1  02 02 02 02  .res 8, DL_CHR40x8x1           ; opakovat řádky textového režimu 2 (GR.0)
+000059r 1  02 02 02 02  .res 8, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
 00005Dr 1  02 02 02 02  
 000061r 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 000064r 1               
 000064r 1               color:
-000064r 1  C4           .byte $c4
+000064r 1  C4           .byte $c4                       ; původní barva
 000065r 1               
 000065r 1               end:
 000065r 1               
