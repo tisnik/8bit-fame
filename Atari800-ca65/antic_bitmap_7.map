@@ -1,0 +1,34 @@
+Modules list:
+-------------
+antic_bitmap_7.o:
+    CODE              Offs=000000  Size=0000E1  Align=00001  Fill=0000
+    IMAGESEG1         Offs=000000  Size=000F00  Align=00001  Fill=0000
+    IMAGESEG2         Offs=000000  Size=000F00  Align=00001  Fill=0000
+    EXEHDR            Offs=000000  Size=000006  Align=00001  Fill=0000
+    AUTOSTRT          Offs=000000  Size=000006  Align=00001  Fill=0000
+
+
+Segment list:
+-------------
+Name                   Start     End    Size  Align
+----------------------------------------------------
+AUTOSTRT              000000  000005  000006  00001
+EXEHDR                000000  000005  000006  00001
+CODE                  002000  0020E0  0000E1  00001
+IMAGESEG1             003000  003EFF  000F00  00001
+IMAGESEG2             004000  004EFF  000F00  00001
+
+
+Exports list by name:
+---------------------
+
+
+
+Exports list by value:
+----------------------
+
+
+
+Imports list:
+-------------
+
