@@ -4,6 +4,7 @@ Current file: antic_dli_2.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
+000000r 1               ; Dočasná modifikace barvy pozadí provedená v DLI (dvanáctý textový řádek)
 000000r 1               ;
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
@@ -1456,52 +1457,49 @@ Current file: antic_dli_2.asm
 000013r 1  C8                   iny                     ; zvětšit hodnotu počitadla a offsetu
 000014r 1  D0 F6                bne clear               ; skok
 000016r 1               
+000016r 1                       ; vektor DLI
 000016r 1  A9 rr                lda #<dli               ; nastavení DLI
 000018r 1  8D 00 02             sta VDSLST
 00001Br 1  A9 rr                lda #>dli
 00001Dr 1  8D 01 02             sta VDSLST+1
 000020r 1               
+000020r 1                       ; povolení DLI
 000020r 1                       NMIEN_DLI=$80           ; maska povolení DLI
 000020r 1                       NMIEN_VBI=$40           ; maska povolení VBI
 000020r 1  A9 C0                lda #NMIEN_DLI | NMIEN_VBI ; povolení DLI
 000022r 1  8D 0E D4             sta NMIEN
+000025r 1               
 000025r 1  4C rr rr     loop:   jmp loop
 000028r 1               .endproc
 000028r 1               
+000028r 1               
+000028r 1               ; ---------------------------------------------------------------------
+000028r 1               ; obsluha DLI
+000028r 1               ; ---------------------------------------------------------------------
 000028r 1               dli:
 000028r 1  48                   pha                     ; uschovat akumulátor
 000029r 1  A9 C4                lda #$c4                ; barva pozadí
-00002Br 1  8D 18 D0             sta COLPF2              ; přímo nastavit
-00002Er 1  8D 0A D4             sta WSYNC
-000031r 1  8D 0A D4             sta WSYNC
-000034r 1  8D 0A D4             sta WSYNC
-000037r 1  8D 0A D4             sta WSYNC
-00003Ar 1  8D 0A D4             sta WSYNC
-00003Dr 1  8D 0A D4             sta WSYNC
-000040r 1  8D 0A D4             sta WSYNC
-000043r 1  8D 0A D4             sta WSYNC
-000046r 1  8D 0A D4             sta WSYNC
-000049r 1  A9 44                lda #$44                ; barva pozadí
-00004Br 1  8D 18 D0             sta COLPF2              ; přímo nastavit
-00004Er 1  68                   pla                     ; obnovit akumulátor
-00004Fr 1  40                   rti                     ; návrat z DLI
+00002Br 1  8D 18 D0             sta COLPF2              ; přímo nastavit zápisem do HW registru
+00002Er 1  68                   pla                     ; obnovit akumulátor
+00002Fr 1  40                   rti                     ; návrat z DLI
+000030r 1               
+000030r 1               
+000030r 1               dlist:
+000030r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
+000033r 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
+000034r 1  rr rr        .byte <screen, >screen          ; počáteční adresa obrazové paměti
+000036r 1  02 02 02 02  .res 10, DL_CHR40x8x1           ; opakovat řádky textového režimu 2 (GR.0)
+00003Ar 1  02 02 02 02  
+00003Er 1  02 02        
+000040r 1  82           .byte DL_DLI+DL_CHR40x8x1       ; GR.0 ovšem navíc s povolením DLI
+000041r 1  02 02 02 02  .res 12, DL_CHR40x8x1           ; opakovat řádky textového režimu 2 (GR.0)
+000045r 1  02 02 02 02  
+000049r 1  02 02 02 02  
+00004Dr 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 000050r 1               
-000050r 1               dlist:
-000050r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
-000053r 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
-000054r 1  rr rr        .byte <screen, >screen          ; počáteční adresa obrazové paměti
-000056r 1  02 02 02 02  .res 10, DL_CHR40x8x1           ; opakovat řádky textového režimu 2 (GR.0)
-00005Ar 1  02 02 02 02  
-00005Er 1  02 02        
-000060r 1  82           .byte DL_DLI+DL_CHR40x8x1       ; GR.0 ovšem navíc s povolením DLI
-000061r 1  02 02 02 02  .res 12, DL_CHR40x8x1           ; opakovat řádky textového režimu 2 (GR.0)
-000065r 1  02 02 02 02  
-000069r 1  02 02 02 02  
-00006Dr 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
-000070r 1               
-000070r 1               end:
-000070r 1               
-000070r 1               .BSS
+000050r 1               end:
+000050r 1               
+000050r 1               .BSS
 000000r 1  xx xx xx xx  screen: .res 40*24
 000004r 1  xx xx xx xx  
 000008r 1  xx xx xx xx  
