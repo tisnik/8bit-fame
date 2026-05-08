@@ -5,6 +5,8 @@
 ; 
 ; Tento zdrojový kód byl použit v článku:
 ;
+; Praktické použití grafických režimů nabízených čipem ANTIC
+; https://www.root.cz/clanky/prakticke-pouziti-grafickych-rezimu-nabizenych-cipem-antic/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
