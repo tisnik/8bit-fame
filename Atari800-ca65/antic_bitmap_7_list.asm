@@ -9,6 +9,8 @@ Current file: antic_bitmap_7.asm
 000000r 1               ;
 000000r 1               ; Tento zdrojový kód byl použit v článku:
 000000r 1               ;
+000000r 1               ; Praktické použití grafických režimů nabízených čipem ANTIC
+000000r 1               ; https://www.root.cz/clanky/prakticke-pouziti-grafickych-rezimu-nabizenych-cipem-antic/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
