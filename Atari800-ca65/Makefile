@@ -74,3 +74,12 @@ antic_dli:	\
 	antic_dli_4.xex \
 	antic_dli_5.xex \
 	antic_dli_pmg.xex
+
+antic_vbi:	\
+	antic_vbi_1.xex \
+	antic_vbi_2.xex \
+	antic_vbi_3.xex \
+	antic_vbi_dli_1.xex \
+	antic_vbi_dli_2.xex \
+	antic_vbi_dli_3.xex \
+	antic_vbi_dli_4.xex
