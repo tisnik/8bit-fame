@@ -4,7 +4,12 @@ Current file: antic_dli_5.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
+000000r 1               ; Display list obsahující několik instrukcí DLI, opakovaná změna barvy pozadí
 000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; DLI – největší zbraň osmibitových Atari?
+000000r 1               ; https://www.root.cz/clanky/dli-nejvetsi-zbran-osmibitovych-atari/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
@@ -1480,7 +1485,7 @@ Current file: antic_dli_5.asm
 00002Br 1  48                   pha                     ; uschovat akumulátor
 00002Cr 1  AD rr rr             lda color               ; barva pozadí
 00002Fr 1  8D 18 D0             sta COLPF2              ; přímo nastavit zápisem do HW registru
-000032r 1  49 80                eor #%10000000          ; negovat nejvyšší dva bity
+000032r 1  49 80                eor #%10000000          ; negovat nejvyšší bit
 000034r 1  8D rr rr             sta color
 000037r 1  68                   pla                     ; obnovit akumulátor
 000038r 1  40                   rti                     ; návrat z DLI
