@@ -5,6 +5,10 @@ Current file: antic_dli_1.asm
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Výpis všech 128 znaků v přímé i inverzní podobě v režimu GR.0.
 000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; DLI – největší zbraň osmibitových Atari?
+000000r 1               ; https://www.root.cz/clanky/dli-nejvetsi-zbran-osmibitovych-atari/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
