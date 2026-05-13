@@ -1,5 +1,10 @@
 ; ---------------------------------------------------------------------
 ; Zobrazení osmi spritů namísto čtyř spritů s využitím DLI.
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; DLI – největší zbraň osmibitových Atari?
+; https://www.root.cz/clanky/dli-nejvetsi-zbran-osmibitovych-atari/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
