@@ -1,6 +1,6 @@
 ; ---------------------------------------------------------------------
 ; Ovládání PMG joystickem v horizontálním směru.
-; Aktivní čekání na dokončení vykreslování snímku.
+; Pohyb PMG realizovaný ve VBI.
 ;
 ; ---------------------------------------------------------------------
 
