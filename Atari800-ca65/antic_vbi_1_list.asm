@@ -4,6 +4,7 @@ Current file: antic_vbi_1.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Ovládání PMG joystickem v horizontálním směru.
+000000r 1               ; Aktivní čekání na dokončení vykreslování snímku.
 000000r 1               ;
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
@@ -1447,6 +1448,9 @@ Current file: antic_vbi_1.asm
 000000r 1               PLAYER_3_OFFSET = PLAYER_2_OFFSET + 128
 000000r 1               
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 50                lda #80                 ; horizontální pozice prvního hráče
 000002r 1  8D 00 D0             sta HPOSP0              ; uložit do řídicího registru HPOSP0 na čipu GTIA
@@ -1507,11 +1511,14 @@ Current file: antic_vbi_1.asm
 000064r 1               .endproc
 000064r 1               
 000064r 1               
+000064r 1               ; ---------------------------------------------------------------------
+000064r 1               ; subrutina pro horizontální posun prvního hráče
+000064r 1               ; ---------------------------------------------------------------------
 000064r 1               .proc   horizontal_movement
-000064r 1  AE rr rr             ldx x_pos               ; výchozí pozice prvního hráče
+000064r 1  AE rr rr             ldx x_pos               ; původní pozice prvního hráče
 000067r 1  8A                   txa                     ; uložení obsahu X do akumulátoru
-000068r 1  20 rr rr             jsr _wait_vsync
-00006Br 1  20 rr rr             jsr _wait_vsync
+000068r 1  20 rr rr             jsr _wait_vsync         ; čekání na další snímek
+00006Br 1  20 rr rr             jsr _wait_vsync         ; čekání na další snímek
 00006Er 1  AA                   tax                     ; obnovení obsahu X z akumulátoru
 00006Fr 1               
 00006Fr 1  AD 78 02             lda STICK0              ; čtení joysticku
@@ -1524,11 +1531,14 @@ Current file: antic_vbi_1.asm
 00007Br 1  E8                   inx                     ; posun hráče doprava
 00007Cr 1               not_right:
 00007Cr 1  8E 00 D0             stx HPOSP0              ; změna pozice prvního hráče
-00007Fr 1  8E rr rr             stx x_pos
+00007Fr 1  8E rr rr             stx x_pos               ; zapamatovat si pozici prvního hráče
 000082r 1  60                   rts
 000083r 1               .endproc
 000083r 1               
 000083r 1               
+000083r 1               ; ---------------------------------------------------------------------
+000083r 1               ; subrutina pro čekání na konec snímku
+000083r 1               ; ---------------------------------------------------------------------
 000083r 1               .proc   _wait_vsync
 000083r 1  A6 14                ldx     RTCLOK+2        ; čekání na konec snímku
 000085r 1  E4 14        @wt:    cpx     RTCLOK+2
