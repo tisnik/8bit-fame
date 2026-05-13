@@ -1,6 +1,7 @@
 ; ---------------------------------------------------------------------
 ; Ovládání PMG joystickem v horizontálním směru.
-;
+; Změna pozice PMG realizovaná ve VBI.
+; Změna barvy herního pole realizovaná v DLI.
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
