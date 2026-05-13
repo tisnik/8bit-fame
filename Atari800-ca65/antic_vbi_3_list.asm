@@ -1511,7 +1511,7 @@ Current file: antic_vbi_3.asm
 000062r 1  A0 rr                ldy #<horizontal_movement
 000064r 1  20 5C E4             jsr SETVBV              ; zavolat službu systému pro nastavení vektoru
 000067r 1               loop:
-000067r 1  4C rr rr             jmp loop
+000067r 1  4C rr rr             jmp loop                ; program vlastně nice nedělá - jen cyklí!
 00006Ar 1               .endproc
 00006Ar 1               
 00006Ar 1               
