@@ -1505,52 +1505,49 @@ Current file: antic_vbi_2.asm
 000059r 1  A9 2E                lda #46                 ; povolení PMG DMA
 00005Br 1  8D 2F 02             sta SDMCTL
 00005Er 1               
-00005Er 1                       ;lda #>horizontal_movement
-00005Er 1                       ;sta VVBLKD+1
-00005Er 1                       ;lda #<horizontal_movement
-00005Er 1                       ;sta VVBLKD
-00005Er 1  A9 07                lda #7
-000060r 1  A2 rr                ldx #>horizontal_movement
-000062r 1  A0 rr                ldy #<horizontal_movement
-000064r 1  20 5C E4             jsr SETVBV
-000067r 1               loop:
-000067r 1  4C rr rr             jmp loop
-00006Ar 1               .endproc
-00006Ar 1               
-00006Ar 1               
-00006Ar 1               ; ---------------------------------------------------------------------
-00006Ar 1               ; subrutina pro obsluhu VBI
-00006Ar 1               ; ---------------------------------------------------------------------
-00006Ar 1               .proc   horizontal_movement
-00006Ar 1  AE rr rr             ldx x_pos               ; původní pozice prvního hráče
-00006Dr 1               
-00006Dr 1  AD 78 02             lda STICK0              ; čtení joysticku
-000070r 1  C9 0B                cmp #11                 ; je nakloněn doleva?
-000072r 1  D0 01                bne not_left
-000074r 1  CA                   dex                     ; posun hráče doleva
-000075r 1               not_left:
-000075r 1  C9 07                cmp #7                  ; je nakloněn doprava?
-000077r 1  D0 01                bne not_right
-000079r 1  E8                   inx                     ; posun hráče doprava
-00007Ar 1               not_right:
-00007Ar 1  8E 00 D0             stx HPOSP0              ; změna pozice prvního hráče
-00007Dr 1  8E rr rr             stx x_pos               ; zapamatovat si pozici prvního hráče
-000080r 1  4C 62 E4             jmp XITVBV              ; zpracovat zbytek odloženého VBLANKu
-000083r 1  60                   rts
-000084r 1               .endproc
-000084r 1               
-000084r 1               
-000084r 1               ; data
-000084r 1  18 3C 7E DB  sprite:   .byte 24, 60, 126, 219, 255, 36, 90, 165
-000088r 1  FF 24 5A A5  
-00008Cr 1               
-00008Cr 1               ; horizontální pozice hráče
-00008Cr 1  50           x_pos:    .byte 80
+00005Er 1                       ; nastavit vektor pro odloženou VBI
+00005Er 1  A9 rr                lda #>horizontal_movement
+000060r 1  8D 25 02             sta VVBLKD+1
+000063r 1  A9 rr                lda #<horizontal_movement
+000065r 1  8D 24 02             sta VVBLKD
+000068r 1               loop:
+000068r 1  4C rr rr             jmp loop                ; program vlastně nice nedělá - jen cyklí!
+00006Br 1               .endproc
+00006Br 1               
+00006Br 1               
+00006Br 1               ; ---------------------------------------------------------------------
+00006Br 1               ; subrutina pro obsluhu VBI
+00006Br 1               ; ---------------------------------------------------------------------
+00006Br 1               .proc   horizontal_movement
+00006Br 1  AE rr rr             ldx x_pos               ; původní pozice prvního hráče
+00006Er 1               
+00006Er 1  AD 78 02             lda STICK0              ; čtení joysticku
+000071r 1  C9 0B                cmp #11                 ; je nakloněn doleva?
+000073r 1  D0 01                bne not_left
+000075r 1  CA                   dex                     ; posun hráče doleva
+000076r 1               not_left:
+000076r 1  C9 07                cmp #7                  ; je nakloněn doprava?
+000078r 1  D0 01                bne not_right
+00007Ar 1  E8                   inx                     ; posun hráče doprava
+00007Br 1               not_right:
+00007Br 1  8E 00 D0             stx HPOSP0              ; změna pozice prvního hráče
+00007Er 1  8E rr rr             stx x_pos               ; zapamatovat si pozici prvního hráče
+000081r 1  4C 62 E4             jmp XITVBV              ; zpracovat zbytek odloženého VBLANKu
+000084r 1  60                   rts
+000085r 1               .endproc
+000085r 1               
+000085r 1               
+000085r 1               ; data
+000085r 1  18 3C 7E DB  sprite:   .byte 24, 60, 126, 219, 255, 36, 90, 165
+000089r 1  FF 24 5A A5  
 00008Dr 1               
-00008Dr 1               end:
-00008Dr 1               
-00008Dr 1               
-00008Dr 1               .segment "EXEHDR"
+00008Dr 1               ; horizontální pozice hráče
+00008Dr 1  50           x_pos:    .byte 80
+00008Er 1               
+00008Er 1               end:
+00008Er 1               
+00008Er 1               
+00008Er 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   end - 1                 ; konec kodoveho segmentu
