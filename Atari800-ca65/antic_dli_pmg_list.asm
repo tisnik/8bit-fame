@@ -3,6 +3,12 @@ Main file   : antic_dli_pmg.asm
 Current file: antic_dli_pmg.asm
 
 000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Zobrazení osmi spritů namísto čtyř spritů s využitím DLI.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; DLI – největší zbraň osmibitových Atari?
+000000r 1               ; https://www.root.cz/clanky/dli-nejvetsi-zbran-osmibitovych-atari/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
