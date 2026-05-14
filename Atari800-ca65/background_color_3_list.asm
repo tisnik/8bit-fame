@@ -1447,7 +1447,7 @@ Current file: background_color_3.asm
 000000r 1               
 000000r 1               
 000000r 1               .proc main
-000000r 1  A9 12                lda #18                  ; kod barvy
+000000r 1  A9 12                lda #18                 ; kod barvy
 000002r 1  8D C6 02             sta COLOR2              ; ulozit do registru COLOR2
 000005r 1  4C rr rr     loop:   jmp loop
 000008r 1               end:

@@ -13,7 +13,7 @@
 
 
 .proc main
-        lda #18                  ; kod barvy
+        lda #18                 ; kod barvy
         sta COLOR2              ; ulozit do registru COLOR2
 loop:   jmp loop
 end:
