@@ -57,6 +57,19 @@ antic_bitmap_6.xex:	antic_bitmap_6.o
 antic_bitmap_7.xex:	antic_bitmap_7.o
 	ld65 -C linker_image_2.cfg $< -o $@ -m $(basename $<).map
 
+antic:	\
+	 antic_1.xex \
+	 antic_2.xex \
+	 antic_3.xex \
+	 antic_4.xex \
+	 antic_5.xex \
+	 antic_6.xex \
+	 antic_7.xex \
+	 antic_8.xex \
+	 antic_9.xex \
+	 antic_A.xex \
+	 antic_B.xex
+
 antic_bitmap:	\
 	antic_bitmap_1.xex \
 	antic_bitmap_2.xex \
