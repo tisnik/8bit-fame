@@ -9,6 +9,9 @@ Current file: antic_3.asm
 000000r 1               ;
 000000r 1               ; Grafika na osmibitových Atari: grafický koprocesor ANTIC
 000000r 1               ; https://www.root.cz/clanky/grafika-na-osmibitovych-atari-graficky-koprocesor-antic/
+000000r 1               ;
+000000r 1               ; Překlad do formátu xex:
+000000r 1               ; make antic_3.xex
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
