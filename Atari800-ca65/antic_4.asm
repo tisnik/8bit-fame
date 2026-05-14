@@ -5,6 +5,9 @@
 ;
 ; Praktické použití textových režimů nabízených čipem ANTIC
 ; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
+;
+; Překlad do formátu xex:
+; make antic_4.xex
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
