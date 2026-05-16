@@ -4,7 +4,8 @@ Current file: antic_vbi_dli_1.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Ovládání PMG joystickem v horizontálním směru.
-000000r 1               ;
+000000r 1               ; Změna pozice PMG realizovaná ve VBI.
+000000r 1               ; Změna barvy herního pole realizovaná v DLI.
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
