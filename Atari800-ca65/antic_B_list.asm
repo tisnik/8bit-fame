@@ -9,6 +9,9 @@ Current file: antic_B.asm
 000000r 1               ;
 000000r 1               ; Praktické použití textových režimů nabízených čipem ANTIC
 000000r 1               ; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
+000000r 1               ;
+000000r 1               ; Překlad do formátu xex:
+000000r 1               ; make antic_B.xex
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
