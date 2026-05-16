@@ -96,3 +96,9 @@ antic_vbi:	\
 	antic_vbi_dli_2.xex \
 	antic_vbi_dli_3.xex \
 	antic_vbi_dli_4.xex
+
+antic_scrolling:	\
+	antic_scrolling_1.xex \
+	antic_scrolling_2.xex \
+	antic_scrolling_3.xex \
+	antic_scrolling_4.xex
