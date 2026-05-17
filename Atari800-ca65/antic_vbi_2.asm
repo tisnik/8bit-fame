@@ -2,6 +2,10 @@
 ; Ovládání PMG joystickem v horizontálním směru.
 ; Pohyb PMG realizovaný ve VBI.
 ;
+; Tento zdrojový kód byl použit v článku:
+;
+; VBI (Vertical Blank Interrupt) na osmibitových mikropočítačích Atari
+; https://www.root.cz/clanky/vbi-vertical-blank-interrupt-na-osmibitovych-mikropocitacich-atari/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
