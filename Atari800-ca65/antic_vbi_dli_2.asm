@@ -4,6 +4,10 @@
 ; Změna barvy herního pole realizovaná v DLI.
 ; Odstranění nadbytečné instrukce RTS ve VBI.
 ;
+; Tento zdrojový kód byl použit v článku:
+;
+; VBI (Vertical Blank Interrupt) na osmibitových mikropočítačích Atari
+; https://www.root.cz/clanky/vbi-vertical-blank-interrupt-na-osmibitovych-mikropocitacich-atari/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
