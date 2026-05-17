@@ -1,6 +1,11 @@
 ; ---------------------------------------------------------------------
 ; Ovládání PMG joystickem v horizontálním směru.
+; Přepis předchozího příkladu do formy založené na subrutinách.
 ;
+; Tento zdrojový kód byl použit v článku:
+;
+; VBI (Vertical Blank Interrupt) na osmibitových mikropočítačích Atari
+; https://www.root.cz/clanky/vbi-vertical-blank-interrupt-na-osmibitovych-mikropocitacich-atari/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
@@ -42,6 +47,7 @@ clear:
         iny                     ; zvětšit hodnotu počitadla a offsetu
         cpy #$80
         bne clear               ; skok
+        rts
 .endproc
 
 
@@ -130,7 +136,7 @@ next_line:
 
 
 ; ---------------------------------------------------------------------
-; subrutina pro nastavení VBI
+; subrutina pro povolení VBI
 ; ---------------------------------------------------------------------
 .proc   set_vbi_handler
         ; nastavit vektor pro odloženou VBI
@@ -143,7 +149,7 @@ next_line:
 
 
 ; ---------------------------------------------------------------------
-; subrutina pro nastavení DLI
+; subrutina pro nastavení obsluhy DLI
 ; ---------------------------------------------------------------------
 .proc   set_dli_handler
         ; vektor DLI
