@@ -128,10 +128,6 @@ dlist:
 .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 
 
-color:
-.byte $c4                       ; původní barva
-
-
 ; horizontální scrolling
 x_scroll:    .byte 0
 
