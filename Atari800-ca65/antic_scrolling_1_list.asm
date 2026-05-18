@@ -1544,17 +1544,13 @@ Current file: antic_scrolling_1.asm
 00005Ar 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 00005Dr 1               
 00005Dr 1               
-00005Dr 1               color:
-00005Dr 1  C4           .byte $c4                       ; původní barva
+00005Dr 1               ; horizontální scrolling
+00005Dr 1  00           x_scroll:    .byte 0
+00005Er 1               
+00005Er 1               end:
 00005Er 1               
 00005Er 1               
-00005Er 1               ; horizontální scrolling
-00005Er 1  00           x_scroll:    .byte 0
-00005Fr 1               
-00005Fr 1               end:
-00005Fr 1               
-00005Fr 1               
-00005Fr 1               .BSS
+00005Er 1               .BSS
 000000r 1  xx xx xx xx  screen: .res 40*24
 000004r 1  xx xx xx xx  
 000008r 1  xx xx xx xx  
