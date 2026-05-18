@@ -22,6 +22,19 @@
 1. [Hexadecimal number display as subroutine, proper variant](hex_number_2.asm)
 1. [Hexadecimal number conversion and char print as subroutines](hex_number_3.asm)
 
+
+
+## CA65 macros, displaying two hex digits
+
+1. [Hexadecimal number display, as set of macros](hex_number_4.asm)
+1. [Local labels](hex_number_5.asm)
+1. [Two hex digits printing, the stub](hex_number_6.asm)
+1. [Two hex digits printing](hex_number_7.asm)
+1. [Macro with LSR pseudoinstruction implementation](hex_number_8.asm)
+1. [Printing more hex digits](hex_number_9.asm)
+
+
+
 <!--
 antic_1.asm
 antic_2.asm
@@ -89,10 +102,4 @@ pmg_stick_4.asm
 pmg_stick_5.asm
 pmg_stick_6.asm
 pong.asm
-hex_number_4.asm
-hex_number_5.asm
-hex_number_6.asm
-hex_number_7.asm
-hex_number_8.asm
-hex_number_9.asm
 -->
