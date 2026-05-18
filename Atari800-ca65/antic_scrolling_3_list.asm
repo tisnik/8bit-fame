@@ -1582,20 +1582,16 @@ Current file: antic_scrolling_3.asm
 000092r 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 000095r 1               
 000095r 1               
-000095r 1               color:
-000095r 1  C4           .byte $c4                       ; původní barva
+000095r 1               ; horizontální scrolling
+000095r 1  00           x_scroll:    .byte 0
 000096r 1               
-000096r 1               
-000096r 1               ; horizontální scrolling
-000096r 1  00           x_scroll:    .byte 0
+000096r 1               ; vertikální scrolling
+000096r 1  00           y_scroll:    .byte 0
 000097r 1               
-000097r 1               ; vertikální scrolling
-000097r 1  00           y_scroll:    .byte 0
-000098r 1               
-000098r 1               end:
-000098r 1               
-000098r 1               
-000098r 1               .BSS
+000097r 1               end:
+000097r 1               
+000097r 1               
+000097r 1               .BSS
 000000r 1  xx xx xx xx  screen: .res 40*24
 000004r 1  xx xx xx xx  
 000008r 1  xx xx xx xx  
