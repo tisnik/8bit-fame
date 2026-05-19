@@ -35,6 +35,16 @@
 
 
 
+## Data transfers and filling memory areas
+
+1. [Memory block fill, uses two index registers](fill_block_1.asm)
+1. [Memory block fill, uses one index register, incorrect variant](fill_block_2.asm)
+1. [Memory block fill, uses one index register, correct variant](fill_block_3.asm)
+1. [Filling memory area larger than 256 bytes](fill_block_4.asm)
+1. [Memory block fill, counter is increased during filling](fill_block_5.asm)
+
+
+
 <!--
 antic_1.asm
 antic_2.asm
@@ -68,11 +78,6 @@ antic_vbi_dli_1.asm
 antic_vbi_dli_2.asm
 antic_vbi_dli_3.asm
 antic_vbi_dli_4.asm
-fill_block_1.asm
-fill_block_2.asm
-fill_block_3.asm
-fill_block_4.asm
-fill_block_5.asm
 image_160x192.asm
 image_160x96.asm
 image_80x48.asm
