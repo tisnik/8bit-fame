@@ -4,7 +4,12 @@ Current file: antic_vbi_dli_3.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Ovládání PMG joystickem v horizontálním směru.
+000000r 1               ; Přepis předchozího příkladu do formy založené na subrutinách.
 000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; VBI (Vertical Blank Interrupt) na osmibitových mikropočítačích Atari
+000000r 1               ; https://www.root.cz/clanky/vbi-vertical-blank-interrupt-na-osmibitovych-mikropocitacich-atari/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
@@ -1476,184 +1481,185 @@ Current file: antic_vbi_dli_3.asm
 000021r 1  C8                   iny                     ; zvětšit hodnotu počitadla a offsetu
 000022r 1  C0 80                cpy #$80
 000024r 1  D0 F1                bne clear               ; skok
-000026r 1               .endproc
-000026r 1               
-000026r 1               
-000026r 1               ; ---------------------------------------------------------------------
-000026r 1               ; subrutina pro nastavení display listu
-000026r 1               ; ---------------------------------------------------------------------
-000026r 1               .proc   set_display_list
-000026r 1  A9 rr                lda #<dlist             ; nižší byte adresy display listu
-000028r 1  8D 30 02             sta SDLSTL
-00002Br 1  A9 rr                lda #>dlist             ; vyšší byte adresy display listu
-00002Dr 1  8D 31 02             sta SDLSTH
-000030r 1  60                   rts
-000031r 1               .endproc
-000031r 1               
-000031r 1               
-000031r 1               ; ---------------------------------------------------------------------
-000031r 1               ; subrutina pro nastavení všech spritů
-000031r 1               ; ---------------------------------------------------------------------
-000031r 1               .proc   setup_sprites
-000031r 1  A9 50                lda #80                 ; horizontální pozice prvního hráče
-000033r 1  8D 00 D0             sta HPOSP0              ; uložit do řídicího registru HPOSP0 na čipu GTIA
-000036r 1               
-000036r 1  A9 64                lda #100                ; horizontální pozice druhého hráče
-000038r 1  8D 01 D0             sta HPOSP1              ; uložit do řídicího registru HPOSP1 na čipu GTIA
-00003Br 1               
-00003Br 1  A9 78                lda #120                ; horizontální pozice třetího hráče
-00003Dr 1  8D 02 D0             sta HPOSP2              ; uložit do řídicího registru HPOSP2 na čipu GTIA
-000040r 1               
-000040r 1  A9 8C                lda #140                ; horizontální pozice čtvrtého hráče
-000042r 1  8D 03 D0             sta HPOSP3              ; uložit do řídicího registru HPOSP3 na čipu GTIA
-000045r 1               
-000045r 1  A9 CC                lda #HUE_GREEN<<4 + 12  ; barva prvního hráče (odstín+intenzita)
-000047r 1  8D C0 02             sta PCOLR0              ; uložit do řídicího registru PCOLR0 na čipu GTIA
-00004Ar 1               
-00004Ar 1  A9 EC                lda #HUE_YELLOW<<4 + 12 ; barva druhého hráče (odstín+intenzita)
-00004Cr 1  8D C1 02             sta PCOLR1              ; uložit do řídicího registru PCOLR1 na čipu GTIA
-00004Fr 1               
-00004Fr 1  A9 5C                lda #HUE_MAGENTA<<4 + 12 ; barva třetího hráče (odstín+intenzita)
-000051r 1  8D C2 02             sta PCOLR2              ; uložit do řídicího registru PCOLR2 na čipu GTIA
-000054r 1               
-000054r 1  A9 9C                lda #HUE_CYAN<<4 + 12   ; barva čtvrtého hráče (odstín+intenzita)
-000056r 1  8D C3 02             sta PCOLR3              ; uložit do řídicího registru PCOLR3 na čipu GTIA
-000059r 1               
-000059r 1  A9 FF                lda #$ff                ; bitová maska všech hráčů
-00005Br 1  8D 0D D0             sta GRAFP0              ; uložit do řídicího registru GRAFP0 na čipu GTIA
-00005Er 1  8D 0E D0             sta GRAFP1              ; uložit do řídicího registru GRAFP1 na čipu GTIA
-000061r 1  8D 0F D0             sta GRAFP2              ; uložit do řídicího registru GRAFP2 na čipu GTIA
-000064r 1  8D 10 D0             sta GRAFP3              ; uložit do řídicího registru GRAFP3 na čipu GTIA
-000067r 1               
-000067r 1  A9 03                lda #3                  ; bitové pole: povolení hráčů i střel
-000069r 1  8D 1D D0             sta GRACTL              ; uložit do řídicího registru GRACTL na čipu GTIA
-00006Cr 1               
-00006Cr 1  A9 01                lda #1                   ; priorita hráčů a pozadí
-00006Er 1  8D 6F 02             sta GPRIOR              ; uložit do řídicího registru GPRIOR na čipu GTIA
-000071r 1               
-000071r 1  A9 98                lda #152                ; paměťová stránka číslo 152
-000073r 1  8D 07 D4             sta PMBASE
-000076r 1               
-000076r 1                       addr = 152*256
-000076r 1  A2 08                ldx #8                  ; začneme na hodnotě o 1 vyšší
-000078r 1               next_line:
-000078r 1  BD rr rr             lda sprite-1, x         ; načíst
-00007Br 1  9D 64 9A             sta addr+PLAYER_0_OFFSET+100, x  ; uložit byte - první hráč
-00007Er 1  9D E4 9A             sta addr+PLAYER_1_OFFSET+100, x  ; uložit byte - druhý hráč
-000081r 1  9D 64 9B             sta addr+PLAYER_2_OFFSET+100, x  ; uložit byte - třetí hráč
-000084r 1  9D E4 9B             sta addr+PLAYER_3_OFFSET+100, x  ; uložit byte - čtvrtý hráč
-000087r 1  CA                   dex                     ; snížit offset + nastavit příznaky
-000088r 1  D0 EE                bne next_line           ; další byte spritu
-00008Ar 1               
-00008Ar 1  A9 2E                lda #46                 ; povolení PMG DMA
-00008Cr 1  8D 2F 02             sta SDMCTL
-00008Fr 1  60                   rts
-000090r 1               .endproc
-000090r 1               
-000090r 1               
-000090r 1               ; ---------------------------------------------------------------------
-000090r 1               ; subrutina pro nastavení DLI i VBI
-000090r 1               ; ---------------------------------------------------------------------
-000090r 1               .proc   enable_interrupts
-000090r 1                       NMIEN_DLI=$80           ; maska povolení DLI
-000090r 1                       NMIEN_VBI=$40           ; maska povolení VBI
-000090r 1  A9 C0                lda #NMIEN_DLI | NMIEN_VBI ; povolení DLI
-000092r 1  8D 0E D4             sta NMIEN
-000095r 1  60                   rts
-000096r 1               .endproc
-000096r 1               
-000096r 1               
-000096r 1               ; ---------------------------------------------------------------------
-000096r 1               ; subrutina pro nastavení VBI
-000096r 1               ; ---------------------------------------------------------------------
-000096r 1               .proc   set_vbi_handler
-000096r 1                       ; nastavit vektor pro odloženou VBI
-000096r 1  A9 07                lda #7                  ; změna vektoru pro odložené VBI
-000098r 1  A2 rr                ldx #>horizontal_movement
-00009Ar 1  A0 rr                ldy #<horizontal_movement
-00009Cr 1  20 5C E4             jsr SETVBV              ; zavolat službu systému pro nastavení vektoru
-00009Fr 1  60                   rts
-0000A0r 1               .endproc
-0000A0r 1               
-0000A0r 1               
-0000A0r 1               ; ---------------------------------------------------------------------
-0000A0r 1               ; subrutina pro nastavení DLI
-0000A0r 1               ; ---------------------------------------------------------------------
-0000A0r 1               .proc   set_dli_handler
-0000A0r 1                       ; vektor DLI
-0000A0r 1  A9 rr                lda #<dli               ; nastavení DLI
-0000A2r 1  8D 00 02             sta VDSLST
-0000A5r 1  A9 rr                lda #>dli
-0000A7r 1  8D 01 02             sta VDSLST+1
-0000AAr 1  60                   rts
-0000ABr 1               .endproc
-0000ABr 1               
-0000ABr 1               
-0000ABr 1               ; ---------------------------------------------------------------------
-0000ABr 1               ; subrutina pro obsluhu VBI
-0000ABr 1               ; ---------------------------------------------------------------------
-0000ABr 1               .proc   horizontal_movement
-0000ABr 1  AE rr rr             ldx x_pos               ; původní pozice prvního hráče
-0000AEr 1               
-0000AEr 1  AD 78 02             lda STICK0              ; čtení joysticku
-0000B1r 1  C9 0B                cmp #11                 ; je nakloněn doleva?
-0000B3r 1  D0 01                bne not_left
-0000B5r 1  CA                   dex                     ; posun hráče doleva
-0000B6r 1               not_left:
-0000B6r 1  C9 07                cmp #7                  ; je nakloněn doprava?
-0000B8r 1  D0 01                bne not_right
-0000BAr 1  E8                   inx                     ; posun hráče doprava
-0000BBr 1               not_right:
-0000BBr 1  8E 00 D0             stx HPOSP0              ; změna pozice prvního hráče
-0000BEr 1  8E rr rr             stx x_pos               ; zapamatovat si pozici prvního hráče
-0000C1r 1  4C 62 E4             jmp XITVBV              ; zpracovat zbytek odloženého VBLANKu
-0000C4r 1  60                   rts
-0000C5r 1               .endproc
-0000C5r 1               
-0000C5r 1               
-0000C5r 1               ; ---------------------------------------------------------------------
-0000C5r 1               ; obsluha DLI
-0000C5r 1               ; ---------------------------------------------------------------------
-0000C5r 1               dli:
-0000C5r 1  48                   pha                     ; uschovat akumulátor
-0000C6r 1  AD rr rr             lda color               ; barva pozadí
-0000C9r 1  8D 18 D0             sta COLPF2              ; přímo nastavit zápisem do HW registru
-0000CCr 1  49 80                eor #%10000000          ; negovat nejvyšší bit
-0000CEr 1  8D rr rr             sta color
-0000D1r 1  68                   pla                     ; obnovit akumulátor
-0000D2r 1  40                   rti                     ; návrat z DLI
-0000D3r 1               
-0000D3r 1               
-0000D3r 1               dlist:
-0000D3r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
-0000D6r 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
-0000D7r 1  rr rr        .byte <screen, >screen          ; počáteční adresa obrazové paměti
-0000D9r 1  02 02 02 02  .res 6, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
-0000DDr 1  02 02        
-0000DFr 1  82           .byte DL_DLI+DL_CHR40x8x1       ; GR.0 ovšem navíc s povolením DLI
-0000E0r 1  02 02 02 02  .res 7, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
-0000E4r 1  02 02 02     
-0000E7r 1  82           .byte DL_DLI+DL_CHR40x8x1       ; GR.0 ovšem navíc s povolením DLI
-0000E8r 1  02 02 02 02  .res 8, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
-0000ECr 1  02 02 02 02  
-0000F0r 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
-0000F3r 1               
-0000F3r 1               
-0000F3r 1               color:
-0000F3r 1  C4           .byte $c4                       ; původní barva
+000026r 1  60                   rts
+000027r 1               .endproc
+000027r 1               
+000027r 1               
+000027r 1               ; ---------------------------------------------------------------------
+000027r 1               ; subrutina pro nastavení display listu
+000027r 1               ; ---------------------------------------------------------------------
+000027r 1               .proc   set_display_list
+000027r 1  A9 rr                lda #<dlist             ; nižší byte adresy display listu
+000029r 1  8D 30 02             sta SDLSTL
+00002Cr 1  A9 rr                lda #>dlist             ; vyšší byte adresy display listu
+00002Er 1  8D 31 02             sta SDLSTH
+000031r 1  60                   rts
+000032r 1               .endproc
+000032r 1               
+000032r 1               
+000032r 1               ; ---------------------------------------------------------------------
+000032r 1               ; subrutina pro nastavení všech spritů
+000032r 1               ; ---------------------------------------------------------------------
+000032r 1               .proc   setup_sprites
+000032r 1  A9 50                lda #80                 ; horizontální pozice prvního hráče
+000034r 1  8D 00 D0             sta HPOSP0              ; uložit do řídicího registru HPOSP0 na čipu GTIA
+000037r 1               
+000037r 1  A9 64                lda #100                ; horizontální pozice druhého hráče
+000039r 1  8D 01 D0             sta HPOSP1              ; uložit do řídicího registru HPOSP1 na čipu GTIA
+00003Cr 1               
+00003Cr 1  A9 78                lda #120                ; horizontální pozice třetího hráče
+00003Er 1  8D 02 D0             sta HPOSP2              ; uložit do řídicího registru HPOSP2 na čipu GTIA
+000041r 1               
+000041r 1  A9 8C                lda #140                ; horizontální pozice čtvrtého hráče
+000043r 1  8D 03 D0             sta HPOSP3              ; uložit do řídicího registru HPOSP3 na čipu GTIA
+000046r 1               
+000046r 1  A9 CC                lda #HUE_GREEN<<4 + 12  ; barva prvního hráče (odstín+intenzita)
+000048r 1  8D C0 02             sta PCOLR0              ; uložit do řídicího registru PCOLR0 na čipu GTIA
+00004Br 1               
+00004Br 1  A9 EC                lda #HUE_YELLOW<<4 + 12 ; barva druhého hráče (odstín+intenzita)
+00004Dr 1  8D C1 02             sta PCOLR1              ; uložit do řídicího registru PCOLR1 na čipu GTIA
+000050r 1               
+000050r 1  A9 5C                lda #HUE_MAGENTA<<4 + 12 ; barva třetího hráče (odstín+intenzita)
+000052r 1  8D C2 02             sta PCOLR2              ; uložit do řídicího registru PCOLR2 na čipu GTIA
+000055r 1               
+000055r 1  A9 9C                lda #HUE_CYAN<<4 + 12   ; barva čtvrtého hráče (odstín+intenzita)
+000057r 1  8D C3 02             sta PCOLR3              ; uložit do řídicího registru PCOLR3 na čipu GTIA
+00005Ar 1               
+00005Ar 1  A9 FF                lda #$ff                ; bitová maska všech hráčů
+00005Cr 1  8D 0D D0             sta GRAFP0              ; uložit do řídicího registru GRAFP0 na čipu GTIA
+00005Fr 1  8D 0E D0             sta GRAFP1              ; uložit do řídicího registru GRAFP1 na čipu GTIA
+000062r 1  8D 0F D0             sta GRAFP2              ; uložit do řídicího registru GRAFP2 na čipu GTIA
+000065r 1  8D 10 D0             sta GRAFP3              ; uložit do řídicího registru GRAFP3 na čipu GTIA
+000068r 1               
+000068r 1  A9 03                lda #3                  ; bitové pole: povolení hráčů i střel
+00006Ar 1  8D 1D D0             sta GRACTL              ; uložit do řídicího registru GRACTL na čipu GTIA
+00006Dr 1               
+00006Dr 1  A9 01                lda #1                   ; priorita hráčů a pozadí
+00006Fr 1  8D 6F 02             sta GPRIOR              ; uložit do řídicího registru GPRIOR na čipu GTIA
+000072r 1               
+000072r 1  A9 98                lda #152                ; paměťová stránka číslo 152
+000074r 1  8D 07 D4             sta PMBASE
+000077r 1               
+000077r 1                       addr = 152*256
+000077r 1  A2 08                ldx #8                  ; začneme na hodnotě o 1 vyšší
+000079r 1               next_line:
+000079r 1  BD rr rr             lda sprite-1, x         ; načíst
+00007Cr 1  9D 64 9A             sta addr+PLAYER_0_OFFSET+100, x  ; uložit byte - první hráč
+00007Fr 1  9D E4 9A             sta addr+PLAYER_1_OFFSET+100, x  ; uložit byte - druhý hráč
+000082r 1  9D 64 9B             sta addr+PLAYER_2_OFFSET+100, x  ; uložit byte - třetí hráč
+000085r 1  9D E4 9B             sta addr+PLAYER_3_OFFSET+100, x  ; uložit byte - čtvrtý hráč
+000088r 1  CA                   dex                     ; snížit offset + nastavit příznaky
+000089r 1  D0 EE                bne next_line           ; další byte spritu
+00008Br 1               
+00008Br 1  A9 2E                lda #46                 ; povolení PMG DMA
+00008Dr 1  8D 2F 02             sta SDMCTL
+000090r 1  60                   rts
+000091r 1               .endproc
+000091r 1               
+000091r 1               
+000091r 1               ; ---------------------------------------------------------------------
+000091r 1               ; subrutina pro nastavení DLI i VBI
+000091r 1               ; ---------------------------------------------------------------------
+000091r 1               .proc   enable_interrupts
+000091r 1                       NMIEN_DLI=$80           ; maska povolení DLI
+000091r 1                       NMIEN_VBI=$40           ; maska povolení VBI
+000091r 1  A9 C0                lda #NMIEN_DLI | NMIEN_VBI ; povolení DLI
+000093r 1  8D 0E D4             sta NMIEN
+000096r 1  60                   rts
+000097r 1               .endproc
+000097r 1               
+000097r 1               
+000097r 1               ; ---------------------------------------------------------------------
+000097r 1               ; subrutina pro povolení VBI
+000097r 1               ; ---------------------------------------------------------------------
+000097r 1               .proc   set_vbi_handler
+000097r 1                       ; nastavit vektor pro odloženou VBI
+000097r 1  A9 07                lda #7                  ; změna vektoru pro odložené VBI
+000099r 1  A2 rr                ldx #>horizontal_movement
+00009Br 1  A0 rr                ldy #<horizontal_movement
+00009Dr 1  20 5C E4             jsr SETVBV              ; zavolat službu systému pro nastavení vektoru
+0000A0r 1  60                   rts
+0000A1r 1               .endproc
+0000A1r 1               
+0000A1r 1               
+0000A1r 1               ; ---------------------------------------------------------------------
+0000A1r 1               ; subrutina pro nastavení obsluhy DLI
+0000A1r 1               ; ---------------------------------------------------------------------
+0000A1r 1               .proc   set_dli_handler
+0000A1r 1                       ; vektor DLI
+0000A1r 1  A9 rr                lda #<dli               ; nastavení DLI
+0000A3r 1  8D 00 02             sta VDSLST
+0000A6r 1  A9 rr                lda #>dli
+0000A8r 1  8D 01 02             sta VDSLST+1
+0000ABr 1  60                   rts
+0000ACr 1               .endproc
+0000ACr 1               
+0000ACr 1               
+0000ACr 1               ; ---------------------------------------------------------------------
+0000ACr 1               ; subrutina pro obsluhu VBI
+0000ACr 1               ; ---------------------------------------------------------------------
+0000ACr 1               .proc   horizontal_movement
+0000ACr 1  AE rr rr             ldx x_pos               ; původní pozice prvního hráče
+0000AFr 1               
+0000AFr 1  AD 78 02             lda STICK0              ; čtení joysticku
+0000B2r 1  C9 0B                cmp #11                 ; je nakloněn doleva?
+0000B4r 1  D0 01                bne not_left
+0000B6r 1  CA                   dex                     ; posun hráče doleva
+0000B7r 1               not_left:
+0000B7r 1  C9 07                cmp #7                  ; je nakloněn doprava?
+0000B9r 1  D0 01                bne not_right
+0000BBr 1  E8                   inx                     ; posun hráče doprava
+0000BCr 1               not_right:
+0000BCr 1  8E 00 D0             stx HPOSP0              ; změna pozice prvního hráče
+0000BFr 1  8E rr rr             stx x_pos               ; zapamatovat si pozici prvního hráče
+0000C2r 1  4C 62 E4             jmp XITVBV              ; zpracovat zbytek odloženého VBLANKu
+0000C5r 1  60                   rts
+0000C6r 1               .endproc
+0000C6r 1               
+0000C6r 1               
+0000C6r 1               ; ---------------------------------------------------------------------
+0000C6r 1               ; obsluha DLI
+0000C6r 1               ; ---------------------------------------------------------------------
+0000C6r 1               dli:
+0000C6r 1  48                   pha                     ; uschovat akumulátor
+0000C7r 1  AD rr rr             lda color               ; barva pozadí
+0000CAr 1  8D 18 D0             sta COLPF2              ; přímo nastavit zápisem do HW registru
+0000CDr 1  49 80                eor #%10000000          ; negovat nejvyšší bit
+0000CFr 1  8D rr rr             sta color
+0000D2r 1  68                   pla                     ; obnovit akumulátor
+0000D3r 1  40                   rti                     ; návrat z DLI
+0000D4r 1               
+0000D4r 1               
+0000D4r 1               dlist:
+0000D4r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
+0000D7r 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
+0000D8r 1  rr rr        .byte <screen, >screen          ; počáteční adresa obrazové paměti
+0000DAr 1  02 02 02 02  .res 6, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
+0000DEr 1  02 02        
+0000E0r 1  82           .byte DL_DLI+DL_CHR40x8x1       ; GR.0 ovšem navíc s povolením DLI
+0000E1r 1  02 02 02 02  .res 7, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
+0000E5r 1  02 02 02     
+0000E8r 1  82           .byte DL_DLI+DL_CHR40x8x1       ; GR.0 ovšem navíc s povolením DLI
+0000E9r 1  02 02 02 02  .res 8, DL_CHR40x8x1            ; opakovat řádky textového režimu 2 (GR.0)
+0000EDr 1  02 02 02 02  
+0000F1r 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 0000F4r 1               
 0000F4r 1               
-0000F4r 1               ; data
-0000F4r 1  18 3C 7E DB  sprite:   .byte 24, 60, 126, 219, 255, 36, 90, 165
-0000F8r 1  FF 24 5A A5  
-0000FCr 1               
-0000FCr 1               ; horizontální pozice hráče
-0000FCr 1  50           x_pos:    .byte 80
+0000F4r 1               color:
+0000F4r 1  C4           .byte $c4                       ; původní barva
+0000F5r 1               
+0000F5r 1               
+0000F5r 1               ; data
+0000F5r 1  18 3C 7E DB  sprite:   .byte 24, 60, 126, 219, 255, 36, 90, 165
+0000F9r 1  FF 24 5A A5  
 0000FDr 1               
-0000FDr 1               end:
-0000FDr 1               
-0000FDr 1               
-0000FDr 1               .BSS
+0000FDr 1               ; horizontální pozice hráče
+0000FDr 1  50           x_pos:    .byte 80
+0000FEr 1               
+0000FEr 1               end:
+0000FEr 1               
+0000FEr 1               
+0000FEr 1               .BSS
 000000r 1  xx xx xx xx  screen: .res 40*24
 000004r 1  xx xx xx xx  
 000008r 1  xx xx xx xx  
