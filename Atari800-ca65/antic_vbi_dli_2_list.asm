@@ -4,7 +4,14 @@ Current file: antic_vbi_dli_2.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Ovládání PMG joystickem v horizontálním směru.
+000000r 1               ; Změna pozice PMG realizovaná ve VBI.
+000000r 1               ; Změna barvy herního pole realizovaná v DLI.
+000000r 1               ; Odstranění nadbytečné instrukce RTS ve VBI.
 000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; VBI (Vertical Blank Interrupt) na osmibitových mikropočítačích Atari
+000000r 1               ; https://www.root.cz/clanky/vbi-vertical-blank-interrupt-na-osmibitovych-mikropocitacich-atari/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
