@@ -6,6 +6,9 @@
 ;
 ; Praktické použití grafických režimů nabízených čipem ANTIC
 ; https://www.root.cz/clanky/prakticke-pouziti-grafickych-rezimu-nabizenych-cipem-antic/
+;
+; Překlad do formátu xex:
+; make antic_bitmap_1.xex
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
