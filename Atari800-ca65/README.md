@@ -45,6 +45,26 @@
 
 
 
+## Player-missile graphics
+
+1. [PMG enable, setting shape of first player](pmg_01.asm)
+1. [PMG enable, setting shape and color of first player](pmg_02.asm)
+1. [DMA for PMG disabled](pmg_03.asm)
+1. [Changing size of player 1](pmg_04.asm)
+1. [Changing horizontal position of player 1](pmg_05.asm)
+1. [Two players on screen](pmg_06.asm)
+1. [Setting bitmap of player 1](pmg_07.asm)
+1. [Setting bitmap, color, and horizontal position of player 1](pmg_08.asm)
+1. [All PMGs on screen](pmg_09.asm)
+1. [All PMGs on screen, more complicated example](pmg_10.asm)
+1. [Automatic horizontal movement of player 1](pmg_11.asm)
+1. [Automatic horizontal movement of player 1, v-sync](pmg_12.asm)
+1. [PMG vertical movement (incorrect variant)](pmg_13.asm)
+1. [PMG vertical movement (correct variant)](pmg_14.asm)
+1. [PMG vertical movenent](pmg_15.asm)
+
+
+
 <!--
 antic_1.asm
 antic_2.asm
@@ -81,21 +101,6 @@ antic_vbi_dli_4.asm
 image_160x192.asm
 image_160x96.asm
 image_80x48.asm
-pmg_01.asm
-pmg_02.asm
-pmg_03.asm
-pmg_04.asm
-pmg_05.asm
-pmg_06.asm
-pmg_07.asm
-pmg_08.asm
-pmg_09.asm
-pmg_10.asm
-pmg_11.asm
-pmg_12.asm
-pmg_13.asm
-pmg_14.asm
-pmg_15.asm
 pmg_collisions_1.asm
 pmg_collisions_2.asm
 pmg_collisions_3.asm
