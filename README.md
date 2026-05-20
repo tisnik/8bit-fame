@@ -17,7 +17,7 @@
 ## Various programs written in assembly for 8bit computers
 
 1. [Examples for ZX Spectrum](<Speccy-asm>)
-1. [Examples for 8-bit Ataris](<Atari800-ca65>)
+1. [Examples for 8-bit Ataris (ca65 assembler)](<Atari800-ca65>)
 
 ## Various programs written in BASIC for 8bit computers
 
