@@ -35,7 +35,12 @@ execs := dummy.xex print_a.xex \
 	 antic_bitmap_7.xex      antic_bitmap_8.xex \
 	 antic_dli_1.asm         antic_dli_2.asm \
 	 antic_dli_3.asm         antic_dli_4.asm \
-	 antic_dli_5.asm         antic_dli_pmg.asm
+	 antic_dli_5.asm         antic_dli_pmg.asm \
+	 sound_1.xex             sound_2.xex \
+	 sound_3.xex             sound_4.xex \
+	 sound_5.xex             sound_6.xex \
+	 sound_7.xex             sound_8.xex \
+	 sound_9.xex
 
 all: $(execs)
 
@@ -102,3 +107,27 @@ antic_scrolling:	\
 	antic_scrolling_2.xex \
 	antic_scrolling_3.xex \
 	antic_scrolling_4.xex
+
+gtia:	\
+	gtia_mode_1.xex \
+	gtia_mode_2.xex \
+	gtia_mode_3.xex \
+	gtia_mode_4.xex \
+	gtia_mode_5.xex \
+	gtia_mode_6.xex \
+	gtia_mode_7.xex \
+	gtia_mode_8.xex \
+	gtia_mode_9.xex \
+	gtia_mode_A.xex \
+	gtia_mode_B.xex
+
+sound:	\
+	sound_1.xex \
+	sound_2.xex \
+	sound_3.xex \
+	sound_4.xex \
+	sound_5.xex \
+	sound_6.xex \
+	sound_7.xex \
+	sound_8.xex \
+	sound_9.xex
