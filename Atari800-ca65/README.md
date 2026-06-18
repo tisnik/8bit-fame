@@ -113,4 +113,13 @@ pmg_stick_4.asm
 pmg_stick_5.asm
 pmg_stick_6.asm
 pong.asm
+sound_1.asm
+sound_2.asm
+sound_3.asm
+sound_4.asm
+sound_5.asm
+sound_6.asm
+sound_7.asm
+sound_8.asm
+sound_9.asm
 -->
