@@ -9,6 +9,9 @@ Current file: antic_bitmap_3.asm
 000000r 1               ;
 000000r 1               ; Praktické použití grafických režimů nabízených čipem ANTIC
 000000r 1               ; https://www.root.cz/clanky/prakticke-pouziti-grafickych-rezimu-nabizenych-cipem-antic/
+000000r 1               ;
+000000r 1               ; Překlad do formátu xex:
+000000r 1               ; make antic_bitmap_1.xex
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
