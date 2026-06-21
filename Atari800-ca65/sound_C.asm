@@ -48,7 +48,7 @@ loop:
 
         inc noise1
         jsr get_key             ; čekání na stisk klávesy
-        jmp loop                ; program vlastně nice nedělá - jen cyklí!
+        jmp loop
 .endproc
 
 
