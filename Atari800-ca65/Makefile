@@ -40,7 +40,10 @@ execs := dummy.xex print_a.xex \
 	 sound_3.xex             sound_4.xex \
 	 sound_5.xex             sound_6.xex \
 	 sound_7.xex             sound_8.xex \
-	 sound_9.xex
+	 sound_9.xex             sound_A.xex \
+	 sound_B.xex             sound_C.xex \
+	 sound_D.xex             sound_E.xex \
+	 sound_F.xex
 
 all: $(execs)
 
@@ -130,4 +133,10 @@ sound:	\
 	sound_6.xex \
 	sound_7.xex \
 	sound_8.xex \
-	sound_9.xex
+	sound_9.xex \
+	sound_A.xex \
+	sound_B.xex \
+	sound_C.xex \
+	sound_D.xex \
+	sound_E.xex \
+	sound_F.xex
