@@ -1,0 +1,23 @@
+dlist:
+.byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
+.byte DL_LMS+DL_MAP320x1x1      ; určení počáteční adresy obrazové paměti + jeden řádek režimu F (GR.8)
+.byte <screen1, >screen1        ; počáteční adresa obrazové paměti (první blok)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.res 5,  DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.byte DL_LMS+DL_MAP320x1x1      ; určení počáteční adresy obrazové paměti + jeden řádek režimu F (GR.8)
+.byte <screen2, >screen2        ; počáteční adresa obrazové paměti (druhý blok)
+.res 95, DL_MAP320x1x1          ; opakovat řádky grafického režimu F (GR.8)
+.byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
