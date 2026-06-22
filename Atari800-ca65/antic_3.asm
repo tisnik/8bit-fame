@@ -34,7 +34,7 @@ clear:
 loop:   jmp loop
 .endproc
 
-dlist:
+dlist:                          ; definice display listu
 .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 .byte DL_LMS+DL_CHR20x16x2      ; určení počáteční adresy obrazové paměti + jeden řádek režimu 7
 .byte <screen, >screen          ; počáteční adresa obrazové paměti 
@@ -54,20 +54,22 @@ dlist:
 
 end:
 
+
 .BSS
-screen: .res 20*24
+screen: .res 20*24              ; rezervace prostoru pro video paměť
 
 
 
 .segment "EXEHDR"
-.word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
-.word   main                    ; zacatek kodoveho segmentu
-.word   end - 1                ; konec kodoveho segmentu
+.word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
+.word   main                    ; začátek kódového segmentu
+.word   end - 1                 ; konec kódového segmentu
 
 
-.segment "AUTOSTRT"             ; segment s pocatecni adresou
-.word   RUNAD                   ; naplni se pouze adresy RUNAD a RUNAD+1
+
+.segment "AUTOSTRT"             ; segment s počáteční adresou
+.word   RUNAD                   ; naplní se pouze adresy RUNAD a RUNAD+1
 .word   RUNAD+1
-.word   main                    ; adresa vstupniho bodu do programu
+.word   main                    ; adresa vstupního bodu do programu
 
 ; finito
