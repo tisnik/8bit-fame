@@ -1485,7 +1485,7 @@ Current file: antic_9.asm
 00002Ar 1               end:
 00002Ar 1               
 00002Ar 1               .BSS
-000000r 1  xx xx xx xx  screen: .res 40*24
+000000r 1  xx xx xx xx  screen: .res 40*24              ; rezervace prostoru pro video paměť
 000004r 1  xx xx xx xx  
 000008r 1  xx xx xx xx  
 00000Cr 1  xx xx xx xx  
@@ -1514,15 +1514,16 @@ Current file: antic_9.asm
 0003C0r 1               
 0003C0r 1               
 0003C0r 1               .segment "EXEHDR"
-000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
-000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
-000004r 1  rr rr        .word   end - 1                ; konec kodoveho segmentu
+000000r 1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
+000002r 1  rr rr        .word   main                    ; začátek kódového segmentu
+000004r 1  rr rr        .word   end - 1                 ; konec kódového segmentu
 000006r 1               
 000006r 1               
-000006r 1               .segment "AUTOSTRT"             ; segment s pocatecni adresou
-000000r 1  E0 02        .word   RUNAD                   ; naplni se pouze adresy RUNAD a RUNAD+1
+000006r 1               
+000006r 1               .segment "AUTOSTRT"             ; segment s počáteční adresou
+000000r 1  E0 02        .word   RUNAD                   ; naplní se pouze adresy RUNAD a RUNAD+1
 000002r 1  E1 02        .word   RUNAD+1
-000004r 1  rr rr        .word   main                    ; adresa vstupniho bodu do programu
+000004r 1  rr rr        .word   main                    ; adresa vstupního bodu do programu
 000006r 1               
 000006r 1               ; finito
 000006r 1               
