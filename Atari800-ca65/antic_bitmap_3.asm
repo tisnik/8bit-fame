@@ -37,21 +37,22 @@ dlist:
 .res 95, DL_MAP160x2x2          ; opakovat řádky grafického režimu B (GR.6)
 .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 
-screen:
+screen:                         ; video paměť
 .include "image_160x96.asm"
 end:
 
 
 
 .segment "EXEHDR"
-.word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
-.word   main                    ; zacatek kodoveho segmentu
-.word   end - 1                ; konec kodoveho segmentu
+.word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
+.word   main                    ; začátek kódového segmentu
+.word   end - 1                 ; konec kódového segmentu
 
 
-.segment "AUTOSTRT"             ; segment s pocatecni adresou
-.word   RUNAD                   ; naplni se pouze adresy RUNAD a RUNAD+1
+
+.segment "AUTOSTRT"             ; segment s počáteční adresou
+.word   RUNAD                   ; naplní se pouze adresy RUNAD a RUNAD+1
 .word   RUNAD+1
-.word   main                    ; adresa vstupniho bodu do programu
+.word   main                    ; adresa vstupního bodu do programu
 
 ; finito
