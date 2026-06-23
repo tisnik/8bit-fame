@@ -36,21 +36,22 @@ dlist:
 .res 191, DL_MAP320x1x1         ; opakovat řádky grafického režimu F (GR.8)
 .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 
-screen:
+screen:                         ; video paměť
 .incbin "image_320x192.bin"
 end:
 
 
 
 .segment "EXEHDR"
-.word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
-.word   main                    ; zacatek kodoveho segmentu
-.word   end - 1                ; konec kodoveho segmentu
+.word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
+.word   main                    ; začátek kódového segmentu
+.word   end - 1                 ; konec kódového segmentu
 
 
-.segment "AUTOSTRT"             ; segment s pocatecni adresou
-.word   RUNAD                   ; naplni se pouze adresy RUNAD a RUNAD+1
+
+.segment "AUTOSTRT"             ; segment s počáteční adresou
+.word   RUNAD                   ; naplní se pouze adresy RUNAD a RUNAD+1
 .word   RUNAD+1
-.word   main                    ; adresa vstupniho bodu do programu
+.word   main                    ; adresa vstupního bodu do programu
 
 ; finito
