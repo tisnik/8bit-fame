@@ -4,6 +4,11 @@ Current file: sound_1.asm
 
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               ; Generování zvuků čipem POKEY.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Čip POKEY v osmibitových mikropočítačích Atari
+000000r 1               ; https://www.root.cz/clanky/cip-pokey-v-osmibitovych-mikropocitacich-atari/
 000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               .include "atari.inc"
