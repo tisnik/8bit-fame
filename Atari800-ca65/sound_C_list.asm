@@ -1482,7 +1482,7 @@ Current file: sound_C.asm
 000027r 1               
 000027r 1  EE rr rr             inc noise1
 00002Ar 1  20 rr rr             jsr get_key             ; čekání na stisk klávesy
-00002Dr 1  4C rr rr             jmp loop                ; program vlastně nice nedělá - jen cyklí!
+00002Dr 1  4C rr rr             jmp loop
 000030r 1               .endproc
 000030r 1               
 000030r 1               
