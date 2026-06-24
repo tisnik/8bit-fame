@@ -1,5 +1,10 @@
 ; ---------------------------------------------------------------------
 ; Generování zvuků čipem POKEY.
+;
+; Tento zdrojový kód byl použit v článku:
+;
+; Čip POKEY v osmibitových Atari: možnosti generování zvuků
+; https://www.root.cz/clanky/cip-pokey-v-osmibitovych-atari-moznosti-generovani-zvuku/
 ; ---------------------------------------------------------------------
 
 .include "atari.inc"
