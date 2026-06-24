@@ -1453,7 +1453,7 @@ Current file: sound_A.asm
 00000Br 1  A9 47                lda #71                 ; dělič základní frekvence (komorní A: 440 Hz)
 00000Dr 1  8D 00 D2             sta AUDF1               ; zápis do registru děliče frekvence pro zvukový kanál číslo 1 čipu POKEY
 000010r 1               
-000010r 1  A9 FF                lda #255                 ; dělič základní frekvence (cca 1kHz)
+000010r 1  A9 1F                lda #31                 ; dělič základní frekvence (cca 1kHz)
 000012r 1  8D 04 D2             sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 2 čipu POKEY
 000015r 1               
 000015r 1  A9 00                lda #00                 ; základní tón odvozený od 64kHz
