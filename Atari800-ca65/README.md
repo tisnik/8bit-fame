@@ -122,4 +122,10 @@ sound_6.asm
 sound_7.asm
 sound_8.asm
 sound_9.asm
+sound_A.asm
+sound_B.asm
+sound_C.asm
+sound_D.asm
+sound_E.asm
+sound_F.asm
 -->
