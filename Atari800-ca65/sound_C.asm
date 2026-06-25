@@ -24,7 +24,7 @@ HIGH_PASS_1_3_MASK = %00000100
 .proc main
         lda #PURE_TONE_MASK+10  ; hlasitost (0-15)
         sta AUDC1               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 1 čipu POKEY
-        sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 2 čipu POKEY
+        sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 3 čipu POKEY
 
         lda #HIGH_PASS_1_3_MASK ; nastavení horní propusti
         sta AUDCTL              ; zápis do řídicího registru čipu POKEY
