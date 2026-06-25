@@ -1524,7 +1524,7 @@ Current file: antic_bitmap_7.asm
 0000E1r 1               
 0000E1r 1               .segment "IMAGESEG1"
 000000r 1               .org $3000
-003000  1               screen1:
+003000  1               screen1:                         ; video paměť, první segment
 003000  1  FF FF FF FF  .incbin "image_320x192_1.bin"
 003004  1  FF FF FF FF  
 003008  1  FF FF FF FF  
@@ -1553,7 +1553,7 @@ Current file: antic_bitmap_7.asm
 003F00  1               
 003F00  1               .segment "IMAGESEG2"
 003F00  1               .org $4000
-004000  1               screen2:
+004000  1               screen2:                         ; video paměť, druhý segment
 004000  1  FF FF FF FF  .incbin "image_320x192_2.bin"
 004004  1  88 94 0B 3F  
 004008  1  FF FC 7F FF  
@@ -1583,15 +1583,16 @@ Current file: antic_bitmap_7.asm
 004F00  1               end:
 004F00  1               
 004F00  1               .segment "EXEHDR"
-004F00  1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
-004F02  1  rr rr        .word   main                    ; zacatek kodoveho segmentu
-004F04  1  FF 4E        .word   end - 1                 ; konec kodoveho segmentu
+004F00  1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
+004F02  1  rr rr        .word   main                    ; začátek kódového segmentu
+004F04  1  FF 4E        .word   end - 1                 ; konec kódového segmentu
 004F06  1               
 004F06  1               
-004F06  1               .segment "AUTOSTRT"             ; segment s pocatecni adresou
-004F06  1  E0 02        .word   RUNAD                   ; naplni se pouze adresy RUNAD a RUNAD+1
+004F06  1               
+004F06  1               .segment "AUTOSTRT"             ; segment s počáteční adresou
+004F06  1  E0 02        .word   RUNAD                   ; naplní se pouze adresy RUNAD a RUNAD+1
 004F08  1  E1 02        .word   RUNAD+1
-004F0A  1  rr rr        .word   main                    ; adresa vstupniho bodu do programu
+004F0A  1  rr rr        .word   main                    ; adresa vstupního bodu do programu
 004F0C  1               
 004F0C  1               ; finito
 004F0C  1               
