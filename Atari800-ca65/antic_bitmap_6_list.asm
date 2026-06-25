@@ -1498,7 +1498,7 @@ Current file: antic_bitmap_6.asm
 0000DFr 1               
 0000DFr 1               .segment "IMAGESEG"
 000000r 1               .org $3000
-003000  1               screen:
+003000  1               screen:                         ; video paměť
 003000  1  FF FF FF FF  .incbin "image_320x192.bin"
 003004  1  FF FF FF FF  
 003008  1  FF FF FF FF  
@@ -1528,15 +1528,16 @@ Current file: antic_bitmap_6.asm
 004E00  1               end:
 004E00  1               
 004E00  1               .segment "EXEHDR"
-004E00  1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
-004E02  1  rr rr        .word   main                    ; zacatek kodoveho segmentu
-004E04  1  FF 4D        .word   end - 1                 ; konec kodoveho segmentu
+004E00  1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
+004E02  1  rr rr        .word   main                    ; začátek kódového segmentu
+004E04  1  FF 4D        .word   end - 1                 ; konec kódového segmentu
 004E06  1               
 004E06  1               
-004E06  1               .segment "AUTOSTRT"             ; segment s pocatecni adresou
-004E06  1  E0 02        .word   RUNAD                   ; naplni se pouze adresy RUNAD a RUNAD+1
+004E06  1               
+004E06  1               .segment "AUTOSTRT"             ; segment s počáteční adresou
+004E06  1  E0 02        .word   RUNAD                   ; naplní se pouze adresy RUNAD a RUNAD+1
 004E08  1  E1 02        .word   RUNAD+1
-004E0A  1  rr rr        .word   main                    ; adresa vstupniho bodu do programu
+004E0A  1  rr rr        .word   main                    ; adresa vstupního bodu do programu
 004E0C  1               
 004E0C  1               ; finito
 004E0C  1               
