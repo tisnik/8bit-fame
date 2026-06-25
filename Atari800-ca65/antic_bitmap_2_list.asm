@@ -1483,7 +1483,7 @@ Current file: antic_bitmap_2.asm
 000049r 1  09 09 09     
 00004Cr 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 00004Fr 1               
-00004Fr 1               screen:
+00004Fr 1               screen:                         ; video paměť
 00004Fr 1               .include "image_80x48.asm"
 00004Fr 2  FF FF FB BB  .byte $ff, $ff, $fb, $bb, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $7f, $ff, $ff
 000053r 2  FF FF FF FF  
@@ -1611,15 +1611,16 @@ Current file: antic_bitmap_2.asm
 00022Fr 1               
 00022Fr 1               
 00022Fr 1               .segment "EXEHDR"
-000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
-000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
-000004r 1  rr rr        .word   end - 1                ; konec kodoveho segmentu
+000000r 1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
+000002r 1  rr rr        .word   main                    ; začátek kódového segmentu
+000004r 1  rr rr        .word   end - 1                 ; konec kódového segmentu
 000006r 1               
 000006r 1               
-000006r 1               .segment "AUTOSTRT"             ; segment s pocatecni adresou
-000000r 1  E0 02        .word   RUNAD                   ; naplni se pouze adresy RUNAD a RUNAD+1
+000006r 1               
+000006r 1               .segment "AUTOSTRT"             ; segment s počáteční adresou
+000000r 1  E0 02        .word   RUNAD                   ; naplní se pouze adresy RUNAD a RUNAD+1
 000002r 1  E1 02        .word   RUNAD+1
-000004r 1  rr rr        .word   main                    ; adresa vstupniho bodu do programu
+000004r 1  rr rr        .word   main                    ; adresa vstupního bodu do programu
 000006r 1               
 000006r 1               ; finito
 000006r 1               
