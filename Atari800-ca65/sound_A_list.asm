@@ -1448,13 +1448,13 @@ Current file: sound_A.asm
 000003r 1               
 000003r 1  A9 AA                lda #PURE_TONE_MASK+10  ; hlasitost (0-15)
 000005r 1  8D 01 D2             sta AUDC1               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 1 čipu POKEY
-000008r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 2 čipu POKEY
+000008r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 3 čipu POKEY
 00000Br 1               
 00000Br 1  A9 47                lda #71                 ; dělič základní frekvence (komorní A: 440 Hz)
 00000Dr 1  8D 00 D2             sta AUDF1               ; zápis do registru děliče frekvence pro zvukový kanál číslo 1 čipu POKEY
 000010r 1               
 000010r 1  A9 1F                lda #31                 ; dělič základní frekvence (cca 1kHz)
-000012r 1  8D 04 D2             sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 2 čipu POKEY
+000012r 1  8D 04 D2             sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 3 čipu POKEY
 000015r 1               
 000015r 1  A9 00                lda #00                 ; základní tón odvozený od 64kHz
 000017r 1  8D 08 D2             sta AUDCTL              ; zápis do řídicího registru čipu POKEY
@@ -1471,7 +1471,7 @@ Current file: sound_A.asm
 000027r 1  8D 00 D2             sta AUDF1               ; zápis do registru děliče frekvence pro zvukový kanál číslo 1 čipu POKEY
 00002Ar 1               
 00002Ar 1  A9 47                lda #71                 ; dělič základní frekvence (komorní A: 440 Hz)
-00002Cr 1  8D 04 D2             sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 2 čipu POKEY
+00002Cr 1  8D 04 D2             sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 3 čipu POKEY
 00002Fr 1               
 00002Fr 1               
 00002Fr 1  4C rr rr     loop:   jmp loop
