@@ -14,13 +14,13 @@ HIGH_PASS_1_3_MASK = %00000100
 
         lda #PURE_TONE_MASK+10  ; hlasitost (0-15)
         sta AUDC1               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 1 čipu POKEY
-        sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 2 čipu POKEY
+        sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 3 čipu POKEY
 
         lda #71                 ; dělič základní frekvence (komorní A: 440 Hz)
         sta AUDF1               ; zápis do registru děliče frekvence pro zvukový kanál číslo 1 čipu POKEY
 
         lda #31                 ; dělič základní frekvence (cca 1kHz)
-        sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 2 čipu POKEY
+        sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 3 čipu POKEY
 
         lda #00                 ; základní tón odvozený od 64kHz
         sta AUDCTL              ; zápis do řídicího registru čipu POKEY
@@ -37,7 +37,7 @@ HIGH_PASS_1_3_MASK = %00000100
         sta AUDF1               ; zápis do registru děliče frekvence pro zvukový kanál číslo 1 čipu POKEY
 
         lda #71                 ; dělič základní frekvence (komorní A: 440 Hz)
-        sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 2 čipu POKEY
+        sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 3 čipu POKEY
 
 
 loop:   jmp loop
