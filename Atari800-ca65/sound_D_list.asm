@@ -1453,13 +1453,13 @@ Current file: sound_D.asm
 000003r 1               
 000003r 1  A9 AA                lda #PURE_TONE_MASK+10  ; hlasitost (0-15)
 000005r 1  8D 01 D2             sta AUDC1               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 1 čipu POKEY
-000008r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 2 čipu POKEY
+000008r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 3 čipu POKEY
 00000Br 1               
 00000Br 1  A9 47                lda #71                 ; dělič základní frekvence (komorní A: 440 Hz)
 00000Dr 1  8D 00 D2             sta AUDF1               ; zápis do registru děliče frekvence pro zvukový kanál číslo 1 čipu POKEY
 000010r 1               
 000010r 1  A9 1F                lda #31                 ; dělič základní frekvence (cca 1kHz)
-000012r 1  8D 04 D2             sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 2 čipu POKEY
+000012r 1  8D 04 D2             sta AUDF3               ; zápis do registru děliče frekvence pro zvukový kanál číslo 3 čipu POKEY
 000015r 1               
 000015r 1  A9 00                lda #00                 ; základní tón odvozený od 64kHz
 000017r 1  8D 08 D2             sta AUDCTL              ; zápis do řídicího registru čipu POKEY
@@ -1471,15 +1471,15 @@ Current file: sound_D.asm
 000022r 1               
 000022r 1  20 rr rr             jsr get_key             ; čekání na stisk klávesy
 000025r 1  A9 CA                lda #POLY_4_BIT_MASK+10  ; hlasitost (0-15)
-000027r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 2 čipu POKEY
+000027r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 3 čipu POKEY
 00002Ar 1               
 00002Ar 1  20 rr rr             jsr get_key             ; čekání na stisk klávesy
 00002Dr 1  A9 6A                lda #POLY_5_BIT_MASK+10  ; hlasitost (0-15)
-00002Fr 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 2 čipu POKEY
+00002Fr 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 3 čipu POKEY
 000032r 1               
 000032r 1  20 rr rr             jsr get_key             ; čekání na stisk klávesy
 000035r 1  A9 8A                lda #POLY_17_BIT_MASK+10  ; hlasitost (0-15)
-000037r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 2 čipu POKEY
+000037r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 3 čipu POKEY
 00003Ar 1               
 00003Ar 1  4C rr rr     loop:   jmp loop
 00003Dr 1               .endproc
