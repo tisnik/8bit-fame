@@ -1458,7 +1458,7 @@ Current file: sound_B.asm
 000000r 1               .proc main
 000000r 1  A9 AA                lda #PURE_TONE_MASK+10  ; hlasitost (0-15)
 000002r 1  8D 01 D2             sta AUDC1               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 1 čipu POKEY
-000005r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 2 čipu POKEY
+000005r 1  8D 05 D2             sta AUDC3               ; zápis do registru řízení hlasitosti pro zvukový kanál číslo 3 čipu POKEY
 000008r 1               
 000008r 1  A9 04                lda #HIGH_PASS_1_3_MASK ; nastavení horní propusti
 00000Ar 1  8D 08 D2             sta AUDCTL              ; zápis do řídicího registru čipu POKEY
