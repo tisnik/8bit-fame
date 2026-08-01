@@ -45,7 +45,14 @@ execs := dummy.xex print_a.xex \
 	 sound_D.xex             sound_E.xex \
 	 sound_F.xex \
 	 rnd_1.xex               rnd_2.xex \
-	 rnd_3.xex               rnd_4.xex
+	 rnd_3.xex               rnd_4.xex \
+	 paddle_1.xex            paddle_2.xex \
+	 key_01.xex              key_02.xex \
+	 key_03.xex              key_04.xex \
+	 key_05.xex \
+	 cio_put_char.xex        cio_put_block.xex \
+	 cio_get_block.xex       cio_modify_block.xex \
+	 cio_print_1.xex         cio_print_2.xex
 
 all: $(execs)
 
@@ -148,3 +155,22 @@ rnd:	\
 	rnd_2.xex \
 	rnd_3.xex \
 	rnd_4.xex
+
+paddle:	\
+	paddle_1.xex \
+	paddle_2.xex
+
+key: \
+	key_01.xex \
+	key_02.xex \
+	key_03.xex \
+	key_04.xex \
+	key_05.xex
+
+cio: \
+	cio_put_char.xex \
+	cio_put_block.xex \
+	cio_get_block.xex \
+	cio_modify_block.xex \
+	cio_print_1.xex \
+	cio_print_2.xex
