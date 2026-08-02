@@ -10,7 +10,7 @@
 
 ## Programs written for 8bit game consoles
 
-1. [Examples for Atari 2600 written in Batar BASIC](<batari-Basic>)
+1. [Examples for Atari 2600 written in Batari BASIC](<batari-Basic>)
 1. [Examples for NES game console written in CA65](<NES-ca65>)
 1. [Examples for NES game console written in CC65](<NES-cc65>)
 
