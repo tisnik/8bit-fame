@@ -1,0 +1,14 @@
+10 REM Vypis obsahu tabulky HATABS
+15 REM
+20 REM adresa zacatku tabulky HATABS
+25 HATABS=794
+30 REM smycka pro vypis tabulky
+35 FOR ADDRESS=HATABS TO HATABS+38 STEP 3
+40 DEVICE=PEEK(ADDRESS)
+45 REM test na posledni zarizeni
+50 IF DEVICE=0 THEN STOP
+55 REM adresa handleru
+60 HANDLER=PEEK(ADDRESS+1)+256*PEEK(ADDRESS+2)
+65 PRINT CHR$(DEVICE), HANDLER
+70 REM opakujeme smycku
+75 NEXT ADDRESS
