@@ -52,7 +52,10 @@ execs := dummy.xex print_a.xex \
 	 key_05.xex \
 	 cio_put_char.xex        cio_put_block.xex \
 	 cio_get_block.xex       cio_modify_block.xex \
-	 cio_print_1.xex         cio_print_2.xex
+	 cio_print_1.xex         cio_print_2.xex \
+	 cio_print_3.xex         cio_print_4.xex \
+	 cio_read_file.xex \
+	 cio_write_byte_1.xex cio_write_byte_2.xex
 
 all: $(execs)
 
@@ -173,4 +176,9 @@ cio: \
 	cio_get_block.xex \
 	cio_modify_block.xex \
 	cio_print_1.xex \
-	cio_print_2.xex
+	cio_print_2.xex \
+	cio_print_3.xex \
+	cio_print_4.xex \
+	cio_read_file.xex \
+	cio_write_byte_1.xex \
+	cio_write_byte_2.xex
