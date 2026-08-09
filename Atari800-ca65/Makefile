@@ -55,7 +55,9 @@ execs := dummy.xex print_a.xex \
 	 cio_print_1.xex         cio_print_2.xex \
 	 cio_print_3.xex         cio_print_4.xex \
 	 cio_read_file.xex       cio_read_file_2.xex \
-	 cio_write_byte_1.xex    cio_write_byte_2.xex
+	 cio_write_byte_1.xex    cio_write_byte_2.xex \
+	 cio_write_byte_3.xex    cio_custom_device.xex \
+	 cio_null_device.xex     cio_null_device_err
 
 all: $(execs)
 
@@ -182,4 +184,8 @@ cio: \
 	cio_read_file.xex \
 	cio_read_file_2.xex \
 	cio_write_byte_1.xex \
-	cio_write_byte_2.xex
+	cio_write_byte_2.xex \
+	cio_write_byte_3.xex \
+	cio_custom_device.xex \
+	cio_null_device.xex \
+	cio_null_device_err
