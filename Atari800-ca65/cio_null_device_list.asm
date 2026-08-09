@@ -1485,8 +1485,8 @@ Current file: cio_null_device.asm
 000030r 1               ; všechny operace zařízení jsou definovány shodně
 000030r 1               ; ---------------------------------------------------------------------
 000030r 1               .proc NULL_HANDLER
-000030r 1  A9 01                lda #1
-000032r 1  A8                   tay
+000030r 1  A9 01                lda #1                  ; chybový kód
+000032r 1  A8                   tay                     ; musí být uložen jak v A, tak i v Y
 000033r 1  60                   rts
 000034r 1               .endproc
 000034r 1               
