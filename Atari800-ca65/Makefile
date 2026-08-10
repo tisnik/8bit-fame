@@ -79,6 +79,9 @@ antic_bitmap_6.xex:	antic_bitmap_6.o
 antic_bitmap_7.xex:	antic_bitmap_7.o
 	ld65 -C linker_image_2.cfg $< -o $@ -m $(basename $<).map
 
+g_device.xex:	g_device.o
+	ld65 -C g_device.cfg $< -o $@ -m $(basename $<).map
+
 antic:	\
 	 antic_1.xex \
 	 antic_2.xex \
