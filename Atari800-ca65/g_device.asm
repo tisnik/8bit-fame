@@ -16,8 +16,15 @@
 
 .org $9800
 
-hatabs:
-    .byte $3F, $98, $7F, $98, $8D, $98, $B3, $98, $6E, $98, $6E, $98, $4C, $23, $99, $00
+hatabs_handler:
+    .word g_open-1
+    .word g_close-1
+    .word g_get-1
+    .word g_put-1
+    .word g_nondef-1
+    .word g_nondef-1
+    JMP g_init
+    .byte $00
 
 read_cursors:
     .byte $10, $10, $10, $10
@@ -48,7 +55,7 @@ visual_markers:
 ;        >80 = error (see the CIO err_code list)
 
 ; check device number, we support G1 - G4 only
-
+g_open:
         ldx ICDNOZ    ; IOCTL_DEVNUM
         dex           ; save devnum; normalize 1-4 to
         txa
@@ -84,6 +91,7 @@ open_appnd:
         jsr show_dev
         ldy #$01      ; writing => set success
 
+g_nondef:
 test_read:
         lda #$04
         bit ICAX1Z    ; IOCTL_ICAX1
@@ -103,6 +111,7 @@ open_exit:
 ; OUT: Y: 01 = success
 ;        >80 = error (see the CIO err_code list)
 
+g_close:
         ldx $21
         dex
         lda #$00
@@ -118,6 +127,7 @@ open_exit:
 ; OUT: Y: 01 = success
 ;        >80 = error (see the CIO err_code list)
 ;      A: the byte read
+g_get:
         lda ICAX1, x   ; IOCTL_ICAX1
         cmp #$09
         bne no_wr_append
@@ -129,7 +139,7 @@ no_wr_append:
         tax
         dex
         jsr get_dev_base
-        lda read_cursors, x  ; read_cursor
+        lda read_cursors, x   ; read_cursor
         cmp write_cursors, x  ; is lower then write_cursor?
         bcc read_ok
         ldy #$88      ; error: end of file
@@ -148,6 +158,7 @@ read_ok:
 ; IN:  A: the byte to write
 ; OUT: Y: 01 = success
 ;        >80 = error (see the CIO err_code list)
+g_put:
         pha
         ldy #$92      ; check RO device
         lda #$08
@@ -207,7 +218,6 @@ null_loop:
         dey
         sta ($CE),y
         bne null_loop
-
         txa
         pha
         ldx #$07
@@ -250,6 +260,7 @@ show_dev:
 ; ============
 ; !!! contains extra PLA at the end
 ;     to be called from BASIC using USR()
+g_init:
         pha
         txa
         pha
