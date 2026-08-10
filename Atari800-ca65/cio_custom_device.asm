@@ -49,7 +49,7 @@ empty_place:
 
 
 ; ---------------------------------------------------------------------
-; všechny operace zařízení jsou definovány shodně
+; použito jen pro INIT
 ; ---------------------------------------------------------------------
 .proc NULL_HANDLER
         lda #1
