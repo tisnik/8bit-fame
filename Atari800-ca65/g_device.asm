@@ -41,12 +41,11 @@ dev_colors:
  
 ; horizontal positions for all four sprites (one per device)
 dev_hpos:
-    .byte $90, $A4, $B8, $CC, $00, $00, $00, $00
+    .byte $90, $A4, $B8, $CC
 
 ; write cursors for all four devices
 write_cursors:
-    .byte $10, $10, $10, $10, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    .byte $FF, $08, $1C, $2A, $49, $08, $08, $08
+    .byte $10, $10, $10, $10
 
 visual_markers:
     .byte $08, $08, $08, $49, $2A, $1C, $08, $FF
@@ -329,6 +328,6 @@ end:
 .segment "EXEHDR"
 .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 .word   begin                   ; zacatek kodoveho segmentu
-.word   $996f                   ; konec kodoveho segmentu
+.word   $996f-24                   ; konec kodoveho segmentu
 
 ; finito
