@@ -1,0 +1,28 @@
+Modules list:
+-------------
+g_device.o:
+    CODE              Offs=000000  Size=000170  Align=00001  Fill=0000
+    EXEHDR            Offs=000000  Size=000006  Align=00001  Fill=0000
+
+
+Segment list:
+-------------
+Name                   Start     End    Size  Align
+----------------------------------------------------
+EXEHDR                000000  000005  000006  00001
+CODE                  009800  00996F  000170  00001
+
+
+Exports list by name:
+---------------------
+
+
+
+Exports list by value:
+----------------------
+
+
+
+Imports list:
+-------------
+
