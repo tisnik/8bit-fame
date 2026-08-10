@@ -51,8 +51,8 @@ empty_place:
 ; všechny operace zařízení jsou definovány shodně
 ; ---------------------------------------------------------------------
 .proc NULL_HANDLER
-        lda #1                  ; chybový kód
-        tay                     ; musí být uložen jak v A, tak i v Y
+        ; nebudeme modifikovat obsah akumulátoru ani index registru Y
+	; tím se "propíše" chyba do IOCB
         rts
 .endproc
 
@@ -148,11 +148,11 @@ char_to_put: .byte $41
 
 ; tabulka s handlerem pro zařízení
 null_table:
-        .word NULL_HANDLER-1
-        .word NULL_HANDLER-1
-        .word NULL_HANDLER-1
-        .word NULL_HANDLER-1
-        .word NULL_HANDLER-1
+        .word NULL_HANDLER-1    ; OPEN
+        .word NULL_HANDLER-1    ; CLOSE
+        .word NULL_HANDLER-1    ; GET
+        .word NULL_HANDLER-1    ; PUT
+        .word NULL_HANDLER-1    ; STATUS
         jmp NULL_HANDLER        ; inicializace zařízení
 end:
 
