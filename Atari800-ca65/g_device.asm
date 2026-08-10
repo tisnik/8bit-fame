@@ -10,15 +10,30 @@
 ; -- show data in PMG --
 ; ;
 
+.include "atari.inc"
 
 .CODE
 
 .org $9800
 
-.byte $3F, $98, $7F, $98, $8D, $98, $B3, $98, $6E, $98, $6E, $98, $4C, $23, $99, $00 ; HATABS
-.byte $10, $10, $10, $10, $1C, $2C, $6C, $AC, $90, $A4, $B8, $CC, $00, $00, $00, $00 ; read_cursors ; dev_colors ; dev_hpos
-.byte $10, $10, $10, $10, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00 ; write cursors
-.byte $FF, $08, $1C, $2A, $49, $08, $08, $08, $08, $08, $08, $49, $2A, $1C, $08, $FF ; visual markers
+hatabs:
+    .byte $3F, $98, $7F, $98, $8D, $98, $B3, $98, $6E, $98, $6E, $98, $4C, $23, $99, $00
+
+read_cursors:
+    .byte $10, $10, $10, $10
+
+dev_colors:
+    .byte $1C, $2C, $6C, $AC
+ 
+dev_hpos:
+    .byte $90, $A4, $B8, $CC, $00, $00, $00, $00
+
+write_cursors:
+    .byte $10, $10, $10, $10, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
+    .byte $FF, $08, $1C, $2A, $49, $08, $08, $08
+
+visual_markers:
+    .byte $08, $08, $08, $49, $2A, $1C, $08, $FF
 
 ; START = $9840
 
@@ -34,12 +49,12 @@
 
 ; check device number, we support G1 - G4 only
 
-        ldx $21       ; IOCTL_DEVNUM
+        ldx ICDNOZ    ; IOCTL_DEVNUM
         dex           ; save devnum; normalize 1-4 to
         txa
         and #$FC
         beq devnum_ok
-        ldy #$82      ; error_code "no such device"
+        ldy #NONDEV   ; error_code "no such device"
         rts
 
 ; init the device in the command code, we support only (4,8,9,12,13)
@@ -55,26 +70,26 @@ devnum_ok:
         bit $2A       ; err: unsupported operation
         bne open_exit
         lda #$08
-        bit $2A       ; IOCTL_ICAX1
+        bit ICAX1Z    ; IOCTL_ICAX1
         beq test_read
 
         lda #$01      ; test for append mode
-        bit $2A       ; IOCTL_ICAX1
+        bit ICAX1Z    ; IOCTL_ICAX1
         bne open_appnd
         jsr get_dev_base
         jsr init_dev_data
         lda #$10
-        sta $9820,x   ; reset write_cursor
+        sta write_cursors, x  ; reset write_cursor
 open_appnd:
         jsr show_dev
         ldy #$01      ; writing => set success
 
 test_read:
         lda #$04
-        bit $2A       ; IOCTL_ICAX1
+        bit ICAX1Z    ; IOCTL_ICAX1
         beq open_exit
         lda #$10
-        sta $9810,x   ; reset read_cursor
+        sta read_cursors, x  ; reset read_cursor
         jsr show_dev
         ldy #$01
 open_exit:
@@ -91,7 +106,7 @@ open_exit:
         ldx $21
         dex
         lda #$00
-        sta $D000,x
+        sta HPOSP0, x
         jsr get_dev_base
         ldy #$01
         rts
@@ -103,27 +118,27 @@ open_exit:
 ; OUT: Y: 01 = success
 ;        >80 = error (see the CIO err_code list)
 ;      A: the byte read
-        lda $034A,x   ; IOCTL_ICAX1
+        lda ICAX1, x   ; IOCTL_ICAX1
         cmp #$09
         bne no_wr_append
         ldy #$83
         rts
 
 no_wr_append:
-        lda $0341,x
+        lda ICDNO, x
         tax
         dex
         jsr get_dev_base
-        lda $9810,x   ; read_cursor
-        cmp $9820,x   ; is lower then write_cursor?
+        lda read_cursors, x  ; read_cursor
+        cmp write_cursors, x  ; is lower then write_cursor?
         bcc read_ok
         ldy #$88      ; error: end of file
         rts
 
 read_ok:
         tay
-        lda ($CE),y
-        inc $9810,x
+        lda ($CE), y
+        inc read_cursors, x
         ldy #$01
         rts
 
@@ -138,11 +153,11 @@ read_ok:
         lda #$08
         bit $2A       ; IOCTL_ICAX1
         beq exit_w_error
-        lda $0341,x
+        lda ICDNO, x
         tax
         dex
         jsr get_dev_base
-        lda $9820,x   ; write_cursor
+        lda write_cursors, x
         cmp #$70      ; still a space in the buff?
         bcc write_ok
         ldy #$88      ; error: end of file
@@ -154,7 +169,7 @@ write_ok:
         tay
         pla
         sta ($CE),y
-        inc $9820,x
+        inc write_cursors, x
         ldy #$01
         rts
 
@@ -198,7 +213,7 @@ null_loop:
         ldx #$07
         ldy #$0F
 marker_bot:
-        lda $9838,x
+        lda visual_markers, x
         sta ($CE),y
         dey
         dex
@@ -207,7 +222,7 @@ marker_bot:
         ldx #$07
         ldy #$70
 marker_top:
-        lda $9838,x
+        lda visual_markers, x
         sta ($CE),y
         iny
         dex
@@ -224,10 +239,10 @@ marker_top:
 ; OUT:  ---
 ; Show Device on the Screen
 show_dev:
-        lda $9814,x
-        sta $02C0,x   ; PCOLR0-3
-        lda $9818,x
-        sta $D000,x   ; HPOSP0-3
+        lda dev_colors, x
+        sta PCOLR0, x   ; PCOLR0-PCOL3
+        lda dev_hpos, x
+        sta HPOSP0, x   ; HPOSP0-HPOSP3
         rts
 
 ; ============
@@ -247,16 +262,16 @@ show_dev:
         ldx #$47      ; "G"
         ldy #$00
         lda #$98
-        jsr $E486     ; ADD_NEWDEV
+        jsr PHENTV    ; ADD_NEWDEV
         bcs exit_init
         lda #$00
 
 ; set space in RAM and init GTIA
 
-        sta $02E5     ; MEMTOP
+        sta MEMTOP
         lda #$98
-        sta $02E6     ; MEMTOP+1
-        sta $D407     ; PMBASE
+        sta MEMTOP+1
+        sta PMBASE
         ldx #$03
 loop_init:
         jsr get_dev_base
@@ -265,16 +280,16 @@ loop_init:
         bpl loop_init
 
         lda #$00
-        sta $D000     ; HPOSP0
-        sta $D001     ; HPOSP1
-        sta $D002     ; HPOSP2
-        sta $D003     ; HPOSP3
+        sta HPOSP0
+        sta HPOSP1
+        sta HPOSP2
+        sta HPOSP3
         lda #$00
-        sta $026F     ; GPRIOR
+        sta GPRIOR
         lda #$03
         sta $D01D
-        lda #$2E      ; SDMCTL
-        sta $022F
+        lda #$2E
+        sta SDMCTL
 exit_init:
         pla
         tay
