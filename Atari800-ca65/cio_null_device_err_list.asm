@@ -1485,113 +1485,113 @@ Current file: cio_null_device_err.asm
 000030r 1               ; všechny operace zařízení jsou definovány shodně
 000030r 1               ; ---------------------------------------------------------------------
 000030r 1               .proc NULL_HANDLER
-000030r 1  A9 01                lda #1                  ; chybový kód
-000032r 1  A8                   tay                     ; musí být uložen jak v A, tak i v Y
-000033r 1  60                   rts
-000034r 1               .endproc
-000034r 1               
-000034r 1               
-000034r 1               ; ---------------------------------------------------------------------
-000034r 1               ; uzavření kanálu číslo 4
-000034r 1               ; ---------------------------------------------------------------------
-000034r 1               .proc CLOSE_CHANNEL_4
-000034r 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
-000036r 1  A9 0C                lda #CLOSE              ; prováděná operace
-000038r 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
-00003Br 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
-00003Er 1  60                   rts                     ; návrat ze subrutiny
-00003Fr 1               .endproc
-00003Fr 1               
-00003Fr 1               
-00003Fr 1               
-00003Fr 1               ; ---------------------------------------------------------------------
-00003Fr 1               ; otevření kanálu číslo 4 v režimu zápisu na zařízení H:test.txt
-00003Fr 1               ; ---------------------------------------------------------------------
-00003Fr 1               .proc OPEN_CHANNEL_4_AS_H
-00003Fr 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
-000041r 1  A9 03                lda #OPEN               ; prováděná operace
-000043r 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
-000046r 1               
-000046r 1                       ; specifikace jména zařízení + jména souboru (16bitový ukazatel)
-000046r 1  A9 rr                lda #<device_name
-000048r 1  9D 44 03             sta ICBAL, x
-00004Br 1  A9 rr                lda #>device_name
-00004Dr 1  9D 45 03             sta ICBAH, x
-000050r 1               
-000050r 1  A9 08                lda #OPNOT              ; režim otevření: zápis (odpovídá druhému parametru příkazu OPEN v BASICu)
-000052r 1  9D 4A 03             sta ICAX1, x
-000055r 1  A9 00                lda #0                  ; odpovídá třetímu parametru příkazu OPEN v BASICu
-000057r 1  9D 4B 03             sta ICAX2, x
+000030r 1                       ; nebudeme modifikovat obsah akumulátoru ani index registru Y
+000030r 1               	; tím se "propíše" chyba do IOCB
+000030r 1  60                   rts
+000031r 1               .endproc
+000031r 1               
+000031r 1               
+000031r 1               ; ---------------------------------------------------------------------
+000031r 1               ; uzavření kanálu číslo 4
+000031r 1               ; ---------------------------------------------------------------------
+000031r 1               .proc CLOSE_CHANNEL_4
+000031r 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
+000033r 1  A9 0C                lda #CLOSE              ; prováděná operace
+000035r 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
+000038r 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
+00003Br 1  60                   rts                     ; návrat ze subrutiny
+00003Cr 1               .endproc
+00003Cr 1               
+00003Cr 1               
+00003Cr 1               
+00003Cr 1               ; ---------------------------------------------------------------------
+00003Cr 1               ; otevření kanálu číslo 4 v režimu zápisu na zařízení H:test.txt
+00003Cr 1               ; ---------------------------------------------------------------------
+00003Cr 1               .proc OPEN_CHANNEL_4_AS_H
+00003Cr 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
+00003Er 1  A9 03                lda #OPEN               ; prováděná operace
+000040r 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
+000043r 1               
+000043r 1                       ; specifikace jména zařízení + jména souboru (16bitový ukazatel)
+000043r 1  A9 rr                lda #<device_name
+000045r 1  9D 44 03             sta ICBAL, x
+000048r 1  A9 rr                lda #>device_name
+00004Ar 1  9D 45 03             sta ICBAH, x
+00004Dr 1               
+00004Dr 1  A9 08                lda #OPNOT              ; režim otevření: zápis (odpovídá druhému parametru příkazu OPEN v BASICu)
+00004Fr 1  9D 4A 03             sta ICAX1, x
+000052r 1  A9 00                lda #0                  ; odpovídá třetímu parametru příkazu OPEN v BASICu
+000054r 1  9D 4B 03             sta ICAX2, x
+000057r 1               
+000057r 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
 00005Ar 1               
-00005Ar 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
-00005Dr 1               
-00005Dr 1  60                   rts                     ; návrat ze subrutiny
-00005Er 1               .endproc
-00005Er 1               
-00005Er 1               
-00005Er 1               
-00005Er 1               ; ---------------------------------------------------------------------
-00005Er 1               ; zápis jednoho znaku do kanálu číslo 4
-00005Er 1               ; ---------------------------------------------------------------------
-00005Er 1               .proc WRITE_BYTE_CHANNEL_4
-00005Er 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
-000060r 1  A9 0B                lda #PUTCHR             ; prováděná operace
-000062r 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
-000065r 1               
-000065r 1                       ; adresa zapisovaného bloku
-000065r 1  A9 rr                lda #<char_to_put
-000067r 1  9D 44 03             sta ICBAL, x
-00006Ar 1  A9 rr                lda #>char_to_put
-00006Cr 1  9D 45 03             sta ICBAH, x
-00006Fr 1               
-00006Fr 1                       ; nastavení počtu zapisovaných bajtů
-00006Fr 1  A9 01                lda #1
-000071r 1  9D 48 03             sta ICBLL, x
-000074r 1  A9 00                lda #0
-000076r 1  9D 49 03             sta ICBLH, x
-000079r 1               
-000079r 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
-00007Cr 1  60                   rts                     ; návrat ze subrutiny
-00007Dr 1               .endproc
-00007Dr 1               
-00007Dr 1               
-00007Dr 1               
-00007Dr 1               ; ---------------------------------------------------------------------
-00007Dr 1               ; kontrola chyby při zápisu
-00007Dr 1               ; ---------------------------------------------------------------------
-00007Dr 1               .proc CHECK_ERROR
-00007Dr 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
-00007Fr 1               
-00007Fr 1  BD 43 03             lda ICSTA, x            ; status poslední operace
-000082r 1  10 06                bpl ok                  ; test bitu 7
-000084r 1               
-000084r 1  A9 12                lda #18                 ; kod barvy
-000086r 1  8D C6 02             sta COLOR2              ; ulozit do registru COLOR2
-000089r 1  60                   rts                     ; návrat ze subrutiny
-00008Ar 1               ok:
-00008Ar 1  A9 C3                lda #$c3                ; kod barvy
-00008Cr 1  8D C6 02             sta COLOR2              ; ulozit do registru COLOR2
-00008Fr 1  60                   rts                     ; návrat ze subrutiny
-000090r 1               .endproc
+00005Ar 1  60                   rts                     ; návrat ze subrutiny
+00005Br 1               .endproc
+00005Br 1               
+00005Br 1               
+00005Br 1               
+00005Br 1               ; ---------------------------------------------------------------------
+00005Br 1               ; zápis jednoho znaku do kanálu číslo 4
+00005Br 1               ; ---------------------------------------------------------------------
+00005Br 1               .proc WRITE_BYTE_CHANNEL_4
+00005Br 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
+00005Dr 1  A9 0B                lda #PUTCHR             ; prováděná operace
+00005Fr 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
+000062r 1               
+000062r 1                       ; adresa zapisovaného bloku
+000062r 1  A9 rr                lda #<char_to_put
+000064r 1  9D 44 03             sta ICBAL, x
+000067r 1  A9 rr                lda #>char_to_put
+000069r 1  9D 45 03             sta ICBAH, x
+00006Cr 1               
+00006Cr 1                       ; nastavení počtu zapisovaných bajtů
+00006Cr 1  A9 01                lda #1
+00006Er 1  9D 48 03             sta ICBLL, x
+000071r 1  A9 00                lda #0
+000073r 1  9D 49 03             sta ICBLH, x
+000076r 1               
+000076r 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
+000079r 1  60                   rts                     ; návrat ze subrutiny
+00007Ar 1               .endproc
+00007Ar 1               
+00007Ar 1               
+00007Ar 1               
+00007Ar 1               ; ---------------------------------------------------------------------
+00007Ar 1               ; kontrola chyby při zápisu
+00007Ar 1               ; ---------------------------------------------------------------------
+00007Ar 1               .proc CHECK_ERROR
+00007Ar 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
+00007Cr 1               
+00007Cr 1  BD 43 03             lda ICSTA, x            ; status poslední operace
+00007Fr 1  10 06                bpl ok                  ; test bitu 7
+000081r 1               
+000081r 1  A9 12                lda #18                 ; kod barvy
+000083r 1  8D C6 02             sta COLOR2              ; ulozit do registru COLOR2
+000086r 1  60                   rts                     ; návrat ze subrutiny
+000087r 1               ok:
+000087r 1  A9 C3                lda #$c3                ; kod barvy
+000089r 1  8D C6 02             sta COLOR2              ; ulozit do registru COLOR2
+00008Cr 1  60                   rts                     ; návrat ze subrutiny
+00008Dr 1               .endproc
+00008Dr 1               
+00008Dr 1               ; jméno zařízení ukončené nulou
+00008Dr 1  4E 3A 00     device_name: .byte "N:", 0
 000090r 1               
-000090r 1               ; jméno zařízení ukončené nulou
-000090r 1  4E 3A 00     device_name: .byte "N:", 0
-000093r 1               
-000093r 1               ; zapisovaný bajt
-000093r 1  41           char_to_put: .byte $41
-000094r 1               
-000094r 1               ; tabulka s handlerem pro zařízení
-000094r 1               null_table:
-000094r 1  rr rr                .word NULL_HANDLER-1
-000096r 1  rr rr                .word NULL_HANDLER-1
-000098r 1  rr rr                .word NULL_HANDLER-1
-00009Ar 1  rr rr                .word NULL_HANDLER-1
-00009Cr 1  rr rr                .word NULL_HANDLER-1
-00009Er 1  4C rr rr             jmp NULL_HANDLER        ; inicializace zařízení
-0000A1r 1               end:
-0000A1r 1               
-0000A1r 1               
-0000A1r 1               .segment "EXEHDR"
+000090r 1               ; zapisovaný bajt
+000090r 1  41           char_to_put: .byte $41
+000091r 1               
+000091r 1               ; tabulka s handlerem pro zařízení
+000091r 1               null_table:
+000091r 1  rr rr                .word NULL_HANDLER-1    ; OPEN
+000093r 1  rr rr                .word NULL_HANDLER-1    ; CLOSE
+000095r 1  rr rr                .word NULL_HANDLER-1    ; GET
+000097r 1  rr rr                .word NULL_HANDLER-1    ; PUT
+000099r 1  rr rr                .word NULL_HANDLER-1    ; STATUS
+00009Br 1  4C rr rr             jmp NULL_HANDLER        ; inicializace zařízení
+00009Er 1               end:
+00009Er 1               
+00009Er 1               
+00009Er 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   end - 1                 ; konec kodoveho segmentu
