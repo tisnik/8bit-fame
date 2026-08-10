@@ -14,8 +14,13 @@
 
 .CODE
 
-.org $9800
+; memory segment starts here
+begin = $9800
 
+.org begin
+
+; table containing vectors to subroutines implementing CIO operations
+; addresses need to be decreased by one - subroutines are called via RTS instruction!
 hatabs_handler:
     .word g_open-1
     .word g_close-1
@@ -26,15 +31,19 @@ hatabs_handler:
     JMP g_init
     .byte $00
 
+; read cursors for all four devices
 read_cursors:
     .byte $10, $10, $10, $10
 
+; colors assigned to all four sprites (one per device)
 dev_colors:
     .byte $1C, $2C, $6C, $AC
  
+; horizontal positions for all four sprites (one per device)
 dev_hpos:
     .byte $90, $A4, $B8, $CC, $00, $00, $00, $00
 
+; write cursors for all four devices
 write_cursors:
     .byte $10, $10, $10, $10, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
     .byte $FF, $08, $1C, $2A, $49, $08, $08, $08
@@ -44,8 +53,11 @@ visual_markers:
 
 ; START = $9840
 
-; zero page:
-; $CE, $CF    ; cur_base :L,:H
+; address of two bytes allocated on zero page:
+; $CE, $CF    ; cur_base_l :L,:H
+cur_base_l = $ce
+cur_base_h = cur_base_l + 1
+
 
 ; ============
 ; HATABS_OPEN
@@ -74,7 +86,7 @@ g_open:
 devnum_ok:
         ldy #$84
         lda #$F2
-        bit $2A       ; err: unsupported operation
+        bit ICAX1Z    ; err: unsupported operation 
         bne open_exit
         lda #$08
         bit ICAX1Z    ; IOCTL_ICAX1
@@ -112,7 +124,7 @@ open_exit:
 ;        >80 = error (see the CIO err_code list)
 
 g_close:
-        ldx $21
+        ldx ICDNOZ
         dex
         lda #$00
         sta HPOSP0, x
@@ -142,12 +154,12 @@ no_wr_append:
         lda read_cursors, x   ; read_cursor
         cmp write_cursors, x  ; is lower then write_cursor?
         bcc read_ok
-        ldy #$88      ; error: end of file
+        ldy #EOFERR      ; error: end of file
         rts
 
 read_ok:
         tay
-        lda ($CE), y
+        lda (cur_base_l), y
         inc read_cursors, x
         ldy #$01
         rts
@@ -162,7 +174,7 @@ g_put:
         pha
         ldy #$92      ; check RO device
         lda #$08
-        bit $2A       ; IOCTL_ICAX1
+        bit ICAX1Z    ; IOCTL_ICAX1
         beq exit_w_error
         lda ICDNO, x
         tax
@@ -171,7 +183,7 @@ g_put:
         lda write_cursors, x
         cmp #$70      ; still a space in the buff?
         bcc write_ok
-        ldy #$88      ; error: end of file
+        ldy #EOFERR   ; error: end of file
 exit_w_error:
         pla
         rts
@@ -179,7 +191,7 @@ exit_w_error:
 write_ok:
         tay
         pla
-        sta ($CE),y
+        sta (cur_base_l),y
         inc write_cursors, x
         ldy #$01
         rts
@@ -191,18 +203,18 @@ write_ok:
 ; IN:   X: device num (0-3)
 ; OUT:  $CE, $CF: current device base :L,:H
 get_dev_base:
-        lda #$9A      ; PMBASE + 2 ; L: get_dev_base
-        sta $CF
+        lda #>begin+2      ; PMBASE + 2 ; L: get_dev_base
+        sta cur_base_h
         ldy #$00
         txa
         lsr
         bcc dev02
         ldy #$80
 dev02:
-        sty $CE
+        sty cur_base_l
         lsr
         bcc dev01
-        inc $CF
+        inc cur_base_h
 dev01:
         rts
 
@@ -216,7 +228,7 @@ init_dev_data:
         lda #$00
 null_loop:
         dey
-        sta ($CE),y
+        sta (cur_base_l),y
         bne null_loop
         txa
         pha
@@ -224,7 +236,7 @@ null_loop:
         ldy #$0F
 marker_bot:
         lda visual_markers, x
-        sta ($CE),y
+        sta (cur_base_l),y
         dey
         dex
         bne marker_bot
@@ -233,7 +245,7 @@ marker_bot:
         ldy #$70
 marker_top:
         lda visual_markers, x
-        sta ($CE),y
+        sta (cur_base_l),y
         iny
         dex
         bne marker_top
@@ -270,18 +282,19 @@ g_init:
 
 ; Add device using OS method
 
-        ldx #$47      ; "G"
-        ldy #$00
-        lda #$98
+        ldx #'G'      ; device name
+        ldy #<hatabs_handler
+        lda #>hatabs_handler
         jsr PHENTV    ; ADD_NEWDEV
         bcs exit_init
-        lda #$00
 
 ; set space in RAM and init GTIA
 
+        lda #<begin
         sta MEMTOP
-        lda #$98
+        lda #>begin
         sta MEMTOP+1
+
         sta PMBASE
         ldx #$03
 loop_init:
@@ -315,7 +328,7 @@ end:
 
 .segment "EXEHDR"
 .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
-.word   $9800                   ; zacatek kodoveho segmentu
+.word   begin                   ; zacatek kodoveho segmentu
 .word   $996f                   ; konec kodoveho segmentu
 
 ; finito
