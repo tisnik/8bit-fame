@@ -12,7 +12,7 @@ IOCB4 = $40              ; offset odvozený od čísla IOCB kanálu (nutno náso
 .proc main
         jsr REGISTER_NULL_DEVICE
         jsr CLOSE_CHANNEL_4
-        jsr OPEN_CHANNEL_4_AS_H
+        jsr OPEN_CHANNEL_4_AS_N
         jsr WRITE_BYTE_CHANNEL_4
         jsr CHECK_ERROR
         jsr CLOSE_CHANNEL_4
@@ -48,6 +48,7 @@ empty_place:
 .endproc
 
 
+
 ; ---------------------------------------------------------------------
 ; použito jen pro INIT
 ; ---------------------------------------------------------------------
@@ -56,6 +57,7 @@ empty_place:
         tay
         rts
 .endproc
+
 
 
 ; ---------------------------------------------------------------------
@@ -74,7 +76,7 @@ empty_place:
 ; ---------------------------------------------------------------------
 ; otevření kanálu číslo 4 v režimu zápisu na zařízení H:test.txt
 ; ---------------------------------------------------------------------
-.proc OPEN_CHANNEL_4_AS_H
+.proc OPEN_CHANNEL_4_AS_N
         ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
         lda #OPEN               ; prováděná operace
         sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
@@ -218,10 +220,12 @@ null_table:
 end:
 
 
+
 .segment "EXEHDR"
 .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 .word   main                    ; zacatek kodoveho segmentu
 .word   end - 1                 ; konec kodoveho segmentu
+
 
 
 .segment "AUTOSTRT"             ; segment s pocatecni adresou

@@ -1446,7 +1446,7 @@ Current file: cio_custom_device.asm
 000000r 1               .proc main
 000000r 1  20 rr rr             jsr REGISTER_NULL_DEVICE
 000003r 1  20 rr rr             jsr CLOSE_CHANNEL_4
-000006r 1  20 rr rr             jsr OPEN_CHANNEL_4_AS_H
+000006r 1  20 rr rr             jsr OPEN_CHANNEL_4_AS_N
 000009r 1  20 rr rr             jsr WRITE_BYTE_CHANNEL_4
 00000Cr 1  20 rr rr             jsr CHECK_ERROR
 00000Fr 1  20 rr rr             jsr CLOSE_CHANNEL_4
@@ -1482,14 +1482,16 @@ Current file: cio_custom_device.asm
 000033r 1               .endproc
 000033r 1               
 000033r 1               
+000033r 1               
 000033r 1               ; ---------------------------------------------------------------------
-000033r 1               ; všechny operace zařízení jsou definovány shodně
+000033r 1               ; použito jen pro INIT
 000033r 1               ; ---------------------------------------------------------------------
 000033r 1               .proc NULL_HANDLER
 000033r 1  A9 01                lda #1
 000035r 1  A8                   tay
 000036r 1  60                   rts
 000037r 1               .endproc
+000037r 1               
 000037r 1               
 000037r 1               
 000037r 1               ; ---------------------------------------------------------------------
@@ -1508,7 +1510,7 @@ Current file: cio_custom_device.asm
 000042r 1               ; ---------------------------------------------------------------------
 000042r 1               ; otevření kanálu číslo 4 v režimu zápisu na zařízení H:test.txt
 000042r 1               ; ---------------------------------------------------------------------
-000042r 1               .proc OPEN_CHANNEL_4_AS_H
+000042r 1               .proc OPEN_CHANNEL_4_AS_N
 000042r 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
 000044r 1  A9 03                lda #OPEN               ; prováděná operace
 000046r 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
@@ -1589,6 +1591,8 @@ Current file: cio_custom_device.asm
 00009Cr 1  60           	rts
 00009Dr 1               .endproc
 00009Dr 1               
+00009Dr 1               
+00009Dr 1               
 00009Dr 1               .proc CLOSE_OPERATION
 00009Dr 1  A9 63                lda #'c'                ; ATASCII hodnota znaku
 00009Fr 1  A0 29                ldy #41                 ; nastavit registr Y
@@ -1597,6 +1601,8 @@ Current file: cio_custom_device.asm
 0000A5r 1  A8                   tay                     ; musí být uložen jak v A, tak i v Y
 0000A6r 1  60           	rts
 0000A7r 1               .endproc
+0000A7r 1               
+0000A7r 1               
 0000A7r 1               
 0000A7r 1               .proc GET_OPERATION
 0000A7r 1  A9 67                lda #'g'                ; ATASCII hodnota znaku
@@ -1607,6 +1613,8 @@ Current file: cio_custom_device.asm
 0000B0r 1  60           	rts
 0000B1r 1               .endproc
 0000B1r 1               
+0000B1r 1               
+0000B1r 1               
 0000B1r 1               .proc PUT_OPERATION
 0000B1r 1  A9 70                lda #'p'                ; ATASCII hodnota znaku
 0000B3r 1  A0 79                ldy #121                ; nastavit registr Y
@@ -1615,6 +1623,8 @@ Current file: cio_custom_device.asm
 0000B9r 1  A8                   tay                     ; musí být uložen jak v A, tak i v Y
 0000BAr 1  60           	rts
 0000BBr 1               .endproc
+0000BBr 1               
+0000BBr 1               
 0000BBr 1               
 0000BBr 1               .proc STATUS_OPERATION
 0000BBr 1  A9 73                lda #'s'                ; ATASCII hodnota znaku
@@ -1644,10 +1654,12 @@ Current file: cio_custom_device.asm
 0000D6r 1               end:
 0000D6r 1               
 0000D6r 1               
+0000D6r 1               
 0000D6r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   end - 1                 ; konec kodoveho segmentu
+000006r 1               
 000006r 1               
 000006r 1               
 000006r 1               .segment "AUTOSTRT"             ; segment s pocatecni adresou
