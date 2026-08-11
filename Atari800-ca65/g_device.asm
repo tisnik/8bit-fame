@@ -69,7 +69,7 @@ cur_base = cur_base_l
 ; ============
 ; IN: ---
 ; OUT: Y: 01 = success
-;        >80 = error (see the CIO err_code list)
+;        >80 = error
 
 ; check device number, we support G1 - G4 only
 g_open:
@@ -86,13 +86,13 @@ g_open:
 ;   1    append (together with 8 only) => skip buffer cleanup and skip W cursor reset
 ;   4    reading => set read cursor, show device
 ;   8    writing => buffer cleanup, W cursor reset, show device
-; any    some operation => success (LDY #$01)
+; any    some operation => success (LDY #SUCCES)
 
 devnum_ok:
-        ldy #NVALID   ; invalid command error
+        ldy #NVALID   ; error_code "invalid command"
         lda #$F2
-        bit ICAX1Z    ; err: unsupported operation 
-        bne open_exit
+        bit ICAX1Z
+        bne open_exit ; throw the error
         lda #$08
         bit ICAX1Z
         beq test_read
@@ -133,7 +133,6 @@ g_close:
         dex
         lda #$00
         sta HPOSP0, x    ; move sprite off the screen
-        jsr get_dev_base ; hide the device
         ldy #SUCCES
         rts
 
@@ -148,7 +147,7 @@ g_get:
         lda ICAX1, x
         cmp #$09
         bne no_wr_append
-        ldy #WRONLY   ; attempted to read a write-only device
+        ldy #WRONLY   ; error_code "attempted to read a write-only device"
         rts
 
 no_wr_append:
@@ -159,12 +158,12 @@ no_wr_append:
         lda read_cursors, x   ; read_cursor
         cmp write_cursors, x  ; is lower then write_cursor?
         bcc read_ok
-        ldy #EOFERR      ; error: end of file
+        ldy #EOFERR      ; error_code "end of file"
         rts
 
 read_ok:
         tay
-        lda (cur_base), y
+        lda (cur_base), y     ; read byte from the device
         inc read_cursors, x
         ldy #SUCCES
         rts
@@ -177,9 +176,9 @@ read_ok:
 ;        >80 = error (see the CIO err_code list)
 g_put:
         pha
-        ldy #FNCNOT   ; function not implemented in handler
+        ldy #FNCNOT   ; error_code "function not implemented in handler"
         lda #$08
-        bit ICAX1Z
+        bit ICAX1Z    ; throw the error
         beq exit_w_error
         lda ICDNO, x
         tax
@@ -188,7 +187,7 @@ g_put:
         lda write_cursors, x
         cmp #cursor_top_limit      ; still a space in the buff?
         bcc write_ok
-        ldy #EOFERR   ; error: end of file
+        ldy #EOFERR   ; error_code "end of file"
 exit_w_error:
         pla
         rts
@@ -196,7 +195,7 @@ exit_w_error:
 write_ok:
         tay
         pla
-        sta (cur_base),y
+        sta (cur_base),y          ; store the byte in the device
         inc write_cursors, x
         ldy #SUCCES
         rts
@@ -216,7 +215,7 @@ get_dev_base:
         bcc dev02
         ldy #$80
 dev02:
-        sty cur_base
+        sty cur_base_l
         lsr
         bcc dev01
         inc cur_base_h
@@ -226,7 +225,7 @@ dev01:
 ; ============
 ; Init Device Data
 ; ============
-; IN:   cur_base set
+; IN:   cur_base must be set
 ; OUT:  device data cleared + markers drawn
 init_dev_data:
         ldy #$80
@@ -237,7 +236,7 @@ null_loop:
         bne null_loop
         txa
         pha
-        ldx #$07
+        ldx #$07	; draw visual markers - top
         ldy #$0F
 marker_bot:
         lda visual_markers, x
@@ -246,7 +245,7 @@ marker_bot:
         dex
         bne marker_bot
 
-        ldx #$07
+        ldx #$07	; draw visual markers - bottom
         ldy #$70
 marker_top:
         lda visual_markers, x
@@ -301,7 +300,7 @@ g_init:
         sta MEMTOP+1
 
         sta PMBASE
-        ldx #$03
+        ldx #$03          ; init all devices data
 loop_init:
         jsr get_dev_base
         jsr init_dev_data
@@ -328,12 +327,11 @@ exit_init:
         pla
         rts
 
-        brk
 end:
 
 .segment "EXEHDR"
 .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 .word   begin                   ; zacatek kodoveho segmentu
-.word   end-1                   ; konec kodoveho segmentu
+.word   end                     ; konec kodoveho segmentu
 
 ; finito
