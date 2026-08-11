@@ -31,9 +31,19 @@ hatabs_handler:
     JMP g_init
     .byte $00
 
+
+cursor_low_limit = $10
+cursor_top_limit = $70
+
+; offsets that are updated during operations with devices
+
 ; read cursors for all four devices
 read_cursors:
-    .byte $10, $10, $10, $10
+    .byte cursor_low_limit, cursor_low_limit, cursor_low_limit, cursor_low_limit
+
+; write cursors for all four devices
+write_cursors:
+    .byte cursor_low_limit, cursor_low_limit, cursor_low_limit, cursor_low_limit
 
 ; colors assigned to all four sprites (one per device)
 dev_colors:
@@ -43,19 +53,15 @@ dev_colors:
 dev_hpos:
     .byte $90, $A4, $B8, $CC
 
-; write cursors for all four devices
-write_cursors:
-    .byte $10, $10, $10, $10
-
 visual_markers:
     .byte $08, $08, $08, $49, $2A, $1C, $08, $FF
-
-; START = $9840
 
 ; address of two bytes allocated on zero page:
 ; $CE, $CF    ; cur_base_l :L,:H
 cur_base_l = $ce
 cur_base_h = cur_base_l + 1
+; the following address will be used in the code
+cur_base = cur_base_l
 
 
 ; ============
@@ -67,8 +73,8 @@ cur_base_h = cur_base_l + 1
 
 ; check device number, we support G1 - G4 only
 g_open:
-        ldx ICDNOZ    ; IOCTL_DEVNUM
-        dex           ; save devnum; normalize 1-4 to
+        ldx ICDNOZ
+        dex           ; save devnum; normalize 1-4 to 0-3
         txa
         and #$FC
         beq devnum_ok
@@ -83,34 +89,34 @@ g_open:
 ; any    some operation => success (LDY #$01)
 
 devnum_ok:
-        ldy #$84
+        ldy #NVALID   ; invalid command error
         lda #$F2
         bit ICAX1Z    ; err: unsupported operation 
         bne open_exit
         lda #$08
-        bit ICAX1Z    ; IOCTL_ICAX1
+        bit ICAX1Z
         beq test_read
 
         lda #$01      ; test for append mode
-        bit ICAX1Z    ; IOCTL_ICAX1
+        bit ICAX1Z
         bne open_appnd
         jsr get_dev_base
         jsr init_dev_data
-        lda #$10
+        lda #cursor_low_limit
         sta write_cursors, x  ; reset write_cursor
 open_appnd:
         jsr show_dev
-        ldy #$01      ; writing => set success
+        ldy #SUCCES      ; writing => set success
 
-g_nondef:
 test_read:
         lda #$04
-        bit ICAX1Z    ; IOCTL_ICAX1
+        bit ICAX1Z
         beq open_exit
-        lda #$10
+        lda #cursor_low_limit
         sta read_cursors, x  ; reset read_cursor
         jsr show_dev
-        ldy #$01
+g_nondef:
+        ldy #SUCCES
 open_exit:
         rts
 
@@ -126,29 +132,29 @@ g_close:
         ldx ICDNOZ
         dex
         lda #$00
-        sta HPOSP0, x
-        jsr get_dev_base
-        ldy #$01
+        sta HPOSP0, x    ; move sprite off the screen
+        jsr get_dev_base ; hide the device
+        ldy #SUCCES
         rts
 
 ; ============
 ; HATABS_GET_CHAR
 ; ============
-; IN: ---
+; IN:  X - channel number * $10
 ; OUT: Y: 01 = success
 ;        >80 = error (see the CIO err_code list)
 ;      A: the byte read
 g_get:
-        lda ICAX1, x   ; IOCTL_ICAX1
+        lda ICAX1, x
         cmp #$09
         bne no_wr_append
-        ldy #$83
+        ldy #WRONLY   ; attempted to read a write-only device
         rts
 
 no_wr_append:
         lda ICDNO, x
         tax
-        dex
+        dex           ; dev number 0-3 to X
         jsr get_dev_base
         lda read_cursors, x   ; read_cursor
         cmp write_cursors, x  ; is lower then write_cursor?
@@ -158,9 +164,9 @@ no_wr_append:
 
 read_ok:
         tay
-        lda (cur_base_l), y
+        lda (cur_base), y
         inc read_cursors, x
-        ldy #$01
+        ldy #SUCCES
         rts
 
 ; ============
@@ -171,16 +177,16 @@ read_ok:
 ;        >80 = error (see the CIO err_code list)
 g_put:
         pha
-        ldy #$92      ; check RO device
+        ldy #FNCNOT   ; function not implemented in handler
         lda #$08
-        bit ICAX1Z    ; IOCTL_ICAX1
+        bit ICAX1Z
         beq exit_w_error
         lda ICDNO, x
         tax
-        dex
+        dex                        ; dev number 0-3 to X
         jsr get_dev_base
         lda write_cursors, x
-        cmp #$70      ; still a space in the buff?
+        cmp #cursor_top_limit      ; still a space in the buff?
         bcc write_ok
         ldy #EOFERR   ; error: end of file
 exit_w_error:
@@ -190,9 +196,9 @@ exit_w_error:
 write_ok:
         tay
         pla
-        sta (cur_base_l),y
+        sta (cur_base),y
         inc write_cursors, x
-        ldy #$01
+        ldy #SUCCES
         rts
 
 
@@ -202,7 +208,7 @@ write_ok:
 ; IN:   X: device num (0-3)
 ; OUT:  $CE, $CF: current device base :L,:H
 get_dev_base:
-        lda #>begin+2      ; PMBASE + 2 ; L: get_dev_base
+        lda #>begin+2      ; PMBASE + 2
         sta cur_base_h
         ldy #$00
         txa
@@ -210,7 +216,7 @@ get_dev_base:
         bcc dev02
         ldy #$80
 dev02:
-        sty cur_base_l
+        sty cur_base
         lsr
         bcc dev01
         inc cur_base_h
@@ -220,14 +226,14 @@ dev01:
 ; ============
 ; Init Device Data
 ; ============
-; IN:   $CE, $CF: current device base :L,:H
+; IN:   cur_base set
 ; OUT:  device data cleared + markers drawn
 init_dev_data:
         ldy #$80
         lda #$00
 null_loop:
         dey
-        sta (cur_base_l),y
+        sta (cur_base),y
         bne null_loop
         txa
         pha
@@ -235,7 +241,7 @@ null_loop:
         ldy #$0F
 marker_bot:
         lda visual_markers, x
-        sta (cur_base_l),y
+        sta (cur_base),y
         dey
         dex
         bne marker_bot
@@ -244,7 +250,7 @@ marker_bot:
         ldy #$70
 marker_top:
         lda visual_markers, x
-        sta (cur_base_l),y
+        sta (cur_base),y
         iny
         dex
         bne marker_top
@@ -261,9 +267,9 @@ marker_top:
 ; Show Device on the Screen
 show_dev:
         lda dev_colors, x
-        sta PCOLR0, x   ; PCOLR0-PCOL3
+        sta PCOLR0, x
         lda dev_hpos, x
-        sta HPOSP0, x   ; HPOSP0-HPOSP3
+        sta HPOSP0, x
         rts
 
 ; ============
@@ -307,11 +313,11 @@ loop_init:
         sta HPOSP1
         sta HPOSP2
         sta HPOSP3
-        lda #$00
+        lda #$01
         sta GPRIOR
-        lda #$03
-        sta $D01D
-        lda #$2E
+        lda #$03    ; enable sprites
+        sta GRACTL
+        lda #$2E    ; enable DMA for display list and sprites, set normal playfield width
         sta SDMCTL
 exit_init:
         pla
@@ -328,6 +334,6 @@ end:
 .segment "EXEHDR"
 .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 .word   begin                   ; zacatek kodoveho segmentu
-.word   $996f-24                   ; konec kodoveho segmentu
+.word   end-1                   ; konec kodoveho segmentu
 
 ; finito
