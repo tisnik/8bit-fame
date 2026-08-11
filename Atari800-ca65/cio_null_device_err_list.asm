@@ -1446,7 +1446,7 @@ Current file: cio_null_device_err.asm
 000000r 1               .proc main
 000000r 1  20 rr rr             jsr REGISTER_NULL_DEVICE
 000003r 1  20 rr rr             jsr CLOSE_CHANNEL_4
-000006r 1  20 rr rr             jsr OPEN_CHANNEL_4_AS_H
+000006r 1  20 rr rr             jsr OPEN_CHANNEL_4_AS_N
 000009r 1  20 rr rr             jsr WRITE_BYTE_CHANNEL_4
 00000Cr 1  20 rr rr             jsr CHECK_ERROR
 00000Fr 1               loop:
@@ -1481,6 +1481,7 @@ Current file: cio_null_device_err.asm
 000030r 1               .endproc
 000030r 1               
 000030r 1               
+000030r 1               
 000030r 1               ; ---------------------------------------------------------------------
 000030r 1               ; všechny operace zařízení jsou definovány shodně
 000030r 1               ; ---------------------------------------------------------------------
@@ -1489,6 +1490,7 @@ Current file: cio_null_device_err.asm
 000030r 1               	; tím se "propíše" chyba do IOCB
 000030r 1  60                   rts
 000031r 1               .endproc
+000031r 1               
 000031r 1               
 000031r 1               
 000031r 1               ; ---------------------------------------------------------------------
@@ -1507,7 +1509,7 @@ Current file: cio_null_device_err.asm
 00003Cr 1               ; ---------------------------------------------------------------------
 00003Cr 1               ; otevření kanálu číslo 4 v režimu zápisu na zařízení H:test.txt
 00003Cr 1               ; ---------------------------------------------------------------------
-00003Cr 1               .proc OPEN_CHANNEL_4_AS_H
+00003Cr 1               .proc OPEN_CHANNEL_4_AS_N
 00003Cr 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
 00003Er 1  A9 03                lda #OPEN               ; prováděná operace
 000040r 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
@@ -1574,6 +1576,8 @@ Current file: cio_null_device_err.asm
 00008Cr 1  60                   rts                     ; návrat ze subrutiny
 00008Dr 1               .endproc
 00008Dr 1               
+00008Dr 1               
+00008Dr 1               
 00008Dr 1               ; jméno zařízení ukončené nulou
 00008Dr 1  4E 3A 00     device_name: .byte "N:", 0
 000090r 1               
@@ -1591,10 +1595,12 @@ Current file: cio_null_device_err.asm
 00009Er 1               end:
 00009Er 1               
 00009Er 1               
+00009Er 1               
 00009Er 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   end - 1                 ; konec kodoveho segmentu
+000006r 1               
 000006r 1               
 000006r 1               
 000006r 1               .segment "AUTOSTRT"             ; segment s pocatecni adresou
