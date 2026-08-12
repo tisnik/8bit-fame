@@ -203,6 +203,17 @@ ok:
 
 
 
+.proc SPECIAL_OPERATION
+        lda #'*'                ; ATASCII hodnota znaku
+        ldy #201                ; nastavit registr Y
+        sta (88),y              ; tisk znaku na obrazovku
+        lda #1                  ; chybový kód
+        tay                     ; musí být uložen jak v A, tak i v Y
+	rts
+.endproc
+
+
+
 ; jméno zařízení ukončené nulou
 device_name: .byte "N:", 0
 
@@ -211,12 +222,13 @@ char_to_put: .byte $41
 
 ; tabulka s handlerem pro zařízení
 null_table:
-        .word OPEN_OPERATION-1   ; OPEN
-        .word CLOSE_OPERATION-1  ; CLOSE
-        .word GET_OPERATION-1    ; GET
-        .word PUT_OPERATION-1    ; PUT
-        .word STATUS_OPERATION-1 ; STATUS
-        jmp NULL_HANDLER         ; inicializace zařízení
+        .word OPEN_OPERATION-1    ; OPEN
+        .word CLOSE_OPERATION-1   ; CLOSE
+        .word GET_OPERATION-1     ; GET
+        .word PUT_OPERATION-1     ; PUT
+        .word STATUS_OPERATION-1  ; STATUS
+        .word SPECIAL_OPERATION-1 ; SPECIAL
+        jmp NULL_HANDLER          ; inicializace zařízení
 end:
 
 

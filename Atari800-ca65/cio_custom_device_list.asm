@@ -1637,25 +1637,37 @@ Current file: cio_custom_device.asm
 0000C5r 1               
 0000C5r 1               
 0000C5r 1               
-0000C5r 1               ; jméno zařízení ukončené nulou
-0000C5r 1  4E 3A 00     device_name: .byte "N:", 0
-0000C8r 1               
-0000C8r 1               ; zapisovaný bajt
-0000C8r 1  41           char_to_put: .byte $41
-0000C9r 1               
-0000C9r 1               ; tabulka s handlerem pro zařízení
-0000C9r 1               null_table:
-0000C9r 1  rr rr                .word OPEN_OPERATION-1   ; OPEN
-0000CBr 1  rr rr                .word CLOSE_OPERATION-1  ; CLOSE
-0000CDr 1  rr rr                .word GET_OPERATION-1    ; GET
-0000CFr 1  rr rr                .word PUT_OPERATION-1    ; PUT
-0000D1r 1  rr rr                .word STATUS_OPERATION-1 ; STATUS
-0000D3r 1  4C rr rr             jmp NULL_HANDLER         ; inicializace zařízení
-0000D6r 1               end:
-0000D6r 1               
-0000D6r 1               
-0000D6r 1               
-0000D6r 1               .segment "EXEHDR"
+0000C5r 1               .proc SPECIAL_OPERATION
+0000C5r 1  A9 2A                lda #'*'                ; ATASCII hodnota znaku
+0000C7r 1  A0 C9                ldy #201                ; nastavit registr Y
+0000C9r 1  91 58                sta (88),y              ; tisk znaku na obrazovku
+0000CBr 1  A9 01                lda #1                  ; chybový kód
+0000CDr 1  A8                   tay                     ; musí být uložen jak v A, tak i v Y
+0000CEr 1  60           	rts
+0000CFr 1               .endproc
+0000CFr 1               
+0000CFr 1               
+0000CFr 1               
+0000CFr 1               ; jméno zařízení ukončené nulou
+0000CFr 1  4E 3A 00     device_name: .byte "N:", 0
+0000D2r 1               
+0000D2r 1               ; zapisovaný bajt
+0000D2r 1  41           char_to_put: .byte $41
+0000D3r 1               
+0000D3r 1               ; tabulka s handlerem pro zařízení
+0000D3r 1               null_table:
+0000D3r 1  rr rr                .word OPEN_OPERATION-1    ; OPEN
+0000D5r 1  rr rr                .word CLOSE_OPERATION-1   ; CLOSE
+0000D7r 1  rr rr                .word GET_OPERATION-1     ; GET
+0000D9r 1  rr rr                .word PUT_OPERATION-1     ; PUT
+0000DBr 1  rr rr                .word STATUS_OPERATION-1  ; STATUS
+0000DDr 1  rr rr                .word SPECIAL_OPERATION-1 ; SPECIAL
+0000DFr 1  4C rr rr             jmp NULL_HANDLER          ; inicializace zařízení
+0000E2r 1               end:
+0000E2r 1               
+0000E2r 1               
+0000E2r 1               
+0000E2r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   end - 1                 ; konec kodoveho segmentu
