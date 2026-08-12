@@ -1591,12 +1591,13 @@ Current file: cio_null_device.asm
 000098r 1  rr rr                .word NULL_HANDLER-1    ; GET
 00009Ar 1  rr rr                .word NULL_HANDLER-1    ; PUT
 00009Cr 1  rr rr                .word NULL_HANDLER-1    ; STATUS
-00009Er 1  4C rr rr             jmp NULL_HANDLER        ; inicializace zařízení
-0000A1r 1               end:
-0000A1r 1               
-0000A1r 1               
-0000A1r 1               
-0000A1r 1               .segment "EXEHDR"
+00009Er 1  rr rr                .word NULL_HANDLER-1    ; SPECIAL
+0000A0r 1  4C rr rr             jmp NULL_HANDLER        ; inicializace zařízení
+0000A3r 1               end:
+0000A3r 1               
+0000A3r 1               
+0000A3r 1               
+0000A3r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   end - 1                 ; konec kodoveho segmentu
