@@ -157,6 +157,7 @@ null_table:
         .word NULL_HANDLER-1    ; GET
         .word NULL_HANDLER-1    ; PUT
         .word NULL_HANDLER-1    ; STATUS
+        .word NULL_HANDLER-1    ; SPECIAL
         jmp NULL_HANDLER        ; inicializace zařízení
 end:
 
