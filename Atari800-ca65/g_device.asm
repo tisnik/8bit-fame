@@ -332,6 +332,6 @@ end:
 .segment "EXEHDR"
 .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 .word   begin                   ; zacatek kodoveho segmentu
-.word   end                     ; konec kodoveho segmentu
+.word   end-1                   ; konec kodoveho segmentu
 
 ; finito
