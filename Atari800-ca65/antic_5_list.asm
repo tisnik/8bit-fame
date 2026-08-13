@@ -1450,6 +1450,9 @@ Current file: antic_5.asm
 000000r 1               .CODE
 000000r 1               
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 CC                lda #204                ; adresa se stránkou znakové sady
 000002r 1  8D F4 02             sta CHBAS               ; uložit do řídicího registru ANTICu
@@ -1468,6 +1471,11 @@ Current file: antic_5.asm
 000018r 1  4C rr rr     loop:   jmp loop
 00001Br 1               .endproc
 00001Br 1               
+00001Br 1               
+00001Br 1               
+00001Br 1               ; ---------------------------------------------------------------------
+00001Br 1               ; display list
+00001Br 1               ; ---------------------------------------------------------------------
 00001Br 1               dlist:                          ; definice display listu
 00001Br 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 00001Er 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
@@ -1486,6 +1494,7 @@ Current file: antic_5.asm
 00002Cr 1  41 rr rr     .byte DL_JVB, <dlist, >dlist    ; skok na začátek display listu
 00002Fr 1               
 00002Fr 1               end:
+00002Fr 1               
 00002Fr 1               
 00002Fr 1               .BSS
 000000r 1  xx xx xx xx  screen: .res 40*24              ; rezervace prostoru pro video paměť
@@ -1515,6 +1524,10 @@ Current file: antic_5.asm
 000060r 1  xx xx xx xx  
 0003C0r 1               
 0003C0r 1               
+0003C0r 1               
+0003C0r 1               ; ---------------------------------------------------------------------
+0003C0r 1               ; definice segmentů vyžadovaných formátem XEX
+0003C0r 1               ; ---------------------------------------------------------------------
 0003C0r 1               
 0003C0r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
