@@ -15,6 +15,9 @@
 .CODE
 
 
+; ---------------------------------------------------------------------
+; vstupní bod do programu
+; ---------------------------------------------------------------------
 .proc main
         lda #<dlist             ; nižší byte adresy display listu
         sta SDLSTL
@@ -31,6 +34,11 @@ clear:
 loop:   jmp loop
 .endproc
 
+
+
+; ---------------------------------------------------------------------
+; display list
+; ---------------------------------------------------------------------
 dlist:
 .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 .byte DL_LMS+DL_MAP80x4x2       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 9 (GR.4)
@@ -68,6 +76,10 @@ end:
 screen: .res 10*48              ; rezervace prostoru pro video paměť
 
 
+
+; ---------------------------------------------------------------------
+; definice segmentů vyžadovaných formátem XEX
+; ---------------------------------------------------------------------
 
 .segment "EXEHDR"
 .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
