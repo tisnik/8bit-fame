@@ -1,3 +1,5 @@
+; ---------------------------------------------------------------------
+; 
 ; %%%%%%%%%%%%%%%
 ; ; G device
 ; %%%%%%%%%%%%%%%
@@ -6,6 +8,16 @@
 ; License: CC-BY-SA
 ; This program is distributed with no warranty. Use on your risk.
 ; Note: This is a study material so, anyway, it is not intended to be used in any kind of production.
+
+; 
+; Tento zdrojový kód byl použit v článku:
+;
+; Podpora unifikované práce se zařízeními v operačním systému Atari: CIO (dokončení)
+; https://www.root.cz/clanky/podpora-unifikovane-prace-se-zarizenimi-v-operacnim-systemu-atari-cio-dokonceni/
+;
+; Překlad do formátu xex:
+; make g_device.xex
+; ---------------------------------------------------------------------
 
 ; -- show data in PMG --
 ; ;

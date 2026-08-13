@@ -2,6 +2,8 @@ ca65 V2.18 - Fedora 2.19-12.fc42
 Main file   : g_device.asm
 Current file: g_device.asm
 
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ;
 000000r 1               ; %%%%%%%%%%%%%%%
 000000r 1               ; ; G device
 000000r 1               ; %%%%%%%%%%%%%%%
@@ -10,6 +12,16 @@ Current file: g_device.asm
 000000r 1               ; License: CC-BY-SA
 000000r 1               ; This program is distributed with no warranty. Use on your risk.
 000000r 1               ; Note: This is a study material so, anyway, it is not intended to be used in any kind of production.
+000000r 1               
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Podpora unifikované práce se zařízeními v operačním systému Atari: CIO (dokončení)
+000000r 1               ; https://www.root.cz/clanky/podpora-unifikovane-prace-se-zarizenimi-v-operacnim-systemu-atari-cio-dokonceni/
+000000r 1               ;
+000000r 1               ; Překlad do formátu xex:
+000000r 1               ; make g_device.xex
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               
 000000r 1               ; -- show data in PMG --
 000000r 1               ; ;
