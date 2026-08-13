@@ -1449,6 +1449,9 @@ Current file: antic_1.asm
 000000r 1               .CODE
 000000r 1               
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 rr                lda #<dlist             ; nižší byte adresy display listu
 000002r 1  8D 30 02             sta SDLSTL
@@ -1468,6 +1471,11 @@ Current file: antic_1.asm
 000019r 1  4C rr rr     loop:   jmp loop
 00001Cr 1               .endproc
 00001Cr 1               
+00001Cr 1               
+00001Cr 1               
+00001Cr 1               ; ---------------------------------------------------------------------
+00001Cr 1               ; display list
+00001Cr 1               ; ---------------------------------------------------------------------
 00001Cr 1               dlist:                          ; definice display listu
 00001Cr 1  70 70 70     .byte 112, 112, 112
 00001Fr 1  47 rr rr     .byte 64+7, <screen, >screen
@@ -1506,6 +1514,10 @@ Current file: antic_1.asm
 000060r 1  xx xx xx xx  
 0001E0r 1               
 0001E0r 1               
+0001E0r 1               
+0001E0r 1               ; ---------------------------------------------------------------------
+0001E0r 1               ; definice segmentů vyžadovaných formátem XEX
+0001E0r 1               ; ---------------------------------------------------------------------
 0001E0r 1               
 0001E0r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
