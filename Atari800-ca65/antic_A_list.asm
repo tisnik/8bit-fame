@@ -1452,6 +1452,9 @@ Current file: antic_A.asm
 000000r 1               font_page = 152
 000000r 1               font_target = 152 * 256
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 98                lda #font_page          ; vyšší bajt adresy fontu = číslo stránky
 000002r 1  8D F4 02             sta CHBAS
@@ -1477,6 +1480,11 @@ Current file: antic_A.asm
 000023r 1  4C rr rr     loop:   jmp loop
 000026r 1               .endproc
 000026r 1               
+000026r 1               
+000026r 1               
+000026r 1               ; ---------------------------------------------------------------------
+000026r 1               ; display list
+000026r 1               ; ---------------------------------------------------------------------
 000026r 1               dlist:
 000026r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 000029r 1  44           .byte DL_LMS+DL_CHR40x8x4       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 4 (GR.12)
@@ -1599,6 +1607,10 @@ Current file: antic_A.asm
 000060r 1  xx xx xx xx  
 0003C0r 1               
 0003C0r 1               
+0003C0r 1               
+0003C0r 1               ; ---------------------------------------------------------------------
+0003C0r 1               ; definice segmentů vyžadovaných formátem XEX
+0003C0r 1               ; ---------------------------------------------------------------------
 0003C0r 1               
 0003C0r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
