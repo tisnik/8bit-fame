@@ -1449,6 +1449,9 @@ Current file: antic_B.asm
 000000r 1               .CODE
 000000r 1               
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 rr                lda #<dlist             ; nižší byte adresy display listu
 000002r 1  8D 30 02             sta SDLSTL
@@ -1465,6 +1468,11 @@ Current file: antic_B.asm
 000013r 1  4C rr rr     loop:   jmp loop
 000016r 1               .endproc
 000016r 1               
+000016r 1               
+000016r 1               
+000016r 1               ; ---------------------------------------------------------------------
+000016r 1               ; display list
+000016r 1               ; ---------------------------------------------------------------------
 000016r 1               dlist:
 000016r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 000019r 1  49           .byte DL_LMS+DL_MAP80x4x2       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 9 (GR.4)
@@ -1526,6 +1534,10 @@ Current file: antic_B.asm
 000060r 1  xx xx xx xx  
 0001E0r 1               
 0001E0r 1               
+0001E0r 1               
+0001E0r 1               ; ---------------------------------------------------------------------
+0001E0r 1               ; definice segmentů vyžadovaných formátem XEX
+0001E0r 1               ; ---------------------------------------------------------------------
 0001E0r 1               
 0001E0r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
