@@ -2,6 +2,18 @@ ca65 V2.18 - Fedora 2.19-12.fc42
 Main file   : cio_null_device_err.asm
 Current file: cio_null_device_err.asm
 
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; Nulové zařízení N: vracející status "error" pro všechny operace.
+000000r 1               ;
+000000r 1               ; Tento zdrojový kód byl použit v článku:
+000000r 1               ;
+000000r 1               ; Podpora unifikované práce se zařízeními v operačním systému Atari: CIO (dokončení)
+000000r 1               ; https://www.root.cz/clanky/podpora-unifikovane-prace-se-zarizenimi-v-operacnim-systemu-atari-cio-dokonceni/
+000000r 1               ;
+000000r 1               ; Překlad do formátu xex:
+000000r 1               ; make cio_null_device_err.xex
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               
 000000r 1               .include "atari.inc"
 000000r 2               ;-------------------------------------------------------------------------
 000000r 2               ; Atari System Equates
