@@ -1458,77 +1458,32 @@ Current file: cio_write_byte_1.asm
 00000Fr 1               ; uzavření kanálu číslo 4
 00000Fr 1               ; ---------------------------------------------------------------------
 00000Fr 1               .proc CLOSE_CHANNEL_4
-00000Fr 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
-000011r 1  A9 0C                lda #CLOSE              ; prováděná operace
-000013r 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
-000016r 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
-000019r 1  60                   rts                     ; návrat ze subrutiny
-00001Ar 1               .endproc
-00001Ar 1               
-00001Ar 1               
-00001Ar 1               
-00001Ar 1               ; ---------------------------------------------------------------------
-00001Ar 1               ; otevření kanálu číslo 4 v režimu zápisu na zařízení H:test.txt
-00001Ar 1               ; ---------------------------------------------------------------------
-00001Ar 1               .proc OPEN_CHANNEL_4_AS_H
-00001Ar 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
-00001Cr 1  A9 03                lda #OPEN               ; prováděná operace
-00001Er 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
-000021r 1               
-000021r 1                       ; specifikace jména zařízení + jména souboru (16bitový ukazatel)
-000021r 1  A9 rr                lda #<device_name
-000023r 1  9D 44 03             sta ICBAL, x
-000026r 1  A9 rr                lda #>device_name
-000028r 1  9D 45 03             sta ICBAH, x
-00002Br 1               
-00002Br 1  A9 08                lda #OPNOT              ; režim otevření: zápis (odpovídá druhému parametru příkazu OPEN v BASICu)
-00002Dr 1  9D 4A 03             sta ICAX1, x
-000030r 1  A9 00                lda #0                  ; odpovídá třetímu parametru příkazu OPEN v BASICu
-000032r 1  9D 4B 03             sta ICAX2, x
-000035r 1               
-000035r 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
-000038r 1               
-000038r 1  60                   rts                     ; návrat ze subrutiny
-000039r 1               .endproc
-000039r 1               
-000039r 1               
-000039r 1               
-000039r 1               ; ---------------------------------------------------------------------
-000039r 1               ; zápis jednoho znaku do kanálu číslo 4
-000039r 1               ; ---------------------------------------------------------------------
-000039r 1               .proc WRITE_BYTE_CHANNEL_4
-000039r 1  A2 40                ldx #IOCB4              ; offset odvozený od čísla IOCB kanálu
-00003Br 1  A9 0B                lda #PUTCHR             ; prováděná operace
-00003Dr 1  9D 42 03             sta ICCOM, x            ; zápis prováděné operace do bloku IOCB
-000040r 1               
-000040r 1                       ; adresa zapisovaného bloku
-000040r 1  A9 rr                lda #<char_to_put
-000042r 1  9D 44 03             sta ICBAL, x
-000045r 1  A9 rr                lda #>char_to_put
-000047r 1  9D 45 03             sta ICBAH, x
-00004Ar 1               
-00004Ar 1                       ; nastavení počtu zapisovaných bajtů
-00004Ar 1  A9 01                lda #1
-00004Cr 1  9D 48 03             sta ICBLL, x
-00004Fr 1  A9 00                lda #0
-000051r 1  9D 49 03             sta ICBLH, x
-000054r 1               
-000054r 1  20 56 E4             jsr CIOV                ; zavolání rutiny pro CIO
-000057r 1  60                   rts                     ; návrat ze subrutiny
-000058r 1               .endproc
-000058r 1               
-000058r 1               ; jméno zařízení (+ jméno souboru) ukončené nulou
-000058r 1  48 3A 54 45  device_name: .byte "H:TEST.TXT", 0
-00005Cr 1  53 54 2E 54  
-000060r 1  58 54 00     
-000063r 1               
-000063r 1               ; zapisovaný bajt
-000063r 1  41           char_to_put: .byte $41
-000064r 1               
-000064r 1               end:
-000064r 1               
-000064r 1               
-000064r 1               .segment "EXEHDR"
+00000Fr 1  60                   rts                     ; návrat ze subrutiny
+000010r 1               .endproc
+000010r 1               
+000010r 1               
+000010r 1               
+000010r 1               ; ---------------------------------------------------------------------
+000010r 1               ; otevření kanálu číslo 4 v režimu zápisu na zařízení H:test.txt
+000010r 1               ; ---------------------------------------------------------------------
+000010r 1               .proc OPEN_CHANNEL_4_AS_H
+000010r 1  60                   rts                     ; návrat ze subrutiny
+000011r 1               .endproc
+000011r 1               
+000011r 1               
+000011r 1               
+000011r 1               ; ---------------------------------------------------------------------
+000011r 1               ; zápis jednoho znaku do kanálu číslo 4
+000011r 1               ; ---------------------------------------------------------------------
+000011r 1               .proc WRITE_BYTE_CHANNEL_4
+000011r 1  60                   rts                     ; návrat ze subrutiny
+000012r 1               .endproc
+000012r 1               
+000012r 1               
+000012r 1               end:
+000012r 1               
+000012r 1               
+000012r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
 000004r 1  rr rr        .word   end - 1                 ; konec kodoveho segmentu
