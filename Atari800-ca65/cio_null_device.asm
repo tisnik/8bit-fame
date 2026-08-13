@@ -1,3 +1,15 @@
+; ---------------------------------------------------------------------
+; Nulové zařízení N: vracející status "ok" pro všechny operace.
+; 
+; Tento zdrojový kód byl použit v článku:
+;
+; Podpora unifikované práce se zařízeními v operačním systému Atari: CIO (dokončení)
+; https://www.root.cz/clanky/podpora-unifikovane-prace-se-zarizenimi-v-operacnim-systemu-atari-cio-dokonceni/
+;
+; Překlad do formátu xex:
+; make cio_null_device.xex
+; ---------------------------------------------------------------------
+
 .include "atari.inc"
 
 .CODE
