@@ -1447,6 +1447,9 @@ Current file: antic_dli_5.asm
 000000r 1               .CODE
 000000r 1               
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 rr                lda #<dlist             ; nižší byte adresy display listu
 000002r 1  8D 30 02             sta SDLSTL
@@ -1491,6 +1494,10 @@ Current file: antic_dli_5.asm
 000038r 1  40                   rti                     ; návrat z DLI
 000039r 1               
 000039r 1               
+000039r 1               
+000039r 1               ; ---------------------------------------------------------------------
+000039r 1               ; display list
+000039r 1               ; ---------------------------------------------------------------------
 000039r 1               dlist:
 000039r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 00003Cr 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
@@ -1539,6 +1546,9 @@ Current file: antic_dli_5.asm
 0003C0r 1               
 0003C0r 1               
 0003C0r 1               
+0003C0r 1               ; ---------------------------------------------------------------------
+0003C0r 1               ; definice segmentů vyžadovaných formátem XEX
+0003C0r 1               ; ---------------------------------------------------------------------
 0003C0r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
