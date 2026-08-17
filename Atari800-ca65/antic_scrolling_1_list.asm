@@ -1531,6 +1531,10 @@ Current file: antic_scrolling_1.asm
 00003Dr 1               .endproc
 00003Dr 1               
 00003Dr 1               
+00003Dr 1               
+00003Dr 1               ; ---------------------------------------------------------------------
+00003Dr 1               ; display list
+00003Dr 1               ; ---------------------------------------------------------------------
 00003Dr 1               dlist:
 00003Dr 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 000040r 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
@@ -1577,6 +1581,11 @@ Current file: antic_scrolling_1.asm
 00005Cr 1  xx xx xx xx  
 000060r 1  xx xx xx xx  
 0003C0r 1               
+0003C0r 1               
+0003C0r 1               
+0003C0r 1               ; ---------------------------------------------------------------------
+0003C0r 1               ; definice segmentů vyžadovaných formátem XEX
+0003C0r 1               ; ---------------------------------------------------------------------
 0003C0r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
