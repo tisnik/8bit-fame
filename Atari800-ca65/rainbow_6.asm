@@ -6,6 +6,9 @@
 .CODE
 
 
+; ---------------------------------------------------------------------
+; vstupní bod do programu
+; ---------------------------------------------------------------------
 .proc main
         lda #<dlist             ; nižší byte adresy display listu
         sta SDLSTL
@@ -70,6 +73,9 @@ next_line:
         rti                     ; návrat z DLI
 
 
+; ---------------------------------------------------------------------
+; display list
+; ---------------------------------------------------------------------
 dlist:
 .byte DL_BLK8, DL_BLK8, DL_DLI+DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 .res 24, DL_BLK8                ; opakovat řádky textového režimu 2 (GR.0)
@@ -84,6 +90,9 @@ screen: .res 40*24
 
 
 
+; ---------------------------------------------------------------------
+; definice segmentů vyžadovaných formátem XEX
+; ---------------------------------------------------------------------
 .segment "EXEHDR"
 .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 .word   main                    ; zacatek kodoveho segmentu
