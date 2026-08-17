@@ -1449,6 +1449,9 @@ Current file: antic_bitmap_5.asm
 000000r 1               .CODE
 000000r 1               
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 00                lda #0                  ; kod barvy
 000002r 1  8D C5 02             sta COLOR1              ; ulozit do registru COLOR4
@@ -1463,6 +1466,11 @@ Current file: antic_bitmap_5.asm
 000014r 1  4C rr rr     loop:   jmp loop
 000017r 1               .endproc
 000017r 1               
+000017r 1               
+000017r 1               
+000017r 1               ; ---------------------------------------------------------------------
+000017r 1               ; display list
+000017r 1               ; ---------------------------------------------------------------------
 000017r 1               dlist:
 000017r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 00001Ar 1  4F           .byte DL_LMS+DL_MAP320x1x1      ; určení počáteční adresy obrazové paměti + jeden řádek režimu F (GR.8)
@@ -1524,6 +1532,9 @@ Current file: antic_bitmap_5.asm
 001EDFr 1               
 001EDFr 1               
 001EDFr 1               
+001EDFr 1               ; ---------------------------------------------------------------------
+001EDFr 1               ; definice segmentů vyžadovaných formátem XEX
+001EDFr 1               ; ---------------------------------------------------------------------
 001EDFr 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
 000002r 1  rr rr        .word   main                    ; začátek kódového segmentu
