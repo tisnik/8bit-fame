@@ -16,6 +16,9 @@
 .CODE
 
 
+; ---------------------------------------------------------------------
+; vstupní bod do programu
+; ---------------------------------------------------------------------
 .proc main
         lda #0                  ; kod barvy
         sta COLOR1              ; ulozit do registru COLOR4
@@ -30,6 +33,11 @@
 loop:   jmp loop
 .endproc
 
+
+
+; ---------------------------------------------------------------------
+; display list
+; ---------------------------------------------------------------------
 dlist:
 .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 .byte DL_LMS+DL_MAP320x1x1      ; určení počáteční adresy obrazové paměti + jeden řádek režimu F (GR.8)
@@ -45,6 +53,11 @@ screen:                         ; video paměť
 
 end:
 
+
+
+; ---------------------------------------------------------------------
+; definice segmentů vyžadovaných formátem XEX
+; ---------------------------------------------------------------------
 .segment "EXEHDR"
 .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
 .word   main                    ; začátek kódového segmentu
