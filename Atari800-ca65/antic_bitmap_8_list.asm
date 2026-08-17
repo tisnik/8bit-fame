@@ -1449,6 +1449,9 @@ Current file: antic_bitmap_8.asm
 000000r 1               .CODE
 000000r 1               
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 76                lda #$76                ; kod barvy
 000002r 1  8D C4 02             sta COLOR0              ; ulozit do registru COLOR0
@@ -1470,6 +1473,11 @@ Current file: antic_bitmap_8.asm
 00001Er 1  4C rr rr     loop:   jmp loop
 000021r 1               .endproc
 000021r 1               
+000021r 1               
+000021r 1               
+000021r 1               ; ---------------------------------------------------------------------
+000021r 1               ; display list
+000021r 1               ; ---------------------------------------------------------------------
 000021r 1               dlist:
 000021r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 000024r 1  4D           .byte DL_LMS+DL_MAP160x2x4      ; určení počáteční adresy obrazové paměti + jeden řádek režimu B (GR.6)
@@ -1530,6 +1538,9 @@ Current file: antic_bitmap_8.asm
 000F89r 1               
 000F89r 1               
 000F89r 1               
+000F89r 1               ; ---------------------------------------------------------------------
+000F89r 1               ; definice segmentů vyžadovaných formátem XEX
+000F89r 1               ; ---------------------------------------------------------------------
 000F89r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; úvodní sekvence bajtů v souboru ve formátu XEX
 000002r 1  rr rr        .word   main                    ; začátek kódového segmentu
