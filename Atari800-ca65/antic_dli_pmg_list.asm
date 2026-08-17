@@ -1451,6 +1451,9 @@ Current file: antic_dli_pmg.asm
 000000r 1               PLAYER_3_OFFSET = PLAYER_2_OFFSET + 128
 000000r 1               
 000000r 1               
+000000r 1               ; ---------------------------------------------------------------------
+000000r 1               ; vstupní bod do programu
+000000r 1               ; ---------------------------------------------------------------------
 000000r 1               .proc main
 000000r 1  A9 rr                lda #<dlist             ; nižší byte adresy display listu
 000002r 1  8D 30 02             sta SDLSTL
@@ -1566,6 +1569,11 @@ Current file: antic_dli_pmg.asm
 0000B3r 1               
 0000B3r 1               .endproc
 0000B3r 1               
+0000B3r 1               
+0000B3r 1               
+0000B3r 1               ; ---------------------------------------------------------------------
+0000B3r 1               ; display list
+0000B3r 1               ; ---------------------------------------------------------------------
 0000B3r 1               dlist:
 0000B3r 1  70 70 70     .byte DL_BLK8, DL_BLK8, DL_BLK8 ; 3x8=24 prázdných obrazových řádků
 0000B6r 1  42           .byte DL_LMS+DL_CHR40x8x1       ; určení počáteční adresy obrazové paměti + jeden řádek režimu 2 (GR.0)
@@ -1616,6 +1624,10 @@ Current file: antic_dli_pmg.asm
 000060r 1  xx xx xx xx  
 0003C0r 1               
 0003C0r 1               
+0003C0r 1               
+0003C0r 1               ; ---------------------------------------------------------------------
+0003C0r 1               ; definice segmentů vyžadovaných formátem XEX
+0003C0r 1               ; ---------------------------------------------------------------------
 0003C0r 1               .segment "EXEHDR"
 000000r 1  FF FF        .word   $ffff                   ; uvodni sekvence bajtu v souboru XEX
 000002r 1  rr rr        .word   main                    ; zacatek kodoveho segmentu
