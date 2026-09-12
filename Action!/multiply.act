@@ -1,0 +1,13 @@
+PROC MAIN()
+    BYTE X
+    CARD Y
+    INT  Z
+    
+    X=42
+    Y=42
+    Z=42
+
+    X=X*5 
+    Y=Y*5
+    Z=Z*5
+RETURN
