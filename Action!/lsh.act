@@ -1,0 +1,13 @@
+PROC MAIN()
+    BYTE X
+    CARD Y
+    INT  Z
+    
+    X=1 
+    Y=1
+    Z=1
+
+    X=X LSH 5
+    Y=Y LSH 5
+    Z=Z LSH 5
+RETURN
