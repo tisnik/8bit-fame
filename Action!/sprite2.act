@@ -1,0 +1,34 @@
+PROC WSYNC()
+    BYTE CLK=$14
+    BYTE OLD
+    OLD=CLK
+    WHILE OLD=CLK 
+        DO
+        OD
+RETURN       
+
+
+PROC SPRITE()
+    BYTE X
+    CARD GTIA=$D000
+    BYTE HPOSP0=$D000
+    BYTE PCOLR0=$02C0 
+    BYTE GRAFP0=$D00D
+    BYTE GRACTL=$D010
+
+    HPOSP0=128
+    PCOLR0=5 LSH 4+8
+    GRAFP0=$FF
+    GRACTL=0
+ 
+    X=128
+ 
+    DO
+       X=X+1
+       HPOSP0=X
+       WSYNC()
+    OD
+
+RETURN
+
+
