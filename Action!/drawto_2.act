@@ -1,0 +1,27 @@
+PROC WAITKEY()
+    BYTE CONSOL=$D01F
+    WHILE CONSOL>6
+    DO
+    OD
+RETURN
+
+
+
+PROC MAIN()
+   CARD X
+   BYTE C
+
+   GRAPHICS(7)
+
+   C=0
+   FOR X=10 TO 150 STEP 5
+   DO
+       COLOR=C
+       C=C+1  
+       PLOT(X, 0)
+       DRAWTO(X, 70)
+   OD 
+
+
+   WAITKEY()
+RETURN
