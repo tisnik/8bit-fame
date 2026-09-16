@@ -33,9 +33,12 @@ execs := dummy.xex print_a.xex \
 	 antic_bitmap_3.xex      antic_bitmap_4.xex \
 	 antic_bitmap_5.xex      antic_bitmap_6.xex \
 	 antic_bitmap_7.xex      antic_bitmap_8.xex \
-	 antic_dli_1.asm         antic_dli_2.asm \
-	 antic_dli_3.asm         antic_dli_4.asm \
-	 antic_dli_5.asm         antic_dli_pmg.asm \
+	 antic_dli_1.xex         antic_dli_2.xex \
+	 antic_dli_3.xex         antic_dli_4.xex \
+	 antic_dli_5.xex         antic_dli_pmg.xex \
+ 	 antic_scrolling_1.xex   antic_scrolling_2.xex \
+	 antic_scrolling_3.xex   antic_scrolling_4.xex \
+	 antic_playfield_1.xex \
 	 sound_1.xex             sound_2.xex \
 	 sound_3.xex             sound_4.xex \
 	 sound_5.xex             sound_6.xex \
@@ -44,6 +47,9 @@ execs := dummy.xex print_a.xex \
 	 sound_B.xex             sound_C.xex \
 	 sound_D.xex             sound_E.xex \
 	 sound_F.xex \
+	 rainbow_1.xex           rainbow_2.xex \
+	 rainbow_3.xex           rainbow_4.xex \
+	 rainbow_5.xex           rainbow_6.xex \
 	 rnd_1.xex               rnd_2.xex \
 	 rnd_3.xex               rnd_4.xex \
 	 paddle_1.xex            paddle_2.xex \
