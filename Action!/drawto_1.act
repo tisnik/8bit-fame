@@ -1,0 +1,7 @@
+PROC MAIN()
+   GRAPHICS(7)
+   COLOR=1
+   PLOT(10,0)
+   DRAWTO(10,79)
+RETURN
+
