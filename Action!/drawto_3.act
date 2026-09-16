@@ -1,0 +1,49 @@
+PROC WAITKEY()
+    BYTE CONSOL=$D01F
+    WHILE CONSOL>6
+    DO
+    OD
+RETURN
+
+
+
+PROC DEMO()
+   CARD X
+   BYTE C
+
+   GRAPHICS(7)
+
+   C=0
+   FOR X=0 TO 159 STEP 1
+   DO
+       COLOR=C
+       C=C+1  
+       C=C&3
+       PLOT(X, 0)
+       DRAWTO(X, 70)
+   OD 
+RETURN
+
+
+PROC MAIN()
+    BYTE RTC1=18
+    BYTE RTC2=19
+    BYTE RTC3=20
+    CARD TIME
+
+    RTC1=0
+    RTC2=0  
+    RTC3=0
+
+    DEMO()
+
+    TIME=RTC2*256+RTC3
+    PRINT("FINISHED IN ")
+    PRINTC(TIME/50)
+    PRINTE(" SECONDS")
+    WAITKEY()
+RETURN
+
+
+
+
