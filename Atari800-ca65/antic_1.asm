@@ -6,6 +6,9 @@
 ; Grafika na osmibitových Atari: grafický koprocesor ANTIC
 ; https://www.root.cz/clanky/grafika-na-osmibitovych-atari-graficky-koprocesor-antic/
 ;
+; Seriál "Programování pro osmibitová Atari"
+; https://www.root.cz/serialy/programovani-pro-osmibitova-atari/
+;
 ; Překlad do formátu xex:
 ; make antic_1.xex
 ; ---------------------------------------------------------------------
