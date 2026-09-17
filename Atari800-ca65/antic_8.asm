@@ -7,6 +7,9 @@
 ; Praktické použití textových režimů nabízených čipem ANTIC
 ; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 ;
+; Seriál "Programování pro osmibitová Atari"
+; https://www.root.cz/serialy/programovani-pro-osmibitova-atari/
+;
 ; Překlad do formátu xex:
 ; make antic_8.xex
 ; ---------------------------------------------------------------------
