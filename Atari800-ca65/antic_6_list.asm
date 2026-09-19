@@ -11,6 +11,9 @@ Current file: antic_6.asm
 000000r 1               ; Praktické použití textových režimů nabízených čipem ANTIC
 000000r 1               ; https://www.root.cz/clanky/prakticke-pouziti-textovych-rezimu-nabizenych-cipem-antic/
 000000r 1               ;
+000000r 1               ; Seriál "Programování pro osmibitová Atari"
+000000r 1               ; https://www.root.cz/serialy/programovani-pro-osmibitova-atari/
+000000r 1               ;
 000000r 1               ; Překlad do formátu xex:
 000000r 1               ; make antic_6.xex
 000000r 1               ; ---------------------------------------------------------------------
