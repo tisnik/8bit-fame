@@ -10,6 +10,9 @@ Current file: antic_1.asm
 000000r 1               ; Grafika na osmibitových Atari: grafický koprocesor ANTIC
 000000r 1               ; https://www.root.cz/clanky/grafika-na-osmibitovych-atari-graficky-koprocesor-antic/
 000000r 1               ;
+000000r 1               ; Seriál "Programování pro osmibitová Atari"
+000000r 1               ; https://www.root.cz/serialy/programovani-pro-osmibitova-atari/
+000000r 1               ;
 000000r 1               ; Překlad do formátu xex:
 000000r 1               ; make antic_1.xex
 000000r 1               ; ---------------------------------------------------------------------
