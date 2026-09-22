@@ -40,7 +40,7 @@ LFFBD:  jmp     L1066
         lda     #$FF
         sta     $D00D
         ldy     #$00
-        sty     $D010
+        sty     $D01D
         lda     #$80
         sta     $1074
         inc     $1074
