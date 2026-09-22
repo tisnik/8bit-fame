@@ -1,5 +1,18 @@
 INCLUDE_PATH=/usr/share/cc65/include
 
+execs := background_color.xex \
+	 poke.xex \
+	 sprite1.xex \
+	 sprite2.xex
+
+all: $(execs)
+
+clean:
+	rm -f *.o
+	rm -f *.xex
+
+.PHONY: all clean
+
 %.o: %.c
 
 %.xex:	%.o
