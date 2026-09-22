@@ -21,7 +21,7 @@
         lda     #$FF
         sta     $D00D
         ldy     #$00
-        sty     $D010
+        sty     $D01D
         rts
 
         rts
