@@ -43,7 +43,7 @@ LFFA0:  jmp     L10F8
         lda     #$FF
         sta     $D00D
         ldy     #$00
-        sty     $D010
+        sty     $D01D
         lda     #$80
         sta     $1106
         lda     $0278
