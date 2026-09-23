@@ -3,7 +3,10 @@ INCLUDE_PATH=/usr/share/cc65/include
 execs := background_color.xex \
 	 poke.xex \
 	 sprite1.xex \
-	 sprite2.xex
+	 sprite2.xex \
+	 sprite3.xex \
+	 sprite4.xex \
+	 sprite5.xex
 
 all: $(execs)
 
