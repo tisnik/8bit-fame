@@ -1,8 +1,3 @@
-' vymazani casovace
-poke 18,0
-poke 19,0
-poke 20,0
-
 ' textovy rezim
 graphics 0
 
@@ -23,6 +18,11 @@ pmhpos 0, 120
 
 ' bitmapa hrace i se dvema "mazacimi" radky
 DATA PMdata()  byte = 0, 24, 24, 60, 60, 126, 126, 219, 219, 255, 255, 36, 36, 90, 90, 165, 165, 0
+
+' vymazani casovace
+poke 18,0
+poke 19,0
+poke 20,0
 
 for y=0 to 255
     ' kopie bitmapy hrace
